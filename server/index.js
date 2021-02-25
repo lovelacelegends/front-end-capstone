@@ -1,14 +1,18 @@
 const express = require('express');
 const path = require('path');
+
 const app = express();
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
 app.get('/', (req, res) => {
-  res.render('hello');
-})
+  res.status(200).send('HEY');
+});
 
-app.listen(3000, () => {
-  console.log('YUS QUEEN');
-}) ;
+app.get('/banana', (req, res) => {
+  res.status(200).send('HEY');
+});
+
+const PORT = 3000;
+app.listen(PORT);
