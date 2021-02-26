@@ -1,9 +1,10 @@
 import React from 'react';
 import axios from 'axios';
-
-// const App = () => (
-//   <div> REACT ME BABY </div>
-// );
+import Header from './header/Header';
+import Overview from './overview/Overview';
+import RelatedItems from './relatedItems/RelatedItems';
+import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers';
+import RatingsAndReviews from './ratingsAndReviews/RatingsAndReviews';
 
 class App extends React.Component {
   componentDidMount() {
@@ -22,6 +23,11 @@ class App extends React.Component {
     return (
       <div>
         REACT IS RUNNING
+        <Header />
+        <Overview />
+        <RelatedItems />
+        <QuestionsAndAnswers />
+        <RatingsAndReviews />
       </div>
     );
   }
