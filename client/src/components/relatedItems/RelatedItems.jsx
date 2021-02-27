@@ -1,7 +1,7 @@
 import React from 'react';
 
 const RelatedItems = () => (
-  <div>RelatedItems</div>
+  <div>RelatedItems WEEEE</div>
 );
 
 export default RelatedItems;
