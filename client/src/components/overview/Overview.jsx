@@ -12,7 +12,7 @@ class Overview extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="overView">
         <ImageGallery />
         <ProductInfo />
         <StyleSelector />

@@ -8,7 +8,7 @@ class ProductInfo extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="productInfo">
         ProductInfo
       </div>
     );

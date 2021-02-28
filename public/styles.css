@@ -1,3 +1,57 @@
 body {
   background-color: pink;
 }
+
+/*
+OVERVIEW SECTION
+*/
+
+.overView{
+  background-color: white;
+  height: 600px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+.imageGallery{
+  background-color: rgb(78, 196, 243);
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 5;
+}
+
+.productInfo{
+  background-color: rgb(224, 120, 238);
+  display: grid;
+  grid-column-start: 7;
+  grid-column-end: 11;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.styleSelector{
+  background-color: rgb(233, 168, 213);
+  display: grid;
+  grid-column-start: 7;
+  grid-column-end: 11;
+  grid-row-start: 3;
+  grid-row-end: 5;
+}
+
+.productOverview{
+  background-color: rgb(236, 238, 124);
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 11;
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+
+/*RELATED PRODUCTS*/
+
+/*RATINGS AND REVIEWS*/
