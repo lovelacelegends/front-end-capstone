@@ -14,7 +14,7 @@ class Overview extends React.Component {
     return (
       <div className="overView">
         <ImageGallery />
-        <ProductInfo />
+        <ProductInfo selectedProduct={this.props.selectedProduct} />
         <StyleSelector />
         <ProductOverview />
       </div>
