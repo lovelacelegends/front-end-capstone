@@ -52,6 +52,11 @@ OVERVIEW SECTION
   grid-row-end: 6;
 }
 
+#originalPrice{
+  text-decoration: line-through;
+  color: red;
+}
+
 /*RELATED PRODUCTS*/
 
 /*RATINGS AND REVIEWS*/

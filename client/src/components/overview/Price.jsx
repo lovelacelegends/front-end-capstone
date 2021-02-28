@@ -7,14 +7,22 @@ class Price extends React.Component {
   }
 
   render() {
-    if (this.props.styles.results[0].sale_price === null) {
+    if (this.props.styles.results[3].sale_price === null) {
       return (
         <div>
-          {this.props.styles.results[0].original_price}
+          {this.props.styles.results[3].original_price}
         </div>
       );
     }
+    return (
+      <div>
+        <div id="originalPrice">
+        {this.props.styles.results[3].original_price}
+        </div>
+        {this.props.styles.results[3].sale_price}
+      </div>
+    );
   }
-  }
+}
 
 export default Price;
