@@ -1,4 +1,5 @@
 import React from 'react';
+import Price from './Price';
 
 class ProductInfo extends React.Component {
   constructor(props) {
@@ -20,8 +21,8 @@ class ProductInfo extends React.Component {
           <section className="name">
             {this.props.selectedProduct[0].name}
           </section>
-          <section className="cost">
-            {this.props.selectedProduct[0].default_price}
+          <section className="price">
+            <Price styles={this.props.selectedProduct[1]} />
           </section>
         </div>
       );
