@@ -18,6 +18,7 @@ class Overview extends React.Component {
         <ProductInfo
           selectedProduct={selectedProduct}
           styles={styles}
+          currentStyle={currentStyle}
         />
         <StyleSelector />
         <ProductOverview />
