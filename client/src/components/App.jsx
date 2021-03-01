@@ -5,13 +5,25 @@ import Overview from './overview/Overview';
 import RelatedItems from './relatedItems/RelatedItems';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers';
 import RatingsAndReviews from './ratingsAndReviews/RatingsAndReviews';
+import ProductOverview from './productOverview/ProductOverview';
 
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedProduct: {},
+      styles: {},
+      currentStyle: 0,
+    };
+  }
+
   componentDidMount() {
-    axios.get('/banana')
+    axios.get('/products/17764')
       .then((data) => {
-        // eslint-disable-next-line no-console
-        console.log(data.data);
+        this.setState({
+          selectedProduct: data.data[0],
+          styles: data.data[1],
+        });
       })
       .catch((error) => {
         // eslint-disable-next-line no-console
@@ -20,11 +32,17 @@ class App extends React.Component {
   }
 
   render() {
+    const { selectedProduct, styles, currentStyle } = this.state;
     return (
       <div>
         REACT IS RUNNING
         <Header />
-        <Overview />
+        <Overview
+          selectedProduct={selectedProduct}
+          styles={styles}
+          currentStyle={currentStyle}
+        />
+        <ProductOverview />
         <RelatedItems />
         <QuestionsAndAnswers />
         <RatingsAndReviews />
