@@ -42,7 +42,9 @@ class App extends React.Component {
           styles={styles}
           currentStyle={currentStyle}
         />
-        <ProductOverview />
+        <ProductOverview
+          selectedProduct={selectedProduct}
+        />
         <RelatedItems />
         <QuestionsAndAnswers />
         <RatingsAndReviews />
