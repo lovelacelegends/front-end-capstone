@@ -8,7 +8,7 @@ class RelatedRightArrow extends React.Component {
 
   render() {
     return (
-      <div className="related-right-arrow">.</div>
+      <div className="related-right-arrow"> R </div>
     );
   }
 }

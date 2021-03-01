@@ -1,6 +1,7 @@
 import React from 'react';
 import RelatedLeftArrow from './RelatedLeftArrow';
 import RelatedRightArrow from './RelatedRightArrow';
+import CardContainer from './CardContainer';
 
 // const RelatedItems = () => (
 //   <div>RelatedItems WEEEE</div>
@@ -16,6 +17,7 @@ class RelatedItems extends React.Component {
     return (
       <div className="related-items-grid-frame">
         <RelatedLeftArrow />
+        <CardContainer />
         <RelatedRightArrow />
       </div>
     );
