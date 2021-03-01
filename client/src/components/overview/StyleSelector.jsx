@@ -1,4 +1,5 @@
 import React from 'react';
+import StyleItem from './StyleItem';
 
 class StyleSelector extends React.Component {
   constructor(props) {
@@ -7,6 +8,8 @@ class StyleSelector extends React.Component {
   }
 
   render() {
+    debugger;
+    const { styles, currentStyle } = this.props;
     return (
       <div className="styleSelector">
         StyleSelector

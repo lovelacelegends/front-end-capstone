@@ -2,6 +2,7 @@ import React from 'react';
 import ProductInfo from './ProductInfo';
 import StyleSelector from './StyleSelector';
 import ImageGallery from './ImageGallery';
+import AddToCart from './AddToCart';
 
 class Overview extends React.Component {
   constructor(props) {
@@ -19,7 +20,11 @@ class Overview extends React.Component {
           styles={styles}
           currentStyle={currentStyle}
         />
-        <StyleSelector />
+        <StyleSelector
+          styles={styles}
+          currentStyle={currentStyle}
+        />
+        <AddToCart />
       </div>
     );
   }
