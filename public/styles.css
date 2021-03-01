@@ -1,3 +1,21 @@
 body {
   background-color: pink;
 }
+
+.related-items-grid-frame {
+  height: 260px;
+  border: 2px solid black;
+  display: grid;
+  grid-template-columns: 3% 94% 3%;
+  grid-template-rows: 5% 30% 30% 30% 5%;
+}
+
+.related-left-arrow {
+  grid-area: 3/1/4/2;
+  background-color: aqua;
+}
+
+.related-right-arrow {
+  grid-area: 3/3/4/4;
+  background-color: aqua;
+}
