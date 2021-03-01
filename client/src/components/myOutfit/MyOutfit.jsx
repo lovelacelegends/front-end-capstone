@@ -1,4 +1,7 @@
 import React from 'react';
+import OutfitLeftArrow from './OutfitLeftArrow';
+import OutfitRightArrow from './OutfitRightArrow';
+import OutfitContainer from './OutfitContainer';
 
 class MyOutfit extends React.Component {
   constructor(props) {
@@ -8,8 +11,10 @@ class MyOutfit extends React.Component {
 
   render() {
     return (
-      <div>
-        Hello Again
+      <div className="related-items-grid-frame">
+        <OutfitLeftArrow />
+        <OutfitContainer />
+        <OutfitRightArrow />
       </div>
     );
   }

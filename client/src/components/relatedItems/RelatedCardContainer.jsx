@@ -1,6 +1,6 @@
 import React from 'react';
 
-class CardContainer extends React.Component {
+class RelatedCardContainer extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -8,11 +8,11 @@ class CardContainer extends React.Component {
 
   render() {
     return (
-      <div className="card-container">
+      <div className="related-card-container">
         Related Products Card Container
       </div>
     );
   }
 }
 
-export default CardContainer;
+export default RelatedCardContainer;
