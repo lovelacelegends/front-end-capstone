@@ -2,6 +2,7 @@ body {
   background-color: pink;
 }
 
+<<<<<<< HEAD
 .related-items-grid-frame {
   height: 260px;
   border: 2px solid black;
@@ -19,3 +20,78 @@ body {
   grid-area: 3/3/4/4;
   background-color: aqua;
 }
+=======
+/*
+OVERVIEW SECTION
+*/
+
+.overView{
+  background-color: white;
+  height: 400px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: grid;
+  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+.imageGallery{
+  background-color: rgb(78, 196, 243);
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 7;
+  grid-row-start: 1;
+  grid-row-end: 6;
+}
+
+.productInfo{
+  background-color: rgb(224, 120, 238);
+  display: grid;
+  grid-column-start: 7;
+  grid-column-end: 11;
+  grid-row-start: 1;
+  grid-row-end: 3;
+}
+
+.styleSelector{
+  background-color: rgb(233, 168, 213);
+  display: grid;
+  grid-column-start: 7;
+  grid-column-end: 11;
+  grid-row-start: 3;
+  grid-row-end: 6;
+}
+
+.productOverview{
+  height: 150px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 100;
+}
+.productOverviewText{
+  background-color: rgb(236, 238, 124);
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+}
+
+.productOverviewList{
+  background-color: rgb(137, 238, 124);
+  display: grid;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+}
+
+#originalPrice{
+  text-decoration: line-through;
+  color: red;
+}
+
+/*RELATED PRODUCTS*/
+
+/*RATINGS AND REVIEWS*/
+>>>>>>> 8f671ceef64b398ab28de3b260d4a1960f49914f
