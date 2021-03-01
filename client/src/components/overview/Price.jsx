@@ -10,19 +10,19 @@ class Price extends React.Component {
   render() {
     const { styles, currentStyle} = this.props;
     let price = null;
-    if (styles.results[3].sale_price === null) {
+    if (styles.results[currentStyle].sale_price === null) {
       price = (
         <div>
-          {styles.results[3].original_price}
+          {styles.results[currentStyle].original_price}
         </div>
       );
     } else {
       price = (
         <div>
           <div id="originalPrice">
-            {styles.results[3].original_price}
+            {styles.results[currentStyle].original_price}
           </div>
-          {styles.results[3].sale_price}
+          {styles.results[currentStyle].sale_price}
         </div>
       );
     }
