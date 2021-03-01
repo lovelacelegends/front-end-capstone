@@ -8,7 +8,7 @@ OVERVIEW SECTION
 
 .overView{
   background-color: white;
-  height: 600px;
+  height: 400px;
   margin-left: 100px;
   margin-right: 100px;
   display: grid;
@@ -22,7 +22,7 @@ OVERVIEW SECTION
   grid-column-start: 1;
   grid-column-end: 7;
   grid-row-start: 1;
-  grid-row-end: 5;
+  grid-row-end: 6;
 }
 
 .productInfo{
@@ -40,16 +40,31 @@ OVERVIEW SECTION
   grid-column-start: 7;
   grid-column-end: 11;
   grid-row-start: 3;
-  grid-row-end: 5;
+  grid-row-end: 6;
 }
 
 .productOverview{
+  height: 150px;
+  margin-left: 100px;
+  margin-right: 100px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 100;
+}
+.productOverviewText{
   background-color: rgb(236, 238, 124);
   display: grid;
   grid-column-start: 1;
-  grid-column-end: 11;
-  grid-row-start: 5;
-  grid-row-end: 6;
+  grid-column-end: 1;
+  grid-row-start: 1;
+}
+
+.productOverviewList{
+  background-color: rgb(137, 238, 124);
+  display: grid;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
 }
 
 #originalPrice{

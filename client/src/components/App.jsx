@@ -5,6 +5,7 @@ import Overview from './overview/Overview';
 import RelatedItems from './relatedItems/RelatedItems';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers';
 import RatingsAndReviews from './ratingsAndReviews/RatingsAndReviews';
+import ProductOverview from './productOverview/ProductOverview';
 
 class App extends React.Component {
   constructor(props) {
@@ -41,6 +42,7 @@ class App extends React.Component {
           styles={styles}
           currentStyle={currentStyle}
         />
+        <ProductOverview />
         <RelatedItems />
         <QuestionsAndAnswers />
         <RatingsAndReviews />

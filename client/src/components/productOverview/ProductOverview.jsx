@@ -9,7 +9,12 @@ class ProductOverview extends React.Component {
   render() {
     return (
       <div className="productOverview">
-        ProductOverview
+        <div className="productOverviewText">
+          ProductOverviewText
+        </div>
+        <div className="productOverviewList">
+          ProductOverviewList
+        </div>
       </div>
     );
   }

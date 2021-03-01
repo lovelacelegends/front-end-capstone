@@ -1,6 +1,5 @@
 import React from 'react';
 import ProductInfo from './ProductInfo';
-import ProductOverview from './ProductOverview';
 import StyleSelector from './StyleSelector';
 import ImageGallery from './ImageGallery';
 
@@ -21,7 +20,6 @@ class Overview extends React.Component {
           currentStyle={currentStyle}
         />
         <StyleSelector />
-        <ProductOverview />
       </div>
     );
   }
