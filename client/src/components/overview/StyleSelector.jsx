@@ -16,3 +16,5 @@ class StyleSelector extends React.Component {
 }
 
 export default StyleSelector;
+
+/* onclick function that will pass state back up */

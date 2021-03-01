@@ -11,10 +11,14 @@ class Overview extends React.Component {
   }
 
   render() {
+    const { selectedProduct, styles, currentStyle } = this.props;
     return (
       <div className="overView">
         <ImageGallery />
-        <ProductInfo selectedProduct={this.props.selectedProduct} />
+        <ProductInfo
+          selectedProduct={selectedProduct}
+          styles={styles}
+        />
         <StyleSelector />
         <ProductOverview />
       </div>

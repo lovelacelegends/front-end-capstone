@@ -3,18 +3,30 @@ import React from 'react';
 class Price extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    };
   }
 
   render() {
+    return (
+      <div>
+        price
+      </div>
+    );
+  }
+}
+
+export default Price;
+
+/*   let price = null;
     if (this.props.styles.results[3].sale_price === null) {
-      return (
+      price = (
         <div>
           {this.props.styles.results[3].original_price}
         </div>
       );
-    }
-    return (
+    } else {
+    price = (
       <div>
         <div id="originalPrice">
         {this.props.styles.results[3].original_price}
@@ -22,7 +34,6 @@ class Price extends React.Component {
         {this.props.styles.results[3].sale_price}
       </div>
     );
-  }
-}
-
-export default Price;
+    }
+    return price;
+  } */

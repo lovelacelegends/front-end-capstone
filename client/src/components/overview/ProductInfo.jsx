@@ -9,20 +9,24 @@ class ProductInfo extends React.Component {
   }
 
   render() {
-    if (this.props.selectedProduct.length > 0) {
+    const { selectedProduct, styles, currentStyle } = this.props;
+    if (selectedProduct.name) {
       return (
         <div className="productInfo">
           <section id="rating">
             ratings
           </section>
           <section id="category">
-            {this.props.selectedProduct[0].category}
+            {selectedProduct.category}
           </section>
           <section className="name">
-            {this.props.selectedProduct[0].name}
+            {selectedProduct.name}
           </section>
           <section className="price">
-            <Price styles={this.props.selectedProduct[1]} />
+            <Price
+              styles={styles}
+              currentStyle={currentStyle}
+            />
           </section>
         </div>
       );

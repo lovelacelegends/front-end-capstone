@@ -10,14 +10,19 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedProduct: [],
+      selectedProduct: {},
+      styles: {},
+      currentStyle: 0,
     };
   }
 
   componentDidMount() {
     axios.get('/products/17764')
       .then((data) => {
-        this.setState({ selectedProduct: data.data });
+        this.setState({
+          selectedProduct: data.data[0],
+          styles: data.data[1],
+        });
       })
       .catch((error) => {
         // eslint-disable-next-line no-console
@@ -26,11 +31,16 @@ class App extends React.Component {
   }
 
   render() {
+    const { selectedProduct, styles, currentStyle } = this.state;
     return (
       <div>
         REACT IS RUNNING
         <Header />
-        <Overview selectedProduct={this.state.selectedProduct} />
+        <Overview
+          selectedProduct={selectedProduct}
+          styles={styles}
+          currentStyle={currentStyle}
+        />
         <RelatedItems />
         <QuestionsAndAnswers />
         <RatingsAndReviews />
