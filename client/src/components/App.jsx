@@ -7,6 +7,7 @@ import MyOutfit from './myOutfit/MyOutfit';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers';
 import RatingsAndReviews from './ratingsAndReviews/RatingsAndReviews';
 import ProductOverview from './productOverview/ProductOverview';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class App extends React.Component {
   constructor(props) {
@@ -19,15 +20,10 @@ class App extends React.Component {
     this.updateCurrentStyle = this.updateCurrentStyle.bind(this);
   }
 
-  updateCurrentStyle (input) {
-    debugger;
-    this.setState({ currentStyle: input });
-  }
-
   componentDidMount() {
     axios.get('/products/17764')
       .then((data) => {
-        console.log("axios")
+        console.log("axios");
         this.setState({
           selectedProduct: data.data[0],
           styles: data.data[1],
@@ -37,6 +33,10 @@ class App extends React.Component {
         // eslint-disable-next-line no-console
         console.log(error);
       });
+  }
+
+  updateCurrentStyle(input) {
+    this.setState({ currentStyle: input });
   }
 
   render() {

@@ -17,7 +17,6 @@ class StyleSelector extends React.Component {
             {styles.results.map((style, index)=> <StyleItem style={style} key={index} styleIndex={index} updateCurrentStyle={updateCurrentStyle}/>
             )}
           </div>
-
         </div>
       );
     }
