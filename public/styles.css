@@ -2,9 +2,7 @@ body {
   background-color: pink;
 }
 
-/*
-OVERVIEW SECTION
-*/
+/* OVERVIEW SECTION */
 
 .overView{
   background-color: white;
@@ -97,6 +95,100 @@ OVERVIEW SECTION
 }
 
 
-/*RELATED PRODUCTS*/
+/* RELATED PRODUCTS */
 
-/*RATINGS AND REVIEWS*/
+.related-items-grid-frame {
+  margin: 30px 150px;
+  /* margin-left: 150px;
+  margin-right: 150px; */
+  height: 260px;
+  /* border: 2px solid black; */
+  display: grid;
+  grid-template-columns: 2.5% 95% 2.5%;
+  grid-template-rows: 36% 28% 36%;
+}
+
+.related-left-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  grid-area: 2/1/3/2;
+  background-color: aqua;
+}
+
+.related-right-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  grid-area: 2/3/3/4;
+  background-color: aqua;
+}
+
+.related-card-container {
+  grid-area: 1/1/4/4;
+  background-color: rgb(219, 219, 170);
+}
+
+
+
+.outfit-left-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  grid-area: 2/1/3/2;
+  background-color: aqua;
+}
+
+.outfit-right-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  grid-area: 2/3/3/4;
+  background-color: aqua;
+}
+
+.outfit-container {
+  grid-area: 1/1/4/4;
+  background-color: rgb(219, 219, 170);
+}
+
+/* QUESTIONS AND ANSWERS SECTION */
+
+.questions-and-answers {
+  display: grid;
+  background-color: cornflowerblue;
+  overflow: auto;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(5, 100px);
+  justify-items: center;
+}
+
+/* RATINGS AND REVIEWS SECTION */
+.ratings-and-reviews {
+  display: grid;
+  background-color: salmon;
+  overflow: auto;
+  grid-template-columns: 1fr 2.5fr;
+  grid-template-rows: repeat(8, 100px);
+  justify-items: center;
+}
+
+.ratings {
+  display: grid;
+  background-color: peachpuff;
+  width: 100%;
+  grid-column: 1;
+  grid-row: 1 / 6;
+}
+
+.reviews {
+  display: grid;
+  background-color: paleturquoise;
+  width: 100%;
+  grid-column: 2;
+  grid-row: 1 / 9;
+}

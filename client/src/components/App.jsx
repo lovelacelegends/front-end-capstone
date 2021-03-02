@@ -3,6 +3,7 @@ import axios from 'axios';
 import Header from './header/Header';
 import Overview from './overview/Overview';
 import RelatedItems from './relatedItems/RelatedItems';
+import MyOutfit from './myOutfit/MyOutfit';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers';
 import RatingsAndReviews from './ratingsAndReviews/RatingsAndReviews';
 import ProductOverview from './productOverview/ProductOverview';
@@ -42,7 +43,6 @@ class App extends React.Component {
     const { selectedProduct, styles, currentStyle } = this.state;
     return (
       <div>
-        REACT IS RUNNING
         <Header />
         <Overview
           selectedProduct={selectedProduct}
@@ -54,6 +54,7 @@ class App extends React.Component {
           selectedProduct={selectedProduct}
         />
         <RelatedItems />
+        <MyOutfit />
         <QuestionsAndAnswers />
         <RatingsAndReviews />
       </div>
