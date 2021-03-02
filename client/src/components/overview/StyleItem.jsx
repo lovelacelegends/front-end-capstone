@@ -1,4 +1,5 @@
 import React from 'react';
+import { GrFormCheckmark } from "react-icons/gr";
 
 class StyleItem extends React.Component {
   constructor(props) {
@@ -15,7 +16,20 @@ class StyleItem extends React.Component {
   }
 
   render() {
-    const { style, updateCurrentStyle, styleIndex} = this.props;
+    const { style, updateCurrentStyle, styleIndex, currentStyle } = this.props;
+    if (styleIndex === currentStyle) {
+      debugger;
+      return (
+      <div>
+        <img src={style.photos[0].thumbnail_url}
+        id="style-item"
+        name={styleIndex}
+        onClick={this.handleStlyeClick}
+        />
+        <GrFormCheckmark />
+      </div>
+      );
+    }
     return (
       <img src={style.photos[0].thumbnail_url}
       id="style-item"

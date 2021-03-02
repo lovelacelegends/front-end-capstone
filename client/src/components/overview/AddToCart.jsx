@@ -1,4 +1,5 @@
 import React from 'react';
+import SizeSelector from './SizeSelector';
 
 class AddToCart extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class AddToCart extends React.Component {
   render() {
     return (
       <div className="add-to-cart">
-        AddToCart
+        <SizeSelector />
       </div>
     );
   }
