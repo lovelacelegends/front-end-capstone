@@ -8,20 +8,11 @@ class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentStyle: 0,
     };
-    this.updateCurrentStyle = this.updateCurrentStyle.bind(this);
-  }
-
-  updateCurrentStyle (input) {
-    debugger;
-    this.setState({ currentStyle: input });
   }
 
   render() {
-    debugger;
-    const { selectedProduct, styles } = this.props;
-    const { currentStyle } = this.state;
+    const { selectedProduct, styles, currentStyle, updateCurrentStyle } = this.props;
     if (selectedProduct.name && (currentStyle !== undefined)) {
       return (
         <div className="overView">
@@ -34,7 +25,7 @@ class Overview extends React.Component {
           <StyleSelector
             styles={styles}
             currentStyle={currentStyle}
-            updateCurrentStyle={this.updateCurrentStyle}
+            updateCurrentStyle={updateCurrentStyle}
           />
           <AddToCart />
         </div>

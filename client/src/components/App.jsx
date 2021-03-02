@@ -13,7 +13,14 @@ class App extends React.Component {
     this.state = {
       selectedProduct: {},
       styles: {},
+      currentStyle: 0,
     };
+    this.updateCurrentStyle = this.updateCurrentStyle.bind(this);
+  }
+
+  updateCurrentStyle (input) {
+    debugger;
+    this.setState({ currentStyle: input });
   }
 
   componentDidMount() {
@@ -32,7 +39,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { selectedProduct, styles } = this.state;
+    const { selectedProduct, styles, currentStyle } = this.state;
     return (
       <div>
         REACT IS RUNNING
@@ -40,6 +47,8 @@ class App extends React.Component {
         <Overview
           selectedProduct={selectedProduct}
           styles={styles}
+          currentStyle={currentStyle}
+          updateCurrentStyle={this.updateCurrentStyle}
         />
         <ProductOverview
           selectedProduct={selectedProduct}
