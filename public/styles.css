@@ -133,4 +133,37 @@ OVERVIEW SECTION
   background-color: rgb(219, 219, 170);
 }
 
-/*RATINGS AND REVIEWS*/
+.questions-and-answers {
+  display: grid;
+  background-color: cornflowerblue;
+  overflow: auto;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(5, 100px);
+  justify-items: center;
+}
+
+/* RATINGS AND REVIEWS */
+.ratings-and-reviews {
+  display: grid;
+  background-color: salmon;
+  overflow: auto;
+  grid-template-columns: 1fr 2.5fr;
+  grid-template-rows: repeat(8, 100px);
+  justify-items: center;
+}
+
+.ratings {
+  display: grid;
+  background-color: peachpuff;
+  width: 100%;
+  grid-column: 1;
+  grid-row: 1 / 6;
+}
+
+.reviews {
+  display: grid;
+  background-color: paleturquoise;
+  width: 100%;
+  grid-column: 2;
+  grid-row: 1 / 9;
+}
