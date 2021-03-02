@@ -6,10 +6,28 @@ class RelatedCardContainer extends React.Component {
     this.state = {};
   }
 
+  // getRelatedDetails(productId) {}
+
+  // loadRelatedDetails(listOfIds) {}
+
   render() {
+    const { relatedProductIds } = this.props;
+
+    if (relatedProductIds.length === 0) {
+      return (
+        <div className="related-card-container">
+          No Related Products Available
+        </div>
+      );
+    }
+
     return (
       <div className="related-card-container">
-        Related Products Card Container
+        {relatedProductIds.map((product) => (
+          <div>
+            {product}
+          </div>
+        ))}
       </div>
     );
   }

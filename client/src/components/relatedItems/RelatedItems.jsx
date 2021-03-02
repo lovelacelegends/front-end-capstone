@@ -13,11 +13,15 @@ class RelatedItems extends React.Component {
     this.state = {};
   }
 
+
+
   render() {
+    const { relatedProductIds } = this.props;
+
     return (
       <div className="related-items-grid-frame">
         <RelatedLeftArrow />
-        <RelatedCardContainer />
+        <RelatedCardContainer relatedProductIds={relatedProductIds} />
         <RelatedRightArrow />
       </div>
     );
