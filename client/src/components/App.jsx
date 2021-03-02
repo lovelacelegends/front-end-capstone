@@ -13,7 +13,6 @@ class App extends React.Component {
     this.state = {
       selectedProduct: {},
       styles: {},
-      currentStyle: 0,
     };
   }
 
@@ -33,7 +32,7 @@ class App extends React.Component {
   }
 
   render() {
-    const { selectedProduct, styles, currentStyle } = this.state;
+    const { selectedProduct, styles } = this.state;
     return (
       <div>
         REACT IS RUNNING
@@ -41,7 +40,6 @@ class App extends React.Component {
         <Overview
           selectedProduct={selectedProduct}
           styles={styles}
-          currentStyle={currentStyle}
         />
         <ProductOverview
           selectedProduct={selectedProduct}

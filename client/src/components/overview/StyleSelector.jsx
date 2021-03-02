@@ -8,13 +8,13 @@ class StyleSelector extends React.Component {
   }
 
   render() {
-    const { styles, currentStyle } = this.props;
+    const { styles, currentStyle, updateCurrentStyle } = this.props;
     if (styles.product_id) {
       return (
         <div className="styleSelector">
           STYLE > {styles.results[currentStyle].name}
-          <div className="styleItems">
-            {styles.results.map((style, index)=> <StyleItem style={style} key={index}/>
+          <div id="style-items">
+            {styles.results.map((style, index)=> <StyleItem style={style} key={index} styleIndex={index} updateCurrentStyle={updateCurrentStyle}/>
             )}
           </div>
 

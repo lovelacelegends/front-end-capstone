@@ -81,15 +81,19 @@ OVERVIEW SECTION
   color: red;
 }
 
-.styleItems{
+#style-items{
   display: grid;
   grid-template-columns: repeat(4, 25%);
   grid-template-rows: auto;
+  align-items: center;
+  justify-content: center;
 }
 
-.styleItem{
-  height: 30px;
-  width: 30px;
+#style-item{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 2px solid rgb(8, 5, 5);
 }
 
 
