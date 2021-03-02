@@ -1,32 +1,47 @@
 import React from 'react';
+import axios from 'axios';
+import RelatedItemCard from './RelatedItemCard';
 
 class RelatedCardContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      productInfoList: [],
+    };
+    this.getProductCardInfo = this.getProductCardInfo.bind(this);
   }
 
-  // getRelatedDetails(productId) {}
+  getProductCardInfo() {
+    const { relatedProductIds } = this.props;
+    const arrayOfPromises = [];
 
-  // loadRelatedDetails(listOfIds) {}
+    relatedProductIds.forEach((id) => {
+      arrayOfPromises.push(axios.get(`/related/${id}`));
+    });
+
+    Promise.all(arrayOfPromises)
+      .then((arrayOfProductData) => {
+        const dataArray = arrayOfProductData.map((product) => product.data);
+        this.setState({
+          productInfoList: dataArray,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
 
   render() {
-    const { relatedProductIds } = this.props;
+    const { productInfoList } = this.state;
 
-    if (relatedProductIds.length === 0) {
-      return (
-        <div className="related-card-container">
-          No Related Products Available
-        </div>
-      );
+    if (productInfoList.length === 0) {
+      this.getProductCardInfo();
     }
 
     return (
       <div className="related-card-container">
-        {relatedProductIds.map((product) => (
-          <div>
-            {product}
-          </div>
+        {productInfoList.map((product) => (
+          <RelatedItemCard product={product} />
         ))}
       </div>
     );
