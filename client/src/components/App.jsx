@@ -36,7 +36,6 @@ class App extends React.Component {
     const { selectedProduct, styles, currentStyle } = this.state;
     return (
       <div>
-        REACT IS RUNNING
         <Header />
         <Overview
           selectedProduct={selectedProduct}
