@@ -8,7 +8,7 @@ class ImageGallery extends React.Component {
 
   render() {
     return (
-      <div className="imageGallery">
+      <div className="image-gallery">
         ImageGallery
       </div>
     );

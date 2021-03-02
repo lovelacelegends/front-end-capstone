@@ -13,7 +13,7 @@ class ProductInfo extends React.Component {
     const { selectedProduct, styles, currentStyle } = this.props;
     {selectedProduct}
     return (
-      <div className="productInfo">
+      <div className="product-info">
         <section id="rating">
           ratings
         </section>

@@ -11,12 +11,12 @@ class ProductOverview extends React.Component {
     const {selectedProduct} = this.props;
     if (selectedProduct.name) {
       return (
-        <div className="productOverview">
-          <div className="productOverviewText">
+        <div className="product-overview">
+          <div className="product-overview-text">
             {selectedProduct.slogan}
             {selectedProduct.description}
           </div>
-          <div className="productOverviewList">
+          <div className="product-overview-list">
             {selectedProduct.features.map((feature)=> <ProductOverviewListItem feature={feature} key={feature.feature}/>)}
           </div>
         </div>

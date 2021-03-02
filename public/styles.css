@@ -4,17 +4,17 @@ body {
 
 /* OVERVIEW SECTION */
 
-.overView{
+.overview{
   background-color: white;
   height: 400px;
   margin-left: 100px;
   margin-right: 100px;
   display: grid;
-  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
-  grid-template-rows: 20% 20% 20% 20% 20%;
+  grid-template-columns: repeat(10, 10%);
+  grid-template-rows: repeat(5, 20%)20% 20% 20% 20% 20%;
 }
 
-.imageGallery{
+.image-gallery{
   background-color: rgb(78, 196, 243);
   display: grid;
   grid-column-start: 1;
@@ -23,7 +23,7 @@ body {
   grid-row-end: 6;
 }
 
-.productInfo{
+.product-info{
   background-color: rgb(224, 120, 238);
   display: grid;
   grid-column-start: 7;
@@ -32,7 +32,7 @@ body {
   grid-row-end: 3;
 }
 
-.styleSelector{
+.style-selector{
   background-color: rgb(233, 168, 213);
   display: grid;
   grid-column-start: 7;
@@ -41,7 +41,7 @@ body {
   grid-row-end: 5;
 }
 
-.addToCart{
+.add-to-cart{
   background-color: rgb(233, 168, 213);
   display: grid;
   grid-column-start: 7;
@@ -50,7 +50,7 @@ body {
   grid-row-end: 6;
 }
 
-.productOverview{
+.product-overview{
   height: 150px;
   margin-left: 100px;
   margin-right: 100px;
@@ -58,7 +58,7 @@ body {
   grid-template-columns: 60% 40%;
   grid-template-rows: 100;
 }
-.productOverviewText{
+.product-overview-text{
   background-color: rgb(236, 238, 124);
   display: grid;
   grid-column-start: 1;
@@ -66,7 +66,7 @@ body {
   grid-row-start: 1;
 }
 
-.productOverviewList{
+.product-overview-list{
   background-color: rgb(137, 238, 124);
   display: grid;
   grid-column-start: 2;
@@ -74,7 +74,7 @@ body {
   grid-row-start: 1;
 }
 
-#originalPrice{
+#original-price{
   text-decoration: line-through;
   color: red;
 }

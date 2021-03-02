@@ -8,7 +8,7 @@ class ProductOverviewListItem extends React.Component {
 
   render() {
     return (
-      <div className="productOverviewListItem">
+      <div className="product-overview-list-item">
         {this.props.feature.feature}
         {this.props.feature.value}
       </div>

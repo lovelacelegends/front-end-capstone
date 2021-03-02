@@ -15,7 +15,7 @@ class Overview extends React.Component {
     const { selectedProduct, styles, currentStyle, updateCurrentStyle } = this.props;
     if (selectedProduct.name && (currentStyle !== undefined)) {
       return (
-        <div className="overView">
+        <div className="overview">
           <ImageGallery />
           <ProductInfo
             selectedProduct={selectedProduct}

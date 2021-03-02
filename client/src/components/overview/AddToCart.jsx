@@ -8,7 +8,7 @@ class AddToCart extends React.Component {
 
   render() {
     return (
-      <div className="addToCart">
+      <div className="add-to-cart">
         AddToCart
       </div>
     );

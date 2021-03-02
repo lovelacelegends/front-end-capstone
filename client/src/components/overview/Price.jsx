@@ -19,7 +19,7 @@ class Price extends React.Component {
     } else {
       price = (
         <div>
-          <div id="originalPrice">
+          <div id="original-price">
             {styles.results[currentStyle].original_price}
           </div>
           {styles.results[currentStyle].sale_price}
