@@ -12,12 +12,11 @@ class StyleItem extends React.Component {
     let input = event.target.name;
     debugger;
     this.props.updateCurrentStyle(input);
-    console.log("here")
   }
 
   render() {
     const { style, updateCurrentStyle, styleIndex, currentStyle } = this.props;
-    if (styleIndex === currentStyle) {
+    if (styleIndex === Number(currentStyle)) {
       debugger;
       return (
       <div>
@@ -29,14 +28,16 @@ class StyleItem extends React.Component {
         <GrFormCheckmark />
       </div>
       );
+    } else if (styleIndex !== Number(currentStyle)){
+      debugger;
+      return (
+        <img src={style.photos[0].thumbnail_url}
+        id="style-item"
+        name={styleIndex}
+        onClick={this.handleStlyeClick}
+        />
+      );
     }
-    return (
-      <img src={style.photos[0].thumbnail_url}
-      id="style-item"
-      name={styleIndex}
-      onClick={this.handleStlyeClick}
-      />
-    );
   }
 }
 
