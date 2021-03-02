@@ -9,8 +9,16 @@ class RelatedItemCard extends React.Component {
   render() {
     const { product } = this.props;
     return (
-      <div>
-        {product.name}
+      <div className="related-card">
+        <img
+          className="related-default-picture"
+          src={product.url}
+          alt={product.name}
+        />
+        <div>{product.category}</div>
+        <div>{product.name}</div>
+        <div>{product.price}</div>
+        <div>***** (star rating) </div>
       </div>
     );
   }

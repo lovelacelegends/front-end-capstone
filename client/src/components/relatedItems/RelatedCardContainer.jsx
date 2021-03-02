@@ -41,7 +41,7 @@ class RelatedCardContainer extends React.Component {
     return (
       <div className="related-card-container">
         {productInfoList.map((product) => (
-          <RelatedItemCard product={product} />
+          <RelatedItemCard key={product.id} product={product} />
         ))}
       </div>
     );
