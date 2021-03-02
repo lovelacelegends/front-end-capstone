@@ -1,4 +1,5 @@
 import React from 'react';
+import ProductOverviewListItem from './productOverviewListItem';
 
 class ProductOverview extends React.Component {
   constructor(props) {
@@ -7,14 +8,23 @@ class ProductOverview extends React.Component {
   }
 
   render() {
+    const {selectedProduct} = this.props;
+    if (selectedProduct.name) {
+      return (
+        <div className="product-overview">
+          <div className="product-overview-text">
+            {selectedProduct.slogan}
+            {selectedProduct.description}
+          </div>
+          <div className="product-overview-list">
+            {selectedProduct.features.map((feature)=> <ProductOverviewListItem feature={feature} key={feature.feature}/>)}
+          </div>
+        </div>
+      );
+    }
     return (
-      <div className="productOverview">
-        <div className="productOverviewText">
-          ProductOverviewText
-        </div>
-        <div className="productOverviewList">
-          ProductOverviewList
-        </div>
+      <div>
+        loading
       </div>
     );
   }

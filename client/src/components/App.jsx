@@ -7,6 +7,7 @@ import MyOutfit from './myOutfit/MyOutfit';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers';
 import RatingsAndReviews from './ratingsAndReviews/RatingsAndReviews';
 import ProductOverview from './productOverview/ProductOverview';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class App extends React.Component {
   constructor(props) {
@@ -16,11 +17,13 @@ class App extends React.Component {
       styles: {},
       currentStyle: 0,
     };
+    this.updateCurrentStyle = this.updateCurrentStyle.bind(this);
   }
 
   componentDidMount() {
     axios.get('/products/17764')
       .then((data) => {
+        console.log("axios");
         this.setState({
           selectedProduct: data.data[0],
           styles: data.data[1],
@@ -32,6 +35,10 @@ class App extends React.Component {
       });
   }
 
+  updateCurrentStyle(input) {
+    this.setState({ currentStyle: input });
+  }
+
   render() {
     const { selectedProduct, styles, currentStyle } = this.state;
     return (
@@ -41,8 +48,11 @@ class App extends React.Component {
           selectedProduct={selectedProduct}
           styles={styles}
           currentStyle={currentStyle}
+          updateCurrentStyle={this.updateCurrentStyle}
         />
-        <ProductOverview />
+        <ProductOverview
+          selectedProduct={selectedProduct}
+        />
         <RelatedItems />
         <MyOutfit />
         <QuestionsAndAnswers />

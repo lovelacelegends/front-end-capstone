@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ImageGallery extends React.Component {
+class AddToCart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -8,11 +8,11 @@ class ImageGallery extends React.Component {
 
   render() {
     return (
-      <div className="image-gallery">
-        ImageGallery
+      <div className="add-to-cart">
+        AddToCart
       </div>
     );
   }
 }
 
-export default ImageGallery;
+export default AddToCart;
