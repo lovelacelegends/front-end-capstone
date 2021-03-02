@@ -9,31 +9,26 @@ class ProductInfo extends React.Component {
   }
 
   render() {
+    console.log("render")
     const { selectedProduct, styles, currentStyle } = this.props;
-    if (selectedProduct.name) {
-      return (
-        <div className="productInfo">
-          <section id="rating">
-            ratings
-          </section>
-          <section id="category">
-            {selectedProduct.category}
-          </section>
-          <section className="name">
-            {selectedProduct.name}
-          </section>
-          <section className="price">
-            <Price
-              styles={styles}
-              currentStyle={currentStyle}
-            />
-          </section>
-        </div>
-      );
-    }
+    {selectedProduct}
     return (
-      <div>
-        loding
+      <div className="productInfo">
+        <section id="rating">
+          ratings
+        </section>
+        <section id="category">
+          {selectedProduct.category}
+        </section>
+        <section className="name">
+          {selectedProduct.name}
+        </section>
+        <section className="price">
+          <Price
+            styles={styles}
+            currentStyle={currentStyle}
+          />
+        </section>
       </div>
     );
   }

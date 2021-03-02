@@ -7,11 +7,9 @@ class StyleItem extends React.Component {
   }
 
   render() {
-    const { styles, currentStyle } = this.props;
+    const { style } = this.props;
     return (
-      <div className="styleItem">
-        StyleItem
-      </div>
+      <img src={style.photos[0].thumbnail_url} className="styleItem" />
     );
   }
 }

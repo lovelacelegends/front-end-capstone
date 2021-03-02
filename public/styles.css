@@ -81,6 +81,18 @@ OVERVIEW SECTION
   color: red;
 }
 
+.styleItems{
+  display: grid;
+  grid-template-columns: repeat(4, 25%);
+  grid-template-rows: auto;
+}
+
+.styleItem{
+  height: 30px;
+  width: 30px;
+}
+
+
 /*RELATED PRODUCTS*/
 
 /*RATINGS AND REVIEWS*/

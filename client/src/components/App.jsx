@@ -20,6 +20,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/products/17764')
       .then((data) => {
+        console.log("axios")
         this.setState({
           selectedProduct: data.data[0],
           styles: data.data[1],
