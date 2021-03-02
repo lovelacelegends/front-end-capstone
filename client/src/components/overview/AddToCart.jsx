@@ -8,9 +8,10 @@ class AddToCart extends React.Component {
   }
 
   render() {
+    const { styles, currentStyle } = this.props;
     return (
       <div className="add-to-cart">
-        <SizeSelector />
+        <SizeSelector styles={styles} currentStyle={currentStyle} />
       </div>
     );
   }

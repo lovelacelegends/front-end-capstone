@@ -1,5 +1,5 @@
 import React from 'react';
-import { GrFormCheckmark } from "react-icons/gr";
+import { BiCheckCircle } from "react-icons/bi";
 
 class StyleItem extends React.Component {
   constructor(props) {
@@ -23,7 +23,7 @@ class StyleItem extends React.Component {
         name={styleIndex}
         onClick={this.handleStlyeClick}
         />
-        <GrFormCheckmark id="tick" />
+        <BiCheckCircle id="tick" />
       </div>
       );
     } else if (styleIndex !== currentStyle){
