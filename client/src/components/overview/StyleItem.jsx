@@ -10,14 +10,12 @@ class StyleItem extends React.Component {
 
   handleStlyeClick(event) {
     let input = event.target.name;
-    debugger;
     this.props.updateCurrentStyle(input);
   }
 
   render() {
-    const { style, updateCurrentStyle, styleIndex, currentStyle } = this.props;
-    if (styleIndex === Number(currentStyle)) {
-      debugger;
+    const { style, styleIndex, currentStyle } = this.props;
+    if (styleIndex === currentStyle) {
       return (
       <div>
         <img src={style.photos[0].thumbnail_url}
@@ -25,11 +23,10 @@ class StyleItem extends React.Component {
         name={styleIndex}
         onClick={this.handleStlyeClick}
         />
-        <GrFormCheckmark />
+        <GrFormCheckmark id="tick" />
       </div>
       );
-    } else if (styleIndex !== Number(currentStyle)){
-      debugger;
+    } else if (styleIndex !== currentStyle){
       return (
         <img src={style.photos[0].thumbnail_url}
         id="style-item"

@@ -7,7 +7,6 @@ import MyOutfit from './myOutfit/MyOutfit';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers';
 import RatingsAndReviews from './ratingsAndReviews/RatingsAndReviews';
 import ProductOverview from './productOverview/ProductOverview';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 class App extends React.Component {
   constructor(props) {
@@ -36,7 +35,7 @@ class App extends React.Component {
   }
 
   updateCurrentStyle(input) {
-    this.setState({ currentStyle: input });
+    this.setState({ currentStyle: Number(input) });
   }
 
   render() {
