@@ -4,16 +4,11 @@ class QuantitySelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.changeQuantity=this.changeQuantity.bind(this);
-  }
-
-  changeQuantity(e){
-    debugger;
-    this.props.updateQuantityInState(event.target.value)
   }
 
   render() {
-    const { styles, currentStyle, currentSku, currentSize } = this.props;
+    const { styles, currentStyle, currentSku, currentSize, updateQuantityInState } = this.props;
+
     if (currentSku === '') {
       return (
         <div className="quantity-selector">
@@ -24,18 +19,19 @@ class QuantitySelector extends React.Component {
       );
     }
 
-    let quantity = styles.results[currentStyle].skus.[currentSku].quantity
+    let arrayOfSkus = Object.keys(styles.results[currentStyle].skus);
+    let quantity = styles.results[currentStyle].skus[arrayOfSkus[currentSku]].quantity
     let max;
     (quantity > 15) ?  max = 15 :  max = quantity
 
     let arrOfQuantities = []
     for (let i=1; i<=max; i++) {
-      arrOfQuantities.push(i)
+      arrOfQuantities.push(i);
     }
 
     return (
       <div className="quantity-selector">
-        <select onChange={this.changeQuantity}>
+        <select onChange={updateQuantityInState}>
           {arrOfQuantities.map((num)=>{
             return <option>{num}</option>
           })}

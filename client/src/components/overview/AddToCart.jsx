@@ -12,14 +12,23 @@ class AddToCart extends React.Component {
     };
     this.updateSkuInState = this.updateSkuInState.bind(this);
     this.updateQuantityInState = this.updateQuantityInState.bind(this);
+    this.updateSku = this.updateSku.bind(this);
+  }
+
+  updateSku(e) {
+    e.preventDefault();
+    const index = e.target.selectedIndex;
+    let selectedSku = e.target.childNodes[index].id;
+    let selectedSize = e.target.value;
+    this.props.updateSkuInState(selectedSku, selectedSize);
   }
 
   updateSkuInState(sku, size) {
     this.setState({ currentSku: sku, currentSize: size, currentQuantity: '' });
   }
 
-  updateQuantityInState(quantity) {
-    debugger;
+  updateQuantityInState(e) {
+    let quantity = e.target.value;
     this.setState({currentQuantity: quantity});
   }
 
@@ -33,6 +42,7 @@ class AddToCart extends React.Component {
           currentStyle={currentStyle}
           currentSku={currentSku}
           updateSkuInState={this.updateSkuInState}
+          updateSku={this.updateSku}
         />
         <div>
           <QuantitySelector
@@ -45,7 +55,7 @@ class AddToCart extends React.Component {
         </div>
       </div>
     );
-  }
+     }
 }
 
 export default AddToCart;

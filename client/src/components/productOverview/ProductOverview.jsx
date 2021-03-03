@@ -17,7 +17,7 @@ class ProductOverview extends React.Component {
             {selectedProduct.description}
           </div>
           <div className="product-overview-list">
-            {selectedProduct.features.map((feature)=> <ProductOverviewListItem feature={feature} key={feature.feature}/>)}
+            {selectedProduct.features.map((feature, i)=> <ProductOverviewListItem feature={feature} key={i}/>)}
           </div>
         </div>
       );

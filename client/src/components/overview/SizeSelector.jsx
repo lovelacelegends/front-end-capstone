@@ -25,6 +25,7 @@ class SizeSelector extends React.Component {
       arrayOfSkus.push(key);
     });
 
+    let indexOfSku = 0;
     return (
       <div className="size-selector">
         <select onChange={this.updateSku}>
@@ -33,12 +34,13 @@ class SizeSelector extends React.Component {
             if (objOfSkus[sku].quantity !== 0) {
               const sizetoDisplay = objOfSkus[sku].size;
               return (
-                <option id={sku}>
+                <option id={indexOfSku++}>
                   {sizetoDisplay}
                 </option>
               );
+              indexOfSku ++
             }
-            return <option disabled>OUT OF STOCK</option>;
+            return <option id="hide-option" disabled>OUT OF STOCK</option>;
           })}
         </select>
       </div>
