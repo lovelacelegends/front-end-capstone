@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class RelatedItemCard extends React.Component {
   constructor(props) {
@@ -40,5 +41,9 @@ class RelatedItemCard extends React.Component {
     );
   }
 }
+
+RelatedItemCard.propTypes = {
+  product: PropTypes.shape.isRequired,
+};
 
 export default RelatedItemCard;
