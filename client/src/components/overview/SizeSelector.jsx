@@ -12,7 +12,8 @@ class SizeSelector extends React.Component {
     e.preventDefault();
     const index = e.target.selectedIndex;
     let selectedSku = e.target.childNodes[index].id;
-    this.props.updateSkuInState(selectedSku);
+    let selectedSize = e.target.value;
+    this.props.updateSkuInState(selectedSku, selectedSize);
   }
 
   render() {
