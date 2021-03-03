@@ -99,10 +99,7 @@ body {
 
 .related-items-grid-frame {
   margin: 30px 150px;
-  /* margin-left: 150px;
-  margin-right: 150px; */
   height: 260px;
-  /* border: 2px solid black; */
   display: grid;
   grid-template-columns: 2.5% 95% 2.5%;
   grid-template-rows: 36% 28% 36%;
@@ -129,6 +126,19 @@ body {
 .related-card-container {
   grid-area: 1/1/4/4;
   background-color: rgb(219, 219, 170);
+  display: flex;
+  flex-direction: row;
+}
+
+.related-card {
+  border: 1px solid black;
+  height: 200px;
+  width: 150px;
+}
+
+.related-default-picture {
+  max-width: 100%;
+  max-height: 100%;
 }
 
 

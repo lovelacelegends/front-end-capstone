@@ -14,12 +14,16 @@ class RelatedItems extends React.Component {
   }
 
   render() {
-    return (
+    const { relatedProductIds } = this.props;
+
+    return relatedProductIds.length ? (
       <div className="related-items-grid-frame">
         <RelatedLeftArrow />
-        <RelatedCardContainer />
+        <RelatedCardContainer relatedProductIds={relatedProductIds} />
         <RelatedRightArrow />
       </div>
+    ) : (
+      null
     );
   }
 }
