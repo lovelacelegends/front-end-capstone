@@ -11,37 +11,17 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 // });
 
 app.get('/products/:id', (req, res) => {
-  const data = [null, null, null, null];
   const { id } = req.params;
 
-  atlier.getProductById(id)
-    .then((products) => {
-      data[0] = products;
-      return atlier.getProductStylesById(id);
-    })
-    .then((styles) => {
-      data[1] = styles;
-      return atlier.getRelatedProductsById(id);
-    })
-    .then((relatedProducts) => {
-      data[2] = relatedProducts;
-      return atlier.getReviewsById(id);
-    })
-    .then((reviews) => {
-      data[3] = reviews;
-    })
-    .catch((error) => {
-      res.status(501).send(error);
-    })
-    .finally(() => {
-      res.status(201).send(data);
-    });
-});
+  const p1 = atlier.getProductById(id);
+  const p2 = atlier.getProductStylesById(id);
+  const p3 = atlier.getRelatedProductsById(id);
+  const p4 = atlier.getReviewsById(id);
+  const p5 = atlier.getMetaReviewsById(id);
 
-app.get('/reviews/:id', (req, res) => {
-  atlier.getReviewsById(req.params.id)
-    .then((results) => {
-      res.status(201).send(results);
+  Promise.all([p1, p2, p3, p4, p5])
+    .then((data) => {
+      res.status(201).send(data);
     })
     .catch((error) => {
       res.status(501).send(error);
