@@ -229,4 +229,5 @@ body {
   width: 100%;
   grid-column: 2;
   grid-row: 1 / 9;
+  grid-template-rows: 100px repeat(auto-fill, 300px);
 }
