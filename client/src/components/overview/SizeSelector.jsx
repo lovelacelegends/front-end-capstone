@@ -9,12 +9,24 @@ class SizeSelector extends React.Component {
 
   render() {
     const { styles, currentStyle } = this.props;
-    const objOfSkus = styles.results[currentStyle].skus
+    const objOfSkus = styles.results[currentStyle].skus;
+
+    let arrayOfSkus = [];
+    Object.keys(objOfSkus).forEach((key) => {
+      arrayOfSkus.push(key);
+    });
+
     return (
       <div className="size-selector">
         <select>
           <option>SELECT SIZE</option>
-          <option>sizes</option>
+          {arrayOfSkus.map((sku) => {
+            if (objOfSkus[sku]["quantity"] !== 0) {
+              const sizetoDisplay = objOfSkus[sku]["size"];
+              return <option>{sizetoDisplay}</option>;
+            }
+            return <option>OUT OF STOCK</option>;
+          })}
         </select>
       </div>
     );
