@@ -25,7 +25,7 @@ class SizeSelector extends React.Component {
               const sizetoDisplay = objOfSkus[sku]["size"];
               return <option>{sizetoDisplay}</option>;
             }
-            return <option>OUT OF STOCK</option>;
+            return <option disabled>OUT OF STOCK</option>;
           })}
         </select>
       </div>
