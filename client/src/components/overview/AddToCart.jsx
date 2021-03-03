@@ -11,10 +11,16 @@ class AddToCart extends React.Component {
       currentQuantity: '',
     };
     this.updateSkuInState = this.updateSkuInState.bind(this);
+    this.updateQuantityInState = this.updateQuantityInState.bind(this);
   }
 
   updateSkuInState(sku, size) {
-    this.setState({ currentSku: sku, currentSize: size });
+    this.setState({ currentSku: sku, currentSize: size, currentQuantity: '' });
+  }
+
+  updateQuantityInState(quantity) {
+    debugger;
+    this.setState({currentQuantity: quantity});
   }
 
   render() {
@@ -34,6 +40,7 @@ class AddToCart extends React.Component {
             currentStyle={currentStyle}
             currentSku={currentSku}
             currentSize={currentSize}
+            updateQuantityInState={this.updateQuantityInState}
           />
         </div>
       </div>

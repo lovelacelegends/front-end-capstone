@@ -4,6 +4,12 @@ class QuantitySelector extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
+    this.changeQuantity=this.changeQuantity.bind(this);
+  }
+
+  changeQuantity(e){
+    debugger;
+    this.props.updateQuantityInState(event.target.value)
   }
 
   render() {
@@ -29,7 +35,7 @@ class QuantitySelector extends React.Component {
 
     return (
       <div className="quantity-selector">
-        <select>
+        <select onChange={this.changeQuantity}>
           {arrOfQuantities.map((num)=>{
             return <option>{num}</option>
           })}

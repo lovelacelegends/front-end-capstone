@@ -34,7 +34,7 @@ class SizeSelector extends React.Component {
               const sizetoDisplay = objOfSkus[sku].size;
               return (
                 <option id={sku}>
-                {sizetoDisplay}
+                  {sizetoDisplay}
                 </option>
               );
             }
