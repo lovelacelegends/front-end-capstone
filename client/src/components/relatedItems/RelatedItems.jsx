@@ -23,7 +23,7 @@ class RelatedItems extends React.Component {
         <RelatedRightArrow />
       </div>
     ) : (
-      null
+      'loading....'
     );
   }
 }
