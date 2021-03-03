@@ -4,16 +4,12 @@ class RelatedItemCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {};
-    this.handleStarClick = this.handleStarClick.bind(this);
     this.handleProductClick = this.handleProductClick.bind(this);
   }
 
-  handleStarClick() {
-    console.log('star clicked');
-  }
-
   handleProductClick() {
-    console.log('product clicked')
+    const { product } = this.props;
+    console.log(product.id);
   }
 
   render() {
@@ -22,10 +18,12 @@ class RelatedItemCard extends React.Component {
       <div
         className="related-card"
         onClick={this.handleProductClick}
+        onKeyPress={this.handleProductClick}
+        role="link"
+        tabIndex={0}
       >
         <div
           className="related-modal-star"
-          onClick={this.handleStarClick}
         >
           *
         </div>
