@@ -15,10 +15,10 @@ class RelatedItemCard extends React.Component {
           src={product.url}
           alt={product.name}
         />
-        <div>{product.category}</div>
-        <div>{product.name}</div>
-        <div>{product.price}</div>
-        <div>***** (star rating) </div>
+        <div className="related-category">{product.category}</div>
+        <div className="related-name">{product.name}</div>
+        <div className="related-price">{product.price}</div>
+        <div className="related-rating">***** (star rating) </div>
       </div>
     );
   }
