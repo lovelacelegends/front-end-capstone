@@ -11,23 +11,30 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 // });
 
 app.get('/products/:id', (req, res) => {
-  atlier.getProductById(req.params.id)
-    .then((productResults) => {
-      const data = [productResults];
+  const data = [null, null, null, null];
+  const { id } = req.params;
 
-      atlier.getProductStylesById(req.params.id)
-        .then((stylesResult) => {
-          data.push(stylesResult);
-
-          atlier.getRelatedProductsById(req.params.id)
-            .then((relatedResult) => {
-              data.push(relatedResult);
-              res.status(201).send(data);
-            });
-        });
+  atlier.getProductById(id)
+    .then((products) => {
+      data[0] = products;
+      return atlier.getProductStylesById(id);
+    })
+    .then((styles) => {
+      data[1] = styles;
+      return atlier.getRelatedProductsById(id);
+    })
+    .then((relatedProducts) => {
+      data[2] = relatedProducts;
+      return atlier.getReviewsById(id);
+    })
+    .then((reviews) => {
+      data[3] = reviews;
     })
     .catch((error) => {
       res.status(501).send(error);
+    })
+    .finally(() => {
+      res.status(201).send(data);
     });
 });
 
