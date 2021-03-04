@@ -14,7 +14,7 @@ class CartButton extends React.Component {
     if (currentSize === '' || currentSize === 'SELECT SIZE') {
       return (
         <div>
-            <button onClick={() =>{document.querySelector('#size-selector').setAttribute("size", document.querySelector("#size-selector").querySelectorAll("option").length)}} id='add-to-cart'> select size </button>
+            <button onClick={() =>{document.querySelector('#size-selector').focus()}} id='add-to-cart'> select size </button>
         </div>
       );
     }
@@ -29,3 +29,6 @@ class CartButton extends React.Component {
 export default CartButton;
 
         //if no size is slected on click then drop down sizes and say please select size
+        /**
+         * document.querySelector('#size-selector').setAttribute("size", document.querySelector("#size-selector").querySelectorAll("option").length)
+         */
