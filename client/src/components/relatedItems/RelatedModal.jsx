@@ -7,14 +7,24 @@ class RelatedModal extends React.Component {
   }
 
   render() {
-    const { handleModalClick } = this.props;
+    const { handleModalClick, selectedProduct, product } = this.props;
 
     return (
       <div
         className="related-modal"
         onClick={handleModalClick}
       >
-        MODAL
+        <h1> Comparing </h1>
+        <table>
+          <tbody>
+            {selectedProduct.features.map((feature) => (
+              <tr>
+                <td>{feature.value}</td>
+                <td>{feature.feature}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     );
   }
