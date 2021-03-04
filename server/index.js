@@ -11,30 +11,17 @@ app.use(express.static(path.join(__dirname, '..', 'public')));
 // });
 
 app.get('/products/:id', (req, res) => {
-  atlier.getProductById(req.params.id)
-    .then((productResults) => {
-      const data = [productResults];
+  const { id } = req.params;
 
-      atlier.getProductStylesById(req.params.id)
-        .then((stylesResult) => {
-          data.push(stylesResult);
+  const p1 = atlier.getProductById(id);
+  const p2 = atlier.getProductStylesById(id);
+  const p3 = atlier.getRelatedProductsById(id);
+  const p4 = atlier.getReviewsById(id);
+  const p5 = atlier.getMetaReviewsById(id);
 
-          atlier.getRelatedProductsById(req.params.id)
-            .then((relatedResult) => {
-              data.push(relatedResult);
-              res.status(201).send(data);
-            });
-        });
-    })
-    .catch((error) => {
-      res.status(501).send(error);
-    });
-});
-
-app.get('/reviews/:id', (req, res) => {
-  atlier.getReviewsById(req.params.id)
-    .then((results) => {
-      res.status(201).send(results);
+  Promise.all([p1, p2, p3, p4, p5])
+    .then((data) => {
+      res.status(201).send(data);
     })
     .catch((error) => {
       res.status(501).send(error);
@@ -42,33 +29,28 @@ app.get('/reviews/:id', (req, res) => {
 });
 
 app.get('/related/:id', (req, res) => {
-  const relatedData = {};
-  atlier.getProductById(req.params.id)
-    .then((productInfo) => {
-      relatedData.id = productInfo.id;
-      relatedData.name = productInfo.name;
-      relatedData.category = productInfo.category;
-      relatedData.price = productInfo.default_price;
-      relatedData.features = productInfo.features;
+  const { id } = req.params;
 
-      atlier.getProductStylesById(req.params.id)
-        .then((productStyles) => {
-          const defaultStyle = productStyles.results[0];
-          const defaultPictureURL = defaultStyle.photos[0].url;
+  const p1 = atlier.getProductById(id);
+  const p2 = atlier.getProductStylesById(id);
+  const p3 = atlier.getMetaReviewsById(id);
 
-          relatedData.url = defaultPictureURL;
+  Promise.all([p1, p2, p3])
+    .then((data) => {
+      const relatedData = {};
 
-          atlier.getMetaReviewsById(req.params.id)
-            .then((metaReviewData) => {
-              const ratingsObj = metaReviewData.ratings;
+      relatedData.id = data[0].id;
+      relatedData.name = data[0].name;
+      relatedData.category = data[0].category;
+      relatedData.price = data[0].default_price;
+      relatedData.features = data[0].features;
+      relatedData.url = data[1].results[0].photos[0].url;
+      relatedData.ratings = data[2].ratings;
 
-              relatedData.ratings = ratingsObj;
-              res.status(200).send(relatedData);
-            });
-        });
+      res.status(201).send(relatedData);
     })
     .catch((error) => {
-      res.status(500).send(error);
+      res.status(501).send(error);
     });
 });
 
