@@ -15,12 +15,21 @@ class Reviews extends React.Component {
     if (Object.keys(reviews).length !== 0) {
       return (
         <div className="reviews">
-          <div>248 reviews, sorted by relevance v</div>
+          <div>
+            {reviews.results.length}
+            {' reviews, sorted by '}
+            <select>
+              <option>relevance</option>
+              <option>newest</option>
+              <option>helpful</option>
+            </select>
+          </div>
           {reviews.results.map((review) => (
             <div className="review" key={review.review_id}>
               <div>
-                {'Rating: '}
-                {review.rating}
+                <span className="stars" style={{ '--rating': review.rating }} />
+                <span>{review.reviewer_name}</span>
+                <span>{review.date}</span>
               </div>
               <header>{review.summary}</header>
               <p>...leftover summary</p>

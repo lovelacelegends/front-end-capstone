@@ -2,13 +2,16 @@ body {
   background-color: pink;
 }
 
-/* STARS SECTION */
-
 :root {
   --star-size: 15px;
   --star-color: gray;
   --star-background: orange;
+  --bar-size: 15px;
+  --bar-color: gray;
+  --bar-background: orange;
 }
+
+/* STARS SECTION - to use, simply add the stars class and pass in a number into style={{ '--rating': NUM }} */
 
 .stars:before {
   content: '★★★★★';
@@ -20,12 +23,28 @@ body {
 
 .stars {
   --percent: calc(var(--rating) / 5 * 100%);
-
   display: inline-block;
   font-size: var(--star-size);
   font-family: Times; /* make sure ★ appears correctly*/
   line-height: 1;
+}
 
+/* BAR SECTION - to use, simply add the bar class and pass in a number into style={{ '--rating': NUM }} */
+
+.bar:before {
+  content: '★★★★★';
+  letter-spacing: 10px;
+  background: linear-gradient(90deg, var(--bar-background) var(--percent), var(--bar-color) var(--percent));
+  /* -webkit-background-clip: text; */
+  -webkit-text-fill-color: transparent;
+}
+
+.bar {
+  --percent: calc(var(--count) / var(--total) * 100%);
+  display: inline-block;
+  font-size: var(--bar-size);
+  font-family: Times; /* make sure ★ appears correctly*/
+  line-height: 1;
 }
 
 /* OVERVIEW SECTION */
@@ -227,7 +246,7 @@ body {
   background-color: cornflowerblue;
   overflow: auto;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(5, 100px);
+  grid-template-rows: repeat(2, 100px);
   justify-items: center;
 }
 

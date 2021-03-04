@@ -38,24 +38,39 @@ class Ratings extends React.Component {
             % of reviewers recommend this product
           </div>
           <div>
-            {'5 stars : '}
-            {meta.ratings['5']}
+            {'5 stars  '}
+            <span className="bar" style={{ '--count': meta.ratings['5'], '--total': '34' }}>
+              {'  '}
+              {meta.ratings['5']}
+            </span>
           </div>
           <div>
-            {'4 stars : '}
-            {meta.ratings['4']}
+            {'4 stars  '}
+            <span className="bar" style={{ '--count': meta.ratings['4'], '--total': '34' }}>
+              {'  '}
+              {meta.ratings['4']}
+            </span>
           </div>
           <div>
-            {'3 stars : '}
-            {meta.ratings['3']}
+            {'3 stars  '}
+            <span className="bar" style={{ '--count': meta.ratings['3'], '--total': '34' }}>
+              {'  '}
+              {meta.ratings['3']}
+            </span>
           </div>
           <div>
-            {'2 stars : '}
-            {meta.ratings['2']}
+            {'2 stars  '}
+            <span className="bar" style={{ '--count': meta.ratings['2'], '--total': '34' }}>
+              {'  '}
+              {meta.ratings['2']}
+            </span>
           </div>
           <div>
-            {'1 stars : '}
-            {meta.ratings['1']}
+            {'1 stars  '}
+            <span className="bar" style={{ '--count': meta.ratings['1'], '--total': '34' }}>
+              {'  '}
+              {meta.ratings['1']}
+            </span>
           </div>
           <div>
             {'Fit: '}
