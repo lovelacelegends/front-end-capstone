@@ -2,10 +2,10 @@ import React from 'react';
 import Ratings from './Ratings';
 import Reviews from './Reviews';
 
-const RatingsAndReviews = () => (
+const RatingsAndReviews = ({reviews, meta}) => (
   <div className="ratings-and-reviews">
-    <Ratings />
-    <Reviews />
+    <Ratings meta={meta} />
+    <Reviews reviews={reviews} />
   </div>
 );
 

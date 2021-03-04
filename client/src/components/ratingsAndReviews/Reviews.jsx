@@ -4,38 +4,51 @@ class Reviews extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+
+    };
   }
 
   render() {
+    const { reviews } = this.props;
+
+    if (Object.keys(reviews).length !== 0) {
+      return (
+        <div className="reviews">
+          <div>
+            {reviews.results.length}
+            {' reviews, sorted by '}
+            <select>
+              <option>relevance</option>
+              <option>newest</option>
+              <option>helpful</option>
+            </select>
+          </div>
+          {reviews.results.map((review) => (
+            <div className="review" key={review.review_id}>
+              <div>
+                <span className="stars" style={{ '--rating': review.rating }} />
+                {'  '}
+                <span>{review.reviewer_name}</span>
+                {'  '}
+                <span>{review.date.substr(0, 10)}</span>
+              </div>
+              <h3>{review.summary}</h3>
+              <p>{review.body}</p>
+              <span>
+                {review.helpfulness}
+                {' people found this review helpful'}
+              </span>
+            </div>
+          ))}
+          <button type="button">MORE REVIEWS</button>
+          <button type="button">ADD A REVIEW +</button>
+        </div>
+      );
+    }
+
     return (
-      <div className="reviews">
-        <div>248 reviews, sorted by relevance v</div>
-        <div className="review">
-          <div>*****</div>
-          <header>Review title with word-break truncation to prevent wrapping onto the next</header>
-          <p>...line if necessary.</p>
-          <p>Review bulk</p>
-          <span>Helpful?</span>
-          <span>Yes (10)</span>
-          <span>No (5)</span>
-          |
-          <span>Report</span>
-        </div>
-        <div className="review">
-          <div>****</div>
-          <header>Review title with word-break truncation to prevent wrapping onto the next</header>
-          <p>...line if necessary.</p>
-          <p>Review bulk</p>
-          <span>Helpful?</span>
-          <span>Yes (8)</span>
-          <span>No (7)</span>
-          |
-          <span>Report</span>
-        </div>
-        <button type="button">MORE REVIEWS</button>
-        <button type="button">ADD A REVIEW +</button>
-      </div>
+      <div>loading...</div>
     );
   }
 }

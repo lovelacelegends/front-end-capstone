@@ -2,6 +2,49 @@ body {
   background-color: rgb(201, 198, 198);
 }
 
+:root {
+  --star-size: 15px;
+  --star-color: gray;
+  --star-background: orange;
+  --bar-size: 15px;
+  --bar-color: gray;
+  --bar-background: orange;
+}
+
+/* STARS SECTION - to use, simply add the stars class and pass in a number into style={{ '--rating': NUM }} */
+
+.stars:before {
+  content: '★★★★★';
+  letter-spacing: 0;
+  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times; /* make sure ★ appears correctly*/
+  line-height: 1;
+}
+
+/* BAR SECTION - to use, simply add the bar class and pass in a number into style={{ '--rating': NUM }} */
+
+.bar:before {
+  content: '★★★★★';
+  letter-spacing: 10px;
+  background: linear-gradient(90deg, var(--bar-background) var(--percent), var(--bar-color) var(--percent));
+  -webkit-text-fill-color: transparent;
+}
+
+.bar {
+  --percent: calc(var(--count) / var(--total) * 100%);
+  display: inline-block;
+  font-size: var(--bar-size);
+  line-height: 1;
+}
+
 /* OVERVIEW SECTION */
 
 .overview{
@@ -247,14 +290,15 @@ td {
   background-color: cornflowerblue;
   overflow: auto;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(5, 100px);
+  grid-template-rows: repeat(2, 100px);
   justify-items: center;
 }
 
 /* RATINGS AND REVIEWS SECTION */
+
 .ratings-and-reviews {
   display: grid;
-  background-color: salmon;
+  background-color: white;
   overflow: auto;
   grid-template-columns: 1fr 2.5fr;
   justify-items: center;
@@ -262,24 +306,21 @@ td {
 
 .ratings {
   display: grid;
-  background-color: peachpuff;
-  width: 100%;
+  width: 80%;
   grid-column: 1;
   grid-row: 1 / 6;
 }
 
 .reviews {
   display: grid;
-  background-color: paleturquoise;
-  width: 100%;
-  justify-content: center;
-  align-items: space-between;
+  width: 90%;
   grid-column: 2;
   grid-row: 1 / 9;
-  grid-template-rows: 50px repeat(2, 200px) repeat(2, 50px);
+  grid-template-rows: 50px repeat(auto, 200px) repeat(2, 50px);
 }
 
 .review {
+  background-color: lightgray;
   border: 1px solid black;
   margin: 20px 0;
 }
