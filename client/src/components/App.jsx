@@ -45,7 +45,7 @@ class App extends React.Component {
   }
 
   updateCurrentStyle(input) {
-    this.setState({ currentStyle: input });
+    this.setState({ currentStyle: Number(input) });
   }
 
   render() {
@@ -70,7 +70,10 @@ class App extends React.Component {
         <ProductOverview
           selectedProduct={selectedProduct}
         />
-        <RelatedItems relatedProductIds={relatedProductIds} />
+        <RelatedItems
+          relatedProductIds={relatedProductIds}
+          selectedProduct={selectedProduct}
+        />
         <MyOutfit />
         <QuestionsAndAnswers />
         <RatingsAndReviews reviews={reviews} meta={meta} />
