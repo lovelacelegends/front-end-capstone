@@ -33,6 +33,7 @@ class RelatedCardContainer extends React.Component {
 
   render() {
     const { productInfoList } = this.state;
+    const { selectedProduct } = this.props;
 
     if (productInfoList.length === 0) {
       this.getProductCardInfo();
@@ -41,7 +42,11 @@ class RelatedCardContainer extends React.Component {
     return (
       <div className="related-card-container">
         {productInfoList.map((product) => (
-          <RelatedItemCard key={product.id} product={product} />
+          <RelatedItemCard
+            key={product.id}
+            product={product}
+            selectedProduct={selectedProduct}
+          />
         ))}
       </div>
     );
