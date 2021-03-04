@@ -24,7 +24,7 @@ class RelatedItemCard extends React.Component {
   }
 
   render() {
-    const { product } = this.props;
+    const { product, selectedProduct } = this.props;
     const { showModal } = this.state;
     let modalDiv;
 
@@ -34,7 +34,11 @@ class RelatedItemCard extends React.Component {
       );
     } else {
       modalDiv = (
-        <RelatedModal handleModalClick={this.handleModalClick} />
+        <RelatedModal
+          handleModalClick={this.handleModalClick}
+          selectedProduct={selectedProduct}
+          product={product}
+        />
       );
     }
 
