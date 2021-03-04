@@ -39,7 +39,7 @@ class App extends React.Component {
   }
 
   updateCurrentStyle(input) {
-    this.setState({ currentStyle: input });
+    this.setState({ currentStyle: Number(input) });
   }
 
   render() {
