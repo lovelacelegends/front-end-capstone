@@ -7,9 +7,12 @@ class RelatedModal extends React.Component {
   }
 
   render() {
+    const { handleModalClick } = this.props;
+
     return (
       <div
         className="related-modal"
+        onClick={handleModalClick}
       >
         MODAL
       </div>

@@ -4,7 +4,9 @@ import RelatedModal from './RelatedModal';
 class RelatedItemCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      showModal: false,
+    };
     this.handleProductClick = this.handleProductClick.bind(this);
     this.handleModalClick = this.handleModalClick.bind(this);
   }
@@ -15,12 +17,27 @@ class RelatedItemCard extends React.Component {
   }
 
   handleModalClick() {
-    console.log('clicked');
-    //needs to toggle a modal in the middle of the screen
+    const { showModal } = this.state;
+    this.setState({
+      showModal: !showModal,
+    });
   }
 
   render() {
     const { product } = this.props;
+    const { showModal } = this.state;
+    let modalDiv;
+
+    if (!showModal) {
+      modalDiv = (
+        null
+      );
+    } else {
+      modalDiv = (
+        <RelatedModal handleModalClick={this.handleModalClick} />
+      );
+    }
+
     return (
       <div
         className="related-card"
@@ -57,7 +74,7 @@ class RelatedItemCard extends React.Component {
           <div className="related-price">{product.price}</div>
           <div className="related-rating">***** (star rating) </div>
         </div>
-        <RelatedModal />
+        {modalDiv}
       </div>
     );
   }
