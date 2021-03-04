@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import RelatedModal from './RelatedModal';
 
 class RelatedItemCard extends React.Component {
@@ -13,6 +14,7 @@ class RelatedItemCard extends React.Component {
 
   handleProductClick() {
     const { product } = this.props;
+    // eslint-disable-next-line no-console
     console.log(product.id);
   }
 
@@ -60,9 +62,9 @@ class RelatedItemCard extends React.Component {
           *
         </div>
         <img
-          onClick={this.handleProductClick}
-          onKeyPress={this.handleProductClick}
-          tabIndex={0}
+          // onClick={this.handleProductClick}
+          // onKeyPress={this.handleProductClick}
+          // tabIndex={0}
           className="related-default-picture"
           src={product.url}
           alt={product.name}
@@ -83,5 +85,23 @@ class RelatedItemCard extends React.Component {
     );
   }
 }
+
+RelatedItemCard.propTypes = {
+  selectedProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+  product: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+      PropTypes.object,
+    ]),
+  ).isRequired,
+};
 
 export default RelatedItemCard;
