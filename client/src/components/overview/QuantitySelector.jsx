@@ -24,7 +24,7 @@ class QuantitySelector extends React.Component {
     let max;
     (quantity > 15) ?  max = 15 :  max = quantity
 
-    let arrOfQuantities = []
+    let arrOfQuantities = [];
     for (let i=1; i<=max; i++) {
       arrOfQuantities.push(i);
     }

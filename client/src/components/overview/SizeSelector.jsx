@@ -5,19 +5,11 @@ class SizeSelector extends React.Component {
     super(props);
     this.state = {
     };
-    this.updateSku = this.updateSku.bind(this);
-  }
-
-  updateSku(e) {
-    e.preventDefault();
-    const index = e.target.selectedIndex;
-    let selectedSku = e.target.childNodes[index].id;
-    let selectedSize = e.target.value;
-    this.props.updateSkuInState(selectedSku, selectedSize);
+    //this.updateSku = this.updateSku.bind(this);
   }
 
   render() {
-    const { styles, currentStyle } = this.props;
+    const { styles, currentStyle, updateSku } = this.props;
     const objOfSkus = styles.results[currentStyle].skus;
 
     const arrayOfSkus = [];
@@ -40,7 +32,7 @@ class SizeSelector extends React.Component {
       let indexOfSku = 0;
       return (
         <div className="size-selector">
-          <select onChange={this.updateSku}>
+          <select onChange={updateSku}>
             <option>SELECT SIZE</option>
             {arrayOfSkus.map((sku, i) => {
               if (objOfSkus[sku].quantity !== 0) {

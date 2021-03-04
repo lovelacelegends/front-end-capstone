@@ -1,6 +1,6 @@
 import React from 'react';
 import SizeSelector from './SizeSelector';
-import QuantitySelector from './QuantitySelector'
+import QuantitySelector from './QuantitySelector';
 
 class AddToCart extends React.Component {
   constructor(props) {
@@ -20,11 +20,11 @@ class AddToCart extends React.Component {
     const index = e.target.selectedIndex;
     let selectedSku = e.target.childNodes[index].id;
     let selectedSize = e.target.value;
-    this.props.updateSkuInState(selectedSku, selectedSize);
+    this.updateSkuInState(selectedSku, selectedSize);
   }
 
   updateSkuInState(sku, size) {
-    this.setState({ currentSku: sku, currentSize: size, currentQuantity: '' });
+    this.setState({ currentSku: sku, currentSize: size });
   }
 
   updateQuantityInState(e) {
