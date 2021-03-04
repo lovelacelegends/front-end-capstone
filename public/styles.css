@@ -2,6 +2,32 @@ body {
   background-color: pink;
 }
 
+/* STARS SECTION */
+
+:root {
+  --star-size: 15px;
+  --star-color: gray;
+  --star-background: orange;
+}
+
+.stars:before {
+  content: '★★★★★';
+  letter-spacing: 0;
+  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times; /* make sure ★ appears correctly*/
+  line-height: 1;
+
+}
+
 /* OVERVIEW SECTION */
 
 .overview{
@@ -208,7 +234,7 @@ body {
 /* RATINGS AND REVIEWS SECTION */
 .ratings-and-reviews {
   display: grid;
-  background-color: salmon;
+  background-color: white;
   overflow: auto;
   grid-template-columns: 1fr 2.5fr;
   justify-items: center;
@@ -216,16 +242,14 @@ body {
 
 .ratings {
   display: grid;
-  background-color: peachpuff;
-  width: 100%;
+  width: 85%;
   grid-column: 1;
   grid-row: 1 / 6;
 }
 
 .reviews {
   display: grid;
-  background-color: paleturquoise;
-  width: 100%;
+  width: 90%;
   justify-content: center;
   /* align-items: space-between; */
   grid-column: 2;
@@ -234,6 +258,7 @@ body {
 }
 
 .review {
+  background-color: lightgray;
   border: 1px solid black;
   margin: 20px 0;
 }

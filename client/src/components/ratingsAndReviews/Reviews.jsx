@@ -16,13 +16,19 @@ class Reviews extends React.Component {
       return (
         <div className="reviews">
           <div>248 reviews, sorted by relevance v</div>
-          {reviews.results.map((review, index) => (
-            <div className="review" key={index}>
-              <div>Rating: {review.rating}</div>
+          {reviews.results.map((review) => (
+            <div className="review" key={review.review_id}>
+              <div>
+                {'Rating: '}
+                {review.rating}
+              </div>
               <header>{review.summary}</header>
               <p>...leftover summary</p>
               <p>{review.body}</p>
-              <span>{review.helpfulness} people found this review helpful</span>
+              <span>
+                {review.helpfulness}
+                {' people found this review helpful'}
+              </span>
             </div>
           ))}
           <button type="button">MORE REVIEWS</button>
