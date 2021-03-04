@@ -13,23 +13,29 @@ import ProductOverview from './productOverview/ProductOverview';
 class App extends React.Component {
   constructor(props) {
     super(props);
+
     this.state = {
       selectedProduct: {},
       styles: {},
       currentStyle: 0,
       relatedProductIds: [],
+      reviews: {},
+      meta: {},
     };
+
     this.updateCurrentStyle = this.updateCurrentStyle.bind(this);
   }
 
   componentDidMount() {
     axios.get('/products/17859')
       .then((data) => {
-        console.log('axios');
+        console.log('axios: ', data);
         this.setState({
           selectedProduct: data.data[0],
           styles: data.data[1],
           relatedProductIds: data.data[2],
+          reviews: data.data[3],
+          meta: data.data[4],
         });
       })
       .catch((error) => {
@@ -48,6 +54,8 @@ class App extends React.Component {
       styles,
       currentStyle,
       relatedProductIds,
+      reviews,
+      meta,
     } = this.state;
 
     return (
@@ -65,7 +73,7 @@ class App extends React.Component {
         <RelatedItems relatedProductIds={relatedProductIds} />
         <MyOutfit />
         <QuestionsAndAnswers />
-        <RatingsAndReviews />
+        <RatingsAndReviews reviews={reviews} meta={meta} />
       </div>
     );
   }
