@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Header from './header/Header';
 import Overview from './overview/Overview';
 import RelatedItems from './relatedItems/RelatedItems';
@@ -7,7 +8,7 @@ import MyOutfit from './myOutfit/MyOutfit';
 import QuestionsAndAnswers from './questionsAndAnswers/QuestionsAndAnswers';
 import RatingsAndReviews from './ratingsAndReviews/RatingsAndReviews';
 import ProductOverview from './productOverview/ProductOverview';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 
 class App extends React.Component {
   constructor(props) {
