@@ -1,6 +1,7 @@
 import React from 'react';
 import SizeSelector from './SizeSelector';
 import QuantitySelector from './QuantitySelector';
+import CartButton from './CartButton';
 
 class AddToCart extends React.Component {
   constructor(props) {
@@ -9,10 +10,16 @@ class AddToCart extends React.Component {
       currentSku: '',
       currentSize: '',
       currentQuantity: '',
+      outOfStock: false,
     };
     this.updateSkuInState = this.updateSkuInState.bind(this);
     this.updateQuantityInState = this.updateQuantityInState.bind(this);
     this.updateSku = this.updateSku.bind(this);
+    this.isOutOfStockOption = this.isOutOfStockOption.bind(this);
+  }
+
+  isOutOfStockOption() {
+    this.setState({ outOfStock: true });
   }
 
   updateSku(e) {
@@ -21,10 +28,11 @@ class AddToCart extends React.Component {
     let selectedSku = e.target.childNodes[index].id;
     let selectedSize = e.target.value;
     this.updateSkuInState(selectedSku, selectedSize);
+    document.querySelector('#size-selector').setAttribute('size', 1);
   }
 
   updateSkuInState(sku, size) {
-    this.setState({ currentSku: sku, currentSize: size });
+    this.setState({ currentSku: sku, currentSize: size, outOfStock: false });
   }
 
   updateQuantityInState(e) {
@@ -34,7 +42,7 @@ class AddToCart extends React.Component {
 
   render() {
     const { styles, currentStyle } = this.props;
-    const { currentSku, currentSize } = this.state;
+    const { currentSku, currentSize, outOfStock } = this.state;
     return (
       <div className="add-to-cart">
         <SizeSelector
@@ -43,6 +51,7 @@ class AddToCart extends React.Component {
           currentSku={currentSku}
           updateSkuInState={this.updateSkuInState}
           updateSku={this.updateSku}
+          isOutOfStock={this.isOutOfStockOption}
         />
         <div>
           <QuantitySelector
@@ -51,6 +60,12 @@ class AddToCart extends React.Component {
             currentSku={currentSku}
             currentSize={currentSize}
             updateQuantityInState={this.updateQuantityInState}
+          />
+        </div>
+        <div>
+          <CartButton
+            outOfStock={outOfStock}
+            currentSize={currentSize}
           />
         </div>
       </div>

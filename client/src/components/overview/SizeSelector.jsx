@@ -25,14 +25,19 @@ class SizeSelector extends React.Component {
     })
 
     if (arrZeroQuantity.length === arrayOfSkus.length){
-      return <option id="out-of-stoch">OUT OF STOCK</option>;
+      this.props.isOutOfStockOption()
+      return (
+        <select onChange={updateSku}>
+          <option id="out-of-stock">OUT OF STOCK</option>;
+        </select>
+      )
     }
 
     else{
       let indexOfSku = 0;
       return (
         <div className="size-selector">
-          <select onChange={updateSku}>
+          <select onChange={updateSku} id="size-selector">
             <option>SELECT SIZE</option>
             {arrayOfSkus.map((sku, i) => {
               if (objOfSkus[sku].quantity !== 0) {
@@ -44,7 +49,7 @@ class SizeSelector extends React.Component {
                 );
                 indexOfSku ++
               }
-              return <option id="hide-option" disabled></option>;
+              return null;
             })}
           </select>
         </div>
