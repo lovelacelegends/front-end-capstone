@@ -11,7 +11,7 @@ class Reviews extends React.Component {
     return (
       <div className="reviews">
         <div>248 reviews, sorted by relevance v</div>
-        <div>
+        <div className="review">
           <div>*****</div>
           <header>Review title with word-break truncation to prevent wrapping onto the next</header>
           <p>...line if necessary.</p>
@@ -22,7 +22,7 @@ class Reviews extends React.Component {
           |
           <span>Report</span>
         </div>
-        <div>
+        <div className="review">
           <div>****</div>
           <header>Review title with word-break truncation to prevent wrapping onto the next</header>
           <p>...line if necessary.</p>
@@ -33,6 +33,8 @@ class Reviews extends React.Component {
           |
           <span>Report</span>
         </div>
+        <button type="button">MORE REVIEWS</button>
+        <button type="button">ADD A REVIEW +</button>
       </div>
     );
   }
