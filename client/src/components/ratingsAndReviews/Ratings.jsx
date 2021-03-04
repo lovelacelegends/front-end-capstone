@@ -22,6 +22,8 @@ class Ratings extends React.Component {
 
       const averageRating = (Math.round((totalScore / numOfReviews) * 10) / 10).toFixed(1);
 
+      const averageRatingQuarter = Math.round(averageRating * 4) / 4;
+
       // find % of reviewers that recommend
       const r = meta.recommended;
       const recommended = Math.round((Number(r.true) / (Number(r.false) + Number(r.true))) * 100);
@@ -31,7 +33,8 @@ class Ratings extends React.Component {
           <div>RATINGS & REVIEWS</div>
           <div>
             {averageRating}
-            <span className="stars" style={{ '--rating': averageRating }} />
+            {'  '}
+            <span className="stars" style={{ '--rating': averageRatingQuarter }} />
           </div>
           <div>
             {recommended}

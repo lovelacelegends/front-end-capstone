@@ -31,8 +31,7 @@ class Reviews extends React.Component {
                 <span>{review.reviewer_name}</span>
                 <span>{review.date}</span>
               </div>
-              <header>{review.summary}</header>
-              <p>...leftover summary</p>
+              <h3>{review.summary}</h3>
               <p>{review.body}</p>
               <span>
                 {review.helpfulness}

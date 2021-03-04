@@ -35,7 +35,6 @@ body {
   content: '★★★★★';
   letter-spacing: 10px;
   background: linear-gradient(90deg, var(--bar-background) var(--percent), var(--bar-color) var(--percent));
-  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
 }
 
@@ -43,7 +42,6 @@ body {
   --percent: calc(var(--count) / var(--total) * 100%);
   display: inline-block;
   font-size: var(--bar-size);
-  font-family: Times; /* make sure ★ appears correctly*/
   line-height: 1;
 }
 
@@ -251,6 +249,7 @@ body {
 }
 
 /* RATINGS AND REVIEWS SECTION */
+
 .ratings-and-reviews {
   display: grid;
   background-color: white;
@@ -261,7 +260,7 @@ body {
 
 .ratings {
   display: grid;
-  width: 85%;
+  width: 80%;
   grid-column: 1;
   grid-row: 1 / 6;
 }
@@ -269,8 +268,6 @@ body {
 .reviews {
   display: grid;
   width: 90%;
-  justify-content: center;
-  /* align-items: space-between; */
   grid-column: 2;
   grid-row: 1 / 9;
   grid-template-rows: 50px repeat(auto, 200px) repeat(2, 50px);
