@@ -1,11 +1,11 @@
 body {
-  background-color: pink;
+  background-color: rgb(201, 198, 198);
 }
 
 /* OVERVIEW SECTION */
 
 .overview{
-  background-color: white;
+  border: 1px solid rgb(8, 5, 5);
   height: 400px;
   margin-left: 100px;
   margin-right: 100px;
@@ -15,7 +15,7 @@ body {
 }
 
 .image-gallery{
-  background-color: rgb(78, 196, 243);
+  border: 1px solid rgb(8, 5, 5);
   display: grid;
   grid-column-start: 1;
   grid-column-end: 7;
@@ -24,7 +24,7 @@ body {
 }
 
 .product-info{
-  background-color: rgb(224, 120, 238);
+  border: 1px solid rgb(8, 5, 5);
   display: grid;
   grid-column-start: 7;
   grid-column-end: 11;
@@ -33,7 +33,7 @@ body {
 }
 
 .style-selector{
-  background-color: rgb(233, 168, 213);
+  border: 1px solid rgb(8, 5, 5);
   display: grid;
   grid-column-start: 7;
   grid-column-end: 11;
@@ -42,7 +42,7 @@ body {
 }
 
 .add-to-cart{
-  background-color: rgb(233, 168, 213);
+  border: 1px solid rgb(8, 5, 5);
   display: grid;
   grid-column-start: 7;
   grid-column-end: 11;
@@ -59,7 +59,7 @@ body {
   grid-template-rows: 100;
 }
 .product-overview-text{
-  background-color: rgb(236, 238, 124);
+  border: 1px solid rgb(8, 5, 5);
   display: grid;
   grid-column-start: 1;
   grid-column-end: 1;
@@ -67,7 +67,7 @@ body {
 }
 
 .product-overview-list{
-  background-color: rgb(137, 238, 124);
+  border: 1px solid rgb(8, 5, 5);
   display: grid;
   grid-column-start: 2;
   grid-column-end: 3;
@@ -79,6 +79,9 @@ body {
   color: red;
 }
 
+.style-selector{
+  min-width: 250px;
+}
 #style-items{
   display: grid;
   grid-template-columns: repeat(4, 25%);
@@ -94,6 +97,9 @@ body {
   border: 2px solid rgb(8, 5, 5);
 }
 
+#hide-option{
+  display: none;
+}
 
 /* RELATED PRODUCTS */
 

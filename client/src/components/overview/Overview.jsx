@@ -27,7 +27,10 @@ class Overview extends React.Component {
             currentStyle={currentStyle}
             updateCurrentStyle={updateCurrentStyle}
           />
-          <AddToCart />
+          <AddToCart
+            styles={styles}
+            currentStyle={currentStyle}
+          />
         </div>
       );
     }
