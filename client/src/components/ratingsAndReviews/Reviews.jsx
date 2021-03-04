@@ -28,8 +28,10 @@ class Reviews extends React.Component {
             <div className="review" key={review.review_id}>
               <div>
                 <span className="stars" style={{ '--rating': review.rating }} />
+                {'  '}
                 <span>{review.reviewer_name}</span>
-                <span>{review.date}</span>
+                {'  '}
+                <span>{review.date.substr(0, 10)}</span>
               </div>
               <h3>{review.summary}</h3>
               <p>{review.body}</p>
