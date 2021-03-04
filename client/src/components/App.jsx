@@ -1,5 +1,7 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
+
 import Header from './header/Header';
 import Overview from './overview/Overview';
 import RelatedItems from './relatedItems/RelatedItems';
@@ -15,17 +17,19 @@ class App extends React.Component {
       selectedProduct: {},
       styles: {},
       currentStyle: 0,
+      relatedProductIds: [],
     };
     this.updateCurrentStyle = this.updateCurrentStyle.bind(this);
   }
 
   componentDidMount() {
-    axios.get('/products/17764')
+    axios.get('/products/17859')
       .then((data) => {
-        console.log("axios");
+        console.log('axios');
         this.setState({
           selectedProduct: data.data[0],
           styles: data.data[1],
+          relatedProductIds: data.data[2],
         });
       })
       .catch((error) => {
@@ -39,7 +43,13 @@ class App extends React.Component {
   }
 
   render() {
-    const { selectedProduct, styles, currentStyle } = this.state;
+    const {
+      selectedProduct,
+      styles,
+      currentStyle,
+      relatedProductIds,
+    } = this.state;
+
     return (
       <div>
         <Header />
@@ -52,7 +62,7 @@ class App extends React.Component {
         <ProductOverview
           selectedProduct={selectedProduct}
         />
-        <RelatedItems />
+        <RelatedItems relatedProductIds={relatedProductIds} />
         <MyOutfit />
         <QuestionsAndAnswers />
         <RatingsAndReviews />

@@ -9,9 +9,15 @@ class StyleItem extends React.Component {
   }
 
   handleStlyeClick(event) {
+<<<<<<< HEAD
     const { updateCurrentStyle } = this.props;
     const input = event.target.name;
     updateCurrentStyle(input);
+=======
+    let input = event.target.name;
+    this.props.updateCurrentStyle(input);
+    console.log("here")
+>>>>>>> 32c185fb5810e1db37e2a597d94b8fa21c2baf33
   }
 
   render() {

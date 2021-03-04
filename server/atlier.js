@@ -54,8 +54,45 @@ const getReviewsById = (id) => {
     });
 };
 
+const getMetaReviewsById = (id) => {
+  const options = {
+    url: `${baseURL}/reviews/meta/`,
+    headers: {
+      'User-Agent': 'request',
+      Authorization: config.TOKEN,
+    },
+    params: {
+      product_id: id,
+    },
+  };
+
+  return axios(options)
+    .then((response) => response.data)
+    .catch((error) => {
+      throw error;
+    });
+};
+
+const getRelatedProductsById = (id) => {
+  const options = {
+    url: `${baseURL}/products/${id}/related`,
+    headers: {
+      'User-Agent': 'request',
+      Authorization: config.TOKEN,
+    },
+  };
+
+  return axios(options)
+    .then((response) => response.data)
+    .catch((error) => {
+      throw error;
+    });
+};
+
 module.exports = {
   getProductById,
   getProductStylesById,
   getReviewsById,
+  getMetaReviewsById,
+  getRelatedProductsById,
 };
