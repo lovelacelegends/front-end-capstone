@@ -18,10 +18,7 @@ class Reviews extends React.Component {
           <div>248 reviews, sorted by relevance v</div>
           {reviews.results.map((review, index) => (
             <div className="review" key={index}>
-              <div>
-                Rating:
-                {review.rating}
-              </div>
+              <div>Rating: {review.rating}</div>
               <header>{review.summary}</header>
               <p>...leftover summary</p>
               <p>{review.body}</p>
