@@ -1,15 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class RelatedModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-    this.combineFeatures = this.combineFeatures.bind(this);
-  }
-
-  combineFeatures(featureArray1, featureArray2) {
-    let arr1 = featureArray1.slice();
-    let arr2 = featureArray2.slice();
+  static combineFeatures(featureArray1, featureArray2) {
+    const arr1 = featureArray1.slice();
+    const arr2 = featureArray2.slice();
 
     const resultArray = [];
     let counter = 0;
@@ -32,7 +27,7 @@ class RelatedModal extends React.Component {
       }
       resultArray.push(newFeatObj);
     }
-    let cleanUp = arr2.map((feat) => {
+    const cleanUp = arr2.map((feat) => {
       counter += 1;
       return {
         id: counter,
@@ -45,15 +40,25 @@ class RelatedModal extends React.Component {
     return resultArray.concat(cleanUp);
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
+
   render() {
     const { handleModalClick, selectedProduct, product } = this.props;
 
-    const completeFeatArray = this.combineFeatures(selectedProduct.features, product.features);
+    const completeFeatArray = RelatedModal.combineFeatures(
+      selectedProduct.features, product.features,
+    );
 
     return (
       <div
         className="related-modal"
         onClick={handleModalClick}
+        onKeyPress={handleModalClick}
+        role="button"
+        tabIndex={0}
       >
         <div className="table-heading"> Comparing </div>
         <table id="compare-products">
@@ -76,5 +81,24 @@ class RelatedModal extends React.Component {
     );
   }
 }
+
+RelatedModal.propTypes = {
+  handleModalClick: PropTypes.func.isRequired,
+  product: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+      PropTypes.object,
+    ]),
+  ).isRequired,
+  selectedProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+};
 
 export default RelatedModal;

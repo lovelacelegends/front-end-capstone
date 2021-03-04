@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import RelatedItemCard from './RelatedItemCard';
 
 class RelatedCardContainer extends React.Component {
@@ -27,6 +28,7 @@ class RelatedCardContainer extends React.Component {
         });
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.log(error);
       });
   }
@@ -52,5 +54,18 @@ class RelatedCardContainer extends React.Component {
     );
   }
 }
+
+RelatedCardContainer.propTypes = {
+  relatedProductIds: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.number]),
+  ).isRequired,
+  selectedProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+};
 
 export default RelatedCardContainer;

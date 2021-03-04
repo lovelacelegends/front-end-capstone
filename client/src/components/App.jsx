@@ -1,5 +1,5 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 
 import Header from './header/Header';
@@ -29,6 +29,7 @@ class App extends React.Component {
   componentDidMount() {
     axios.get('/products/17859')
       .then((data) => {
+        // eslint-disable-next-line no-console
         console.log('axios: ', data);
         this.setState({
           selectedProduct: data.data[0],
