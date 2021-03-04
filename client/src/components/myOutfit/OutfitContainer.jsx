@@ -1,4 +1,5 @@
 import React from 'react';
+import AddProductCard from './AddProductCard';
 
 class OutfitContainer extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class OutfitContainer extends React.Component {
   render() {
     return (
       <div className="outfit-container">
-        My Outfit Container
+        <AddProductCard />
       </div>
     );
   }
