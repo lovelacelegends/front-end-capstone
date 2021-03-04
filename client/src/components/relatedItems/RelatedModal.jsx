@@ -12,9 +12,12 @@ class RelatedModal extends React.Component {
     let arr2 = featureArray2.slice();
 
     const resultArray = [];
+    let counter = 0;
 
     for (let i = 0; i < arr1.length; i += 1) {
+      counter += 1;
       const newFeatObj = {
+        id: counter,
         feature: arr1[i].feature,
         currentValue: arr1[i].value,
         relatedValue: null,
@@ -30,7 +33,9 @@ class RelatedModal extends React.Component {
       resultArray.push(newFeatObj);
     }
     let cleanUp = arr2.map((feat) => {
+      counter += 1;
       return {
+        id: counter,
         feature: feat.feature,
         currentValue: null,
         relatedValue: feat.value,
@@ -50,8 +55,8 @@ class RelatedModal extends React.Component {
         className="related-modal"
         onClick={handleModalClick}
       >
-        <h1> Comparing </h1>
-        <table>
+        <div className="table-heading"> Comparing </div>
+        <table id="compare-products">
           <tbody>
             <tr>
               <th>{selectedProduct.name}</th>
@@ -59,7 +64,7 @@ class RelatedModal extends React.Component {
               <th>{product.name}</th>
             </tr>
             {completeFeatArray.map((feature) => (
-              <tr>
+              <tr key={feature.id}>
                 <td>{feature.currentValue}</td>
                 <td>{feature.feature}</td>
                 <td>{feature.relatedValue}</td>

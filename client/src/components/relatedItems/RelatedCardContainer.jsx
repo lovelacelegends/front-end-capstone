@@ -43,10 +43,10 @@ class RelatedCardContainer extends React.Component {
       <div className="related-card-container">
         {productInfoList.map((product) => (
           <RelatedItemCard
-          key={product.id}
-          product={product}
-          selectedProduct={selectedProduct}
-        />
+            key={product.id}
+            product={product}
+            selectedProduct={selectedProduct}
+          />
         ))}
       </div>
     );
