@@ -1,11 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import RelatedLeftArrow from './RelatedLeftArrow';
 import RelatedRightArrow from './RelatedRightArrow';
 import RelatedCardContainer from './RelatedCardContainer';
-
-// const RelatedItems = () => (
-//   <div>RelatedItems WEEEE</div>
-// );
 
 class RelatedItems extends React.Component {
   constructor(props) {
@@ -14,12 +11,15 @@ class RelatedItems extends React.Component {
   }
 
   render() {
-    const { relatedProductIds } = this.props;
+    const { relatedProductIds, selectedProduct } = this.props;
 
     return relatedProductIds.length ? (
       <div className="related-items-grid-frame">
         <RelatedLeftArrow />
-        <RelatedCardContainer relatedProductIds={relatedProductIds} />
+        <RelatedCardContainer
+          relatedProductIds={relatedProductIds}
+          selectedProduct={selectedProduct}
+        />
         <RelatedRightArrow />
       </div>
     ) : (
@@ -27,5 +27,18 @@ class RelatedItems extends React.Component {
     );
   }
 }
+
+RelatedItems.propTypes = {
+  relatedProductIds: PropTypes.arrayOf(
+    PropTypes.oneOfType([PropTypes.number]),
+  ).isRequired,
+  selectedProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+};
 
 export default RelatedItems;

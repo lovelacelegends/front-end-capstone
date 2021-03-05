@@ -2,6 +2,50 @@ body {
   background-color: rgb(201, 198, 198);
 }
 
+:root {
+  --star-size: 15px;
+  --star-color: gray;
+  --star-background: orange;
+  --bar-size: 15px;
+  --bar-color: gray;
+  --bar-background: rgb(35, 150, 35);
+}
+
+/* STARS SECTION - to use, simply add the stars class and pass in a number into style={{ '--rating': NUM }} */
+
+.stars:before {
+  content: '★★★★★';
+  letter-spacing: 0;
+  background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stars {
+  --percent: calc(var(--rating) / 5 * 100%);
+  display: inline-block;
+  font-size: var(--star-size);
+  font-family: Times; /* make sure ★ appears correctly*/
+  line-height: 1;
+}
+
+/* BAR SECTION - to use, simply add the bar class and pass in a number into style={{ '--rating': NUM }} */
+
+.bar:before {
+  content: '★★★★★';
+  letter-spacing: 10px;
+  background: linear-gradient(90deg, var(--bar-background) var(--percent), var(--bar-color) var(--percent));
+  -webkit-text-fill-color: transparent;
+}
+
+.bar {
+  --percent: calc(var(--count) / var(--total) * 100%);
+  display: inline-block;
+  font-size: var(--bar-size);
+  line-height: 1;
+}
+
 /* OVERVIEW SECTION */
 
 .overview{
@@ -105,6 +149,7 @@ body {
   display: none;
 }
 
+<<<<<<< HEAD
 .slider{
   position: absolute;
   height: 100vh;
@@ -133,7 +178,138 @@ body {
   z-index: 10;
 }
 
+=======
+/* MY OUTFIT SECTION */
+
+.outfit-left-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  grid-area: 2/1/3/2;
+  background-color: aqua;
+}
+
+.outfit-right-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  grid-area: 2/3/3/4;
+  background-color: aqua;
+}
+
+.outfit-container {
+  grid-area: 1/1/4/4;
+  display: flex;
+  flex-direction: row;
+}
+
+.outfit-product-card {
+  border: 1px solid black;
+  background-color: rgb(162, 180, 197);
+  height: 260px;
+  width: 200px;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 5% 79% 8% 8%;
+  border-radius: 5px;
+}
+
+.outfit-card-name {
+  grid-area: 4/1/5/3;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-left: 5px;
+}
+
+.outfit-card-style {
+  grid-area: 3/1/4/3;
+  font-style: italic;
+  padding-left: 5px;
+}
+
+.outfit-card-image {
+  grid-area: 1/1/3/3;
+  width: 100%;
+  height: 100%;
+}
+
+.outfit-card-x {
+  grid-area: 1/2/2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.add-product-card {
+  border: 1px solid black;
+  background-color: rgb(162, 180, 197);
+  height: 260px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  /* grid-template-columns: 95% 5%;
+  grid-template-rows: 6% 58% 9% 9% 9% 9%; */
+}
+
+.add-product-card:hover {
+  color: white;
+  cursor: pointer;
+}
+
+#plus-sign {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+
+>>>>>>> bcd7541c533d66674b000c383c905b2ac05a6d1c
 /* RELATED PRODUCTS */
+
+.related-modal {
+  position: fixed;
+  left: 30%;
+  top: 20%;
+  width: 500px;
+  height: 400px;
+  background-color: rgb(163, 236, 154);
+  z-index: 10;
+  border-radius: 10px;
+  border: 3px solid lightslategray;
+
+  -webkit-box-shadow:0 10px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+     -moz-box-shadow:0 10px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+          box-shadow:0 10px 40px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: 10% 90%;
+}
+
+table {
+  grid-area: 2/1/3/2;
+  background-color: rgb(163, 236, 154);
+}
+
+.table-heading {
+  border-radius: 8px 8px 0 0;
+  background-color: mediumaquamarine;
+  grid-area: 1/1/2/2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+td {
+  text-align: center;
+}
 
 .related-items-grid-frame {
   margin: 30px 150px;
@@ -163,7 +339,6 @@ body {
 
 .related-card-container {
   grid-area: 1/1/4/4;
-  background-color: rgb(219, 219, 170);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -171,6 +346,7 @@ body {
 
 .related-card {
   border: 1px solid black;
+  background-color: rgb(162, 180, 197);
   height: 260px;
   width: 200px;
   display: grid;
@@ -180,7 +356,7 @@ body {
 
 .related-modal-star {
   grid-area: 1/2/2/3;
-  z-index: 1;
+  z-index: 3;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -189,8 +365,8 @@ body {
 }
 
 .related-default-picture {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   grid-area: 1/1/3/3;
 }
 
@@ -209,29 +385,6 @@ body {
 }
 
 
-.outfit-left-arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  grid-area: 2/1/3/2;
-  background-color: aqua;
-}
-
-.outfit-right-arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  grid-area: 2/3/3/4;
-  background-color: aqua;
-}
-
-.outfit-container {
-  grid-area: 1/1/4/4;
-  background-color: rgb(219, 219, 170);
-}
-
 /* QUESTIONS AND ANSWERS SECTION */
 
 .questions-and-answers {
@@ -239,39 +392,42 @@ body {
   background-color: cornflowerblue;
   overflow: auto;
   grid-template-columns: repeat(10, 1fr);
-  grid-template-rows: repeat(5, 100px);
+  grid-template-rows: repeat(2, 100px);
   justify-items: center;
 }
 
 /* RATINGS AND REVIEWS SECTION */
+
 .ratings-and-reviews {
   display: grid;
-  background-color: salmon;
+  background-color: white;
   overflow: auto;
   grid-template-columns: 1fr 2.5fr;
   justify-items: center;
 }
 
-.ratings {
+.ratings-section {
   display: grid;
-  background-color: peachpuff;
-  width: 100%;
+  width: 80%;
   grid-column: 1;
   grid-row: 1 / 6;
 }
 
-.reviews {
+.reviews-section {
   display: grid;
-  background-color: paleturquoise;
-  width: 100%;
-  justify-content: center;
-  align-items: space-between;
+  width: 90%;
   grid-column: 2;
   grid-row: 1 / 9;
-  grid-template-rows: 50px repeat(2, 200px) repeat(2, 50px);
+  grid-template-rows: 50px repeat(auto, 200px) repeat(2, 50px);
+}
+
+.reviews-container {
+  max-height: 800px;
+  overflow-y: scroll;
 }
 
 .review {
+  background-color: lightgray;
   border: 1px solid black;
   margin: 20px 0;
 }

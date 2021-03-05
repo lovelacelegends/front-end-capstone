@@ -9,7 +9,6 @@ class ProductInfo extends React.Component {
   }
 
   render() {
-    console.log("render")
     const { selectedProduct, styles, currentStyle } = this.props;
     {selectedProduct}
     return (
