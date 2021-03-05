@@ -17,6 +17,7 @@ class OutfitContainer extends React.Component {
       currentStorageArray: [],
     };
     this.addToStorage = this.addToStorage.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
@@ -26,6 +27,14 @@ class OutfitContainer extends React.Component {
         currentStorageArray: updatedStorage,
       });
     }
+  }
+
+  handleDelete(id) {
+    localStorage.removeItem(id);
+    const updatedStorage = OutfitContainer.gatherObjects();
+    this.setState({
+      currentStorageArray: updatedStorage,
+    });
   }
 
   addToStorage() {
@@ -52,7 +61,11 @@ class OutfitContainer extends React.Component {
     let outfitList;
     if (currentStorageArray.length !== 0) {
       outfitList = currentStorageArray.map((product) => (
-        <OutfitCard product={product} />
+        <OutfitCard
+          key={product.id}
+          product={product}
+          handleDelete={this.handleDelete}
+        />
       ));
     } else {
       outfitList = (
@@ -63,12 +76,8 @@ class OutfitContainer extends React.Component {
     return (
       <div
         className="outfit-container"
-        onClick={this.addToStorage}
-        onKeyPress={this.addToStorage}
-        role="button"
-        tabIndex={0}
       >
-        <AddProductCard />
+        <AddProductCard addToStorage={this.addToStorage} />
         {outfitList}
       </div>
     );

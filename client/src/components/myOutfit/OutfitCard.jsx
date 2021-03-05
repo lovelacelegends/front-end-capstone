@@ -1,12 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const OutfitCard = ({ product }) => (
+const OutfitCard = ({ product, handleDelete }) => (
   <div
     className="outfit-product-card"
   >
     <div
       className="outfit-card-x"
+      onClick={() => {
+        handleDelete(product.id);
+      }}
+      onKeyPress={() => {
+        handleDelete(product.id);
+      }}
+      role="button"
+      tabIndex={0}
     >
       X
     </div>
@@ -29,6 +37,7 @@ const OutfitCard = ({ product }) => (
 );
 
 OutfitCard.propTypes = {
+  handleDelete: PropTypes.func.isRequired,
   product: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.number,

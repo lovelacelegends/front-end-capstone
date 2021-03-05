@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/products/17734')
+    axios.get('/products/17374')
       .then((data) => {
         // eslint-disable-next-line no-console
         console.log('axios: ', data);
