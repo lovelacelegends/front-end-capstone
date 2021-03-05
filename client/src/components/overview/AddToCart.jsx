@@ -70,7 +70,7 @@ class AddToCart extends React.Component {
         </div>
       </div>
     );
-     }
+  }
 }
 
 export default AddToCart;

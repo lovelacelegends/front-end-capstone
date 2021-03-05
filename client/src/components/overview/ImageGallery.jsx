@@ -13,8 +13,8 @@ class ImageGallery extends React.Component {
       <div className="image-gallery"
       style={{ backgroundImage: `url(${styles.results[currentStyle].photos[0].thumbnail_url})`}}
       >
-          <BsArrowLeftShort id="left-arrow" />
-          <BsArrowRightShort id="rigth-arrow" />
+          <BsArrowLeftShort className="left-arrow" />
+          <BsArrowRightShort className="right-arrow" />
       </div>
     );
   }
