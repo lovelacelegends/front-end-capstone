@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const OutfitCard = ({ product }) => (
   <div
@@ -9,6 +10,11 @@ const OutfitCard = ({ product }) => (
     >
       X
     </div>
+    <img
+      className="outfit-card-image"
+      alt={product.productName}
+      src={product.url}
+    />
     <div
       className="outfit-card-name"
     >
@@ -21,5 +27,14 @@ const OutfitCard = ({ product }) => (
     </div>
   </div>
 );
+
+OutfitCard.propTypes = {
+  product: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string,
+    ]),
+  ).isRequired,
+};
 
 export default OutfitCard;
