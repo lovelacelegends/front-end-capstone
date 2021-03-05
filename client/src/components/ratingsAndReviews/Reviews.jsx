@@ -6,16 +6,25 @@ class Reviews extends React.Component {
     super(props);
 
     this.state = {
-
+      displayAmount: 2,
     };
+
+    this.handleMoreReviewsClick = this.handleMoreReviewsClick.bind(this);
+  }
+
+  handleMoreReviewsClick() {
+    this.setState((prevState) => ({
+      displayAmount: prevState.displayAmount + 2,
+    }));
   }
 
   render() {
     const { reviews } = this.props;
+    const { displayAmount } = this.state;
 
     if (Object.keys(reviews).length !== 0) {
       return (
-        <div className="reviews">
+        <div className="reviews-section">
           <div>
             {reviews.results.length}
             {' reviews, sorted by '}
@@ -25,24 +34,32 @@ class Reviews extends React.Component {
               <option>helpful</option>
             </select>
           </div>
-          {reviews.results.map((review) => (
-            <div className="review" key={review.review_id}>
-              <div>
-                <span className="stars" style={{ '--rating': review.rating }} />
-                {'  '}
-                <span>{review.reviewer_name}</span>
-                {'  '}
-                <span>{review.date.substr(0, 10)}</span>
-              </div>
-              <h3>{review.summary}</h3>
-              <p>{review.body}</p>
-              <span>
-                {review.helpfulness}
-                {' people found this review helpful'}
-              </span>
-            </div>
-          ))}
-          <button type="button">MORE REVIEWS</button>
+          <div className="reviews-container">
+            {reviews.results.map((review, index) => {
+              if (index < displayAmount) {
+                return (
+                  <div className="review" key={review.review_id}>
+                    <div>
+                      <span className="stars" style={{ '--rating': review.rating }} />
+                      {'  '}
+                      <span>{review.reviewer_name}</span>
+                      {'  '}
+                      <span>{review.date.substr(0, 10)}</span>
+                    </div>
+                    <h3>{review.summary}</h3>
+                    <p>{review.body}</p>
+                    <span>
+                      {review.helpfulness}
+                      {' people found this review helpful'}
+                    </span>
+                  </div>
+                );
+              }
+
+              return null;
+            })}
+          </div>
+          <button type="button" onClick={this.handleMoreReviewsClick}>MORE REVIEWS</button>
           <button type="button">ADD A REVIEW +</button>
         </div>
       );

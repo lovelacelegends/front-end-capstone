@@ -30,17 +30,14 @@ class Ratings extends React.Component {
       const recommended = Math.round((Number(r.true) / (Number(r.false) + Number(r.true))) * 100);
 
       return (
-        <div className="ratings">
+        <div className="ratings-section">
           <div>RATINGS & REVIEWS</div>
           <div>
             {averageRating}
             {'  '}
             <span className="stars" style={{ '--rating': averageRatingQuarter }} />
           </div>
-          <div>
-            {recommended}
-            % of reviewers recommend this product
-          </div>
+          <h5>Rating Breakdown</h5>
           <div>
             {'5 stars  '}
             <span className="bar" style={{ '--count': meta.ratings['5'], '--total': numOfReviews }}>
@@ -77,20 +74,24 @@ class Ratings extends React.Component {
             </span>
           </div>
           <div>
+            {recommended}
+            % of reviewers recommend this product
+          </div>
+          <div>
             {'Fit: '}
-            {meta.characteristics.Fit.value}
+            {/* {meta.characteristics.Fit.value} */}
           </div>
           <div>
             {'Length: '}
-            {meta.characteristics.Length.value}
+            {/* {meta.characteristics.Length.value} */}
           </div>
           <div>
             {'Comfort: '}
-            {meta.characteristics.Comfort.value}
+            {/* {meta.characteristics.Comfort.value} */}
           </div>
           <div>
             {'Quality: '}
-            {meta.characteristics.Quality.value}
+            {/* {meta.characteristics.Quality.value} */}
           </div>
         </div>
       );
