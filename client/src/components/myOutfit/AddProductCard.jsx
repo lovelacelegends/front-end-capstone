@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddProductCard = (props) => (
+const AddProductCard = () => (
   <div
     className="add-product-card"
   >
