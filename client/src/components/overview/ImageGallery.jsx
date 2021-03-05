@@ -1,4 +1,5 @@
 import React from 'react';
+import {BsArrowRightShort, BsArrowLeftShort} from 'react-icons/bs';
 
 class ImageGallery extends React.Component {
   constructor(props) {
@@ -7,12 +8,18 @@ class ImageGallery extends React.Component {
   }
 
   render() {
+    const { styles, currentStyle, selectedProduct} = this.props;
     return (
-      <div className="image-gallery">
-        ImageGallery
+      <div className="image-gallery"
+      style={{ backgroundImage: `url(${styles.results[currentStyle].photos[0].thumbnail_url})`}}
+      >
+          <BsArrowLeftShort id="left-arrow" />
+          <BsArrowRightShort id="rigth-arrow" />
       </div>
     );
   }
 }
 
 export default ImageGallery;
+
+/**<img id='main-image' src={styles.results[currentStyle].photos[0].url} /> */

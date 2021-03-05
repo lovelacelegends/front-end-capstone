@@ -49,7 +49,10 @@ class SizeSelector extends React.Component {
                 );
                 indexOfSku ++
               }
-              return null;
+              return (
+                <option id={indexOfSku++}> {sizetoDisplay} </option>
+              );
+              indexOfSku ++
             })}
           </select>
         </div>

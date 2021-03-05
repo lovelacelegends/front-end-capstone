@@ -21,6 +21,8 @@ body {
   grid-column-end: 7;
   grid-row-start: 1;
   grid-row-end: 6;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .product-info{
@@ -99,6 +101,34 @@ body {
 
 #hide-option{
   display: none;
+}
+
+.slider{
+  position: absolute;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+#main-image{
+  width: 100px;
+  height: 100px;
+}
+
+#left-arrow{
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  z-index: 10;
+}
+
+#right-arrow{
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  z-index: 10;
 }
 
 /* RELATED PRODUCTS */
