@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Ratings extends React.Component {
   constructor(props) {
@@ -42,35 +43,35 @@ class Ratings extends React.Component {
           </div>
           <div>
             {'5 stars  '}
-            <span className="bar" style={{ '--count': meta.ratings['5'], '--total': '34' }}>
+            <span className="bar" style={{ '--count': meta.ratings['5'], '--total': numOfReviews }}>
               {'  '}
               {meta.ratings['5']}
             </span>
           </div>
           <div>
             {'4 stars  '}
-            <span className="bar" style={{ '--count': meta.ratings['4'], '--total': '34' }}>
+            <span className="bar" style={{ '--count': meta.ratings['4'], '--total': numOfReviews }}>
               {'  '}
               {meta.ratings['4']}
             </span>
           </div>
           <div>
             {'3 stars  '}
-            <span className="bar" style={{ '--count': meta.ratings['3'], '--total': '34' }}>
+            <span className="bar" style={{ '--count': meta.ratings['3'], '--total': numOfReviews }}>
               {'  '}
               {meta.ratings['3']}
             </span>
           </div>
           <div>
             {'2 stars  '}
-            <span className="bar" style={{ '--count': meta.ratings['2'], '--total': '34' }}>
+            <span className="bar" style={{ '--count': meta.ratings['2'], '--total': numOfReviews }}>
               {'  '}
               {meta.ratings['2']}
             </span>
           </div>
           <div>
             {'1 stars  '}
-            <span className="bar" style={{ '--count': meta.ratings['1'], '--total': '34' }}>
+            <span className="bar" style={{ '--count': meta.ratings['1'], '--total': numOfReviews }}>
               {'  '}
               {meta.ratings['1']}
             </span>
@@ -100,5 +101,14 @@ class Ratings extends React.Component {
     );
   }
 }
+
+Ratings.propTypes = {
+  meta: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+    ]),
+  ).isRequired,
+};
 
 export default Ratings;

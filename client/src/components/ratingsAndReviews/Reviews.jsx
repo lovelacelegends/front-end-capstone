@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -52,5 +53,15 @@ class Reviews extends React.Component {
     );
   }
 }
+
+Reviews.propTypes = {
+  reviews: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+};
 
 export default Reviews;

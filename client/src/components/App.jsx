@@ -27,10 +27,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/products/17859')
+    this.getProductData('17859');
+  }
+
+  getProductData(id) {
+    axios.get(`/products/${id}`)
       .then((data) => {
         // eslint-disable-next-line no-console
-        console.log('axios: ', data);
+        console.log('axios: ', data.data);
+
         this.setState({
           selectedProduct: data.data[0],
           styles: data.data[1],
@@ -41,7 +46,7 @@ class App extends React.Component {
       })
       .catch((error) => {
         // eslint-disable-next-line no-console
-        console.log(error);
+        console.error(error);
       });
   }
 
