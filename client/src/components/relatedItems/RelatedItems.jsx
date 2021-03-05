@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RelatedLeftArrow from './RelatedLeftArrow';
-import RelatedRightArrow from './RelatedRightArrow';
+// import RelatedLeftArrow from './RelatedLeftArrow';
+// import RelatedRightArrow from './RelatedRightArrow';
 import RelatedCardContainer from './RelatedCardContainer';
 
 class RelatedItems extends React.Component {
@@ -15,12 +15,12 @@ class RelatedItems extends React.Component {
 
     return relatedProductIds.length ? (
       <div className="related-items-grid-frame">
-        <RelatedLeftArrow />
+        {/* <RelatedLeftArrow /> */}
         <RelatedCardContainer
           relatedProductIds={relatedProductIds}
           selectedProduct={selectedProduct}
         />
-        <RelatedRightArrow />
+        {/* <RelatedRightArrow /> */}
       </div>
     ) : (
       'loading....'

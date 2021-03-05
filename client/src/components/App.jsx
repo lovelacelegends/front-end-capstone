@@ -29,7 +29,7 @@ class App extends React.Component {
 
   componentDidMount() {
     // 17734
-    this.getProductData('17762');
+    this.getProductData('17734');
   }
 
   getProductData(id) {
