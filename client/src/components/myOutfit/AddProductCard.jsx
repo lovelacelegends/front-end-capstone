@@ -8,6 +8,7 @@ const AddProductCard = (props) => (
     <div>ADD</div>
     <div>TO</div>
     <div>OUTFIT</div>
+    <div>(Update Style)</div>
   </div>
 );
 
