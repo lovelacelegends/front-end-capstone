@@ -277,11 +277,13 @@ td {
 }
 
 .related-items-grid-frame {
-  margin: 30px 150px;
+  margin: 30px auto;
   height: 260px;
+  width: 860px;
   display: grid;
   grid-template-columns: 2.5% 95% 2.5%;
   grid-template-rows: 36% 28% 36%;
+  border: 1px solid black;
 }
 
 .related-left-arrow {
