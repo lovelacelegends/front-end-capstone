@@ -27,7 +27,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('/products/17859')
+    axios.get('/products/17322')
       .then((data) => {
         // eslint-disable-next-line no-console
         console.log('axios: ', data);
@@ -75,7 +75,11 @@ class App extends React.Component {
           relatedProductIds={relatedProductIds}
           selectedProduct={selectedProduct}
         />
-        <MyOutfit />
+        <MyOutfit
+          currentProduct={selectedProduct}
+          styles={styles}
+          currentStyle={currentStyle}
+        />
         <QuestionsAndAnswers />
         <RatingsAndReviews reviews={reviews} meta={meta} />
       </div>
