@@ -21,8 +21,10 @@ body {
   grid-column-end: 7;
   grid-row-start: 1;
   grid-row-end: 6;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
+  align-items: center;
+  justify-items: center;
 }
 
 .product-info{
