@@ -279,7 +279,7 @@ td {
 .related-items-grid-frame {
   margin: 30px auto;
   height: 260px;
-  width: 860px;
+  width: 864px;
   display: grid;
   grid-template-columns: 2.5% 95% 2.5%;
   grid-template-rows: 36% 28% 36%;
@@ -306,9 +306,13 @@ td {
 
 .related-card-container {
   grid-area: 1/1/4/4;
+  position: relative;
+  overflow: hidden;
+}
+
+.related-card-container-slider {
+  height: 260px;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
 }
 
 .related-card {
@@ -316,6 +320,7 @@ td {
   background-color: rgb(162, 180, 197);
   height: 260px;
   width: 200px;
+  margin: 0px 8px;
   display: grid;
   grid-template-columns: 95% 5%;
   grid-template-rows: 6% 58% 9% 9% 9% 9%;
