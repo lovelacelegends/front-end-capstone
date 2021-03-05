@@ -23,14 +23,21 @@ class App extends React.Component {
       meta: {},
     };
 
+    this.getProductData = this.getProductData.bind(this);
     this.updateCurrentStyle = this.updateCurrentStyle.bind(this);
   }
 
   componentDidMount() {
-    axios.get('/products/17322')
+    // 17734
+    this.getProductData('17762');
+  }
+
+  getProductData(id) {
+    axios.get(`/products/${id}`)
       .then((data) => {
         // eslint-disable-next-line no-console
-        console.log('axios: ', data);
+        console.log('axios: ', data.data);
+
         this.setState({
           selectedProduct: data.data[0],
           styles: data.data[1],
@@ -41,7 +48,7 @@ class App extends React.Component {
       })
       .catch((error) => {
         // eslint-disable-next-line no-console
-        console.log(error);
+        console.error(error);
       });
   }
 
@@ -81,7 +88,10 @@ class App extends React.Component {
           currentStyle={currentStyle}
         />
         <QuestionsAndAnswers />
-        <RatingsAndReviews reviews={reviews} meta={meta} />
+        <RatingsAndReviews
+          reviews={reviews}
+          meta={meta}
+        />
       </div>
     );
   }

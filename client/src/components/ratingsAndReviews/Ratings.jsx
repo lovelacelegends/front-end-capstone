@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Ratings extends React.Component {
   constructor(props) {
@@ -29,67 +30,68 @@ class Ratings extends React.Component {
       const recommended = Math.round((Number(r.true) / (Number(r.false) + Number(r.true))) * 100);
 
       return (
-        <div className="ratings">
+        <div className="ratings-section">
           <div>RATINGS & REVIEWS</div>
           <div>
             {averageRating}
             {'  '}
             <span className="stars" style={{ '--rating': averageRatingQuarter }} />
           </div>
-          <div>
-            {recommended}
-            % of reviewers recommend this product
-          </div>
+          <h5>Rating Breakdown</h5>
           <div>
             {'5 stars  '}
-            <span className="bar" style={{ '--count': meta.ratings['5'], '--total': '34' }}>
+            <span className="bar" style={{ '--count': meta.ratings['5'], '--total': numOfReviews }}>
               {'  '}
               {meta.ratings['5']}
             </span>
           </div>
           <div>
             {'4 stars  '}
-            <span className="bar" style={{ '--count': meta.ratings['4'], '--total': '34' }}>
+            <span className="bar" style={{ '--count': meta.ratings['4'], '--total': numOfReviews }}>
               {'  '}
               {meta.ratings['4']}
             </span>
           </div>
           <div>
             {'3 stars  '}
-            <span className="bar" style={{ '--count': meta.ratings['3'], '--total': '34' }}>
+            <span className="bar" style={{ '--count': meta.ratings['3'], '--total': numOfReviews }}>
               {'  '}
               {meta.ratings['3']}
             </span>
           </div>
           <div>
             {'2 stars  '}
-            <span className="bar" style={{ '--count': meta.ratings['2'], '--total': '34' }}>
+            <span className="bar" style={{ '--count': meta.ratings['2'], '--total': numOfReviews }}>
               {'  '}
               {meta.ratings['2']}
             </span>
           </div>
           <div>
             {'1 stars  '}
-            <span className="bar" style={{ '--count': meta.ratings['1'], '--total': '34' }}>
+            <span className="bar" style={{ '--count': meta.ratings['1'], '--total': numOfReviews }}>
               {'  '}
               {meta.ratings['1']}
             </span>
           </div>
           <div>
+            {recommended}
+            % of reviewers recommend this product
+          </div>
+          <div>
             {'Fit: '}
-            {meta.characteristics.Fit.value}
+            {/* {meta.characteristics.Fit.value} */}
           </div>
           <div>
             {'Length: '}
-            {meta.characteristics.Length.value}
+            {/* {meta.characteristics.Length.value} */}
           </div>
           <div>
             {'Comfort: '}
-            {meta.characteristics.Comfort.value}
+            {/* {meta.characteristics.Comfort.value} */}
           </div>
           <div>
             {'Quality: '}
-            {meta.characteristics.Quality.value}
+            {/* {meta.characteristics.Quality.value} */}
           </div>
         </div>
       );
@@ -100,5 +102,14 @@ class Ratings extends React.Component {
     );
   }
 }
+
+Ratings.propTypes = {
+  meta: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+    ]),
+  ).isRequired,
+};
 
 export default Ratings;

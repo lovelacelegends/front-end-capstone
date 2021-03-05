@@ -8,7 +8,7 @@ body {
   --star-background: orange;
   --bar-size: 15px;
   --bar-color: gray;
-  --bar-background: orange;
+  --bar-background: rgb(35, 150, 35);
 }
 
 /* STARS SECTION - to use, simply add the stars class and pass in a number into style={{ '--rating': NUM }} */
@@ -17,6 +17,7 @@ body {
   content: '★★★★★';
   letter-spacing: 0;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -370,19 +371,24 @@ td {
   justify-items: center;
 }
 
-.ratings {
+.ratings-section {
   display: grid;
   width: 80%;
   grid-column: 1;
   grid-row: 1 / 6;
 }
 
-.reviews {
+.reviews-section {
   display: grid;
   width: 90%;
   grid-column: 2;
   grid-row: 1 / 9;
   grid-template-rows: 50px repeat(auto, 200px) repeat(2, 50px);
+}
+
+.reviews-container {
+  max-height: 800px;
+  overflow-y: scroll;
 }
 
 .review {
