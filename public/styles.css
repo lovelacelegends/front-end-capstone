@@ -303,6 +303,7 @@ td {
   overflow: auto;
   grid-template-columns: 1fr 2.5fr;
   justify-items: center;
+  align-content: center;
 }
 
 .ratings-section {
@@ -329,4 +330,15 @@ td {
   background-color: lightgray;
   border: 1px solid black;
   margin: 20px 0;
+}
+
+.review-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  height: 80%;
+  width: 80%;
+  background-color: white;
+  z-index: 10;
+  transform: translate(-50%, -50%);
 }

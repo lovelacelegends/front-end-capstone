@@ -87,7 +87,6 @@ class App extends React.Component {
         <RatingsAndReviews
           reviews={reviews}
           meta={meta}
-          getAverageStarRating={this.getAverageStarRating}
         />
       </div>
     );
