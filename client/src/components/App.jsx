@@ -82,7 +82,11 @@ class App extends React.Component {
           relatedProductIds={relatedProductIds}
           selectedProduct={selectedProduct}
         />
-        <MyOutfit />
+        <MyOutfit
+          currentProduct={selectedProduct}
+          styles={styles}
+          currentStyle={currentStyle}
+        />
         <QuestionsAndAnswers />
         <RatingsAndReviews
           reviews={reviews}

@@ -145,6 +145,95 @@ body {
   display: none;
 }
 
+/* MY OUTFIT SECTION */
+
+.outfit-left-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  grid-area: 2/1/3/2;
+  background-color: aqua;
+}
+
+.outfit-right-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  grid-area: 2/3/3/4;
+  background-color: aqua;
+}
+
+.outfit-container {
+  grid-area: 1/1/4/4;
+  display: flex;
+  flex-direction: row;
+}
+
+.outfit-product-card {
+  border: 1px solid black;
+  background-color: rgb(162, 180, 197);
+  height: 260px;
+  width: 200px;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  grid-template-rows: 5% 79% 8% 8%;
+  border-radius: 5px;
+}
+
+.outfit-card-name {
+  grid-area: 4/1/5/3;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding-left: 5px;
+}
+
+.outfit-card-style {
+  grid-area: 3/1/4/3;
+  font-style: italic;
+  padding-left: 5px;
+}
+
+.outfit-card-image {
+  grid-area: 1/1/3/3;
+  width: 100%;
+  height: 100%;
+}
+
+.outfit-card-x {
+  grid-area: 1/2/2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.add-product-card {
+  border: 1px solid black;
+  background-color: rgb(162, 180, 197);
+  height: 260px;
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  /* grid-template-columns: 95% 5%;
+  grid-template-rows: 6% 58% 9% 9% 9% 9%; */
+}
+
+.add-product-card:hover {
+  color: white;
+  cursor: pointer;
+}
+
+#plus-sign {
+  font-size: 32px;
+  font-weight: 500;
+}
+
+
 /* RELATED PRODUCTS */
 
 .related-modal {
@@ -215,7 +304,6 @@ td {
 
 .related-card-container {
   grid-area: 1/1/4/4;
-  background-color: rgb(219, 219, 170);
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -223,6 +311,7 @@ td {
 
 .related-card {
   border: 1px solid black;
+  background-color: rgb(162, 180, 197);
   height: 260px;
   width: 200px;
   display: grid;
@@ -241,8 +330,8 @@ td {
 }
 
 .related-default-picture {
-  max-width: 100%;
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   grid-area: 1/1/3/3;
 }
 
@@ -260,29 +349,6 @@ td {
   grid-area: 6/1/7/3;
 }
 
-
-.outfit-left-arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  grid-area: 2/1/3/2;
-  background-color: aqua;
-}
-
-.outfit-right-arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  grid-area: 2/3/3/4;
-  background-color: aqua;
-}
-
-.outfit-container {
-  grid-area: 1/1/4/4;
-  background-color: rgb(219, 219, 170);
-}
 
 /* QUESTIONS AND ANSWERS SECTION */
 
