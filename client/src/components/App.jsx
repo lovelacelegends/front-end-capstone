@@ -23,6 +23,7 @@ class App extends React.Component {
       meta: {},
     };
 
+    this.getProductData = this.getProductData.bind(this);
     this.updateCurrentStyle = this.updateCurrentStyle.bind(this);
   }
 
@@ -82,7 +83,11 @@ class App extends React.Component {
         />
         <MyOutfit />
         <QuestionsAndAnswers />
-        <RatingsAndReviews reviews={reviews} meta={meta} />
+        <RatingsAndReviews
+          reviews={reviews}
+          meta={meta}
+          getAverageStarRating={this.getAverageStarRating}
+        />
       </div>
     );
   }
