@@ -10,10 +10,9 @@ class RelatedItemCard extends React.Component {
   }
 
   handleProductClick() {
-    const { product, getProductData } = this.props;
-    // eslint-disable-next-line no-console
-    console.log(product.id);
+    const { product, getProductData, resetState } = this.props;
     getProductData(product.id);
+    resetState();
   }
 
   handleModalClick() {
@@ -61,6 +60,8 @@ class RelatedItemCard extends React.Component {
 }
 
 RelatedItemCard.propTypes = {
+  resetState: PropTypes.func.isRequired,
+  getProductData: PropTypes.func.isRequired,
   updateModal: PropTypes.func.isRequired,
   selectedProduct: PropTypes.objectOf(
     PropTypes.oneOfType([

@@ -49,8 +49,8 @@ class App extends React.Component {
           const { relatedProductIds } = this.state;
           const arrayOfPromises = [];
 
-          relatedProductIds.forEach((id) => {
-            arrayOfPromises.push(axios.get(`/related/${id}`));
+          relatedProductIds.forEach((relatedID) => {
+            arrayOfPromises.push(axios.get(`/related/${relatedID}`));
           });
 
           Promise.all(arrayOfPromises)

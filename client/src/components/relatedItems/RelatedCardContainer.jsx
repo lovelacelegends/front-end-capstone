@@ -1,45 +1,23 @@
 import React from 'react';
-import axios from 'axios';
 import PropTypes from 'prop-types';
 import RelatedItemCard from './RelatedItemCard';
 
 class RelatedCardContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      productInfoList: [],
-    };
-    // this.getProductCardInfo = this.getProductCardInfo.bind(this);
+    this.state = {};
   }
 
-  // getProductCardInfo() {
-  //   const { relatedProductIds } = this.props;
-  //   const arrayOfPromises = [];
-
-  //   relatedProductIds.forEach((id) => {
-  //     arrayOfPromises.push(axios.get(`/related/${id}`));
-  //   });
-
-  //   Promise.all(arrayOfPromises)
-  //     .then((arrayOfProductData) => {
-  //       const dataArray = arrayOfProductData.map((product) => product.data);
-  //       this.setState({
-  //         productInfoList: dataArray,
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       // eslint-disable-next-line no-console
-  //       console.log(error);
-  //     });
-  // }
-
   render() {
-    // const { productInfoList } = this.state;
-    const { selectedProduct, currentPosition, updateModal, relatedProductData, getProductData } = this.props;
-    // debugger;
-    // if (productInfoList.length === 0) {
-    //   this.getProductCardInfo();
-    // }
+    const {
+      selectedProduct,
+      currentPosition,
+      updateModal,
+      relatedProductData,
+      getProductData,
+      resetState,
+    } = this.props;
+
     let productListDiv;
     if (relatedProductData.length !== 0) {
       productListDiv = (
@@ -55,6 +33,7 @@ class RelatedCardContainer extends React.Component {
                 selectedProduct={selectedProduct}
                 updateModal={updateModal}
                 getProductData={getProductData}
+                resetState={resetState}
               />
             ))}
           </div>
@@ -73,11 +52,15 @@ class RelatedCardContainer extends React.Component {
 }
 
 RelatedCardContainer.propTypes = {
+  resetState: PropTypes.func.isRequired,
+  relatedProductData: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.object,
+    ]),
+  ).isRequired,
+  getProductData: PropTypes.func.isRequired,
   updateModal: PropTypes.func.isRequired,
   currentPosition: PropTypes.number.isRequired,
-  relatedProductIds: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.number]),
-  ).isRequired,
   selectedProduct: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
