@@ -30,15 +30,22 @@ class OutfitContainer extends React.Component {
   }
 
   handleDelete(id) {
+    const { updateStorageCount } = this.props;
     localStorage.removeItem(id);
     const updatedStorage = OutfitContainer.gatherObjects();
+    updateStorageCount();
     this.setState({
       currentStorageArray: updatedStorage,
     });
   }
 
   addToStorage() {
-    const { currentProduct, currentStyle, styles } = this.props;
+    const {
+      currentProduct,
+      currentStyle,
+      styles,
+      updateStorageCount,
+    } = this.props;
 
     const productToStore = {
       id: currentProduct.id,
@@ -50,6 +57,7 @@ class OutfitContainer extends React.Component {
     localStorage.setItem(currentProduct.id, JSON.stringify(productToStore));
 
     const updatedStorage = OutfitContainer.gatherObjects();
+    updateStorageCount();
     this.setState({
       currentStorageArray: updatedStorage,
     });
@@ -88,6 +96,7 @@ class OutfitContainer extends React.Component {
 }
 
 OutfitContainer.propTypes = {
+  updateStorageCount: PropTypes.func.isRequired,
   currentPosition: PropTypes.number.isRequired,
   currentStyle: PropTypes.number.isRequired,
   currentProduct: PropTypes.objectOf(

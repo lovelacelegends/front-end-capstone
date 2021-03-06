@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import PropTypes from 'prop-types';
 import OutfitContainer from './OutfitContainer';
@@ -8,9 +9,11 @@ class MyOutfit extends React.Component {
     this.state = {
       currentPosition: 0,
       positionIndex: 0,
+      storageCount: (Object.keys(localStorage).length),
     };
     this.moveRight = this.moveRight.bind(this);
     this.moveLeft = this.moveLeft.bind(this);
+    this.updateStorageCount = this.updateStorageCount.bind(this);
   }
 
   moveRight() {
@@ -33,9 +36,18 @@ class MyOutfit extends React.Component {
     });
   }
 
+  updateStorageCount() {
+    const newStorageCount = Object.keys(localStorage).length;
+    this.setState({
+      storageCount: newStorageCount,
+      currentPosition: 0,
+      positionIndex: 0,
+    });
+  }
+
   render() {
     const { currentProduct, currentStyle, styles } = this.props;
-    const { currentPosition, positionIndex } = this.state;
+    const { currentPosition, positionIndex, storageCount } = this.state;
 
     let leftArrow;
     if (positionIndex > 0) {
@@ -43,12 +55,34 @@ class MyOutfit extends React.Component {
         <div
           className="related-left-arrow"
           onClick={this.moveLeft}
+          onKeyPress={this.moveLeft}
+          role="button"
+          tabIndex={0}
         >
           L
         </div>
       );
     } else {
       leftArrow = (
+        null
+      );
+    }
+
+    let rightArrow;
+    if (storageCount > 3 && (storageCount - 3 > positionIndex)) {
+      rightArrow = (
+        <div
+          className="related-right-arrow"
+          onClick={this.moveRight}
+          onKeyPress={this.moveRight}
+          role="button"
+          tabIndex={0}
+        >
+          R
+        </div>
+      );
+    } else {
+      rightArrow = (
         null
       );
     }
@@ -62,14 +96,10 @@ class MyOutfit extends React.Component {
             currentStyle={currentStyle}
             styles={styles}
             currentPosition={currentPosition}
+            updateStorageCount={this.updateStorageCount}
           />
         </div>
-        <div
-          className="related-right-arrow"
-          onClick={this.moveRight}
-        >
-          R
-        </div>
+        {rightArrow}
       </div>
     );
   }
