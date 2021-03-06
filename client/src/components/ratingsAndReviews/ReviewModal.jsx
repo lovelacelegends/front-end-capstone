@@ -42,144 +42,144 @@ class ReviewModal extends React.Component {
         <div className="stars" style={{ '--rating': stars }} />
         <br />
         <span>Do you recommend this product?</span>
-        <label>
-          <input type="radio" value="Yes" />
+        <label htmlFor="recommend-yes">
+          <input type="radio" id="recommend-yes" value="Yes" />
           Yes
         </label>
-        <label>
-          <input type="radio" value="No" />
+        <label htmlFor="recommend-no">
+          <input type="radio" id="recommend-no" value="No" />
           No
         </label>
         <br />
         <span>Size</span>
-        <label>
-          <input type="radio" value="1" />
+        <label htmlFor="size-1">
+          <input type="radio" id="size-1" value="1" />
           A size too small
         </label>
-        <label>
-          <input type="radio" value="2" />
+        <label htmlFor="size-2">
+          <input type="radio" id="size-2" value="2" />
           1/2 a size too small
         </label>
-        <label>
-          <input type="radio" value="3" />
+        <label htmlFor="size-3">
+          <input type="radio" id="size-3" value="3" />
           Perfect
         </label>
-        <label>
-          <input type="radio" value="4" />
+        <label htmlFor="size-4">
+          <input type="radio" id="size-5" value="4" />
           1/2 a size too big
         </label>
-        <label>
-          <input type="radio" value="5" />
+        <label htmlFor="size-5">
+          <input type="radio" id="size-5" value="5" />
           A size too wide
         </label>
         <br />
         <span>Width</span>
-        <label>
-          <input type="radio" value="1" />
+        <label htmlFor="width-1">
+          <input type="radio" id="width-1" value="1" />
           Too narrow
         </label>
-        <label>
-          <input type="radio" value="2" />
+        <label htmlFor="width-2">
+          <input type="radio" id="width-2" value="2" />
           Slightly narrow
         </label>
-        <label>
-          <input type="radio" value="3" />
+        <label htmlFor="width-3">
+          <input type="radio" id="width-3" value="3" />
           Perfect
         </label>
-        <label>
-          <input type="radio" value="4" />
+        <label htmlFor="width-4">
+          <input type="radio" id="width-4" value="4" />
           Slightly wide
         </label>
-        <label>
-          <input type="radio" value="5" />
+        <label htmlFor="width-5">
+          <input type="radio" id="width-5" value="5" />
           Too wide
         </label>
         <br />
         <span>Comfort</span>
-        <label>
-          <input type="radio" value="1" />
+        <label htmlFor="comfort-1">
+          <input type="radio" id="comfort-1" value="1" />
           Uncomfortable
         </label>
-        <label>
-          <input type="radio" value="2" />
+        <label htmlFor="comfort-2">
+          <input type="radio" id="comfort-2" value="2" />
           Slightly uncomfortable
         </label>
-        <label>
-          <input type="radio" value="3" />
+        <label htmlFor="comfort-3">
+          <input type="radio" id="comfort-3" value="3" />
           Ok
         </label>
-        <label>
-          <input type="radio" value="4" />
+        <label htmlFor="comfort-4">
+          <input type="radio" id="comfort-4" value="4" />
           Comfortable
         </label>
-        <label>
-          <input type="radio" value="5" />
+        <label htmlFor="comfort-5">
+          <input type="radio" id="comfort-5" value="5" />
           Perfect
         </label>
         <br />
         <span>Quality</span>
-        <label>
-          <input type="radio" value="1" />
+        <label htmlFor="quality-1">
+          <input type="radio" id="quality-1" value="1" />
           Poor
         </label>
-        <label>
-          <input type="radio" value="2" />
+        <label htmlFor="quality-2">
+          <input type="radio" id="quality-2" value="2" />
           Below average
         </label>
-        <label>
-          <input type="radio" value="3" />
+        <label htmlFor="quality-3">
+          <input type="radio" id="quality-3" value="3" />
           What I expected
         </label>
-        <label>
-          <input type="radio" value="4" />
+        <label htmlFor="quality-4">
+          <input type="radio" id="quality-4" value="4" />
           Pretty great
         </label>
-        <label>
-          <input type="radio" value="5" />
+        <label htmlFor="quality-5">
+          <input type="radio" id="quality-5" value="5" />
           Perfect
         </label>
         <br />
         <span>Length</span>
-        <label>
-          <input type="radio" value="1" />
+        <label htmlFor="length-1">
+          <input type="radio" id="length-1" value="1" />
           Runs short
         </label>
-        <label>
-          <input type="radio" value="2" />
+        <label htmlFor="length-2">
+          <input type="radio" id="length-2" value="2" />
           Runs slightly short
         </label>
-        <label>
-          <input type="radio" value="3" />
+        <label htmlFor="length-3">
+          <input type="radio" id="length-3" value="3" />
           Perfect
         </label>
-        <label>
-          <input type="radio" value="4" />
+        <label htmlFor="length-4">
+          <input type="radio" id="length-4" value="4" />
           Runs slightly long
         </label>
-        <label>
-          <input type="radio" value="5" />
+        <label htmlFor="length-5">
+          <input type="radio" id="length-5" value="5" />
           Runs long
         </label>
         <br />
         <span>Fit</span>
-        <label>
-          <input type="radio" value="1" />
+        <label htmlFor="fit-1">
+          <input type="radio" id="fit-1" value="1" />
           Runs tight
         </label>
-        <label>
-          <input type="radio" value="2" />
+        <label htmlFor="fit-2">
+          <input type="radio" id="fit-2" value="2" />
           Runs slightly tight
         </label>
-        <label>
-          <input type="radio" value="3" />
+        <label htmlFor="fit-3">
+          <input type="radio" id="fit-3" value="3" />
           Perfect
         </label>
-        <label>
-          <input type="radio" value="4" />
+        <label htmlFor="fit-4">
+          <input type="radio" id="fit-4" value="4" />
           Runs slightly long
         </label>
-        <label>
-          <input type="radio" value="5" />
+        <label htmlFor="fit-5">
+          <input type="radio" id="fit-5" value="5" />
           Runs long
         </label>
         <br />
