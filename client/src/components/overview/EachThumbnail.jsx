@@ -8,10 +8,10 @@ class EachThumbnail extends React.Component {
   }
 
   render() {
-    const {photo} = this.props;
+    const {photo, thumbnailClick, index } = this.props;
     return (
       <div>
-        <img src={photo.thumbnail_url} alt="thubnail icon" className="each-thumbnail" />
+        <img src={photo.thumbnail_url} alt="thubnail icon" className="each-thumbnail" onClick={thumbnailClick} />
       </div>
     );
   }

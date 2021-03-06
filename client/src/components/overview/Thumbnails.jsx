@@ -34,9 +34,7 @@ class Thumbnails extends React.Component {
   }
 
   decreaseIndexesByOne() {
-    debugger;
     if (this.state.startIndex > 0) {
-      debugger;
       const newStartIndex = this.state.startIndex -= 1;
       const newEndIndex = this.state.endIndex -= 1;
       this.setState({ startIndex: newStartIndex, endIndex: newEndIndex });
@@ -44,13 +42,14 @@ class Thumbnails extends React.Component {
   }
 
   render() {
+    const {thumbnailClick} = this.props;
     return (
       <div className="gallery-of-thumbnails">
         <div className="up-arrow" onClick={this.decreaseIndexesByOne}>
           <IoIosArrowUp />
         </div>
         {this.indexesToDisplay().map((photo, i) =>
-          <EachThumbnail photo={photo} key={i} />
+          <EachThumbnail photo={photo} key={i} thumbnailClick={thumbnailClick} />
         )}
         <div className="down-arrow" onClick={this.increaseIndexesByOne}>
           <IoIosArrowDown />
