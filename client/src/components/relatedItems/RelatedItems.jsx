@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import RelatedLeftArrow from './RelatedLeftArrow';
-// import RelatedRightArrow from './RelatedRightArrow';
 import RelatedCardContainer from './RelatedCardContainer';
 
 class RelatedItems extends React.Component {
@@ -9,52 +7,73 @@ class RelatedItems extends React.Component {
     super(props);
     this.state = {
       currentPosition: 0,
+      positionIndex: 0,
     };
     this.moveRight = this.moveRight.bind(this);
     this.moveLeft = this.moveLeft.bind(this);
   }
 
   moveRight() {
-    const { currentPosition } = this.state;
+    const { currentPosition, positionIndex } = this.state;
     const newPosition = currentPosition - 216;
+    const newIndex = positionIndex + 1;
     this.setState({
       currentPosition: newPosition,
+      positionIndex: newIndex,
     });
   }
 
   moveLeft() {
-    const { currentPosition } = this.state;
+    const { currentPosition, positionIndex } = this.state;
     const newPosition = currentPosition + 216;
+    const newIndex = positionIndex - 1;
     this.setState({
       currentPosition: newPosition,
+      positionIndex: newIndex,
     });
   }
 
   render() {
     const { relatedProductIds, selectedProduct } = this.props;
-    const { currentPosition } = this.state;
+    const { currentPosition, positionIndex } = this.state;
 
-    return relatedProductIds.length ? (
-      <div className="related-items-grid-frame">
-        {/* <RelatedLeftArrow /> */}
+    let leftArrow;
+    if (currentPosition < 0) {
+      leftArrow = (
         <div
           className="related-left-arrow"
           onClick={this.moveLeft}
         >
           L
         </div>
-        <RelatedCardContainer
-          relatedProductIds={relatedProductIds}
-          selectedProduct={selectedProduct}
-          currentPosition={currentPosition}
-        />
+      );
+    } else {
+      leftArrow = null;
+    }
+
+    let rightArrow;
+    if (relatedProductIds.length > 4 && positionIndex < (relatedProductIds.length - 4)) {
+      rightArrow = (
         <div
           className="related-right-arrow"
           onClick={this.moveRight}
         >
           R
         </div>
-        {/* <RelatedRightArrow /> */}
+      );
+    } else {
+      rightArrow = null;
+    }
+
+    return relatedProductIds.length ? (
+      <div className="related-items-grid-frame">
+        {leftArrow}
+        <RelatedCardContainer
+          relatedProductIds={relatedProductIds}
+          selectedProduct={selectedProduct}
+          currentPosition={currentPosition}
+        />
+        {rightArrow}
       </div>
     ) : (
       'loading....'

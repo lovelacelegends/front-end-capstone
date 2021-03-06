@@ -283,41 +283,15 @@ td {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* display: grid;
-  grid-template-columns: 2.5% 95% 2.5%;
-  grid-template-rows: 36% 28% 36%; */
   border: 1px solid black;
 }
 
-/* .related-left-arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  grid-area: 2/1/3/2;
-  background-color: aqua;
-}
-
-.related-right-arrow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1;
-  grid-area: 2/3/3/4;
-  background-color: aqua;
-} */
-
 .related-card-container {
-  /* grid-area: 1/1/4/4; */
   height: 260px;
   width: 872px;
   position: relative;
   overflow: hidden;
 }
-
-/* .related-card-container::-webkit-scrollbar {
-  display: none;
-} */
 
 .related-card-container-slider {
   height: 260px;
