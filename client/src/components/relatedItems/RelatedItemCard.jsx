@@ -70,6 +70,7 @@ class RelatedItemCard extends React.Component {
           alt={product.name}
         />
         <div
+          className="related-text-holder"
           onClick={this.handleProductClick}
           onKeyPress={this.handleProductClick}
           role="link"
@@ -77,7 +78,10 @@ class RelatedItemCard extends React.Component {
         >
           <div className="related-category">{product.category}</div>
           <div className="related-name">{product.name}</div>
-          <div className="related-price">{product.price}</div>
+          <div className="related-price">
+            $
+            {product.price}
+          </div>
           <div className="related-rating">***** (star rating) </div>
         </div>
         {modalDiv}

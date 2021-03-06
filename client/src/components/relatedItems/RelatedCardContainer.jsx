@@ -35,7 +35,7 @@ class RelatedCardContainer extends React.Component {
 
   render() {
     const { productInfoList } = this.state;
-    const { selectedProduct } = this.props;
+    const { selectedProduct, currentPosition } = this.props;
 
     if (productInfoList.length === 0) {
       this.getProductCardInfo();
@@ -43,19 +43,22 @@ class RelatedCardContainer extends React.Component {
 
     return (
       <div className="related-card-container">
-        {productInfoList.map((product) => (
-          <RelatedItemCard
-            key={product.id}
-            product={product}
-            selectedProduct={selectedProduct}
-          />
-        ))}
+        <div className="related-card-container-slider" style={{ transform: `translateX(${currentPosition}px)` }}>
+          {productInfoList.map((product) => (
+            <RelatedItemCard
+              key={product.id}
+              product={product}
+              selectedProduct={selectedProduct}
+            />
+          ))}
+        </div>
       </div>
     );
   }
 }
 
 RelatedCardContainer.propTypes = {
+  currentPosition: PropTypes.number.isRequired,
   relatedProductIds: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.number]),
   ).isRequired,
