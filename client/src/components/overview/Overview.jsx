@@ -8,39 +8,65 @@ class Overview extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      displayGroupedExtras: true,
     };
+    this.handleExpandedView = this.handleExpandedView.bind(this);
+  }
+
+  handleExpandedView() {
+    debugger;
+    this.setState(state => ({
+      displayGroupedExtras: !state.displayGroupedExtras
+    }));
   }
 
   render() {
     const { selectedProduct, styles, currentStyle, updateCurrentStyle } = this.props;
-    if (selectedProduct.name && (currentStyle !== undefined)) {
+    const { displayGroupedExtras } = this.state;
+    if (!selectedProduct.name || currentStyle === undefined) {
       return (
-        <div className="overview">
-          <ImageGallery
-            selectedProduct={selectedProduct}
-            styles={styles}
-            currentStyle={currentStyle}
-          />
-          <ProductInfo
-            selectedProduct={selectedProduct}
-            styles={styles}
-            currentStyle={currentStyle}
-          />
-          <StyleSelector
-            styles={styles}
-            currentStyle={currentStyle}
-            updateCurrentStyle={updateCurrentStyle}
-          />
-          <AddToCart
-            styles={styles}
-            currentStyle={currentStyle}
-          />
+        <div>
+          loading
+        </div>
+      );
+    }
+    const imageGallery = (
+      <ImageGallery
+        selectedProduct={selectedProduct}
+        styles={styles}
+        currentStyle={currentStyle}
+        handleExpandedView={this.handleExpandedView}
+      />
+    );
+    const groupedExtras = (
+      <div className="grouped-extras">
+        <ProductInfo
+          selectedProduct={selectedProduct}
+          styles={styles}
+          currentStyle={currentStyle}
+        />
+        <StyleSelector
+          styles={styles}
+          currentStyle={currentStyle}
+          updateCurrentStyle={updateCurrentStyle}
+        />
+        <AddToCart
+          styles={styles}
+          currentStyle={currentStyle}
+        />
+      </div>
+    );
+    if (displayGroupedExtras) {
+      return (
+        <div className="overview-with-extras">
+          {imageGallery}
+          {groupedExtras}
         </div>
       );
     }
     return (
-      <div>
-        loading
+      <div className="overview-without-extras">
+        {imageGallery}
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsArrowRightShort, BsArrowLeftShort } from 'react-icons/bs';
 import Thumbnails from './Thumbnails';
+import { AiOutlineExpand } from 'react-icons/Ai';
 
 class ImageGallery extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class ImageGallery extends React.Component {
   }
 
   render() {
-    const { styles, currentStyle, selectedProduct} = this.props;
+    const { styles, currentStyle, handleExpandedView} = this.props;
     return (
       <div className="image-gallery"
       style={{ backgroundImage: `url(${styles.results[currentStyle].photos[0].url})`}}
@@ -19,6 +20,7 @@ class ImageGallery extends React.Component {
           <BsArrowLeftShort className="left-arrow" />
           <BsArrowRightShort className="right-arrow" />
         </div>
+        <div className="expand-button"><AiOutlineExpand onClick={handleExpandedView} /></div>
       </div>
     );
   }
