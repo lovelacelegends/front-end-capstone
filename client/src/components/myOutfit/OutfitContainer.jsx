@@ -57,6 +57,7 @@ class OutfitContainer extends React.Component {
 
   render() {
     const { currentStorageArray } = this.state;
+    const { currentPosition } = this.props;
 
     let outfitList;
     if (currentStorageArray.length !== 0) {
@@ -76,8 +77,10 @@ class OutfitContainer extends React.Component {
     return (
       <div className="outfit-container">
         <AddProductCard addToStorage={this.addToStorage} />
-        <div className="outfit-container-slider">
-          {outfitList}
+        <div className="outfit-container-track">
+          <div className="outfit-container-slider" style={{ transform: `translateX(${currentPosition}px)` }}>
+            {outfitList}
+          </div>
         </div>
       </div>
     );
@@ -85,6 +88,7 @@ class OutfitContainer extends React.Component {
 }
 
 OutfitContainer.propTypes = {
+  currentPosition: PropTypes.number.isRequired,
   currentStyle: PropTypes.number.isRequired,
   currentProduct: PropTypes.objectOf(
     PropTypes.oneOfType([

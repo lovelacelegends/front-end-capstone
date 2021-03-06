@@ -5,22 +5,71 @@ import OutfitContainer from './OutfitContainer';
 class MyOutfit extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      currentPosition: 0,
+      positionIndex: 0,
+    };
+    this.moveRight = this.moveRight.bind(this);
+    this.moveLeft = this.moveLeft.bind(this);
+  }
+
+  moveRight() {
+    const { currentPosition, positionIndex } = this.state;
+    const newPosition = currentPosition - 216;
+    const newIndex = positionIndex + 1;
+    this.setState({
+      currentPosition: newPosition,
+      positionIndex: newIndex,
+    });
+  }
+
+  moveLeft() {
+    const { currentPosition, positionIndex } = this.state;
+    const newPosition = currentPosition + 216;
+    const newIndex = positionIndex - 1;
+    this.setState({
+      currentPosition: newPosition,
+      positionIndex: newIndex,
+    });
   }
 
   render() {
     const { currentProduct, currentStyle, styles } = this.props;
+    const { currentPosition, positionIndex } = this.state;
+
+    let leftArrow;
+    if (positionIndex > 0) {
+      leftArrow = (
+        <div
+          className="related-left-arrow"
+          onClick={this.moveLeft}
+        >
+          L
+        </div>
+      );
+    } else {
+      leftArrow = (
+        null
+      );
+    }
+
     return (
       <div className="related-arrow-holder">
-        <div className="related-left-arrow">L</div>
+        {leftArrow}
         <div className="outfit-grid-frame">
           <OutfitContainer
             currentProduct={currentProduct}
             currentStyle={currentStyle}
             styles={styles}
+            currentPosition={currentPosition}
           />
         </div>
-        <div className="related-right-arrow">R</div>
+        <div
+          className="related-right-arrow"
+          onClick={this.moveRight}
+        >
+          R
+        </div>
       </div>
     );
   }
