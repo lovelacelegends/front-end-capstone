@@ -46,11 +46,7 @@ class RelatedModal extends React.Component {
   }
 
   render() {
-    const { handleModalClick, selectedProduct, product, modalArray, closeModal } = this.props;
-
-    // const completeFeatArray = RelatedModal.combineFeatures(
-    //   selectedProduct.features, product.features,
-    // );
+    const { modalArray, closeModal } = this.props;
 
     const completeFeatArray = RelatedModal.combineFeatures(
       modalArray[0].features, modalArray[1].features,
@@ -86,23 +82,13 @@ class RelatedModal extends React.Component {
   }
 }
 
-// RelatedModal.propTypes = {
-//   handleModalClick: PropTypes.func.isRequired,
-//   product: PropTypes.objectOf(
-//     PropTypes.oneOfType([
-//       PropTypes.string,
-//       PropTypes.number,
-//       PropTypes.array,
-//       PropTypes.object,
-//     ]),
-//   ).isRequired,
-//   selectedProduct: PropTypes.objectOf(
-//     PropTypes.oneOfType([
-//       PropTypes.string,
-//       PropTypes.number,
-//       PropTypes.array,
-//     ]),
-//   ).isRequired,
-// };
+RelatedModal.propTypes = {
+  closeModal: PropTypes.func.isRequired,
+  modalArray: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.object,
+    ]),
+  ).isRequired,
+};
 
 export default RelatedModal;

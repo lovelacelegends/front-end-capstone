@@ -59,6 +59,7 @@ class RelatedCardContainer extends React.Component {
 }
 
 RelatedCardContainer.propTypes = {
+  updateModal: PropTypes.func.isRequired,
   currentPosition: PropTypes.number.isRequired,
   relatedProductIds: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.number]),

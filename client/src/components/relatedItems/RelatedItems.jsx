@@ -19,7 +19,6 @@ class RelatedItems extends React.Component {
   }
 
   updateModal(currentProductFeatureArray, relatedProductFeatureArray) {
-    console.log(currentProductFeatureArray, relatedProductFeatureArray);
     this.setState({
       showModal: true,
       modalArray: [currentProductFeatureArray, relatedProductFeatureArray],
@@ -54,7 +53,12 @@ class RelatedItems extends React.Component {
 
   render() {
     const { relatedProductIds, selectedProduct } = this.props;
-    const { currentPosition, positionIndex, showModal, modalArray } = this.state;
+    const {
+      currentPosition,
+      positionIndex,
+      showModal,
+      modalArray,
+    } = this.state;
 
     let leftArrow;
     if (currentPosition < 0) {
@@ -96,13 +100,7 @@ class RelatedItems extends React.Component {
         <RelatedModal
           modalArray={modalArray}
           closeModal={this.closeModal}
-          // handleModalClick={this.handleModalClick}
-          // selectedProduct={selectedProduct}
-          // product={product}
         />
-        // <div className="related-modal">
-        //   HELLO
-        // </div>
       );
     } else {
       modalWindow = (
