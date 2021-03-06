@@ -312,8 +312,12 @@ td {
   height: 260px;
   width: 872px;
   position: relative;
-  overflow-y: hidden;
+  overflow: hidden;
 }
+
+/* .related-card-container::-webkit-scrollbar {
+  display: none;
+} */
 
 .related-card-container-slider {
   height: 260px;
@@ -346,6 +350,7 @@ td {
   width: 100%;
   height: 100%;
   grid-area: 1/1/3/3;
+  object-fit: cover;
 }
 
 .related-category {
