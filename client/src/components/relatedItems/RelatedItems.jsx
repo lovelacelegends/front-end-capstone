@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import RelatedModal from './RelatedModal';
 import RelatedCardContainer from './RelatedCardContainer';
 
 class RelatedItems extends React.Component {
@@ -8,9 +9,26 @@ class RelatedItems extends React.Component {
     this.state = {
       currentPosition: 0,
       positionIndex: 0,
+      showModal: false,
+      modalArray: [],
     };
     this.moveRight = this.moveRight.bind(this);
     this.moveLeft = this.moveLeft.bind(this);
+    this.updateModal = this.updateModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+  }
+
+  updateModal(currentProductFeatureArray, relatedProductFeatureArray) {
+    this.setState({
+      showModal: true,
+      modalArray: [currentProductFeatureArray, relatedProductFeatureArray],
+    });
+  }
+
+  closeModal() {
+    this.setState({
+      showModal: false,
+    });
   }
 
   moveRight() {
@@ -35,7 +53,12 @@ class RelatedItems extends React.Component {
 
   render() {
     const { relatedProductIds, selectedProduct } = this.props;
-    const { currentPosition, positionIndex } = this.state;
+    const {
+      currentPosition,
+      positionIndex,
+      showModal,
+      modalArray,
+    } = this.state;
 
     let leftArrow;
     if (currentPosition < 0) {
@@ -71,18 +94,36 @@ class RelatedItems extends React.Component {
       rightArrow = null;
     }
 
+    let modalWindow;
+    if (showModal) {
+      modalWindow = (
+        <RelatedModal
+          modalArray={modalArray}
+          closeModal={this.closeModal}
+        />
+      );
+    } else {
+      modalWindow = (
+        null
+      );
+    }
+
     return relatedProductIds.length ? (
-      <div className="related-arrow-holder">
-        {leftArrow}
-        <div className="related-items-grid-frame">
-          <RelatedCardContainer
-            relatedProductIds={relatedProductIds}
-            selectedProduct={selectedProduct}
-            currentPosition={currentPosition}
-          />
+      <>
+        <div className="related-arrow-holder">
+          {leftArrow}
+          <div className="related-items-grid-frame">
+            <RelatedCardContainer
+              relatedProductIds={relatedProductIds}
+              selectedProduct={selectedProduct}
+              currentPosition={currentPosition}
+              updateModal={this.updateModal}
+            />
+          </div>
+          {rightArrow}
         </div>
-        {rightArrow}
-      </div>
+        {modalWindow}
+      </>
     ) : (
       'loading....'
     );
