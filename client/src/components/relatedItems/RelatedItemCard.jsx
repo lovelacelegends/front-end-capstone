@@ -24,7 +24,7 @@ class RelatedItemCard extends React.Component {
     //   showModal: !showModal,
     // });
     const { product, selectedProduct, updateModal } = this.props;
-    updateModal(selectedProduct.features, product.features);
+    updateModal(selectedProduct, product);
   }
 
   render() {

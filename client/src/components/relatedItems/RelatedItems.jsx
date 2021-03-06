@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import RelatedModal from './RelatedModal';
 import RelatedCardContainer from './RelatedCardContainer';
 
 class RelatedItems extends React.Component {
@@ -46,7 +47,7 @@ class RelatedItems extends React.Component {
 
   render() {
     const { relatedProductIds, selectedProduct } = this.props;
-    const { currentPosition, positionIndex, showModal } = this.state;
+    const { currentPosition, positionIndex, showModal, modalArray } = this.state;
 
     let leftArrow;
     if (currentPosition < 0) {
@@ -85,9 +86,15 @@ class RelatedItems extends React.Component {
     let modalWindow;
     if (showModal) {
       modalWindow = (
-        <div className="related-modal">
-          HELLO
-        </div>
+        <RelatedModal
+          modalArray={modalArray}
+          // handleModalClick={this.handleModalClick}
+          // selectedProduct={selectedProduct}
+          // product={product}
+        />
+        // <div className="related-modal">
+        //   HELLO
+        // </div>
       );
     } else {
       modalWindow = (

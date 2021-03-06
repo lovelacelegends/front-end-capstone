@@ -46,10 +46,14 @@ class RelatedModal extends React.Component {
   }
 
   render() {
-    const { handleModalClick, selectedProduct, product } = this.props;
+    const { handleModalClick, selectedProduct, product, modalArray } = this.props;
+
+    // const completeFeatArray = RelatedModal.combineFeatures(
+    //   selectedProduct.features, product.features,
+    // );
 
     const completeFeatArray = RelatedModal.combineFeatures(
-      selectedProduct.features, product.features,
+      modalArray[0].features, modalArray[1].features,
     );
 
     return (
@@ -64,9 +68,9 @@ class RelatedModal extends React.Component {
         <table id="compare-products">
           <tbody>
             <tr>
-              <th>{selectedProduct.name}</th>
+              <th>{modalArray[0].name}</th>
               <th> </th>
-              <th>{product.name}</th>
+              <th>{modalArray[1].name}</th>
             </tr>
             {completeFeatArray.map((feature) => (
               <tr key={feature.id}>
@@ -82,23 +86,23 @@ class RelatedModal extends React.Component {
   }
 }
 
-RelatedModal.propTypes = {
-  handleModalClick: PropTypes.func.isRequired,
-  product: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.array,
-      PropTypes.object,
-    ]),
-  ).isRequired,
-  selectedProduct: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.array,
-    ]),
-  ).isRequired,
-};
+// RelatedModal.propTypes = {
+//   handleModalClick: PropTypes.func.isRequired,
+//   product: PropTypes.objectOf(
+//     PropTypes.oneOfType([
+//       PropTypes.string,
+//       PropTypes.number,
+//       PropTypes.array,
+//       PropTypes.object,
+//     ]),
+//   ).isRequired,
+//   selectedProduct: PropTypes.objectOf(
+//     PropTypes.oneOfType([
+//       PropTypes.string,
+//       PropTypes.number,
+//       PropTypes.array,
+//     ]),
+//   ).isRequired,
+// };
 
 export default RelatedModal;
