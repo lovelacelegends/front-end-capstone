@@ -5,10 +5,10 @@ body {
 :root {
   --star-size: 15px;
   --star-color: gray;
-  --star-background: orange;
+  --star-background: rgb(49, 170, 49);
   --bar-size: 15px;
   --bar-color: gray;
-  --bar-background: rgb(35, 150, 35);
+  --bar-background: rgb(49, 170, 49);
 }
 
 /* STARS SECTION - to use, simply add the stars class and pass in a number into style={{ '--rating': NUM }} */
