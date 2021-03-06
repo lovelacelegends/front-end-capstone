@@ -46,7 +46,7 @@ class RelatedModal extends React.Component {
   }
 
   render() {
-    const { handleModalClick, selectedProduct, product, modalArray } = this.props;
+    const { handleModalClick, selectedProduct, product, modalArray, closeModal } = this.props;
 
     // const completeFeatArray = RelatedModal.combineFeatures(
     //   selectedProduct.features, product.features,
@@ -59,8 +59,8 @@ class RelatedModal extends React.Component {
     return (
       <div
         className="related-modal"
-        onClick={handleModalClick}
-        onKeyPress={handleModalClick}
+        onClick={closeModal}
+        onKeyPress={closeModal}
         role="button"
         tabIndex={0}
       >
