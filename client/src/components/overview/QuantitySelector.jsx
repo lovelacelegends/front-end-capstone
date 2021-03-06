@@ -3,11 +3,12 @@ import React from 'react';
 class QuantitySelector extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+    };
   }
 
   render() {
-    const { styles, currentStyle, currentSku, currentSize, updateQuantityInState } = this.props;
+    const { styles, currentStyle, currentSku, currentSize, updateQuantityInState, currentQuantity } = this.props;
 
     if (currentSku === '') {
       return (
@@ -31,7 +32,7 @@ class QuantitySelector extends React.Component {
 
     return (
       <div className="quantity-selector">
-        <select onChange={updateQuantityInState}>
+        <select value={currentQuantity} onChange={updateQuantityInState}>
           {arrOfQuantities.map((num)=>{
             return <option>{num}</option>
           })}

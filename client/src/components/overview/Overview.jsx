@@ -11,10 +11,14 @@ class Overview extends React.Component {
       displayGroupedExtras: true,
     };
     this.handleExpandedView = this.handleExpandedView.bind(this);
+    this.resetThumbnail = this.resetThumbnail.bind(this);
+  }
+
+  resetThumbnail() {
+    this.setState({ mainThumbNailIndex: 0 });
   }
 
   handleExpandedView() {
-    debugger;
     this.setState(state => ({
       displayGroupedExtras: !state.displayGroupedExtras
     }));
@@ -22,7 +26,7 @@ class Overview extends React.Component {
 
   render() {
     const { selectedProduct, styles, currentStyle, updateCurrentStyle } = this.props;
-    const { displayGroupedExtras } = this.state;
+    const { displayGroupedExtras, mainThumbNailIndex } = this.state;
     if (!selectedProduct.name || currentStyle === undefined) {
       return (
         <div>
@@ -32,10 +36,12 @@ class Overview extends React.Component {
     }
     const imageGallery = (
       <ImageGallery
+        key={styles.results[currentStyle].style_id}
         selectedProduct={selectedProduct}
         styles={styles}
         currentStyle={currentStyle}
         handleExpandedView={this.handleExpandedView}
+        mainThumbNailIndex={mainThumbNailIndex}
       />
     );
     const groupedExtras = (
@@ -53,6 +59,7 @@ class Overview extends React.Component {
         <AddToCart
           styles={styles}
           currentStyle={currentStyle}
+          key={styles.results[currentStyle].style_id + 1}
         />
       </div>
     );

@@ -38,7 +38,7 @@ class ImageGallery extends React.Component {
     const { styles, currentStyle, handleExpandedView } = this.props;
     const { mainThumbNailIndex } = this.state;
     return (
-      <div className="image-gallery"
+      <div id="image-gallery"
       style={{ backgroundImage: `url(${styles.results[currentStyle].photos[mainThumbNailIndex].url})`}}
       >
         <Thumbnails styles={styles} currentStyle={currentStyle} thumbnailClick={this.thumbnailClick}/>
