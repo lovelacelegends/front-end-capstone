@@ -74,11 +74,11 @@ class OutfitContainer extends React.Component {
     }
 
     return (
-      <div
-        className="outfit-container"
-      >
+      <div className="outfit-container">
         <AddProductCard addToStorage={this.addToStorage} />
-        {outfitList}
+        <div className="outfit-container-slider">
+          {outfitList}
+        </div>
       </div>
     );
   }

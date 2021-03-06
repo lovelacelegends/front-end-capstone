@@ -43,6 +43,9 @@ class RelatedItems extends React.Component {
         <div
           className="related-left-arrow"
           onClick={this.moveLeft}
+          onKeyPress={this.moveLeft}
+          role="button"
+          tabIndex={0}
         >
           L
         </div>
@@ -57,6 +60,9 @@ class RelatedItems extends React.Component {
         <div
           className="related-right-arrow"
           onClick={this.moveRight}
+          onKeyPress={this.moveRight}
+          role="button"
+          tabIndex={0}
         >
           R
         </div>

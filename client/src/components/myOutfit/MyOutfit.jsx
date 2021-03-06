@@ -1,7 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import OutfitLeftArrow from './OutfitLeftArrow';
-import OutfitRightArrow from './OutfitRightArrow';
 import OutfitContainer from './OutfitContainer';
 
 class MyOutfit extends React.Component {
@@ -13,14 +11,16 @@ class MyOutfit extends React.Component {
   render() {
     const { currentProduct, currentStyle, styles } = this.props;
     return (
-      <div className="related-items-grid-frame">
-        <OutfitLeftArrow />
-        <OutfitContainer
-          currentProduct={currentProduct}
-          currentStyle={currentStyle}
-          styles={styles}
-        />
-        <OutfitRightArrow />
+      <div className="related-arrow-holder">
+        <div className="related-left-arrow">L</div>
+        <div className="outfit-grid-frame">
+          <OutfitContainer
+            currentProduct={currentProduct}
+            currentStyle={currentStyle}
+            styles={styles}
+          />
+        </div>
+        <div className="related-right-arrow">R</div>
       </div>
     );
   }
