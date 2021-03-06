@@ -66,13 +66,15 @@ class RelatedItems extends React.Component {
     }
 
     return relatedProductIds.length ? (
-      <div className="related-items-grid-frame">
+      <div className="related-arrow-holder">
         {leftArrow}
-        <RelatedCardContainer
-          relatedProductIds={relatedProductIds}
-          selectedProduct={selectedProduct}
-          currentPosition={currentPosition}
-        />
+        <div className="related-items-grid-frame">
+          <RelatedCardContainer
+            relatedProductIds={relatedProductIds}
+            selectedProduct={selectedProduct}
+            currentPosition={currentPosition}
+          />
+        </div>
         {rightArrow}
       </div>
     ) : (
