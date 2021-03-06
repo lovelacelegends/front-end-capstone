@@ -35,7 +35,7 @@ class RelatedCardContainer extends React.Component {
 
   render() {
     const { productInfoList } = this.state;
-    const { selectedProduct, currentPosition } = this.props;
+    const { selectedProduct, currentPosition, updateModal } = this.props;
 
     if (productInfoList.length === 0) {
       this.getProductCardInfo();
@@ -49,6 +49,7 @@ class RelatedCardContainer extends React.Component {
               key={product.id}
               product={product}
               selectedProduct={selectedProduct}
+              updateModal={updateModal}
             />
           ))}
         </div>

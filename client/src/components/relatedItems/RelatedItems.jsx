@@ -8,9 +8,20 @@ class RelatedItems extends React.Component {
     this.state = {
       currentPosition: 0,
       positionIndex: 0,
+      showModal: false,
+      modalArray: [],
     };
     this.moveRight = this.moveRight.bind(this);
     this.moveLeft = this.moveLeft.bind(this);
+    this.updateModal = this.updateModal.bind(this);
+  }
+
+  updateModal(currentProductFeatureArray, relatedProductFeatureArray) {
+    console.log(currentProductFeatureArray, relatedProductFeatureArray);
+    this.setState({
+      showModal: true,
+      modalArray: [currentProductFeatureArray, relatedProductFeatureArray],
+    });
   }
 
   moveRight() {
@@ -35,7 +46,7 @@ class RelatedItems extends React.Component {
 
   render() {
     const { relatedProductIds, selectedProduct } = this.props;
-    const { currentPosition, positionIndex } = this.state;
+    const { currentPosition, positionIndex, showModal } = this.state;
 
     let leftArrow;
     if (currentPosition < 0) {
@@ -71,6 +82,19 @@ class RelatedItems extends React.Component {
       rightArrow = null;
     }
 
+    let modalWindow;
+    if (showModal) {
+      modalWindow = (
+        <div className="related-modal">
+          HELLO
+        </div>
+      );
+    } else {
+      modalWindow = (
+        null
+      );
+    }
+
     return relatedProductIds.length ? (
       <>
         <div className="related-arrow-holder">
@@ -80,13 +104,12 @@ class RelatedItems extends React.Component {
               relatedProductIds={relatedProductIds}
               selectedProduct={selectedProduct}
               currentPosition={currentPosition}
+              updateModal={this.updateModal}
             />
           </div>
           {rightArrow}
         </div>
-        <div className="related-modal">
-          HELLO
-        </div>
+        {modalWindow}
       </>
     ) : (
       'loading....'

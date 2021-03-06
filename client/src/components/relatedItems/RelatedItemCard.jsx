@@ -19,10 +19,12 @@ class RelatedItemCard extends React.Component {
   }
 
   handleModalClick() {
-    const { showModal } = this.state;
-    this.setState({
-      showModal: !showModal,
-    });
+    // const { showModal } = this.state;
+    // this.setState({
+    //   showModal: !showModal,
+    // });
+    const { product, selectedProduct, updateModal } = this.props;
+    updateModal(selectedProduct.features, product.features);
   }
 
   render() {
