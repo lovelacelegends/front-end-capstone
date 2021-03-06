@@ -262,8 +262,8 @@ body {
   left: 30%;
   top: 20%;
   width: 500px;
-  height: 400px;
-  background-color: rgb(163, 236, 154);
+  height: 200px;
+  background-color: rgb(201, 198, 198);
   z-index: 10;
   border-radius: 10px;
   border: 3px solid lightslategray;
@@ -279,12 +279,12 @@ body {
 
 table {
   grid-area: 2/1/3/2;
-  background-color: rgb(163, 236, 154);
+  background-color: rgb(201, 198, 198);
 }
 
 .table-heading {
   border-radius: 8px 8px 0 0;
-  background-color: mediumaquamarine;
+  background-color: rgb(162, 180, 197);
   grid-area: 1/1/2/2;
   display: flex;
   justify-content: center;
@@ -295,6 +295,18 @@ table {
 
 td {
   text-align: center;
+}
+
+.modal-col-1 {
+  width: 175px;
+}
+
+.modal-col-2 {
+  width: 150px;
+}
+
+.modal-col-3 {
+  width: 175px;
 }
 
 .related-arrow-holder {
