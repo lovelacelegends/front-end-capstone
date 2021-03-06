@@ -9,52 +9,66 @@ class RelatedCardContainer extends React.Component {
     this.state = {
       productInfoList: [],
     };
-    this.getProductCardInfo = this.getProductCardInfo.bind(this);
+    // this.getProductCardInfo = this.getProductCardInfo.bind(this);
   }
 
-  getProductCardInfo() {
-    const { relatedProductIds } = this.props;
-    const arrayOfPromises = [];
+  // getProductCardInfo() {
+  //   const { relatedProductIds } = this.props;
+  //   const arrayOfPromises = [];
 
-    relatedProductIds.forEach((id) => {
-      arrayOfPromises.push(axios.get(`/related/${id}`));
-    });
+  //   relatedProductIds.forEach((id) => {
+  //     arrayOfPromises.push(axios.get(`/related/${id}`));
+  //   });
 
-    Promise.all(arrayOfPromises)
-      .then((arrayOfProductData) => {
-        const dataArray = arrayOfProductData.map((product) => product.data);
-        this.setState({
-          productInfoList: dataArray,
-        });
-      })
-      .catch((error) => {
-        // eslint-disable-next-line no-console
-        console.log(error);
-      });
-  }
+  //   Promise.all(arrayOfPromises)
+  //     .then((arrayOfProductData) => {
+  //       const dataArray = arrayOfProductData.map((product) => product.data);
+  //       this.setState({
+  //         productInfoList: dataArray,
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       // eslint-disable-next-line no-console
+  //       console.log(error);
+  //     });
+  // }
 
   render() {
-    const { productInfoList } = this.state;
-    const { selectedProduct, currentPosition, updateModal } = this.props;
-
-    if (productInfoList.length === 0) {
-      this.getProductCardInfo();
+    // const { productInfoList } = this.state;
+    const { selectedProduct, currentPosition, updateModal, relatedProductData, getProductData } = this.props;
+    // debugger;
+    // if (productInfoList.length === 0) {
+    //   this.getProductCardInfo();
+    // }
+    let productListDiv;
+    if (relatedProductData.length !== 0) {
+      productListDiv = (
+        <div className="related-card-container">
+          <div
+            className="related-card-container-slider"
+            style={{ transform: `translateX(${currentPosition}px)` }}
+          >
+            {relatedProductData.map((product) => (
+              <RelatedItemCard
+                key={product.id}
+                product={product}
+                selectedProduct={selectedProduct}
+                updateModal={updateModal}
+                getProductData={getProductData}
+              />
+            ))}
+          </div>
+        </div>
+      );
+    } else {
+      productListDiv = (
+        <div>
+          loading...
+        </div>
+      );
     }
 
-    return (
-      <div className="related-card-container">
-        <div className="related-card-container-slider" style={{ transform: `translateX(${currentPosition}px)` }}>
-          {productInfoList.map((product) => (
-            <RelatedItemCard
-              key={product.id}
-              product={product}
-              selectedProduct={selectedProduct}
-              updateModal={updateModal}
-            />
-          ))}
-        </div>
-      </div>
-    );
+    return productListDiv;
   }
 }
 

@@ -10,9 +10,10 @@ class RelatedItemCard extends React.Component {
   }
 
   handleProductClick() {
-    const { product } = this.props;
+    const { product, getProductData } = this.props;
     // eslint-disable-next-line no-console
     console.log(product.id);
+    getProductData(product.id);
   }
 
   handleModalClick() {

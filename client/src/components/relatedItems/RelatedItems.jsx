@@ -52,7 +52,7 @@ class RelatedItems extends React.Component {
   }
 
   render() {
-    const { relatedProductIds, selectedProduct } = this.props;
+    const { relatedProductIds, selectedProduct, relatedProductData, getProductData } = this.props;
     const {
       currentPosition,
       positionIndex,
@@ -118,6 +118,8 @@ class RelatedItems extends React.Component {
               selectedProduct={selectedProduct}
               currentPosition={currentPosition}
               updateModal={this.updateModal}
+              relatedProductData={relatedProductData}
+              getProductData={getProductData}
             />
           </div>
           {rightArrow}
