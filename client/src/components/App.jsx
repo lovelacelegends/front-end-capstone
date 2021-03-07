@@ -30,11 +30,7 @@ class App extends React.Component {
 
   componentDidMount() {
     // 17734
-<<<<<<< HEAD
-    this.getProductData('17764');
-=======
     this.getProductData('17736');
->>>>>>> 3c961104564d5cfd9d7f97922a9d50d24e8daf8e
   }
 
   getProductData(id) {
