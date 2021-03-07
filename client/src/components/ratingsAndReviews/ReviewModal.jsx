@@ -48,7 +48,10 @@ class ReviewModal extends React.Component {
   submitReviewForm(e) {
     e.preventDefault();
 
-    const { meta } = this.props;
+    const {
+      meta,
+      toggleModal,
+    } = this.props;
 
     const {
       rating,
@@ -67,10 +70,32 @@ class ReviewModal extends React.Component {
 
     const characteristics = {};
 
-    // for (let char in meta.characteristics)
+    for (let i = 0; i < Object.keys(meta.characteristics).length; i += 1) {
+      const char = Object.keys(meta.characteristics)[i];
+      const charId = meta.characteristics[Object.keys(meta.characteristics)[i]].id;
+
+      if (char === 'Size') {
+        characteristics[charId] = Number(size);
+      }
+      if (char === 'Width') {
+        characteristics[charId] = Number(width);
+      }
+      if (char === 'Comfort') {
+        characteristics[charId] = Number(comfort);
+      }
+      if (char === 'Quality') {
+        characteristics[charId] = Number(quality);
+      }
+      if (char === 'Length') {
+        characteristics[charId] = Number(length);
+      }
+      if (char === 'Fit') {
+        characteristics[charId] = Number(fit);
+      }
+    }
 
     const review = {
-      product_id: meta.product_id,
+      product_id: Number(meta.product_id),
       name,
       email,
       rating,
@@ -78,14 +103,17 @@ class ReviewModal extends React.Component {
       characteristics,
       summary,
       body,
+      photos: [],
     };
 
     axios.post('/reviews', review)
       .then((result) => {
         console.log(result);
+        toggleModal();
       })
       .catch((error) => {
         console.error(error);
+        toggleModal();
       });
   }
 
