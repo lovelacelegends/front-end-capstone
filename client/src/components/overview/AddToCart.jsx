@@ -27,13 +27,11 @@ class AddToCart extends React.Component {
   addToCartApi(){
     let currentSkuIndex = this.state.currentSku;
     let sku = this.props.styles.results[this.props.currentStyle].skus[currentSkuIndex];
-    debugger;
     console.log("api", sku)
   }
 
   isOutOfStockOption() {
     let arrayOfSkus = this.props.styles.results[this.props.currentStyle].skus;
-    debugger;
     let arrayOfZeroQuant = arrayOfSkus.filter((sku) => sku.quantity === 0);
     let arrayOfNullQuant = arrayOfSkus.filter((sku) => sku.quantity === null);
 
@@ -47,7 +45,6 @@ class AddToCart extends React.Component {
     const index = e.target.selectedIndex;
     let selectedSku = e.target.childNodes[index].id;
     let selectedSize = e.target.value;
-    debugger;
     this.updateSkuInState(selectedSku, selectedSize);
     this.setState({ currentQuantity: 1 });
   }
