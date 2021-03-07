@@ -337,7 +337,7 @@ body {
 
 .outfit-card-x:hover {
   cursor: pointer;
-  color: red;
+  color: rgb(162, 180, 197);
 }
 
 .add-product-card {
@@ -509,7 +509,7 @@ td {
 
 .related-modal-star:hover {
   cursor: pointer;
-  color: green;
+  color: rgb(162, 180, 197)
 }
 
 .related-default-picture {
