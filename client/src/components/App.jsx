@@ -21,6 +21,7 @@ class App extends React.Component {
       relatedProductIds: [],
       reviews: {},
       meta: {},
+      relatedProductData: [],
     };
 
     this.getProductData = this.getProductData.bind(this);
@@ -29,7 +30,11 @@ class App extends React.Component {
 
   componentDidMount() {
     // 17734
+<<<<<<< HEAD
     this.getProductData('17764');
+=======
+    this.getProductData('17736');
+>>>>>>> 3c961104564d5cfd9d7f97922a9d50d24e8daf8e
   }
 
   getProductData(id) {
@@ -44,6 +49,22 @@ class App extends React.Component {
           relatedProductIds: data.data[2],
           reviews: data.data[3],
           meta: data.data[4],
+        });
+      })
+      .then(() => {
+        const { relatedProductIds } = this.state;
+        const arrayOfPromises = [];
+
+        relatedProductIds.forEach((relatedID) => {
+          arrayOfPromises.push(axios.get(`/related/${relatedID}`));
+        });
+
+        return Promise.all(arrayOfPromises);
+      })
+      .then((arrayOfProductData) => {
+        const dataArray = arrayOfProductData.map((product) => product.data);
+        this.setState({
+          relatedProductData: dataArray,
         });
       })
       .catch((error) => {
@@ -64,6 +85,7 @@ class App extends React.Component {
       relatedProductIds,
       reviews,
       meta,
+      relatedProductData,
     } = this.state;
     return (
       <div>
@@ -80,6 +102,8 @@ class App extends React.Component {
         <RelatedItems
           relatedProductIds={relatedProductIds}
           selectedProduct={selectedProduct}
+          relatedProductData={relatedProductData}
+          getProductData={this.getProductData}
         />
         <MyOutfit
           currentProduct={selectedProduct}

@@ -30,15 +30,22 @@ class OutfitContainer extends React.Component {
   }
 
   handleDelete(id) {
+    const { updateStorageCount } = this.props;
     localStorage.removeItem(id);
     const updatedStorage = OutfitContainer.gatherObjects();
+    updateStorageCount();
     this.setState({
       currentStorageArray: updatedStorage,
     });
   }
 
   addToStorage() {
-    const { currentProduct, currentStyle, styles } = this.props;
+    const {
+      currentProduct,
+      currentStyle,
+      styles,
+      updateStorageCount,
+    } = this.props;
 
     const productToStore = {
       id: currentProduct.id,
@@ -50,6 +57,7 @@ class OutfitContainer extends React.Component {
     localStorage.setItem(currentProduct.id, JSON.stringify(productToStore));
 
     const updatedStorage = OutfitContainer.gatherObjects();
+    updateStorageCount();
     this.setState({
       currentStorageArray: updatedStorage,
     });
@@ -57,6 +65,7 @@ class OutfitContainer extends React.Component {
 
   render() {
     const { currentStorageArray } = this.state;
+    const { currentPosition } = this.props;
 
     let outfitList;
     if (currentStorageArray.length !== 0) {
@@ -74,17 +83,21 @@ class OutfitContainer extends React.Component {
     }
 
     return (
-      <div
-        className="outfit-container"
-      >
+      <div className="outfit-container">
         <AddProductCard addToStorage={this.addToStorage} />
-        {outfitList}
+        <div className="outfit-container-track">
+          <div className="outfit-container-slider" style={{ transform: `translateX(${currentPosition}px)` }}>
+            {outfitList}
+          </div>
+        </div>
       </div>
     );
   }
 }
 
 OutfitContainer.propTypes = {
+  updateStorageCount: PropTypes.func.isRequired,
+  currentPosition: PropTypes.number.isRequired,
   currentStyle: PropTypes.number.isRequired,
   currentProduct: PropTypes.objectOf(
     PropTypes.oneOfType([

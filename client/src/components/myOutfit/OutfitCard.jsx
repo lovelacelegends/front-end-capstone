@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const OutfitCard = ({ product, handleDelete }) => (
-  <div
-    className="outfit-product-card"
-  >
+  <div className="outfit-product-card">
     <div
       className="outfit-card-x"
       onClick={() => {
@@ -23,14 +21,10 @@ const OutfitCard = ({ product, handleDelete }) => (
       alt={product.productName}
       src={product.url}
     />
-    <div
-      className="outfit-card-name"
-    >
+    <div className="outfit-card-name">
       {product.productName}
     </div>
-    <div
-      className="outfit-card-style"
-    >
+    <div className="outfit-card-style">
       {product.styleName}
     </div>
   </div>
