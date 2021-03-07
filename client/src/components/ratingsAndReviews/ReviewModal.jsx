@@ -9,12 +9,12 @@ class ReviewModal extends React.Component {
     this.state = {
       rating: 0,
       recommend: '',
-      size: null,
-      width: null,
-      comfort: null,
-      quality: null,
-      length: null,
-      fit: null,
+      size: '',
+      width: '',
+      comfort: '',
+      quality: '',
+      length: '',
+      fit: '',
       summary: '',
       body: '',
       name: '',
@@ -589,6 +589,7 @@ class ReviewModal extends React.Component {
         {quality}
         {length}
         {fit}
+        {'Headline: '}
         <input
           type="text"
           placeholder="Example: Best purchase ever!"
@@ -597,6 +598,7 @@ class ReviewModal extends React.Component {
           onChange={this.handleFormChange}
         />
         <br />
+        {'Review: '}
         <textarea
           type="text"
           placeholder="Why did you like the product or not?"
@@ -605,6 +607,7 @@ class ReviewModal extends React.Component {
           onChange={this.handleFormChange}
         />
         <br />
+        {'Nickname: '}
         <input
           type="text"
           placeholder="Example: jackson11!"
@@ -612,6 +615,7 @@ class ReviewModal extends React.Component {
           onChange={this.handleFormChange}
         />
         <div>For privacy reasons, do not use your full name or email address</div>
+        {'Email: '}
         <input
           type="text"
           placeholder="Example: jackson11@email.com"

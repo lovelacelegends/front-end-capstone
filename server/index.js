@@ -56,7 +56,7 @@ app.post('/reviews', (req, res) => {
 
   atlier.postReviewByProductId(body)
     .then((data) => {
-      res.status(201).send(data);
+      res.status(201).send(data.data);
     })
     .catch((error) => {
       res.status(501).send(error);
