@@ -34,7 +34,7 @@ class Reviews extends React.Component {
   }
 
   render() {
-    const { reviews } = this.props;
+    const { reviews, meta } = this.props;
     const { reviewCount, showModal } = this.state;
 
     if (Object.keys(reviews).length !== 0) {
@@ -82,6 +82,7 @@ class Reviews extends React.Component {
           <ReviewModal
             showModal={showModal}
             toggleModal={this.toggleModal}
+            meta={meta}
           />
         </div>
       );

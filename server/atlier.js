@@ -90,10 +90,28 @@ const getRelatedProductsById = (id) => {
     });
 };
 
+const postReviewByProductId = (body) => {
+  const options = {
+    url: `${baseURL}/reviews`,
+    headers: {
+      'User-Agent': 'request',
+      Authorization: config.TOKEN,
+    },
+    body,
+  };
+
+  return axios.post(options)
+    .then((response) => response.data)
+    .catch((error) => {
+      throw error;
+    });
+};
+
 module.exports = {
   getProductById,
   getProductStylesById,
   getReviewsById,
   getMetaReviewsById,
   getRelatedProductsById,
+  postReviewByProductId,
 };

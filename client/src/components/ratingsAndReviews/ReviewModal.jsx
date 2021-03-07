@@ -24,8 +24,16 @@ class ReviewModal extends React.Component {
   }
 
   handleFormChange(e) {
+    let { value } = e.target;
+
+    if (value === 'true') {
+      value = true;
+    } else if (value === 'false') {
+      value = false;
+    }
+
     this.setState({
-      [e.target.name]: e.target.value,
+      [e.target.name]: value,
     });
   }
 
@@ -37,6 +45,9 @@ class ReviewModal extends React.Component {
 
   submitReviewForm(e) {
     e.preventDefault();
+
+    const { meta } = this.props;
+
     const {
       rating,
       recommend,
@@ -51,7 +62,9 @@ class ReviewModal extends React.Component {
     } = this.state;
 
     const review = {
-      product_id: 17682,
+      product_id: meta.product_id,
+      name: 'bobby',
+      email: 'shimoshixp@gmail.com',
       rating,
       recommend,
       characteristics: {
@@ -59,14 +72,14 @@ class ReviewModal extends React.Component {
         width,
         comfort,
         quality,
-        length,
-        fit,
+        // length,
+        // fit,
       },
       summary,
       body,
     };
 
-    axios.post('https://app-hrsei-api.herokuapp.com/api/fec2/hr-rfp/reviews', review)
+    axios.post('/reviews', review)
       .then((result) => {
         console.log(result);
       })
@@ -171,7 +184,7 @@ class ReviewModal extends React.Component {
           <input
             type="radio"
             id="recommend-yes"
-            value="Yes"
+            value="true"
             name="recommend"
             onClick={this.handleFormChange}
           />
@@ -181,7 +194,7 @@ class ReviewModal extends React.Component {
           <input
             type="radio"
             id="recommend-no"
-            value="No"
+            value="false"
             name="recommend"
             onClick={this.handleFormChange}
           />
@@ -516,7 +529,7 @@ class ReviewModal extends React.Component {
           onChange={this.handleFormChange}
         />
         <br />
-        <input type="submit" />
+        <input type="submit" onClick={this.submitReviewForm} />
         <button type="button" onClick={toggleModal}>Close</button>
       </form>
     );

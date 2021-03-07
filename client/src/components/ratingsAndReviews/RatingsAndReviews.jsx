@@ -7,7 +7,10 @@ import Reviews from './Reviews';
 const RatingsAndReviews = ({ reviews, meta }) => (
   <div className="ratings-and-reviews">
     <Ratings meta={meta} />
-    <Reviews reviews={reviews} />
+    <Reviews
+      reviews={reviews}
+      meta={meta}
+    />
   </div>
 );
 

@@ -51,5 +51,17 @@ app.get('/related/:id', (req, res) => {
     });
 });
 
+app.post('/reviews', (req, res) => {
+  const { body } = req;
+  debugger;
+  atlier.postReviewByProductId(body)
+    .then((data) => {
+      res.status(201).send(data);
+    })
+    .catch((error) => {
+      res.status(501).send(error);
+    });
+});
+
 const PORT = 3000;
 app.listen(PORT);

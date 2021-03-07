@@ -17,8 +17,12 @@ class Ratings extends React.Component {
       let totalScore = 0;
 
       for (let i = 1; i <= Object.keys(meta.ratings).length; i += 1) {
-        numOfReviews += Number(meta.ratings[i]);
-        totalScore += i * Number(meta.ratings[i]);
+        if (meta.ratings[i]) {
+          numOfReviews += Number(meta.ratings[i]);
+          totalScore += i * Number(meta.ratings[i]);
+        } else {
+          meta.ratings[i] = 0;
+        }
       }
 
       const averageRating = (Math.round((totalScore / numOfReviews) * 10) / 10).toFixed(1);
