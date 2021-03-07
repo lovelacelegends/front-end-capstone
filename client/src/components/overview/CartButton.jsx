@@ -7,10 +7,7 @@ class CartButton extends React.Component {
   }
 
   render() {
-    const {outOfStock, currentSize} = this.props;
-    if (outOfStock) {
-      return null;
-    }
+    const {outOfStock, currentSize, addToCartApi } = this.props;
     if (currentSize === '' || currentSize === 'SELECT SIZE') {
       return (
         <div>
@@ -20,7 +17,7 @@ class CartButton extends React.Component {
     }
     return (
       <div className="cart-button">
-        <button id='add-to-cart'> take my money </button>
+        <button onClick={addToCartApi} id='add-to-cart'> take my money </button>
       </div>
     );
   }

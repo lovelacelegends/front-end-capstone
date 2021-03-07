@@ -83,7 +83,6 @@ class App extends React.Component {
       meta,
       relatedProductData,
     } = this.state;
-
     return (
       <div>
         <Header />
