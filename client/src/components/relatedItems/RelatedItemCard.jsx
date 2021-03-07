@@ -25,6 +25,17 @@ class RelatedItemCard extends React.Component {
   render() {
     const { product } = this.props;
 
+    let noRating;
+    if (Object.keys(product.ratings).length === 0) {
+      noRating = (
+        'No Ratings'
+      );
+    } else {
+      noRating = (
+        null
+      );
+    }
+
     return (
       <div className="related-card">
         <div
@@ -54,7 +65,12 @@ class RelatedItemCard extends React.Component {
             $
             {product.price}
           </div>
-          <div className="related-rating">{rounder(product.ratings)}</div>
+          <div
+            className="related-rating stars"
+            style={{ '--rating': rounder(product.ratings) }}
+          >
+            {noRating}
+          </div>
         </div>
       </div>
     );
