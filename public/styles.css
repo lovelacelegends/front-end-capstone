@@ -5,10 +5,10 @@ body {
 :root {
   --star-size: 15px;
   --star-color: gray;
-  --star-background: orange;
+  --star-background: rgb(68, 184, 68);
   --bar-size: 15px;
   --bar-color: gray;
-  --bar-background: rgb(35, 150, 35);
+  --bar-background: rgb(68, 184, 68);
 }
 
 /* STARS SECTION - to use, simply add the stars class and pass in a number into style={{ '--rating': NUM }} */
@@ -28,6 +28,25 @@ body {
   font-size: var(--star-size);
   font-family: Times; /* make sure ★ appears correctly*/
   line-height: 1;
+}
+
+.stars-clickable {
+  /* z-index: 10; */
+  position: absolute;
+  height: 17px;
+  width: 75px;
+  transform: translate(-100%, 0);
+}
+
+.star-clickable {
+  position: inherit;
+  margin: 1px 0;
+  height: 15px;
+  width: 15px;
+}
+
+.star-clickable:hover {
+  cursor: pointer;
 }
 
 /* BAR SECTION - to use, simply add the bar class and pass in a number into style={{ '--rating': NUM }} */
@@ -535,6 +554,7 @@ td {
   overflow: auto;
   grid-template-columns: 1fr 2.5fr;
   justify-items: center;
+  align-content: center;
 }
 
 .ratings-section {
@@ -561,4 +581,17 @@ td {
   background-color: lightgray;
   border: 1px solid black;
   margin: 20px 0;
+}
+
+.review-modal {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  height: 80%;
+  width: 80%;
+  background-color: white;
+  box-shadow: 0 0 200px black;
+  z-index: 10;
+  transform: translate(-50%, -50%);
+  overflow: auto;
 }

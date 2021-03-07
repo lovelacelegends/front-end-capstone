@@ -7,7 +7,6 @@ const getProductById = (id) => {
   const options = {
     url: `${baseURL}/products/${id}`,
     headers: {
-      'User-Agent': 'request',
       Authorization: config.TOKEN,
     },
   };
@@ -23,7 +22,6 @@ const getProductStylesById = (id) => {
   const options = {
     url: `${baseURL}/products/${id}/styles`,
     headers: {
-      'User-Agent': 'request',
       Authorization: config.TOKEN,
     },
   };
@@ -39,12 +37,11 @@ const getReviewsById = (id) => {
   const options = {
     url: `${baseURL}/reviews/`,
     headers: {
-      'User-Agent': 'request',
       Authorization: config.TOKEN,
     },
     params: {
       product_id: id,
-      count: 100,
+      count: 1000,
     },
   };
 
@@ -59,7 +56,6 @@ const getMetaReviewsById = (id) => {
   const options = {
     url: `${baseURL}/reviews/meta/`,
     headers: {
-      'User-Agent': 'request',
       Authorization: config.TOKEN,
     },
     params: {
@@ -78,7 +74,6 @@ const getRelatedProductsById = (id) => {
   const options = {
     url: `${baseURL}/products/${id}/related`,
     headers: {
-      'User-Agent': 'request',
       Authorization: config.TOKEN,
     },
   };
@@ -90,10 +85,28 @@ const getRelatedProductsById = (id) => {
     });
 };
 
+const postReviewByProductId = (body) => {
+  const options = {
+    method: 'post',
+    url: `${baseURL}/reviews`,
+    headers: {
+      Authorization: config.TOKEN,
+    },
+    data: body,
+  };
+
+  return axios(options)
+    .then((response) => response)
+    .catch((error) => {
+      throw error;
+    });
+};
+
 module.exports = {
   getProductById,
   getProductStylesById,
   getReviewsById,
   getMetaReviewsById,
   getRelatedProductsById,
+  postReviewByProductId,
 };
