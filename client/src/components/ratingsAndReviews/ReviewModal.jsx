@@ -17,6 +17,8 @@ class ReviewModal extends React.Component {
       fit: null,
       summary: '',
       body: '',
+      name: '',
+      email: '',
     };
 
     this.handleFormChange = this.handleFormChange.bind(this);
@@ -59,22 +61,21 @@ class ReviewModal extends React.Component {
       fit,
       summary,
       body,
+      name,
+      email,
     } = this.state;
+
+    const characteristics = {};
+
+    // for (let char in meta.characteristics)
 
     const review = {
       product_id: meta.product_id,
-      name: 'bobby',
-      email: 'shimoshixp@gmail.com',
+      name,
+      email,
       rating,
       recommend,
-      characteristics: {
-        size,
-        width,
-        comfort,
-        quality,
-        length,
-        fit,
-      },
+      characteristics,
       summary,
       body,
     };
@@ -92,6 +93,7 @@ class ReviewModal extends React.Component {
     const {
       showModal,
       toggleModal,
+      meta,
     } = this.props;
 
     const {
@@ -99,6 +101,358 @@ class ReviewModal extends React.Component {
       summary,
       body,
     } = this.state;
+
+    let size;
+    let width;
+    let comfort;
+    let quality;
+    let length;
+    let fit;
+
+    if (meta.characteristics) {
+      if (meta.characteristics.Size) {
+        size = (
+          <div>
+            <span>Size</span>
+            <label htmlFor="size-1">
+              <input
+                type="radio"
+                id="size-1"
+                value="1"
+                name="size"
+                onClick={this.handleFormChange}
+              />
+              A size too small
+            </label>
+            <label htmlFor="size-2">
+              <input
+                type="radio"
+                id="size-2"
+                value="2"
+                name="size"
+                onClick={this.handleFormChange}
+              />
+              1/2 a size too small
+            </label>
+            <label htmlFor="size-3">
+              <input
+                type="radio"
+                id="size-3"
+                value="3"
+                name="size"
+                onClick={this.handleFormChange}
+              />
+              Perfect
+            </label>
+            <label htmlFor="size-4">
+              <input
+                type="radio"
+                id="size-4"
+                value="4"
+                name="size"
+                onClick={this.handleFormChange}
+              />
+              1/2 a size too big
+            </label>
+            <label htmlFor="size-5">
+              <input
+                type="radio"
+                id="size-5"
+                value="5"
+                name="size"
+                onClick={this.handleFormChange}
+              />
+              A size too wide
+            </label>
+          </div>
+        );
+      }
+      if (meta.characteristics.Width) {
+        width = (
+          <div>
+            <span>Width</span>
+            <label htmlFor="width-1">
+              <input
+                type="radio"
+                id="width-1"
+                value="1"
+                name="width"
+                onClick={this.handleFormChange}
+              />
+              Too narrow
+            </label>
+            <label htmlFor="width-2">
+              <input
+                type="radio"
+                id="width-2"
+                value="2"
+                name="width"
+                onClick={this.handleFormChange}
+              />
+              Slightly narrow
+            </label>
+            <label htmlFor="width-3">
+              <input
+                type="radio"
+                id="width-3"
+                value="3"
+                name="width"
+                onClick={this.handleFormChange}
+              />
+              Perfect
+            </label>
+            <label htmlFor="width-4">
+              <input
+                type="radio"
+                id="width-4"
+                value="4"
+                name="width"
+                onClick={this.handleFormChange}
+              />
+              Slightly wide
+            </label>
+            <label htmlFor="width-5">
+              <input
+                type="radio"
+                id="width-5"
+                value="5"
+                name="width"
+                onClick={this.handleFormChange}
+              />
+              Too wide
+            </label>
+          </div>
+        );
+      }
+      if (meta.characteristics.Comfort) {
+        comfort = (
+          <div>
+            <span>Comfort</span>
+            <label htmlFor="comfort-1">
+              <input
+                type="radio"
+                id="comfort-1"
+                value="1"
+                name="comfort"
+                onClick={this.handleFormChange}
+              />
+              Uncomfortable
+            </label>
+            <label htmlFor="comfort-2">
+              <input
+                type="radio"
+                id="comfort-2"
+                value="2"
+                name="comfort"
+                onClick={this.handleFormChange}
+              />
+              Slightly uncomfortable
+            </label>
+            <label htmlFor="comfort-3">
+              <input
+                type="radio"
+                id="comfort-3"
+                value="3"
+                name="comfort"
+                onClick={this.handleFormChange}
+              />
+              Ok
+            </label>
+            <label htmlFor="comfort-4">
+              <input
+                type="radio"
+                id="comfort-4"
+                value="4"
+                name="comfort"
+                onClick={this.handleFormChange}
+              />
+              Comfortable
+            </label>
+            <label htmlFor="comfort-5">
+              <input
+                type="radio"
+                id="comfort-5"
+                value="5"
+                name="comfort"
+                onClick={this.handleFormChange}
+              />
+              Perfect
+            </label>
+          </div>
+        );
+      }
+      if (meta.characteristics.Quality) {
+        quality = (
+          <div>
+            <span>Quality</span>
+            <label htmlFor="quality-1">
+              <input
+                type="radio"
+                id="quality-1"
+                value="1"
+                name="quality"
+                onClick={this.handleFormChange}
+              />
+              Poor
+            </label>
+            <label htmlFor="quality-2">
+              <input
+                type="radio"
+                id="quality-2"
+                value="2"
+                name="quality"
+                onClick={this.handleFormChange}
+              />
+              Below average
+            </label>
+            <label htmlFor="quality-3">
+              <input
+                type="radio"
+                id="quality-3"
+                value="3"
+                name="quality"
+                onClick={this.handleFormChange}
+              />
+              What I expected
+            </label>
+            <label htmlFor="quality-4">
+              <input
+                type="radio"
+                id="quality-4"
+                value="4"
+                name="quality"
+                onClick={this.handleFormChange}
+              />
+              Pretty great
+            </label>
+            <label htmlFor="quality-5">
+              <input
+                type="radio"
+                id="quality-5"
+                value="5"
+                name="quality"
+                onClick={this.handleFormChange}
+              />
+              Perfect
+            </label>
+          </div>
+        );
+      }
+      if (meta.characteristics.Length) {
+        length = (
+          <div>
+            <span>Length</span>
+            <label htmlFor="length-1">
+              <input
+                type="radio"
+                id="length-1"
+                value="1"
+                name="length"
+                onClick={this.handleFormChange}
+              />
+              Runs short
+            </label>
+            <label htmlFor="length-2">
+              <input
+                type="radio"
+                id="length-2"
+                value="2"
+                name="length"
+                onClick={this.handleFormChange}
+              />
+              Runs slightly short
+            </label>
+            <label htmlFor="length-3">
+              <input
+                type="radio"
+                id="length-3"
+                value="3"
+                name="length"
+                onClick={this.handleFormChange}
+              />
+              Perfect
+            </label>
+            <label htmlFor="length-4">
+              <input
+                type="radio"
+                id="length-4"
+                value="4"
+                name="length"
+                onClick={this.handleFormChange}
+              />
+              Runs slightly long
+            </label>
+            <label htmlFor="length-5">
+              <input
+                type="radio"
+                id="length-5"
+                value="5"
+                name="length"
+                onClick={this.handleFormChange}
+              />
+              Runs long
+            </label>
+          </div>
+        );
+      }
+      if (meta.characteristics.Fit) {
+        fit = (
+          <div>
+            <span>Fit</span>
+            <label htmlFor="fit-1">
+              <input
+                type="radio"
+                id="fit-1"
+                value="1"
+                name="fit"
+                onClick={this.handleFormChange}
+              />
+              Runs tight
+            </label>
+            <label htmlFor="fit-2">
+              <input
+                type="radio"
+                id="fit-2"
+                value="2"
+                name="fit"
+                onClick={this.handleFormChange}
+              />
+              Runs slightly tight
+            </label>
+            <label htmlFor="fit-3">
+              <input
+                type="radio"
+                id="fit-3"
+                value="3"
+                name="fit"
+                onClick={this.handleFormChange}
+              />
+              Perfect
+            </label>
+            <label htmlFor="fit-4">
+              <input
+                type="radio"
+                id="fit-4"
+                value="4"
+                name="fit"
+                onClick={this.handleFormChange}
+              />
+              Runs slightly long
+            </label>
+            <label htmlFor="fit-5">
+              <input
+                type="radio"
+                id="fit-5"
+                value="5"
+                name="fit"
+                onClick={this.handleFormChange}
+              />
+              Runs long
+            </label>
+          </div>
+        );
+      }
+    }
 
     if (!showModal) {
       return null;
@@ -201,318 +555,12 @@ class ReviewModal extends React.Component {
           No
         </label>
         <br />
-        <span>Size</span>
-        <label htmlFor="size-1">
-          <input
-            type="radio"
-            id="size-1"
-            value="1"
-            name="size"
-            onClick={this.handleFormChange}
-          />
-          A size too small
-        </label>
-        <label htmlFor="size-2">
-          <input
-            type="radio"
-            id="size-2"
-            value="2"
-            name="size"
-            onClick={this.handleFormChange}
-          />
-          1/2 a size too small
-        </label>
-        <label htmlFor="size-3">
-          <input
-            type="radio"
-            id="size-3"
-            value="3"
-            name="size"
-            onClick={this.handleFormChange}
-          />
-          Perfect
-        </label>
-        <label htmlFor="size-4">
-          <input
-            type="radio"
-            id="size-4"
-            value="4"
-            name="size"
-            onClick={this.handleFormChange}
-          />
-          1/2 a size too big
-        </label>
-        <label htmlFor="size-5">
-          <input
-            type="radio"
-            id="size-5"
-            value="5"
-            name="size"
-            onClick={this.handleFormChange}
-          />
-          A size too wide
-        </label>
-        <br />
-        <span>Width</span>
-        <label htmlFor="width-1">
-          <input
-            type="radio"
-            id="width-1"
-            value="1"
-            name="width"
-            onClick={this.handleFormChange}
-          />
-          Too narrow
-        </label>
-        <label htmlFor="width-2">
-          <input
-            type="radio"
-            id="width-2"
-            value="2"
-            name="width"
-            onClick={this.handleFormChange}
-          />
-          Slightly narrow
-        </label>
-        <label htmlFor="width-3">
-          <input
-            type="radio"
-            id="width-3"
-            value="3"
-            name="width"
-            onClick={this.handleFormChange}
-          />
-          Perfect
-        </label>
-        <label htmlFor="width-4">
-          <input
-            type="radio"
-            id="width-4"
-            value="4"
-            name="width"
-            onClick={this.handleFormChange}
-          />
-          Slightly wide
-        </label>
-        <label htmlFor="width-5">
-          <input
-            type="radio"
-            id="width-5"
-            value="5"
-            name="width"
-            onClick={this.handleFormChange}
-          />
-          Too wide
-        </label>
-        <br />
-        <span>Comfort</span>
-        <label htmlFor="comfort-1">
-          <input
-            type="radio"
-            id="comfort-1"
-            value="1"
-            name="comfort"
-            onClick={this.handleFormChange}
-          />
-          Uncomfortable
-        </label>
-        <label htmlFor="comfort-2">
-          <input
-            type="radio"
-            id="comfort-2"
-            value="2"
-            name="comfort"
-            onClick={this.handleFormChange}
-          />
-          Slightly uncomfortable
-        </label>
-        <label htmlFor="comfort-3">
-          <input
-            type="radio"
-            id="comfort-3"
-            value="3"
-            name="comfort"
-            onClick={this.handleFormChange}
-          />
-          Ok
-        </label>
-        <label htmlFor="comfort-4">
-          <input
-            type="radio"
-            id="comfort-4"
-            value="4"
-            name="comfort"
-            onClick={this.handleFormChange}
-          />
-          Comfortable
-        </label>
-        <label htmlFor="comfort-5">
-          <input
-            type="radio"
-            id="comfort-5"
-            value="5"
-            name="comfort"
-            onClick={this.handleFormChange}
-          />
-          Perfect
-        </label>
-        <br />
-        <span>Quality</span>
-        <label htmlFor="quality-1">
-          <input
-            type="radio"
-            id="quality-1"
-            value="1"
-            name="quality"
-            onClick={this.handleFormChange}
-          />
-          Poor
-        </label>
-        <label htmlFor="quality-2">
-          <input
-            type="radio"
-            id="quality-2"
-            value="2"
-            name="quality"
-            onClick={this.handleFormChange}
-          />
-          Below average
-        </label>
-        <label htmlFor="quality-3">
-          <input
-            type="radio"
-            id="quality-3"
-            value="3"
-            name="quality"
-            onClick={this.handleFormChange}
-          />
-          What I expected
-        </label>
-        <label htmlFor="quality-4">
-          <input
-            type="radio"
-            id="quality-4"
-            value="4"
-            name="quality"
-            onClick={this.handleFormChange}
-          />
-          Pretty great
-        </label>
-        <label htmlFor="quality-5">
-          <input
-            type="radio"
-            id="quality-5"
-            value="5"
-            name="quality"
-            onClick={this.handleFormChange}
-          />
-          Perfect
-        </label>
-        <br />
-        <span>Length</span>
-        <label htmlFor="length-1">
-          <input
-            type="radio"
-            id="length-1"
-            value="1"
-            name="length"
-            onClick={this.handleFormChange}
-          />
-          Runs short
-        </label>
-        <label htmlFor="length-2">
-          <input
-            type="radio"
-            id="length-2"
-            value="2"
-            name="length"
-            onClick={this.handleFormChange}
-          />
-          Runs slightly short
-        </label>
-        <label htmlFor="length-3">
-          <input
-            type="radio"
-            id="length-3"
-            value="3"
-            name="length"
-            onClick={this.handleFormChange}
-          />
-          Perfect
-        </label>
-        <label htmlFor="length-4">
-          <input
-            type="radio"
-            id="length-4"
-            value="4"
-            name="length"
-            onClick={this.handleFormChange}
-          />
-          Runs slightly long
-        </label>
-        <label htmlFor="length-5">
-          <input
-            type="radio"
-            id="length-5"
-            value="5"
-            name="length"
-            onClick={this.handleFormChange}
-          />
-          Runs long
-        </label>
-        <br />
-        <span>Fit</span>
-        <label htmlFor="fit-1">
-          <input
-            type="radio"
-            id="fit-1"
-            value="1"
-            name="fit"
-            onClick={this.handleFormChange}
-          />
-          Runs tight
-        </label>
-        <label htmlFor="fit-2">
-          <input
-            type="radio"
-            id="fit-2"
-            value="2"
-            name="fit"
-            onClick={this.handleFormChange}
-          />
-          Runs slightly tight
-        </label>
-        <label htmlFor="fit-3">
-          <input
-            type="radio"
-            id="fit-3"
-            value="3"
-            name="fit"
-            onClick={this.handleFormChange}
-          />
-          Perfect
-        </label>
-        <label htmlFor="fit-4">
-          <input
-            type="radio"
-            id="fit-4"
-            value="4"
-            name="fit"
-            onClick={this.handleFormChange}
-          />
-          Runs slightly long
-        </label>
-        <label htmlFor="fit-5">
-          <input
-            type="radio"
-            id="fit-5"
-            value="5"
-            name="fit"
-            onClick={this.handleFormChange}
-          />
-          Runs long
-        </label>
-        <br />
+        {size}
+        {width}
+        {comfort}
+        {quality}
+        {length}
+        {fit}
         <input
           type="text"
           placeholder="Example: Best purchase ever!"
@@ -523,14 +571,36 @@ class ReviewModal extends React.Component {
         <br />
         <textarea
           type="text"
-          placeholder="Why did you like the product ornot?"
+          placeholder="Why did you like the product or not?"
           value={body}
           name="body"
           onChange={this.handleFormChange}
         />
         <br />
-        <input type="submit" onClick={this.submitReviewForm} />
-        <button type="button" onClick={toggleModal}>Close</button>
+        <input
+          type="text"
+          placeholder="Example: jackson11!"
+          name="name"
+          onChange={this.handleFormChange}
+        />
+        <div>For privacy reasons, do not use your full name or email address</div>
+        <input
+          type="text"
+          placeholder="Example: jackson11@email.com"
+          name="email"
+          onChange={this.handleFormChange}
+        />
+        <div>For authentication reasons, you will not be emailed</div>
+        <input
+          type="submit"
+          onClick={this.submitReviewForm}
+        />
+        <button
+          type="button"
+          onClick={toggleModal}
+        >
+          Close
+        </button>
       </form>
     );
   }
@@ -539,6 +609,12 @@ class ReviewModal extends React.Component {
 ReviewModal.propTypes = {
   showModal: PropTypes.bool.isRequired,
   toggleModal: PropTypes.func.isRequired,
+  meta: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+    ]),
+  ).isRequired,
 };
 
 export default ReviewModal;

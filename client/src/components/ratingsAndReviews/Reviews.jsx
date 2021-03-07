@@ -102,6 +102,12 @@ Reviews.propTypes = {
       PropTypes.array,
     ]),
   ).isRequired,
+  meta: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+    ]),
+  ).isRequired,
 };
 
 export default Reviews;
