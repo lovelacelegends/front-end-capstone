@@ -12,12 +12,19 @@ class SizeSelector extends React.Component {
     const { styles, currentStyle, updateSku, currentSize } = this.props;
     const objOfSkus = styles.results[currentStyle].skus;
 
+    if(objOfSkus.null) {
+      return(
+        <select>
+          <option disable>OUT OF STOCK</option>
+        </select>
+      )
+    }
+
     const arrayOfSkus = [];
     Object.keys(objOfSkus).forEach((key) => {
       arrayOfSkus.push(key);
     });
 
-      let indexOfSku = 0;
       return (
         <div className="size-selector">
           <select onChange={updateSku} id="size-selector" value={currentSize}>
@@ -26,16 +33,14 @@ class SizeSelector extends React.Component {
               if (objOfSkus[sku].quantity !== 0) {
                 const sizetoDisplay = objOfSkus[sku].size;
                 return (
-                  <option id={indexOfSku++}>
+                  <option id={sku}>
                     {sizetoDisplay}
                   </option>
                 );
-                indexOfSku ++
               }
               return (
-                <option className="hide-option" id={indexOfSku++}></option>
+                <option className="hide-option" id={sku}></option>
               );
-              indexOfSku ++
             })}
           </select>
         </div>

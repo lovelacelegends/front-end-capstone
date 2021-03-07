@@ -11,16 +11,25 @@ class AddToCart extends React.Component {
       currentSize: '',
       currentQuantity: 1,
       outOfStock: false,
+      skuId: "",
     };
     this.updateSkuInState = this.updateSkuInState.bind(this);
     this.updateQuantityInState = this.updateQuantityInState.bind(this);
     this.updateSku = this.updateSku.bind(this);
     this.isOutOfStockOption = this.isOutOfStockOption.bind(this);
+    this.addToCartApi = this.addToCartApi.bind(this);
   }
 
   // componentDidMount() {
   //   this.isOutOfStockOption();
   // }
+
+  addToCartApi(){
+    let currentSkuIndex = this.state.currentSku;
+    let sku = this.props.styles.results[this.props.currentStyle].skus[currentSkuIndex];
+    debugger;
+    console.log("api", sku)
+  }
 
   isOutOfStockOption() {
     let arrayOfSkus = this.props.styles.results[this.props.currentStyle].skus;
@@ -38,6 +47,7 @@ class AddToCart extends React.Component {
     const index = e.target.selectedIndex;
     let selectedSku = e.target.childNodes[index].id;
     let selectedSize = e.target.value;
+    debugger;
     this.updateSkuInState(selectedSku, selectedSize);
     this.setState({ currentQuantity: 1 });
   }
@@ -78,6 +88,7 @@ class AddToCart extends React.Component {
           <CartButton
             outOfStock={outOfStock}
             currentSize={currentSize}
+            addToCartApi={this.addToCartApi}
           />
         </div>
       </div>

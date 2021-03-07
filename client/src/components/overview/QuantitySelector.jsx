@@ -20,8 +20,7 @@ class QuantitySelector extends React.Component {
       );
     }
 
-    let arrayOfSkus = Object.keys(styles.results[currentStyle].skus);
-    let quantity = styles.results[currentStyle].skus[arrayOfSkus[currentSku]].quantity
+    let quantity = styles.results[currentStyle].skus[currentSku].quantity
     let max;
     (quantity > 15) ?  max = 15 :  max = quantity
 
