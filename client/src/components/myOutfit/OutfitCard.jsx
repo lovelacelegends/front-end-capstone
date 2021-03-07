@@ -1,4 +1,5 @@
 import React from 'react';
+import { RiCloseCircleLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
 
 const OutfitCard = ({ product, handleDelete }) => (
@@ -14,7 +15,7 @@ const OutfitCard = ({ product, handleDelete }) => (
       role="button"
       tabIndex={0}
     >
-      X
+      <RiCloseCircleLine />
     </div>
     <img
       className="outfit-card-image"

@@ -1,4 +1,5 @@
 import React from 'react';
+import { RiInformationLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
 
 class RelatedItemCard extends React.Component {
@@ -32,7 +33,7 @@ class RelatedItemCard extends React.Component {
           role="link"
           tabIndex={0}
         >
-          *
+          <RiInformationLine />
         </div>
         <img
           className="related-default-picture"

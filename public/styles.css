@@ -269,7 +269,7 @@ body {
 
 .outfit-product-card:hover {
   /* color: white; */
-  cursor: pointer;
+  /* cursor: pointer; */
 
   -webkit-box-shadow:0 4px 4px rgba(0, 0, 0, 0.3);
      -moz-box-shadow:0 4px 4px rgba(0, 0, 0, 0.3);
@@ -300,14 +300,14 @@ body {
 .outfit-card-x {
   grid-area: 1/2/2/3;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-end;
   z-index: 1;
-  color: red;
+  font-size: 20px;
 }
 
 .outfit-card-x:hover {
   cursor: pointer;
+  color: red;
 }
 
 .add-product-card {
@@ -460,7 +460,7 @@ td {
 
 .related-card:hover {
   /* color: white; */
-  cursor: pointer;
+  /* cursor: pointer; */
 
   -webkit-box-shadow:0 4px 4px rgba(0, 0, 0, 0.3);
      -moz-box-shadow:0 4px 4px rgba(0, 0, 0, 0.3);
@@ -471,14 +471,13 @@ td {
   grid-area: 1/2/2/3;
   z-index: 3;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: red;
-  font-size: 24px;
+  justify-content: flex-end;
+  font-size: 20px;
 }
 
 .related-modal-star:hover {
   cursor: pointer;
+  color: green;
 }
 
 .related-default-picture {
@@ -492,6 +491,10 @@ td {
 .related-text-holder {
   grid-row: 3;
   margin-left: 8px;
+}
+
+.related-text-holder:hover {
+  cursor: pointer;
 }
 
 .related-category {
