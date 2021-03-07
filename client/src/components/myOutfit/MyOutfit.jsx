@@ -49,7 +49,6 @@ class MyOutfit extends React.Component {
   render() {
     const { currentProduct, currentStyle, styles } = this.props;
     const { currentPosition, positionIndex, storageCount } = this.state;
-
     let leftArrow;
     if (positionIndex > 0) {
       leftArrow = (
