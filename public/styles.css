@@ -288,12 +288,16 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   padding-left: 5px;
+
+  font-size: 1.01vw;
 }
 
 .outfit-card-style {
   grid-area: 3/1/4/3;
   font-style: italic;
   padding-left: 5px;
+  padding-top: 2px;
+  font-size: 14px;
 }
 
 .outfit-card-image {
