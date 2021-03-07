@@ -10,6 +10,63 @@ class Ratings extends React.Component {
 
   render() {
     const { meta } = this.props;
+    let size;
+    let width;
+    let comfort;
+    let quality;
+    let length;
+    let fit;
+
+    if (meta.characteristics) {
+      if (meta.characteristics.Size) {
+        size = (
+          <div>
+            {'Size: '}
+            {meta.characteristics.Size.value}
+          </div>
+        );
+      }
+      if (meta.characteristics.Width) {
+        width = (
+          <div>
+            {'Width: '}
+            {meta.characteristics.Width.value}
+          </div>
+        );
+      }
+      if (meta.characteristics.Comfort) {
+        comfort = (
+          <div>
+            {'Comfort: '}
+            {meta.characteristics.Comfort.value}
+          </div>
+        );
+      }
+      if (meta.characteristics.Quality) {
+        quality = (
+          <div>
+            {'Quality: '}
+            {meta.characteristics.Quality.value}
+          </div>
+        );
+      }
+      if (meta.characteristics.Length) {
+        length = (
+          <div>
+            {'Length: '}
+            {meta.characteristics.Length.value}
+          </div>
+        );
+      }
+      if (meta.characteristics.Fit) {
+        fit = (
+          <div>
+            {'Fit: '}
+            {meta.characteristics.Fit.value}
+          </div>
+        );
+      }
+    }
 
     if (Object.keys(meta).length !== 0) {
       // find average rating
@@ -81,22 +138,12 @@ class Ratings extends React.Component {
             {recommended}
             % of reviewers recommend this product
           </div>
-          <div>
-            {'Fit: '}
-            {/* {meta.characteristics.Fit.value} */}
-          </div>
-          <div>
-            {'Length: '}
-            {/* {meta.characteristics.Length.value} */}
-          </div>
-          <div>
-            {'Comfort: '}
-            {/* {meta.characteristics.Comfort.value} */}
-          </div>
-          <div>
-            {'Quality: '}
-            {/* {meta.characteristics.Quality.value} */}
-          </div>
+          {size}
+          {width}
+          {comfort}
+          {quality}
+          {length}
+          {fit}
         </div>
       );
     }
