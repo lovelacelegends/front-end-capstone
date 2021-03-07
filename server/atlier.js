@@ -44,7 +44,7 @@ const getReviewsById = (id) => {
     },
     params: {
       product_id: id,
-      count: 100,
+      count: 1000,
     },
   };
 

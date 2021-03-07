@@ -5,10 +5,10 @@ body {
 :root {
   --star-size: 15px;
   --star-color: gray;
-  --star-background: rgb(49, 170, 49);
+  --star-background: rgb(68, 184, 68);
   --bar-size: 15px;
   --bar-color: gray;
-  --bar-background: rgb(49, 170, 49);
+  --bar-background: rgb(68, 184, 68);
 }
 
 /* STARS SECTION - to use, simply add the stars class and pass in a number into style={{ '--rating': NUM }} */
@@ -28,6 +28,25 @@ body {
   font-size: var(--star-size);
   font-family: Times; /* make sure ★ appears correctly*/
   line-height: 1;
+}
+
+.stars-clickable {
+  /* z-index: 10; */
+  position: absolute;
+  height: 17px;
+  width: 75px;
+  transform: translate(-100%, 0);
+}
+
+.star-clickable {
+  position: inherit;
+  margin: 1px 0;
+  height: 15px;
+  width: 15px;
+}
+
+.star-clickable:hover {
+  cursor: pointer;
 }
 
 /* BAR SECTION - to use, simply add the bar class and pass in a number into style={{ '--rating': NUM }} */
