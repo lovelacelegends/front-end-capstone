@@ -1,57 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import RelatedModal from './RelatedModal';
 
 class RelatedItemCard extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      showModal: false,
-    };
+    this.state = {};
     this.handleProductClick = this.handleProductClick.bind(this);
     this.handleModalClick = this.handleModalClick.bind(this);
   }
 
   handleProductClick() {
-    const { product } = this.props;
-    // eslint-disable-next-line no-console
-    console.log(product.id);
+    const { product, getProductData, resetState } = this.props;
+    getProductData(product.id);
+    resetState();
   }
 
   handleModalClick() {
-    const { showModal } = this.state;
-    this.setState({
-      showModal: !showModal,
-    });
+    const { product, selectedProduct, updateModal } = this.props;
+    updateModal(selectedProduct, product);
   }
 
   render() {
-    const { product, selectedProduct } = this.props;
-    const { showModal } = this.state;
-    let modalDiv;
-
-    if (!showModal) {
-      modalDiv = (
-        null
-      );
-    } else {
-      modalDiv = (
-        <RelatedModal
-          handleModalClick={this.handleModalClick}
-          selectedProduct={selectedProduct}
-          product={product}
-        />
-      );
-    }
+    const { product } = this.props;
 
     return (
-      <div
-        className="related-card"
-        // onClick={this.handleProductClick}
-        // onKeyPress={this.handleProductClick}
-        // role="link"
-        // tabIndex={0}
-      >
+      <div className="related-card">
         <div
           className="related-modal-star"
           onClick={this.handleModalClick}
@@ -62,14 +35,12 @@ class RelatedItemCard extends React.Component {
           *
         </div>
         <img
-          // onClick={this.handleProductClick}
-          // onKeyPress={this.handleProductClick}
-          // tabIndex={0}
           className="related-default-picture"
           src={product.url}
           alt={product.name}
         />
         <div
+          className="related-text-holder"
           onClick={this.handleProductClick}
           onKeyPress={this.handleProductClick}
           role="link"
@@ -77,16 +48,21 @@ class RelatedItemCard extends React.Component {
         >
           <div className="related-category">{product.category}</div>
           <div className="related-name">{product.name}</div>
-          <div className="related-price">{product.price}</div>
+          <div className="related-price">
+            $
+            {product.price}
+          </div>
           <div className="related-rating">***** (star rating) </div>
         </div>
-        {modalDiv}
       </div>
     );
   }
 }
 
 RelatedItemCard.propTypes = {
+  resetState: PropTypes.func.isRequired,
+  getProductData: PropTypes.func.isRequired,
+  updateModal: PropTypes.func.isRequired,
   selectedProduct: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,

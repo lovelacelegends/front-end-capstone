@@ -46,17 +46,17 @@ class RelatedModal extends React.Component {
   }
 
   render() {
-    const { handleModalClick, selectedProduct, product } = this.props;
+    const { modalArray, closeModal } = this.props;
 
     const completeFeatArray = RelatedModal.combineFeatures(
-      selectedProduct.features, product.features,
+      modalArray[0].features, modalArray[1].features,
     );
 
     return (
       <div
         className="related-modal"
-        onClick={handleModalClick}
-        onKeyPress={handleModalClick}
+        onClick={closeModal}
+        onKeyPress={closeModal}
         role="button"
         tabIndex={0}
       >
@@ -64,15 +64,15 @@ class RelatedModal extends React.Component {
         <table id="compare-products">
           <tbody>
             <tr>
-              <th>{selectedProduct.name}</th>
-              <th> </th>
-              <th>{product.name}</th>
+              <th className="modal-col-1">{modalArray[0].name}</th>
+              <th className="modal-col-2"> </th>
+              <th className="modal-col-3">{modalArray[1].name}</th>
             </tr>
             {completeFeatArray.map((feature) => (
               <tr key={feature.id}>
-                <td>{feature.currentValue}</td>
-                <td>{feature.feature}</td>
-                <td>{feature.relatedValue}</td>
+                <td className="modal-col-1">{feature.currentValue}</td>
+                <td className="modal-col-2">{feature.feature}</td>
+                <td className="modal-col-3">{feature.relatedValue}</td>
               </tr>
             ))}
           </tbody>
@@ -83,20 +83,10 @@ class RelatedModal extends React.Component {
 }
 
 RelatedModal.propTypes = {
-  handleModalClick: PropTypes.func.isRequired,
-  product: PropTypes.objectOf(
+  closeModal: PropTypes.func.isRequired,
+  modalArray: PropTypes.arrayOf(
     PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.array,
       PropTypes.object,
-    ]),
-  ).isRequired,
-  selectedProduct: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.string,
-      PropTypes.number,
-      PropTypes.array,
     ]),
   ).isRequired,
 };

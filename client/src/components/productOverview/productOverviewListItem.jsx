@@ -1,4 +1,5 @@
 import React from 'react';
+import { IoMdCheckmark } from 'react-icons/Io';
 
 class ProductOverviewListItem extends React.Component {
   constructor(props) {
@@ -9,8 +10,7 @@ class ProductOverviewListItem extends React.Component {
   render() {
     return (
       <div className="product-overview-list-item">
-        {this.props.feature.feature}
-        {this.props.feature.value}
+        <IoMdCheckmark />{this.props.feature.feature}
       </div>
     );
   }
