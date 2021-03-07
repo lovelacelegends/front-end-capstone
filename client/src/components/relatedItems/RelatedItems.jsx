@@ -16,6 +16,14 @@ class RelatedItems extends React.Component {
     this.moveLeft = this.moveLeft.bind(this);
     this.updateModal = this.updateModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.resetState = this.resetState.bind(this);
+  }
+
+  resetState() {
+    this.setState({
+      currentPosition: 0,
+      positionIndex: 0,
+    });
   }
 
   updateModal(currentProductFeatureArray, relatedProductFeatureArray) {
@@ -52,7 +60,12 @@ class RelatedItems extends React.Component {
   }
 
   render() {
-    const { relatedProductIds, selectedProduct } = this.props;
+    const {
+      relatedProductIds,
+      selectedProduct,
+      relatedProductData,
+      getProductData,
+    } = this.props;
     const {
       currentPosition,
       positionIndex,
@@ -118,6 +131,9 @@ class RelatedItems extends React.Component {
               selectedProduct={selectedProduct}
               currentPosition={currentPosition}
               updateModal={this.updateModal}
+              relatedProductData={relatedProductData}
+              getProductData={getProductData}
+              resetState={this.resetState}
             />
           </div>
           {rightArrow}
@@ -131,6 +147,12 @@ class RelatedItems extends React.Component {
 }
 
 RelatedItems.propTypes = {
+  relatedProductData: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.object,
+    ]),
+  ).isRequired,
+  getProductData: PropTypes.func.isRequired,
   relatedProductIds: PropTypes.arrayOf(
     PropTypes.oneOfType([PropTypes.number]),
   ).isRequired,
