@@ -45,21 +45,22 @@ class App extends React.Component {
           relatedProductIds: data.data[2],
           reviews: data.data[3],
           meta: data.data[4],
-        }, () => {
-          const { relatedProductIds } = this.state;
-          const arrayOfPromises = [];
+        });
+      })
+      .then(() => {
+        const { relatedProductIds } = this.state;
+        const arrayOfPromises = [];
 
-          relatedProductIds.forEach((relatedID) => {
-            arrayOfPromises.push(axios.get(`/related/${relatedID}`));
-          });
+        relatedProductIds.forEach((relatedID) => {
+          arrayOfPromises.push(axios.get(`/related/${relatedID}`));
+        });
 
-          Promise.all(arrayOfPromises)
-            .then((arrayOfProductData) => {
-              const dataArray = arrayOfProductData.map((product) => product.data);
-              this.setState({
-                relatedProductData: dataArray,
-              });
-            });
+        return Promise.all(arrayOfPromises);
+      })
+      .then((arrayOfProductData) => {
+        const dataArray = arrayOfProductData.map((product) => product.data);
+        this.setState({
+          relatedProductData: dataArray,
         });
       })
       .catch((error) => {
