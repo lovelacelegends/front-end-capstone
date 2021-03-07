@@ -29,7 +29,7 @@ class App extends React.Component {
 
   componentDidMount() {
     // 17734
-    this.getProductData('17072');
+    this.getProductData('17764');
   }
 
   getProductData(id) {
@@ -65,7 +65,6 @@ class App extends React.Component {
       reviews,
       meta,
     } = this.state;
-
     return (
       <div>
         <Header />

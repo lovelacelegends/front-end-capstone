@@ -49,7 +49,6 @@ body {
 /* OVERVIEW SECTION */
 
 .overview-with-extras{
-  border: 1px solid rgb(8, 5, 5);
   height: 500px;
   margin-left: 100px;
   margin-right: 100px;
@@ -58,14 +57,12 @@ body {
 }
 
 .overview-without-extras{
-  border: 1px solid rgb(8, 5, 5);
   height: 530px;
   margin-left: 100px;
   margin-right: 100px;
 }
 
 #image-gallery{
-  border: 1px solid rgb(8, 5, 5);
   display: grid;
   position: relative;
   background-size: contain;
@@ -81,27 +78,39 @@ body {
 }
 
 .product-info{
-  border: 1px solid rgb(8, 5, 5);
   display: grid;
 }
 
 .style-selector{
-  border: 1px solid rgb(8, 5, 5);
   display: grid;
 }
 
 .add-to-cart{
-  border: 1px solid rgb(8, 5, 5);
   display: grid;
 }
 
 .product-overview{
-  height: 150px;
+  height: 100px;
   margin-left: 100px;
   margin-right: 100px;
   display: grid;
   grid-template-columns: 60% 40%;
   grid-template-rows: 100;
+  margin-left: 200px;
+  margin-right: 200px;
+}
+
+.product-overview-list-item{
+  font-size: 12px;
+}
+
+.slogan{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.description{
+  font-size: 12px;
 }
 
 .name{
@@ -110,7 +119,6 @@ body {
 }
 
 .product-overview-text{
-  border: 1px solid rgb(8, 5, 5);
   display: grid;
   grid-column-start: 1;
   grid-column-end: 1;
@@ -118,11 +126,11 @@ body {
 }
 
 .product-overview-list{
-  border: 1px solid rgb(8, 5, 5);
   display: grid;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 1;
+  margin-left: 20px;
 }
 
 #original-price{
@@ -151,7 +159,7 @@ body {
   border: 2px solid rgb(8, 5, 5);
 }
 
-#hide-option{
+.hide-option{
   display: none;
 }
 
@@ -164,7 +172,6 @@ body {
   top: 50%;
   left: 30px;
   z-index: 10;
-  background-color: greenyellow;
 }
 
 .right-arrow{
@@ -172,7 +179,6 @@ body {
   top: 50%;
   right: 30px;
   z-index: 10;
-  background-color: red;
 }
 
 .each-thumbnail{
@@ -191,13 +197,11 @@ body {
 
 .down-arrow{
   margin-left: 40px;
-  background-color: yellow;
   z-index: 10;
 }
 
 .up-arrow{
   margin-left: 40px;
-  background-color: pink;
   z-index: 10;
 }
 

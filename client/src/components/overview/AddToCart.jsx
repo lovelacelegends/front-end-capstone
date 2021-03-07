@@ -18,8 +18,13 @@ class AddToCart extends React.Component {
     this.isOutOfStockOption = this.isOutOfStockOption.bind(this);
   }
 
+  // componentDidMount() {
+  //   this.isOutOfStockOption();
+  // }
+
   isOutOfStockOption() {
-    let arrayOfSkus = style.results[this.props.currentStyle].skus;
+    let arrayOfSkus = this.props.styles.results[this.props.currentStyle].skus;
+    debugger;
     let arrayOfZeroQuant = arrayOfSkus.filter((sku) => sku.quantity === 0);
     let arrayOfNullQuant = arrayOfSkus.filter((sku) => sku.quantity === null);
 
