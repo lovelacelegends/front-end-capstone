@@ -78,7 +78,9 @@ class OutfitContainer extends React.Component {
       ));
     } else {
       outfitList = (
-        'Click Add to Start Building Your Outfit!'
+        <div id="add-outfit-message">
+          Click + to Start Building Your Outfit!
+        </div>
       );
     }
 

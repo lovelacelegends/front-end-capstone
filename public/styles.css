@@ -252,6 +252,13 @@ body {
   transition: transform 0.25s ease;
 }
 
+#add-outfit-message {
+  grid-column: 2;
+  margin-left: 30px;
+  margin-top: 126px;
+  font-style: italic;
+}
+
 .outfit-product-card {
   background-color: rgb(162, 180, 197);
   height: 260px;
