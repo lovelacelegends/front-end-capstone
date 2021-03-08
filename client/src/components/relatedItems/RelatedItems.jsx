@@ -124,6 +124,7 @@ class RelatedItems extends React.Component {
 
     return relatedProductIds.length ? (
       <>
+        <div className="related-title"> Related Products </div>
         <div className="related-arrow-holder">
           {leftArrow}
           <div className="related-items-grid-frame">

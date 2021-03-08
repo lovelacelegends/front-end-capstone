@@ -374,6 +374,13 @@ body {
 
 /* RELATED PRODUCTS */
 
+.related-title {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+  margin-top: 50px;
+}
+
 .related-modal {
   position: fixed;
   left: 30%;
@@ -427,7 +434,7 @@ td {
 }
 
 .related-arrow-holder {
-  margin: 30px auto;
+  margin: 20px auto;
   width: 932px;
   display: grid;
   grid-template-columns: 30px 872px 30px;

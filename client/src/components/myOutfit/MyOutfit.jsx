@@ -88,19 +88,22 @@ class MyOutfit extends React.Component {
     }
 
     return (
-      <div className="related-arrow-holder">
-        {leftArrow}
-        <div className="outfit-grid-frame">
-          <OutfitContainer
-            currentProduct={currentProduct}
-            currentStyle={currentStyle}
-            styles={styles}
-            currentPosition={currentPosition}
-            updateStorageCount={this.updateStorageCount}
-          />
+      <>
+        <div className="related-title"> Your Outfit </div>
+        <div className="related-arrow-holder">
+          {leftArrow}
+          <div className="outfit-grid-frame">
+            <OutfitContainer
+              currentProduct={currentProduct}
+              currentStyle={currentStyle}
+              styles={styles}
+              currentPosition={currentPosition}
+              updateStorageCount={this.updateStorageCount}
+            />
+          </div>
+          {rightArrow}
         </div>
-        {rightArrow}
-      </div>
+      </>
     );
   }
 }
