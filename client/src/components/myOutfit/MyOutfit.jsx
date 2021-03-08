@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import React from 'react';
+import { GoChevronRight, GoChevronLeft } from 'react-icons/go';
 import PropTypes from 'prop-types';
 import OutfitContainer from './OutfitContainer';
 
@@ -48,7 +49,6 @@ class MyOutfit extends React.Component {
   render() {
     const { currentProduct, currentStyle, styles } = this.props;
     const { currentPosition, positionIndex, storageCount } = this.state;
-
     let leftArrow;
     if (positionIndex > 0) {
       leftArrow = (
@@ -59,7 +59,7 @@ class MyOutfit extends React.Component {
           role="button"
           tabIndex={0}
         >
-          L
+          <GoChevronLeft />
         </div>
       );
     } else {
@@ -78,7 +78,7 @@ class MyOutfit extends React.Component {
           role="button"
           tabIndex={0}
         >
-          R
+          <GoChevronRight />
         </div>
       );
     } else {
@@ -88,19 +88,22 @@ class MyOutfit extends React.Component {
     }
 
     return (
-      <div className="related-arrow-holder">
-        {leftArrow}
-        <div className="outfit-grid-frame">
-          <OutfitContainer
-            currentProduct={currentProduct}
-            currentStyle={currentStyle}
-            styles={styles}
-            currentPosition={currentPosition}
-            updateStorageCount={this.updateStorageCount}
-          />
+      <>
+        <div className="related-title"> Your Outfit </div>
+        <div className="related-arrow-holder">
+          {leftArrow}
+          <div className="outfit-grid-frame">
+            <OutfitContainer
+              currentProduct={currentProduct}
+              currentStyle={currentStyle}
+              styles={styles}
+              currentPosition={currentPosition}
+              updateStorageCount={this.updateStorageCount}
+            />
+          </div>
+          {rightArrow}
         </div>
-        {rightArrow}
-      </div>
+      </>
     );
   }
 }

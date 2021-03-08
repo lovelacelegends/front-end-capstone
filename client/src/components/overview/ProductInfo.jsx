@@ -1,5 +1,6 @@
 import React from 'react';
 import Price from './Price';
+import helper from '../../../../helper';
 
 class ProductInfo extends React.Component {
   constructor(props) {
@@ -9,12 +10,15 @@ class ProductInfo extends React.Component {
   }
 
   render() {
-    const { selectedProduct, styles, currentStyle } = this.props;
-    {selectedProduct}
+    const { selectedProduct, styles, currentStyle, meta } = this.props;
+    // {selectedProduct}
     return (
       <div className="product-info">
         <section id="rating">
-          ratings
+          <span
+            className="stars"
+            style={{ '--rating': helper.findStarRating(meta.ratings) }}
+          />
         </section>
         <section id="category">
           {selectedProduct.category}

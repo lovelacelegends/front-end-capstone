@@ -119,6 +119,7 @@ class ReviewModal extends React.Component {
 
   render() {
     const {
+      selectedProduct,
       showModal,
       toggleModal,
       meta,
@@ -489,7 +490,10 @@ class ReviewModal extends React.Component {
     return (
       <form className="review-modal">
         <h2>Write Your Review</h2>
-        <h4>About the Product</h4>
+        <h4>
+          {'About the '}
+          {selectedProduct.name}
+        </h4>
         <div
           className="stars"
           style={{ '--rating': rating }}
@@ -639,6 +643,13 @@ class ReviewModal extends React.Component {
 }
 
 ReviewModal.propTypes = {
+  selectedProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
   showModal: PropTypes.bool.isRequired,
   toggleModal: PropTypes.func.isRequired,
   meta: PropTypes.objectOf(
