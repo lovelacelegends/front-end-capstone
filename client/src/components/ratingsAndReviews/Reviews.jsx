@@ -18,18 +18,18 @@ class Reviews extends React.Component {
 
   handleMoreReviewsClick() {
     const { reviews } = this.props;
+    const { reviewCount } = this.state;
 
-    this.setState((prevState) => ({
-      reviewCount: prevState.reviewCount + 2,
-    }), (prevState) => {
-      if (prevState.reviewCount > reviews.results.length) {
-        return ({
-          showMoreReviews: false,
-        });
-      }
-
-      return null;
-    });
+    if (reviewCount + 2 >= reviews.results.length) {
+      this.setState((prevState) => ({
+        showMoreReviews: false,
+        reviewCount: prevState.reviewCount + 2,
+      }));
+    } else {
+      this.setState((prevState) => ({
+        reviewCount: prevState.reviewCount + 2,
+      }));
+    }
   }
 
   resetReviewCount() {
@@ -91,7 +91,7 @@ class Reviews extends React.Component {
           <button
             type="button"
             onClick={this.handleMoreReviewsClick}
-            style={{ hidden: showMoreReviews }}
+            style={{ visibility: showMoreReviews ? 'visible' : 'hidden' }}
           >
             MORE REVIEWS
           </button>
