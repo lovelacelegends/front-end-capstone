@@ -62,12 +62,14 @@ class RelatedModal extends React.Component {
       >
         <div className="table-heading"> Comparing </div>
         <table id="compare-products">
-          <tbody>
+          <thead>
             <tr>
               <th className="modal-col-1">{modalArray[0].name}</th>
               <th className="modal-col-2"> </th>
               <th className="modal-col-3">{modalArray[1].name}</th>
             </tr>
+          </thead>
+          <tbody>
             {completeFeatArray.map((feature) => (
               <tr key={feature.id}>
                 <td className="modal-col-1">{feature.currentValue}</td>

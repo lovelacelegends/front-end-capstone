@@ -1,5 +1,7 @@
 import React from 'react';
+import { RiInformationLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
+import rounder from '../../../../rounder';
 
 class RelatedItemCard extends React.Component {
   constructor(props) {
@@ -23,6 +25,17 @@ class RelatedItemCard extends React.Component {
   render() {
     const { product } = this.props;
 
+    let noRating;
+    if (Object.keys(product.ratings).length === 0) {
+      noRating = (
+        'No Ratings'
+      );
+    } else {
+      noRating = (
+        null
+      );
+    }
+
     return (
       <div className="related-card">
         <div
@@ -32,7 +45,7 @@ class RelatedItemCard extends React.Component {
           role="link"
           tabIndex={0}
         >
-          *
+          <RiInformationLine />
         </div>
         <img
           className="related-default-picture"
@@ -52,7 +65,12 @@ class RelatedItemCard extends React.Component {
             $
             {product.price}
           </div>
-          <div className="related-rating">***** (star rating) </div>
+          <div
+            className="related-rating stars"
+            style={{ '--rating': rounder(product.ratings) }}
+          >
+            {noRating}
+          </div>
         </div>
       </div>
     );
