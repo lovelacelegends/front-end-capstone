@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import SizeSelector from './SizeSelector';
 import QuantitySelector from './QuantitySelector';
 import CartButton from './CartButton';
@@ -11,7 +12,6 @@ class AddToCart extends React.Component {
       currentSize: '',
       currentQuantity: 1,
       outOfStock: false,
-      skuId: "",
     };
     this.updateSkuInState = this.updateSkuInState.bind(this);
     this.updateQuantityInState = this.updateQuantityInState.bind(this);
@@ -24,15 +24,21 @@ class AddToCart extends React.Component {
   //   this.isOutOfStockOption();
   // }
 
-  addToCartApi(){
-    let currentSkuIndex = this.state.currentSku;
-    let sku = this.props.styles.results[this.props.currentStyle].skus[currentSkuIndex];
-    console.log("api", sku)
+  addToCartApi() {
+    const currentSkuIndex = this.state.currentSku;
+    const amountToSend = Number(this.state.currentQuantity);
+    for (let i = 0; i < amountToSend; i++) {
+      axios
+        .post('/cart', { sku_id: currentSkuIndex })
+        .then((response) => {
+          console.log(response);
+        });
+    }
   }
 
   isOutOfStockOption() {
-    let arrayOfSkus = this.props.styles.results[this.props.currentStyle].skus;
-    let arrayOfZeroQuant = arrayOfSkus.filter((sku) => sku.quantity === 0);
+    const arrayOfSkus = this.props.styles.results[this.props.currentStyle].skus;
+    const arrayOfZeroQuant = arrayOfSkus.filter((sku) => sku.quantity === 0);
     let arrayOfNullQuant = arrayOfSkus.filter((sku) => sku.quantity === null);
 
     if(arrayOfSkus.length === arrayOfZeroQuant.length || arrayOfSkus.length === arrayOfNullQuant.length) {
@@ -54,7 +60,7 @@ class AddToCart extends React.Component {
   }
 
   updateQuantityInState(e) {
-    let quantity = e.target.value;
+    const quantity = e.target.value;
     this.setState({currentQuantity: quantity});
   }
 
