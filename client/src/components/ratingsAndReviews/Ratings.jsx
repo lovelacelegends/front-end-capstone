@@ -92,13 +92,13 @@ class Ratings extends React.Component {
 
       return (
         <div className="ratings-section">
-          <div>RATINGS & REVIEWS</div>
+          <h2>RATINGS & REVIEWS</h2>
           <div>
             {averageRating}
             {'  '}
             <span className="stars" style={{ '--rating': averageRatingQuarter }} />
           </div>
-          <h5>Rating Breakdown</h5>
+          <h3>Rating Breakdown</h3>
           <div>
             {'5 stars  '}
             <span className="bar" style={{ '--count': meta.ratings['5'], '--total': numOfReviews }}>

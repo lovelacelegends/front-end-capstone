@@ -9,6 +9,7 @@ class Reviews extends React.Component {
     this.state = {
       reviewCount: 2,
       showModal: false,
+      showMoreReviews: true,
     };
 
     this.handleMoreReviewsClick = this.handleMoreReviewsClick.bind(this);
@@ -16,9 +17,19 @@ class Reviews extends React.Component {
   }
 
   handleMoreReviewsClick() {
+    const { reviews } = this.props;
+
     this.setState((prevState) => ({
       reviewCount: prevState.reviewCount + 2,
-    }));
+    }), (prevState) => {
+      if (prevState.reviewCount > reviews.results.length) {
+        return ({
+          showMoreReviews: false,
+        });
+      }
+
+      return null;
+    });
   }
 
   resetReviewCount() {
@@ -35,7 +46,7 @@ class Reviews extends React.Component {
 
   render() {
     const { reviews, meta } = this.props;
-    const { reviewCount, showModal } = this.state;
+    const { reviewCount, showModal, showMoreReviews } = this.state;
 
     if (Object.keys(reviews).length !== 0) {
       return (
@@ -77,7 +88,13 @@ class Reviews extends React.Component {
               return null;
             })}
           </div>
-          <button type="button" onClick={this.handleMoreReviewsClick}>MORE REVIEWS</button>
+          <button
+            type="button"
+            onClick={this.handleMoreReviewsClick}
+            style={{ hidden: showMoreReviews }}
+          >
+            MORE REVIEWS
+          </button>
           <button type="button" onClick={this.toggleModal}>ADD A REVIEW +</button>
           <ReviewModal
             showModal={showModal}

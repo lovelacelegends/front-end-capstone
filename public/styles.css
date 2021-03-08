@@ -1,14 +1,15 @@
 body {
   background-color: rgb(201, 198, 198);
+  font-family: "optima", "helvetica";
 }
 
 :root {
   --star-size: 15px;
-  --star-color: gray;
-  --star-background: rgb(68, 184, 68);
+  --star-color: #1e1d51;
+  --star-background: #69c1e0;
   --bar-size: 15px;
-  --bar-color: gray;
-  --bar-background: rgb(68, 184, 68);
+  --bar-color: #1e1d51;
+  --bar-background: #69c1e0;
 }
 
 /* STARS SECTION - to use, simply add the stars class and pass in a number into style={{ '--rating': NUM }} */
@@ -579,7 +580,7 @@ td {
 
 .review {
   background-color: lightgray;
-  border: 1px solid black;
+  border: 1px solid #1e1d51;
   margin: 20px 0;
 }
 
