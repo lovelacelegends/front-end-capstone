@@ -17,7 +17,7 @@ class CartButton extends React.Component {
     }
     return (
       <div className="cart-button">
-        <button onClick={addToCartApi} id='add-to-cart'> take my money </button>
+        <button onClick={addToCartApi} id='add-to-cart'> Add to cart </button>
       </div>
     );
   }

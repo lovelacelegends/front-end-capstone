@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import SizeSelector from './SizeSelector';
 import QuantitySelector from './QuantitySelector';
 import CartButton from './CartButton';
@@ -11,7 +12,6 @@ class AddToCart extends React.Component {
       currentSize: '',
       currentQuantity: 1,
       outOfStock: false,
-      skuId: "",
     };
     this.updateSkuInState = this.updateSkuInState.bind(this);
     this.updateQuantityInState = this.updateQuantityInState.bind(this);
@@ -26,9 +26,17 @@ class AddToCart extends React.Component {
 
   addToCartApi(){
     let currentSkuIndex = this.state.currentSku;
-    let sku = this.props.styles.results[this.props.currentStyle].skus[currentSkuIndex];
+    let sizeToSend = this.state.currentSize;
+    let amountToSend = Number(this.state.currentQuantity);
     debugger;
-    console.log("api", sku)
+    console.log("api", currentSkuIndex, sizeToSend, amountToSend)
+    for ( let i = 0; i < amountToSend; i++) {
+      axios
+      .post('/cart', {sku_id: currentSkuIndex})
+      .then((response) => {
+        console.log(response);
+      });
+    }
   }
 
   isOutOfStockOption() {
@@ -47,7 +55,6 @@ class AddToCart extends React.Component {
     const index = e.target.selectedIndex;
     let selectedSku = e.target.childNodes[index].id;
     let selectedSize = e.target.value;
-    debugger;
     this.updateSkuInState(selectedSku, selectedSize);
     this.setState({ currentQuantity: 1 });
   }
@@ -58,6 +65,7 @@ class AddToCart extends React.Component {
 
   updateQuantityInState(e) {
     let quantity = e.target.value;
+    debugger;
     this.setState({currentQuantity: quantity});
   }
 
