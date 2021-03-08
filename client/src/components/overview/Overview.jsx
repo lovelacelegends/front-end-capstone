@@ -42,6 +42,7 @@ class Overview extends React.Component {
         currentStyle={currentStyle}
         handleExpandedView={this.handleExpandedView}
         mainThumbNailIndex={mainThumbNailIndex}
+        displayGroupedExtras={displayGroupedExtras}
       />
     );
     const groupedExtras = (
