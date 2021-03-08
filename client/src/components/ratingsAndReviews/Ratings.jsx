@@ -2,7 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import helper from '../../../../helper';
 
-const Ratings = ({ meta }) => {
+const Ratings = (props) => {
+  const { meta } = props;
+
   let size;
   let width;
   let comfort;
@@ -104,7 +106,16 @@ const Ratings = ({ meta }) => {
   }
 
   if (Object.keys(meta).length !== 0) {
+    if (!meta.ratings['5']) meta.ratings['5'] = '0';
+    if (!meta.ratings['4']) meta.ratings['4'] = '0';
+    if (!meta.ratings['3']) meta.ratings['3'] = '0';
+    if (!meta.ratings['2']) meta.ratings['2'] = '0';
+    if (!meta.ratings['1']) meta.ratings['1'] = '0';
+
     const r = meta.recommended;
+    if (!r.true) r.true = '0';
+    if (!r.false) r.false = '0';
+
     const recommended = Math.round((Number(r.true) / (Number(r.false) + Number(r.true))) * 100);
     const numOfReviews = helper.findNumOfReviews(meta.ratings);
 
