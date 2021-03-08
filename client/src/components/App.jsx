@@ -110,6 +110,7 @@ class App extends React.Component {
         />
         <QuestionsAndAnswers />
         <RatingsAndReviews
+          key={selectedProduct.id + 2}
           selectedProduct={selectedProduct}
           reviews={reviews}
           meta={meta}
