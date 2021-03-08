@@ -28,6 +28,12 @@ const Reviews = (props) => {
         </div>
         <div className="reviews-container">
           {reviews.results.map((review, index) => {
+            const response = review.response ? <h4>{review.response}</h4> : null;
+            const recommend = review.recommend ? <div>I recommend this product</div> : null;
+            const photos = review.photos.length > 0 ? review.photos.map((photo) => (
+              <img className="uploaded-photo" src={photo.url} alt="uploaded product" key={photo.id} />
+            )) : null;
+
             if (index < reviewCount) {
               return (
                 <div className="review" key={review.review_id}>
@@ -40,12 +46,19 @@ const Reviews = (props) => {
                   </div>
                   <h3>{review.summary}</h3>
                   <p>{review.body}</p>
+                  {recommend}
+                  {response}
+                  {photos}
+                  <br />
                   <span>
                     {'Helpful? '}
-                    <span>{'Yes '}</span>
-                    (
-                    {review.helpfulness}
-                    )
+                    <span>
+                      Yes
+                      (
+                      {review.helpfulness}
+                      )
+                    </span>
+                    {' Report'}
                   </span>
                 </div>
               );

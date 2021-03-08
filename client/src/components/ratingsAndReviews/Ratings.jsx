@@ -173,10 +173,12 @@ const Ratings = (props) => {
             </span>
           </span>
         </div>
+        <br />
         <div>
           {recommended}
-          {' % of reviewers recommend this product'}
+          % of reviewers recommend this product
         </div>
+        <br />
         {size}
         {width}
         {comfort}
