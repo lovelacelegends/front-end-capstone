@@ -1,26 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ReviewModal from './ReviewModal';
 
 class Reviews extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      displayAmount: 2,
+      reviewCount: 2,
+      showModal: false,
     };
 
     this.handleMoreReviewsClick = this.handleMoreReviewsClick.bind(this);
+    this.toggleModal = this.toggleModal.bind(this);
   }
 
   handleMoreReviewsClick() {
     this.setState((prevState) => ({
-      displayAmount: prevState.displayAmount + 2,
+      reviewCount: prevState.reviewCount + 2,
+    }));
+  }
+
+  resetReviewCount() {
+    this.setState({
+      reviewCount: 2,
+    });
+  }
+
+  toggleModal() {
+    this.setState((prevState) => ({
+      showModal: !prevState.showModal,
     }));
   }
 
   render() {
-    const { reviews } = this.props;
-    const { displayAmount } = this.state;
+    const { reviews, meta } = this.props;
+    const { reviewCount, showModal } = this.state;
 
     if (Object.keys(reviews).length !== 0) {
       return (
@@ -36,7 +51,7 @@ class Reviews extends React.Component {
           </div>
           <div className="reviews-container">
             {reviews.results.map((review, index) => {
-              if (index < displayAmount) {
+              if (index < reviewCount) {
                 return (
                   <div className="review" key={review.review_id}>
                     <div>
@@ -49,8 +64,11 @@ class Reviews extends React.Component {
                     <h3>{review.summary}</h3>
                     <p>{review.body}</p>
                     <span>
+                      {'Helpful? '}
+                      <span>{'Yes '}</span>
+                      (
                       {review.helpfulness}
-                      {' people found this review helpful'}
+                      )
                     </span>
                   </div>
                 );
@@ -60,7 +78,12 @@ class Reviews extends React.Component {
             })}
           </div>
           <button type="button" onClick={this.handleMoreReviewsClick}>MORE REVIEWS</button>
-          <button type="button">ADD A REVIEW +</button>
+          <button type="button" onClick={this.toggleModal}>ADD A REVIEW +</button>
+          <ReviewModal
+            showModal={showModal}
+            toggleModal={this.toggleModal}
+            meta={meta}
+          />
         </div>
       );
     }
@@ -77,6 +100,12 @@ Reviews.propTypes = {
       PropTypes.string,
       PropTypes.number,
       PropTypes.array,
+    ]),
+  ).isRequired,
+  meta: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
     ]),
   ).isRequired,
 };
