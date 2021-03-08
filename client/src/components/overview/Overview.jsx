@@ -25,7 +25,7 @@ class Overview extends React.Component {
   }
 
   render() {
-    const { selectedProduct, styles, currentStyle, updateCurrentStyle } = this.props;
+    const { selectedProduct, styles, currentStyle, updateCurrentStyle, meta } = this.props;
     const { displayGroupedExtras, mainThumbNailIndex } = this.state;
     if (!selectedProduct.name || currentStyle === undefined) {
       return (
@@ -50,6 +50,7 @@ class Overview extends React.Component {
           selectedProduct={selectedProduct}
           styles={styles}
           currentStyle={currentStyle}
+          meta={meta}
         />
         <StyleSelector
           styles={styles}

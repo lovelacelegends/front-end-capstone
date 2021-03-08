@@ -1,16 +1,42 @@
 body {
   background-color: rgb(201, 198, 198);
+  font-family: "optima", "helvetica";
   margin: 0;
   padding: 0;
 }
 
 :root {
   --star-size: 15px;
-  --star-color: gray;
-  --star-background: rgb(68, 184, 68);
+  --star-color: #1e1d51;
+  --star-background: #69c1e0;
   --bar-size: 15px;
-  --bar-color: gray;
-  --bar-background: rgb(68, 184, 68);
+  --bar-color: #1e1d51;
+  --bar-background: #69c1e0;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  input[type='range'] {
+    overflow: hidden;
+    width: 80px;
+    -webkit-appearance: none;
+    background-color: #1e1d51;
+  }
+
+  input[type='range']::-webkit-slider-runnable-track {
+    height: 10px;
+    -webkit-appearance: none;
+    color: #1e1d51;
+    margin-top: -1px;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    height: 10px;
+    cursor: ew-resize;
+    background: #69c1e0;
+    box-shadow: -80px 0 0 80px #1e1d51;
+  }
 }
 
 /* STARS SECTION - to use, simply add the stars class and pass in a number into style={{ '--rating': NUM }} */
@@ -673,7 +699,7 @@ td {
 
 .review {
   background-color: lightgray;
-  border: 1px solid black;
+  border: 1px solid #1e1d51;
   margin: 20px 0;
 }
 

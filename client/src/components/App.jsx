@@ -29,7 +29,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    // 17734, 17736, 17775, 17782
+    // 17734, 17736, 17775, 17782, 17336, 17866
     this.getProductData('17775');
   }
 
@@ -83,6 +83,7 @@ class App extends React.Component {
       meta,
       relatedProductData,
     } = this.state;
+
     return (
       <div>
         <Header />
@@ -91,6 +92,7 @@ class App extends React.Component {
           styles={styles}
           currentStyle={currentStyle}
           updateCurrentStyle={this.updateCurrentStyle}
+          meta={meta}
         />
         <ProductOverview
           selectedProduct={selectedProduct}
@@ -108,6 +110,7 @@ class App extends React.Component {
         />
         <QuestionsAndAnswers />
         <RatingsAndReviews
+          selectedProduct={selectedProduct}
           reviews={reviews}
           meta={meta}
         />

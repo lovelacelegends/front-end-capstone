@@ -1,7 +1,7 @@
 import React from 'react';
 import { RiInformationLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
-import rounder from '../../../../rounder';
+import helper from '../../../../helper';
 
 class RelatedItemCard extends React.Component {
   constructor(props) {
@@ -67,7 +67,7 @@ class RelatedItemCard extends React.Component {
           </div>
           <div
             className="related-rating stars"
-            style={{ '--rating': rounder(product.ratings) }}
+            style={{ '--rating': helper.findStarRating(product.ratings) }}
           >
             {noRating}
           </div>
