@@ -495,7 +495,7 @@ body {
   overflow: hidden;
 }
 
-table {
+#compare-products {
   grid-area: 2/1/3/2;
   background-color: rgb(201, 198, 198);
   table-layout: fixed;

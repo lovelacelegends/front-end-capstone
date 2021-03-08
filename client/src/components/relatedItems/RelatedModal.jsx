@@ -64,17 +64,17 @@ class RelatedModal extends React.Component {
         <table id="compare-products">
           <thead>
             <tr>
-              <th className="modal-col-1">{modalArray[0].name}</th>
-              <th className="modal-col-2"> </th>
-              <th className="modal-col-3">{modalArray[1].name}</th>
+              <th className="modal-col modal-col-1">{modalArray[0].name}</th>
+              <th className="modal-col modal-col-2"> </th>
+              <th className="modal-col modal-col-3">{modalArray[1].name}</th>
             </tr>
           </thead>
           <tbody>
             {completeFeatArray.map((feature) => (
               <tr key={feature.id}>
-                <td className="modal-col-1">{feature.currentValue}</td>
-                <td className="modal-col-2">{feature.feature}</td>
-                <td className="modal-col-3">{feature.relatedValue}</td>
+                <td className="modal-col modal-col-1">{feature.currentValue}</td>
+                <td className="modal-col modal-col-2">{feature.feature}</td>
+                <td className="modal-col modal-col-3">{feature.relatedValue}</td>
               </tr>
             ))}
           </tbody>
