@@ -1,4 +1,5 @@
 import React from 'react';
+import { GrSearch } from 'react-icons/gr';
 import SaleModal from './SaleModal';
 
 // const Header = () => (
@@ -11,6 +12,7 @@ class Header extends React.Component {
     this.state = {
       showSale: true,
     };
+    this.closeSale = this.closeSale.bind(this);
   }
 
   closeSale() {
@@ -20,18 +22,20 @@ class Header extends React.Component {
   }
 
   render() {
+    const { showSale } = this.state;
     return (
       <div>
         <div className="header-grid-frame">
           <div className="header-logo"> </div>
-          <div className="header-title">
-            LOVELACE LEGENDS PRODUCT PAGE
-          </div>
+          <div className="header-title"> </div>
           <div className="header-search-bar">
-            SEARCH ME
+            <div className="fake-search-bar">
+              _____________
+            </div>
+            <GrSearch />
           </div>
         </div>
-        <SaleModal />
+        {showSale ? <SaleModal closeSale={this.closeSale} /> : null}
       </div>
     );
   }

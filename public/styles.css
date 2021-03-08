@@ -80,10 +80,11 @@ body {
 
 .header-logo {
   grid-area: 1/1/2/2;
+  background-color: #1E1D51;
   background-image: url("./assets/logo.png");
   background-size: contain;
-  background-color: rgb(201, 198, 198);
-  border-radius: 0 50% 50% 0;
+  /* background-color: rgb(201, 198, 198); */
+  border-radius: 50%;
 }
 
 .header-title {
@@ -91,14 +92,44 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgb(162, 180, 197);
+  /* background-color: rgb(162, 180, 197); */
 }
 
 .header-search-bar {
-  background-color: salmon;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 10px;
+}
+
+.sale-modal {
+  border: 1px solid rgb(162, 180, 197);
+  margin: 0 250px;
+  height: 30px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 90% 10%;
+}
+
+.sale-modal-text {
+  grid-area: 1/1/2/3;
+  font-size: 14px;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.sale-modal-button {
+  grid-area: 1/2/2/3;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 5px;
+}
+
+.fake-search-bar {
+  padding-right: 10px;
 }
 
 /* OVERVIEW SECTION */
