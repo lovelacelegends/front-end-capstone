@@ -15,7 +15,6 @@ class RatingsAndReviews extends React.Component {
     };
 
     this.handleMoreReviewsClick = this.handleMoreReviewsClick.bind(this);
-    this.resetReviewCount = this.resetReviewCount.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
   }
 
@@ -33,12 +32,6 @@ class RatingsAndReviews extends React.Component {
         reviewCount: prevState.reviewCount + 2,
       }));
     }
-  }
-
-  resetReviewCount() {
-    this.setState({
-      reviewCount: 2,
-    });
   }
 
   toggleModal() {
@@ -71,7 +64,6 @@ class RatingsAndReviews extends React.Component {
           showModal={showModal}
           showMoreReviews={showMoreReviews}
           handleMoreReviewsClick={this.handleMoreReviewsClick}
-          resetReviewCount={this.resetReviewCount}
           toggleModal={this.toggleModal}
         />
       </div>

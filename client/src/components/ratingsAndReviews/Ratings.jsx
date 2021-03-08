@@ -14,48 +14,90 @@ const Ratings = ({ meta }) => {
     if (meta.characteristics.Size) {
       size = (
         <div>
-          {'Size: '}
-          {meta.characteristics.Size.value}
+          Size
+          <br />
+          <input
+            type="range"
+            min="1"
+            max="5"
+            value={meta.characteristics.Size.value}
+            disabled="true"
+          />
         </div>
       );
     }
     if (meta.characteristics.Width) {
       width = (
         <div>
-          {'Width: '}
-          {meta.characteristics.Width.value}
+          Width
+          <br />
+          <input
+            type="range"
+            min="1"
+            max="5"
+            value={meta.characteristics.Width.value}
+            disabled="true"
+          />
         </div>
       );
     }
     if (meta.characteristics.Comfort) {
       comfort = (
         <div>
-          {'Comfort: '}
-          {meta.characteristics.Comfort.value}
+          Comfort
+          <br />
+          <input
+            type="range"
+            min="1"
+            max="5"
+            value={meta.characteristics.Comfort.value}
+            disabled="true"
+          />
         </div>
       );
     }
     if (meta.characteristics.Quality) {
       quality = (
         <div>
-          {'Quality: '}
-          {meta.characteristics.Quality.value}
+          Quality
+          <br />
+          <input
+            type="range"
+            min="1"
+            max="5"
+            value={meta.characteristics.Quality.value}
+            disabled="true"
+          />
         </div>
       );
     }
     if (meta.characteristics.Length) {
       length = (
         <div>
-          {'Length: '}
-          {meta.characteristics.Length.value}
+          Length
+          <br />
+          <input
+            type="range"
+            min="1"
+            max="5"
+            value={meta.characteristics.Length.value}
+            disabled="true"
+          />
         </div>
       );
     }
     if (meta.characteristics.Fit) {
       fit = (
         <div>
-          {'Fit: '}
-          {meta.characteristics.Fit.value}
+          Fit
+          <br />
+          <input
+            type="range"
+            min="1"
+            max="5"
+            value={meta.characteristics.Fit.value}
+            disabled="true"
+          />
         </div>
       );
     }
