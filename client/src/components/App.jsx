@@ -83,6 +83,7 @@ class App extends React.Component {
       meta,
       relatedProductData,
     } = this.state;
+
     return (
       <div>
         <Header />
@@ -91,6 +92,7 @@ class App extends React.Component {
           styles={styles}
           currentStyle={currentStyle}
           updateCurrentStyle={this.updateCurrentStyle}
+          meta={meta}
         />
         <ProductOverview
           selectedProduct={selectedProduct}
@@ -108,6 +110,7 @@ class App extends React.Component {
         />
         <QuestionsAndAnswers />
         <RatingsAndReviews
+          selectedProduct={selectedProduct}
           reviews={reviews}
           meta={meta}
         />

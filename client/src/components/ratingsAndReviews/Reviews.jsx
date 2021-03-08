@@ -45,7 +45,7 @@ class Reviews extends React.Component {
   }
 
   render() {
-    const { reviews, meta } = this.props;
+    const { selectedProduct, reviews, meta } = this.props;
     const { reviewCount, showModal, showMoreReviews } = this.state;
 
     if (Object.keys(reviews).length !== 0) {
@@ -97,6 +97,7 @@ class Reviews extends React.Component {
           </button>
           <button type="button" onClick={this.toggleModal}>ADD A REVIEW +</button>
           <ReviewModal
+            selectedProduct={selectedProduct}
             showModal={showModal}
             toggleModal={this.toggleModal}
             meta={meta}
@@ -112,6 +113,13 @@ class Reviews extends React.Component {
 }
 
 Reviews.propTypes = {
+  selectedProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
   reviews: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
