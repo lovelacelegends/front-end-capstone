@@ -1,5 +1,7 @@
 body {
   background-color: rgb(201, 198, 198);
+  margin: 0;
+  padding: 0;
 }
 
 :root {
@@ -63,6 +65,40 @@ body {
   display: inline-block;
   font-size: var(--bar-size);
   line-height: 1;
+}
+
+/* HEADER SECTION */
+
+.header-grid-frame {
+  margin: 0 50px;
+  height: 120px;
+  display: grid;
+  grid-template-columns: 120px 3fr 1fr;
+  background-color: rgb(162, 180, 197);
+
+}
+
+.header-logo {
+  grid-area: 1/1/2/2;
+  background-image: url("./assets/logo.png");
+  background-size: contain;
+  background-color: rgb(201, 198, 198);
+  border-radius: 0 50% 50% 0;
+}
+
+.header-title {
+  grid-area: 1/2/2/3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(162, 180, 197);
+}
+
+.header-search-bar {
+  background-color: salmon;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* OVERVIEW SECTION */
