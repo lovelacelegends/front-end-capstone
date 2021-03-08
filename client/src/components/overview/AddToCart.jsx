@@ -24,18 +24,15 @@ class AddToCart extends React.Component {
   //   this.isOutOfStockOption();
   // }
 
-  addToCartApi(){
+  addToCartApi() {
     let currentSkuIndex = this.state.currentSku;
-    let sizeToSend = this.state.currentSize;
     let amountToSend = Number(this.state.currentQuantity);
-    debugger;
-    console.log("api", currentSkuIndex, sizeToSend, amountToSend)
-    for ( let i = 0; i < amountToSend; i++) {
+    for (let i = 0; i < amountToSend; i + 1) {
       axios
-      .post('/cart', {sku_id: currentSkuIndex})
-      .then((response) => {
-        console.log(response);
-      });
+        .post('/cart', { sku_id: currentSkuIndex })
+        .then((response) => {
+          console.log(response);
+        });
     }
   }
 
