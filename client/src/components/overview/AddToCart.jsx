@@ -25,9 +25,10 @@ class AddToCart extends React.Component {
   // }
 
   addToCartApi() {
+    debugger;
     let currentSkuIndex = this.state.currentSku;
     let amountToSend = Number(this.state.currentQuantity);
-    for (let i = 0; i < amountToSend; i + 1) {
+    for (let i = 0; i < amountToSend; i++) {
       axios
         .post('/cart', { sku_id: currentSkuIndex })
         .then((response) => {
