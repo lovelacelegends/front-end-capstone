@@ -25,9 +25,8 @@ class AddToCart extends React.Component {
   // }
 
   addToCartApi() {
-    debugger;
-    let currentSkuIndex = this.state.currentSku;
-    let amountToSend = Number(this.state.currentQuantity);
+    const currentSkuIndex = this.state.currentSku;
+    const amountToSend = Number(this.state.currentQuantity);
     for (let i = 0; i < amountToSend; i++) {
       axios
         .post('/cart', { sku_id: currentSkuIndex })
@@ -38,8 +37,8 @@ class AddToCart extends React.Component {
   }
 
   isOutOfStockOption() {
-    let arrayOfSkus = this.props.styles.results[this.props.currentStyle].skus;
-    let arrayOfZeroQuant = arrayOfSkus.filter((sku) => sku.quantity === 0);
+    const arrayOfSkus = this.props.styles.results[this.props.currentStyle].skus;
+    const arrayOfZeroQuant = arrayOfSkus.filter((sku) => sku.quantity === 0);
     let arrayOfNullQuant = arrayOfSkus.filter((sku) => sku.quantity === null);
 
     if(arrayOfSkus.length === arrayOfZeroQuant.length || arrayOfSkus.length === arrayOfNullQuant.length) {
@@ -61,8 +60,7 @@ class AddToCart extends React.Component {
   }
 
   updateQuantityInState(e) {
-    let quantity = e.target.value;
-    debugger;
+    const quantity = e.target.value;
     this.setState({currentQuantity: quantity});
   }
 

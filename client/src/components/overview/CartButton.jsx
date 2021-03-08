@@ -7,7 +7,7 @@ class CartButton extends React.Component {
   }
 
   render() {
-    const {outOfStock, currentSize, addToCartApi } = this.props;
+    const { outOfStock, currentSize, addToCartApi } = this.props;
     if (currentSize === '' || currentSize === 'SELECT SIZE') {
       return (
         <div>
