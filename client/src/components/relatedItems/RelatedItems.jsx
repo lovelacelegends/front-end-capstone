@@ -1,4 +1,5 @@
 import React from 'react';
+import { GoChevronRight, GoChevronLeft } from 'react-icons/go';
 import PropTypes from 'prop-types';
 import RelatedModal from './RelatedModal';
 import RelatedCardContainer from './RelatedCardContainer';
@@ -83,7 +84,7 @@ class RelatedItems extends React.Component {
           role="button"
           tabIndex={0}
         >
-          L
+          <GoChevronLeft />
         </div>
       );
     } else {
@@ -100,7 +101,7 @@ class RelatedItems extends React.Component {
           role="button"
           tabIndex={0}
         >
-          R
+          <GoChevronRight />
         </div>
       );
     } else {
@@ -123,6 +124,7 @@ class RelatedItems extends React.Component {
 
     return relatedProductIds.length ? (
       <>
+        <div className="related-title"> Related Products </div>
         <div className="related-arrow-holder">
           {leftArrow}
           <div className="related-items-grid-frame">

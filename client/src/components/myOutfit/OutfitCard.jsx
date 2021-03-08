@@ -1,5 +1,13 @@
 import React from 'react';
+import { RiCloseCircleLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
+
+const nameConverter = (name) => {
+  if (name.length > 20) {
+    return `${name.substring(0, 20)}...`;
+  }
+  return name;
+};
 
 const OutfitCard = ({ product, handleDelete }) => (
   <div className="outfit-product-card">
@@ -14,7 +22,7 @@ const OutfitCard = ({ product, handleDelete }) => (
       role="button"
       tabIndex={0}
     >
-      X
+      <RiCloseCircleLine />
     </div>
     <img
       className="outfit-card-image"
@@ -22,7 +30,7 @@ const OutfitCard = ({ product, handleDelete }) => (
       src={product.url}
     />
     <div className="outfit-card-name">
-      {product.productName}
+      {nameConverter(product.productName)}
     </div>
     <div className="outfit-card-style">
       {product.styleName}
