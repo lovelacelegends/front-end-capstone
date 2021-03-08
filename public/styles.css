@@ -399,11 +399,15 @@ body {
   display: grid;
   grid-template-columns: 100%;
   grid-template-rows: 10% 90%;
+  overflow: hidden;
 }
 
 table {
   grid-area: 2/1/3/2;
   background-color: rgb(201, 198, 198);
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow-y: scroll;
 }
 
 .table-heading {
