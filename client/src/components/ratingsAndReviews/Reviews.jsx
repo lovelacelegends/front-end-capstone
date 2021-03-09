@@ -9,8 +9,9 @@ const Reviews = (props) => {
     meta,
     reviewCount,
     showModal,
-    handleMoreReviewsClick,
+    addToReviewsCount,
     toggleModal,
+    markReviewAsHelpful,
   } = props;
 
   if (Object.keys(reviews).length !== 0) {
@@ -51,9 +52,13 @@ const Reviews = (props) => {
                   <br />
                   <span>
                     {'Helpful? '}
-                    <span>
-                      Yes
-                      (
+                    <span
+                      onClick={markReviewAsHelpful}
+                      onKeyPress={markReviewAsHelpful}
+                      role="button"
+                      tabIndex="0"
+                    >
+                      Yes(
                       {review.helpfulness}
                       )
                     </span>
@@ -68,7 +73,7 @@ const Reviews = (props) => {
         </div>
         <button
           type="button"
-          onClick={handleMoreReviewsClick}
+          onClick={addToReviewsCount}
           style={{ visibility: (reviewCount < reviews.results.length) ? 'visible' : 'hidden' }}
         >
           MORE REVIEWS
@@ -112,8 +117,9 @@ Reviews.propTypes = {
   ).isRequired,
   reviewCount: PropTypes.number.isRequired,
   showModal: PropTypes.bool.isRequired,
-  handleMoreReviewsClick: PropTypes.func.isRequired,
+  addToReviewsCount: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired,
+  markReviewAsHelpful: PropTypes.func.isRequired,
 };
 
 export default Reviews;

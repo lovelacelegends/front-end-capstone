@@ -107,11 +107,11 @@ class ReviewModal extends React.Component {
     };
 
     axios.post('/reviews', review)
-      .then((result) => {
-        console.log(result);
+      .then(() => {
         toggleModal();
       })
       .catch((error) => {
+        // eslint-disable-next-line no-console
         console.error(error);
         toggleModal();
       });

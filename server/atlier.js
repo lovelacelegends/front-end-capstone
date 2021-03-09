@@ -89,7 +89,6 @@ const addToCart = () => {
   const options = {
     url: `${baseURL}/cart`,
     headers: {
-      'User-Agent': 'request',
       Authorization: config.TOKEN,
     },
   };
@@ -118,6 +117,25 @@ const postReviewByProductId = (body) => {
     });
 };
 
+const markReviewAsHelpful = (id) => {
+  const options = {
+    method: 'PUT',
+    url: `${baseURL}/reviews/${id}/helpful`,
+    headers: {
+      Authorization: config.TOKEN,
+    },
+    params: {
+      review_id: id,
+    },
+  };
+
+  return axios(options)
+    .then((response) => response)
+    .catch((error) => {
+      throw error;
+    });
+};
+
 module.exports = {
   getProductById,
   getProductStylesById,
@@ -126,4 +144,5 @@ module.exports = {
   getRelatedProductsById,
   addToCart,
   postReviewByProductId,
+  markReviewAsHelpful,
 };

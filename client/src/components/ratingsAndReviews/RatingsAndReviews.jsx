@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import Ratings from './Ratings';
 import Reviews from './Reviews';
@@ -13,29 +14,35 @@ class RatingsAndReviews extends React.Component {
       showModal: false,
     };
 
-    this.handleMoreReviewsClick = this.handleMoreReviewsClick.bind(this);
+    this.addToReviewsCount = this.addToReviewsCount.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.markReviewAsHelpful = this.markReviewAsHelpful.bind(this);
   }
 
-  handleMoreReviewsClick() {
-    const { reviews } = this.props;
-    const { reviewCount } = this.state;
-
-    if (reviewCount + 2 >= reviews.results.length) {
-      this.setState((prevState) => ({
-        reviewCount: prevState.reviewCount + 2,
-      }));
-    } else {
-      this.setState((prevState) => ({
-        reviewCount: prevState.reviewCount + 2,
-      }));
-    }
+  addToReviewsCount() {
+    this.setState((prevState) => ({
+      reviewCount: prevState.reviewCount + 2,
+    }));
   }
 
   toggleModal() {
     this.setState((prevState) => ({
       showModal: !prevState.showModal,
     }));
+  }
+
+  markReviewAsHelpful() {
+    const { selectedProduct } = this.props;
+
+    axios.put(`/reviews/${selectedProduct.id}/helpful`)
+      .then((response) => {
+        // eslint-disable-next-line no-console
+        console.log(response);
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      });
   }
 
   render() {
@@ -59,8 +66,9 @@ class RatingsAndReviews extends React.Component {
           meta={meta}
           reviewCount={reviewCount}
           showModal={showModal}
-          handleMoreReviewsClick={this.handleMoreReviewsClick}
+          addToReviewsCount={this.addToReviewsCount}
           toggleModal={this.toggleModal}
+          markReviewAsHelpful={this.markReviewAsHelpful}
         />
       </div>
     );
