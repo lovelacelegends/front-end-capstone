@@ -60,25 +60,30 @@ class RelatedModal extends React.Component {
         role="button"
         tabIndex={0}
       >
-        <div className="table-heading"> Comparing </div>
-        <table id="compare-products">
-          <thead>
-            <tr>
-              <th className="modal-col modal-col-1">{modalArray[0].name}</th>
-              <th className="modal-col modal-col-2"> </th>
-              <th className="modal-col modal-col-3">{modalArray[1].name}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {completeFeatArray.map((feature) => (
-              <tr key={feature.id}>
-                <td className="modal-col modal-col-1">{feature.currentValue}</td>
-                <td className="modal-col modal-col-2">{feature.feature}</td>
-                <td className="modal-col modal-col-3">{feature.relatedValue}</td>
+        <div className="table-graph-header">
+          <table>
+            <tbody>
+              <tr>
+                <th className="modal-col modal-col-1">{modalArray[0].name}</th>
+                <th className="modal-col modal-col-2"> COMPARING </th>
+                <th className="modal-col modal-col-3">{modalArray[1].name}</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </tbody>
+          </table>
+        </div>
+        <div className="table-graph-body">
+          <table>
+            <tbody>
+              {completeFeatArray.map((feature) => (
+                <tr key={feature.id}>
+                  <td className="modal-col modal-col-1">{feature.currentValue}</td>
+                  <td className="modal-col modal-col-2">{feature.feature}</td>
+                  <td className="modal-col modal-col-3">{feature.relatedValue}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     );
   }

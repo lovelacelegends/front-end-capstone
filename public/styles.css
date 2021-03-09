@@ -520,16 +520,24 @@ body {
 
   display: grid;
   grid-template-columns: 100%;
-  grid-template-rows: 10% 90%;
+  grid-template-rows: 20% 80%;
   overflow: hidden;
 }
 
-#compare-products {
+.table-graph-header{
+  grid-area: 1/1/2/2;
+  background-color: rgb(162, 180, 197);
+  display: flex;
+  align-items: center;
+}
+
+.table-graph-body {
   grid-area: 2/1/3/2;
-  background-color: rgb(201, 198, 198);
-  table-layout: fixed;
-  border-collapse: collapse;
-  overflow-y: scroll;
+  overflow: auto;
+}
+
+.table-graph-body::-webkit-scrollbar {
+  display: none;
 }
 
 .table-heading {
