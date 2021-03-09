@@ -1,6 +1,6 @@
 import React from 'react';
+import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import EachThumbnail from './EachThumbnail';
-import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/Io';
 
 class Thumbnails extends React.Component {
   constructor(props) {
@@ -15,9 +15,11 @@ class Thumbnails extends React.Component {
   }
 
   indexesToDisplay() {
-    let arrOfAllPhoto = this.props.styles.results[this.props.currentStyle].photos;
+    const { styles, currentStyle } = this.props;
+    const { startIndex, endIndex } = this.state;
+    const arrOfAllPhoto = styles.results[currentStyle].photos;
     const arrOfPhotosToRender = [];
-    for (let i = this.state.startIndex; i <= this.state.endIndex
+    for (let i = startIndex; i <= endIndex
       && i < arrOfAllPhoto.length; i += 1) {
       arrOfPhotosToRender.push(arrOfAllPhoto[i]);
     }
@@ -25,32 +27,33 @@ class Thumbnails extends React.Component {
   }
 
   increaseIndexesByOne() {
-    let arrOfAllPhoto = this.props.styles.results[this.props.currentStyle].photos;
-    if(this.state.endIndex < arrOfAllPhoto.length) {
-      const newStartIndex = this.state.startIndex += 1;
-      const newEndIndex = this.state.endIndex += 1;
+    const { styles, currentStyle } = this.props;
+    const { startIndex, endIndex } = this.state;
+    const arrOfAllPhoto = styles.results[currentStyle].photos;
+    if (endIndex < arrOfAllPhoto.length) {
+      const newStartIndex = startIndex + 1;
+      const newEndIndex = endIndex + 1;
       this.setState({ startIndex: newStartIndex, endIndex: newEndIndex });
     }
   }
 
   decreaseIndexesByOne() {
-    if (this.state.startIndex > 0) {
-      const newStartIndex = this.state.startIndex -= 1;
-      const newEndIndex = this.state.endIndex -= 1;
+    const { startIndex, endIndex } = this.state;
+    if (startIndex > 0) {
+      const newStartIndex = startIndex - 1;
+      const newEndIndex = endIndex - 1;
       this.setState({ startIndex: newStartIndex, endIndex: newEndIndex });
     }
   }
 
   render() {
-    const {thumbnailClick} = this.props;
+    const { thumbnailClick } = this.props;
     return (
       <div className="gallery-of-thumbnails">
         <div className="up-arrow" onClick={this.decreaseIndexesByOne}>
           <IoIosArrowUp />
         </div>
-        {this.indexesToDisplay().map((photo, i) =>
-          <EachThumbnail photo={photo} key={i} thumbnailClick={thumbnailClick} />
-        )}
+        {this.indexesToDisplay().map((photo, i) => <EachThumbnail photo={photo} key={i} thumbnailClick={thumbnailClick} />)}
         <div className="down-arrow" onClick={this.increaseIndexesByOne}>
           <IoIosArrowDown />
         </div>

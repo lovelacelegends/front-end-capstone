@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import ProductInfo from './ProductInfo';
 import StyleSelector from './StyleSelector';
 import ImageGallery from './ImageGallery';
@@ -14,18 +15,24 @@ class Overview extends React.Component {
     this.resetThumbnail = this.resetThumbnail.bind(this);
   }
 
-  resetThumbnail() {
-    this.setState({ mainThumbNailIndex: 0 });
-  }
-
   handleExpandedView() {
-    this.setState(state => ({
+    this.setState((state) => ({
       displayGroupedExtras: !state.displayGroupedExtras,
     }));
   }
 
+  resetThumbnail() {
+    this.setState({ mainThumbNailIndex: 0 });
+  }
+
   render() {
-    const { selectedProduct, styles, currentStyle, updateCurrentStyle, meta } = this.props;
+    const {
+      selectedProduct,
+      styles,
+      currentStyle,
+      updateCurrentStyle,
+      meta,
+    } = this.props;
     const { displayGroupedExtras, mainThumbNailIndex } = this.state;
     if (!selectedProduct.name || currentStyle === undefined) {
       return (
@@ -80,5 +87,30 @@ class Overview extends React.Component {
     );
   }
 }
+
+Overview.propTypes = {
+  styles: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+  selectedProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+  meta: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+    ]),
+  ).isRequired,
+  updateCurrentStyle: PropTypes.func.isRequired,
+  currentStyle: PropTypes.number.isRequired,
+};
 
 export default Overview;
