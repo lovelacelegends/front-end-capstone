@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Zoom extends Component {
+class Zoom extends React.Component {
   constructor (props) {
     super(props)
 
@@ -33,7 +33,7 @@ class Zoom extends Component {
       backgroundImage: `url('${img}')`,
     }
 
-    this.imageRef = createRef()
+    this.imageRef = React.createRef();
 
     this.handleMouseOver = this.handleMouseOver.bind(this)
     this.handleMouseOut = this.handleMouseOut.bind(this)
@@ -105,7 +105,7 @@ class Zoom extends Component {
             ...this.innerDivStyle,
             transform: zoom ? `scale(${zoomScale})` : 'scale(1.0)',
           }}
-          className={styles.zoomImg}
+          className="zoomImg"
         />
       </div>
     )
