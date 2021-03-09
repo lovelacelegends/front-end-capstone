@@ -9,7 +9,6 @@ const Reviews = (props) => {
     meta,
     reviewCount,
     showModal,
-    showMoreReviews,
     handleMoreReviewsClick,
     toggleModal,
   } = props;
@@ -70,7 +69,7 @@ const Reviews = (props) => {
         <button
           type="button"
           onClick={handleMoreReviewsClick}
-          style={{ visibility: showMoreReviews ? 'visible' : 'hidden' }}
+          style={{ visibility: (reviewCount < reviews.results.length) ? 'visible' : 'hidden' }}
         >
           MORE REVIEWS
         </button>
@@ -113,7 +112,6 @@ Reviews.propTypes = {
   ).isRequired,
   reviewCount: PropTypes.number.isRequired,
   showModal: PropTypes.bool.isRequired,
-  showMoreReviews: PropTypes.bool.isRequired,
   handleMoreReviewsClick: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired,
 };

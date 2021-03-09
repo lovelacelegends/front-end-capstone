@@ -11,7 +11,6 @@ class RatingsAndReviews extends React.Component {
     this.state = {
       reviewCount: 2,
       showModal: false,
-      showMoreReviews: true,
     };
 
     this.handleMoreReviewsClick = this.handleMoreReviewsClick.bind(this);
@@ -24,7 +23,6 @@ class RatingsAndReviews extends React.Component {
 
     if (reviewCount + 2 >= reviews.results.length) {
       this.setState((prevState) => ({
-        showMoreReviews: false,
         reviewCount: prevState.reviewCount + 2,
       }));
     } else {
@@ -50,7 +48,6 @@ class RatingsAndReviews extends React.Component {
     const {
       reviewCount,
       showModal,
-      showMoreReviews,
     } = this.state;
 
     return (
@@ -62,7 +59,6 @@ class RatingsAndReviews extends React.Component {
           meta={meta}
           reviewCount={reviewCount}
           showModal={showModal}
-          showMoreReviews={showMoreReviews}
           handleMoreReviewsClick={this.handleMoreReviewsClick}
           toggleModal={this.toggleModal}
         />
