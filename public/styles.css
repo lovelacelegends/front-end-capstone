@@ -732,8 +732,16 @@ td {
   margin: 20px 0;
 }
 
+.uploaded-photo {
+  height: 100px;
+  width: 100px;
+  margin: 10px;
+  object-fit: cover;
+}
+
 .review-modal {
   position: fixed;
+  /* display: grid; */
   left: 50%;
   top: 50%;
   height: 80%;
@@ -743,4 +751,6 @@ td {
   z-index: 10;
   transform: translate(-50%, -50%);
   overflow: auto;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(10, 1fr);
 }
