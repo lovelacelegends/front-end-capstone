@@ -25,7 +25,9 @@ class App extends React.Component {
     };
 
     this.getProductData = this.getProductData.bind(this);
+    this.getProductReviews = this.getProductReviews.bind(this);
     this.updateCurrentStyle = this.updateCurrentStyle.bind(this);
+    this.getMetaData = this.getMetaData.bind(this);
   }
 
   componentDidMount() {
@@ -61,6 +63,32 @@ class App extends React.Component {
         const dataArray = arrayOfProductData.map((product) => product.data);
         this.setState({
           relatedProductData: dataArray,
+        });
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      });
+  }
+
+  getProductReviews(id) {
+    axios.get(`/reviews/${id}`)
+      .then((response) => {
+        this.setState({
+          reviews: response.data,
+        });
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      });
+  }
+
+  getMetaData(id) {
+    axios.get('/reviews/meta', { product_id: id })
+      .then((response) => {
+        this.setState({
+          meta: response.data,
         });
       })
       .catch((error) => {
@@ -110,7 +138,9 @@ class App extends React.Component {
         />
         <QuestionsAndAnswers />
         <RatingsAndReviews
-          key={selectedProduct.id + 2}
+          key={selectedProduct.id}
+          getProductReviews={this.getProductReviews}
+          getMetaData={this.getMetaData}
           selectedProduct={selectedProduct}
           reviews={reviews}
           meta={meta}

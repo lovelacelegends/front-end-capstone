@@ -4,6 +4,7 @@ import axios from 'axios';
 
 import Ratings from './Ratings';
 import Reviews from './Reviews';
+import ReviewModal from './ReviewModal';
 
 class RatingsAndReviews extends React.Component {
   constructor(props) {
@@ -32,13 +33,15 @@ class RatingsAndReviews extends React.Component {
     }));
   }
 
-  markReviewAsHelpful(review, index) {
-    const { reviews } = this.props;
+  markReviewAsHelpful(review) {
+    const {
+      getProductReviews,
+      reviews,
+    } = this.props;
 
     axios.put(`/reviews/${review.review_id}/helpful`)
       .then(() => {
-        reviews.results[index].helpfulness += 1;
-        this.setState({});
+        getProductReviews(reviews.product);
       })
       .catch((error) => {
         // eslint-disable-next-line no-console
@@ -62,6 +65,8 @@ class RatingsAndReviews extends React.Component {
 
   render() {
     const {
+      getProductReviews,
+      getMetaData,
       selectedProduct,
       reviews,
       meta,
@@ -71,6 +76,23 @@ class RatingsAndReviews extends React.Component {
       reviewCount,
       showModal,
     } = this.state;
+
+    if (reviews.results && reviews.results.length === 0) {
+      return (
+        <div>
+          No reviews yet...
+          <button type="button" onClick={this.toggleModal}>ADD A REVIEW +</button>
+          <ReviewModal
+            selectedProduct={selectedProduct}
+            showModal={showModal}
+            toggleModal={this.toggleModal}
+            meta={meta}
+            getProductReviews={getProductReviews}
+            getMetaData={getMetaData}
+          />
+        </div>
+      );
+    }
 
     return (
       <div className="ratings-and-reviews">
@@ -85,6 +107,8 @@ class RatingsAndReviews extends React.Component {
           toggleModal={this.toggleModal}
           markReviewAsHelpful={this.markReviewAsHelpful}
           reportReview={this.reportReview}
+          getProductReviews={getProductReviews}
+          getMetaData={getMetaData}
         />
       </div>
     );
@@ -92,6 +116,8 @@ class RatingsAndReviews extends React.Component {
 }
 
 RatingsAndReviews.propTypes = {
+  getProductReviews: PropTypes.func.isRequired,
+  getMetaData: PropTypes.func.isRequired,
   selectedProduct: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,

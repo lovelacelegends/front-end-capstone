@@ -51,6 +51,30 @@ app.get('/related/:id', (req, res) => {
     });
 });
 
+app.get('/reviews/:id', (req, res) => {
+  const { id } = req.params;
+
+  atlier.getReviewsById(id)
+    .then((data) => {
+      res.status(201).send(data);
+    })
+    .catch((error) => {
+      res.status(501).send(error);
+    });
+});
+
+app.get('/reviews/meta', (req, res) => {
+  const { id } = req.params;
+
+  atlier.getMetaReviewsById(id)
+    .then((data) => {
+      res.status(201).send(data);
+    })
+    .catch((error) => {
+      res.status(501).send(error);
+    });
+});
+
 app.post('/cart', (req, res) => {
   atlier.addToCart(req.body)
     .then((response) => {

@@ -13,6 +13,8 @@ const Reviews = (props) => {
     toggleModal,
     markReviewAsHelpful,
     reportReview,
+    getProductReviews,
+    getMetaData,
   } = props;
 
   if (Object.keys(reviews).length !== 0) {
@@ -100,6 +102,8 @@ const Reviews = (props) => {
           showModal={showModal}
           toggleModal={toggleModal}
           meta={meta}
+          getProductReviews={getProductReviews}
+          getMetaData={getMetaData}
         />
       </div>
     );
@@ -137,6 +141,8 @@ Reviews.propTypes = {
   toggleModal: PropTypes.func.isRequired,
   markReviewAsHelpful: PropTypes.func.isRequired,
   reportReview: PropTypes.func.isRequired,
+  getProductReviews: PropTypes.func.isRequired,
+  getMetaData: PropTypes.func.isRequired,
 };
 
 export default Reviews;
