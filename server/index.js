@@ -51,6 +51,18 @@ app.get('/related/:id', (req, res) => {
     });
 });
 
+app.post('/cart', (req, res) => {
+  atlier.addToCart(req.body)
+    .then((response) => {
+      res.status(200);
+      res.send(response);
+    })
+    .catch((error) => {
+      res.status(400);
+      res.send(error);
+    });
+});
+
 app.post('/reviews', (req, res) => {
   const { body } = req;
 

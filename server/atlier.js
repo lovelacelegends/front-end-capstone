@@ -85,6 +85,22 @@ const getRelatedProductsById = (id) => {
     });
 };
 
+const addToCart = () => {
+  const options = {
+    url: `${baseURL}/cart`,
+    headers: {
+      'User-Agent': 'request',
+      Authorization: config.TOKEN,
+    },
+  };
+
+  return axios(options)
+    .then((response) => response.data)
+    .catch((error) => {
+      throw error;
+    });
+};
+
 const postReviewByProductId = (body) => {
   const options = {
     method: 'post',
@@ -108,5 +124,6 @@ module.exports = {
   getReviewsById,
   getMetaReviewsById,
   getRelatedProductsById,
+  addToCart,
   postReviewByProductId,
 };

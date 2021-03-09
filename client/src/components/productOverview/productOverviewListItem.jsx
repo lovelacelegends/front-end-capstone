@@ -10,7 +10,7 @@ class ProductOverviewListItem extends React.Component {
   render() {
     return (
       <div className="product-overview-list-item">
-        <IoMdCheckmark />{this.props.feature.feature}
+        <IoMdCheckmark />{this.props.feature.feature}: {this.props.feature.value}
       </div>
     );
   }
