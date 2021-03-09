@@ -31,19 +31,19 @@ class RatingsAndReviews extends React.Component {
     }));
   }
 
-  markReviewAsHelpful() {
-    const { selectedProduct } = this.props;
+  markReviewAsHelpful(review, index) {
+    const { reviews } = this.props;
 
-    axios.put(`/reviews/${selectedProduct.id}/helpful`)
-      .then((response) => {
-        // eslint-disable-next-line no-console
-        console.log(response);
+    axios.put(`/reviews/${review.review_id}/helpful`)
+      .then(() => {
+        reviews.results[index].helpfulness += 1;
+        this.setState({});
       })
       .catch((error) => {
         // eslint-disable-next-line no-console
         console.error(error);
       });
-  }
+  };
 
   render() {
     const {

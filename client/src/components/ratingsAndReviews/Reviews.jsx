@@ -53,8 +53,12 @@ const Reviews = (props) => {
                   <span>
                     {'Helpful? '}
                     <span
-                      onClick={markReviewAsHelpful}
-                      onKeyPress={markReviewAsHelpful}
+                      onClick={() => {
+                        markReviewAsHelpful(review, index);
+                      }}
+                      onKeyPress={() => {
+                        markReviewAsHelpful(review, index);
+                      }}
                       role="button"
                       tabIndex="0"
                     >
