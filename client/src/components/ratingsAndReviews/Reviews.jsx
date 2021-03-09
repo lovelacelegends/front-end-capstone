@@ -12,6 +12,7 @@ const Reviews = (props) => {
     addToReviewsCount,
     toggleModal,
     markReviewAsHelpful,
+    reportReview,
   } = props;
 
   if (Object.keys(reviews).length !== 0) {
@@ -66,7 +67,18 @@ const Reviews = (props) => {
                       {review.helpfulness}
                       )
                     </span>
-                    {' Report'}
+                    <span
+                      onClick={() => {
+                        reportReview(review, index);
+                      }}
+                      onKeyPress={() => {
+                        reportReview(review, index);
+                      }}
+                      role="button"
+                      tabIndex="0"
+                    >
+                      {reviews.results[index].reported ? ' Reported' : ' Report'}
+                    </span>
                   </span>
                 </div>
               );

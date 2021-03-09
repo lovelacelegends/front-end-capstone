@@ -17,6 +17,7 @@ class RatingsAndReviews extends React.Component {
     this.addToReviewsCount = this.addToReviewsCount.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.markReviewAsHelpful = this.markReviewAsHelpful.bind(this);
+    this.reportReview = this.reportReview.bind(this);
   }
 
   addToReviewsCount() {
@@ -43,7 +44,21 @@ class RatingsAndReviews extends React.Component {
         // eslint-disable-next-line no-console
         console.error(error);
       });
-  };
+  }
+
+  reportReview(review, index) {
+    const { reviews } = this.props;
+
+    axios.put(`/reviews/${review.review_id}/report`)
+      .then(() => {
+        reviews.results[index].reported = true;
+        this.setState({});
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      });
+  }
 
   render() {
     const {
@@ -69,6 +84,7 @@ class RatingsAndReviews extends React.Component {
           addToReviewsCount={this.addToReviewsCount}
           toggleModal={this.toggleModal}
           markReviewAsHelpful={this.markReviewAsHelpful}
+          reportReview={this.reportReview}
         />
       </div>
     );

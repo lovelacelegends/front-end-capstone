@@ -136,6 +136,25 @@ const markReviewAsHelpful = (id) => {
     });
 };
 
+const reportReview = (id) => {
+  const options = {
+    method: 'PUT',
+    url: `${baseURL}/reviews/${id}/report`,
+    headers: {
+      Authorization: config.TOKEN,
+    },
+    params: {
+      review_id: id,
+    },
+  };
+
+  return axios(options)
+    .then((response) => response)
+    .catch((error) => {
+      throw error;
+    });
+};
+
 module.exports = {
   getProductById,
   getProductStylesById,
@@ -145,4 +164,5 @@ module.exports = {
   addToCart,
   postReviewByProductId,
   markReviewAsHelpful,
+  reportReview,
 };
