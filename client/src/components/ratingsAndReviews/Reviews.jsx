@@ -136,6 +136,7 @@ Reviews.propTypes = {
   addToReviewsCount: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired,
   markReviewAsHelpful: PropTypes.func.isRequired,
+  reportReview: PropTypes.func.isRequired,
 };
 
 export default Reviews;
