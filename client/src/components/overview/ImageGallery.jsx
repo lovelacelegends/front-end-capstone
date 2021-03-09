@@ -1,6 +1,7 @@
 import React from 'react';
 import { BsArrowRightShort, BsArrowLeftShort } from 'react-icons/bs';
 import Thumbnails from './Thumbnails';
+//import Zoom from './Zoom';
 import { AiOutlineExpand } from 'react-icons/Ai';
 
 class ImageGallery extends React.Component {
@@ -12,6 +13,11 @@ class ImageGallery extends React.Component {
     this.leftArrowClick = this.leftArrowClick.bind(this);
     this.rightArrowClick = this.rightArrowClick.bind(this);
     this.thumbnailClick = this.thumbnailClick.bind(this);
+    this.handelEnlargedImage = this.handelEnlargedImage.bind(this);
+  }
+
+  handelEnlargedImage(){
+    console.log('enlarged')
   }
 
   leftArrowClick() {
@@ -39,7 +45,19 @@ class ImageGallery extends React.Component {
     const { mainThumbNailIndex } = this.state;
     return (
       <div id="image-gallery">
-        <img id="large-img" className={displayGroupedExtras ? null : "large-img-expanded"} src={styles.results[currentStyle].photos[mainThumbNailIndex].url} alt="large image"></img>
+        <img
+          id="large-img"
+          className={displayGroupedExtras ? null : "large-img-expanded"}
+          src={styles.results[currentStyle].photos[mainThumbNailIndex].url}
+          onClick={displayGroupedExtras ? handleExpandedView : this.handelEnlargedImage}
+          alt="large image">
+        </img>
+        {/* <Zoom
+          img={styles.results[currentStyle].photos[mainThumbNailIndex].url}
+          zoomScale={3}
+          width={600}
+          height={600}
+        /> */}
         <Thumbnails
           styles={styles}
           currentStyle={currentStyle}

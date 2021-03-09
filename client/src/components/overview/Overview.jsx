@@ -20,7 +20,7 @@ class Overview extends React.Component {
 
   handleExpandedView() {
     this.setState(state => ({
-      displayGroupedExtras: !state.displayGroupedExtras
+      displayGroupedExtras: !state.displayGroupedExtras,
     }));
   }
 
