@@ -71,8 +71,8 @@ class App extends React.Component {
       });
   }
 
-  getProductReviews(id) {
-    axios.get(`/reviews/${id}`)
+  getProductReviews(id, sort = 'relevant') {
+    axios.get(`/reviews/${id}`, { params: { id, sort } })
       .then((response) => {
         this.setState({
           reviews: response.data,

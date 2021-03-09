@@ -52,9 +52,9 @@ app.get('/related/:id', (req, res) => {
 });
 
 app.get('/reviews/:id', (req, res) => {
-  const { id } = req.params;
+  const { id, sort } = req.query;
 
-  atlier.getReviewsById(id)
+  atlier.getReviewsById(id, sort)
     .then((data) => {
       res.status(201).send(data);
     })

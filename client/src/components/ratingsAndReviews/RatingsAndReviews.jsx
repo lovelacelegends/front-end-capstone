@@ -13,12 +13,14 @@ class RatingsAndReviews extends React.Component {
     this.state = {
       reviewCount: 2,
       showModal: false,
+      sort: 'relevant',
     };
 
     this.addToReviewsCount = this.addToReviewsCount.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
     this.markReviewAsHelpful = this.markReviewAsHelpful.bind(this);
     this.reportReview = this.reportReview.bind(this);
+    this.changeSort = this.changeSort.bind(this);
   }
 
   addToReviewsCount() {
@@ -39,9 +41,11 @@ class RatingsAndReviews extends React.Component {
       reviews,
     } = this.props;
 
+    const { sort } = this.state;
+
     axios.put(`/reviews/${review.review_id}/helpful`)
       .then(() => {
-        getProductReviews(reviews.product);
+        getProductReviews(reviews.product, sort);
       })
       .catch((error) => {
         // eslint-disable-next-line no-console
@@ -63,6 +67,17 @@ class RatingsAndReviews extends React.Component {
       });
   }
 
+  changeSort(e) {
+    const { reviews, getProductReviews } = this.props;
+    const sort = e.target.value;
+
+    this.setState({
+      sort,
+    }, () => {
+      getProductReviews(reviews.product, sort);
+    });
+  }
+
   render() {
     const {
       getProductReviews,
@@ -75,6 +90,7 @@ class RatingsAndReviews extends React.Component {
     const {
       reviewCount,
       showModal,
+      sort,
     } = this.state;
 
     if (reviews.results && reviews.results.length === 0) {
@@ -109,6 +125,8 @@ class RatingsAndReviews extends React.Component {
           reportReview={this.reportReview}
           getProductReviews={getProductReviews}
           getMetaData={getMetaData}
+          sort={sort}
+          changeSort={this.changeSort}
         />
       </div>
     );

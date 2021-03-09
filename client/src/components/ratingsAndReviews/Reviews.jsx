@@ -15,6 +15,8 @@ const Reviews = (props) => {
     reportReview,
     getProductReviews,
     getMetaData,
+    sort,
+    changeSort,
   } = props;
 
   if (Object.keys(reviews).length !== 0) {
@@ -23,10 +25,10 @@ const Reviews = (props) => {
         <div>
           {reviews.results.length}
           {' reviews, sorted by '}
-          <select>
-            <option>relevance</option>
-            <option>newest</option>
-            <option>helpful</option>
+          <select onBlur={changeSort} onChange={changeSort}>
+            <option value="relevant">relevance</option>
+            <option value="newest">newest</option>
+            <option value="helpful">helpful</option>
           </select>
         </div>
         <div className="reviews-container">
@@ -104,6 +106,7 @@ const Reviews = (props) => {
           meta={meta}
           getProductReviews={getProductReviews}
           getMetaData={getMetaData}
+          sort={sort}
         />
       </div>
     );
@@ -143,6 +146,8 @@ Reviews.propTypes = {
   reportReview: PropTypes.func.isRequired,
   getProductReviews: PropTypes.func.isRequired,
   getMetaData: PropTypes.func.isRequired,
+  sort: PropTypes.string.isRequired,
+  changeSort: PropTypes.func.isRequired,
 };
 
 export default Reviews;

@@ -53,6 +53,7 @@ class ReviewModal extends React.Component {
       toggleModal,
       getProductReviews,
       getMetaData,
+      sort,
     } = this.props;
 
     const {
@@ -111,7 +112,7 @@ class ReviewModal extends React.Component {
     axios.post('/reviews', review)
       .then(() => {
         toggleModal();
-        getProductReviews(meta.product_id);
+        getProductReviews(meta.product_id, sort);
         getMetaData(meta.product_id);
       })
       .catch((error) => {
@@ -664,6 +665,7 @@ ReviewModal.propTypes = {
   ).isRequired,
   getProductReviews: PropTypes.func.isRequired,
   getMetaData: PropTypes.func.isRequired,
+  sort: PropTypes.string.isRequired,
 };
 
 export default ReviewModal;
