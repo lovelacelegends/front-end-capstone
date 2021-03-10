@@ -717,6 +717,16 @@ td {
   grid-row: 1 / 6;
 }
 
+.ratings-highlight {
+  background-color: yellow;
+  color: red;
+}
+
+.ratings-highlight-hover:hover {
+  background-color: yellow;
+  color: red;
+}
+
 .reviews-section {
   display: grid;
   width: 90%;
