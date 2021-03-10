@@ -3,7 +3,12 @@ import PropTypes from 'prop-types';
 import helper from '../../../../helper';
 
 const Ratings = (props) => {
-  const { meta } = props;
+  const {
+    meta,
+    filterByRating,
+    showRatings,
+    filter,
+  } = props;
 
   let size;
   let width;
@@ -132,7 +137,17 @@ const Ratings = (props) => {
           {'5 stars  '}
           <span className="bar" style={{ '--count': meta.ratings['5'], '--total': numOfReviews }}>
             {'  '}
-            <span>
+            <span
+              className="clickable"
+              onClick={() => {
+                filterByRating('5');
+              }}
+              onKeyPress={() => {
+                filterByRating('5');
+              }}
+              role="button"
+              tabIndex="0"
+            >
               {meta.ratings['5']}
             </span>
           </span>
@@ -141,7 +156,17 @@ const Ratings = (props) => {
           {'4 stars  '}
           <span className="bar" style={{ '--count': meta.ratings['4'], '--total': numOfReviews }}>
             {'  '}
-            <span>
+            <span
+              className="clickable"
+              onClick={() => {
+                filterByRating('4');
+              }}
+              onKeyPress={() => {
+                filterByRating('4');
+              }}
+              role="button"
+              tabIndex="0"
+            >
               {meta.ratings['4']}
             </span>
           </span>
@@ -150,7 +175,17 @@ const Ratings = (props) => {
           {'3 stars  '}
           <span className="bar" style={{ '--count': meta.ratings['3'], '--total': numOfReviews }}>
             {'  '}
-            <span>
+            <span
+              className="clickable"
+              onClick={() => {
+                filterByRating('3');
+              }}
+              onKeyPress={() => {
+                filterByRating('3');
+              }}
+              role="button"
+              tabIndex="0"
+            >
               {meta.ratings['3']}
             </span>
           </span>
@@ -159,7 +194,17 @@ const Ratings = (props) => {
           {'2 stars  '}
           <span className="bar" style={{ '--count': meta.ratings['2'], '--total': numOfReviews }}>
             {'  '}
-            <span>
+            <span
+              className="clickable"
+              onClick={() => {
+                filterByRating('2');
+              }}
+              onKeyPress={() => {
+                filterByRating('2');
+              }}
+              role="button"
+              tabIndex="0"
+            >
               {meta.ratings['2']}
             </span>
           </span>
@@ -168,7 +213,17 @@ const Ratings = (props) => {
           {'1 stars  '}
           <span className="bar" style={{ '--count': meta.ratings['1'], '--total': numOfReviews }}>
             {'  '}
-            <span>
+            <span
+              className="clickable"
+              onClick={() => {
+                filterByRating('1');
+              }}
+              onKeyPress={() => {
+                filterByRating('1');
+              }}
+              role="button"
+              tabIndex="0"
+            >
               {meta.ratings['1']}
             </span>
           </span>
@@ -201,6 +256,7 @@ Ratings.propTypes = {
       PropTypes.object,
     ]),
   ).isRequired,
+  filterByRating: PropTypes.func.isRequired,
 };
 
 export default Ratings;

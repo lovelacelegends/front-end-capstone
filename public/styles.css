@@ -39,6 +39,10 @@ body {
   }
 }
 
+.clickable:hover {
+  cursor: pointer;
+}
+
 /* STARS SECTION - to use, simply add the stars class and pass in a number into style={{ '--rating': NUM }} */
 
 .stars:before {

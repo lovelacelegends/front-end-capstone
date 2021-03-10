@@ -14,6 +14,14 @@ class RatingsAndReviews extends React.Component {
       reviewCount: 2,
       showModal: false,
       sort: 'relevant',
+      showRatings: {
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+      },
+      filter: false,
     };
 
     this.addToReviewsCount = this.addToReviewsCount.bind(this);
@@ -21,6 +29,7 @@ class RatingsAndReviews extends React.Component {
     this.markReviewAsHelpful = this.markReviewAsHelpful.bind(this);
     this.reportReview = this.reportReview.bind(this);
     this.changeSort = this.changeSort.bind(this);
+    this.filterByRating = this.filterByRating.bind(this);
   }
 
   addToReviewsCount() {
@@ -78,6 +87,16 @@ class RatingsAndReviews extends React.Component {
     });
   }
 
+  filterByRating(rating) {
+    const { showRatings } = this.state;
+    showRatings[rating] = !showRatings[rating];
+
+    this.setState({
+      showRatings,
+      filter: true,
+    });
+  }
+
   render() {
     const {
       getProductReviews,
@@ -91,6 +110,8 @@ class RatingsAndReviews extends React.Component {
       reviewCount,
       showModal,
       sort,
+      showRatings,
+      filter,
     } = this.state;
 
     if (reviews.results && reviews.results.length === 0) {
@@ -112,7 +133,12 @@ class RatingsAndReviews extends React.Component {
 
     return (
       <div className="ratings-and-reviews">
-        <Ratings meta={meta} />
+        <Ratings
+          meta={meta}
+          filterByRating={this.filterByRating}
+          showRatings={showRatings}
+          filter={filter}
+        />
         <Reviews
           selectedProduct={selectedProduct}
           reviews={reviews}
