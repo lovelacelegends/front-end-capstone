@@ -1,4 +1,5 @@
 import React from 'react';
+import helper from '../../../../helper';
 
 class EachThumbnail extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class EachThumbnail extends React.Component {
     const {photo, thumbnailClick, index } = this.props;
     return (
       <div>
-        <img src={photo.thumbnail_url} alt="thubnail icon" className="each-thumbnail" onClick={thumbnailClick} />
+        <img src={helper.urlChecker(photo.thumbnail_url)} alt="thubnail icon" className="each-thumbnail" onClick={thumbnailClick} />
       </div>
     );
   }
