@@ -56,6 +56,18 @@ StyleItem.propTypes = {
       PropTypes.number,
       PropTypes.array,
       PropTypes.bool,
+      PropTypes.objectOf(
+        PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.number,
+          PropTypes.objectOf(
+            PropTypes.oneOfType([
+              PropTypes.string,
+              PropTypes.number,
+            ]),
+          ),
+        ]),
+      ),
     ]),
   ).isRequired,
   currentStyle: PropTypes.number.isRequired,
