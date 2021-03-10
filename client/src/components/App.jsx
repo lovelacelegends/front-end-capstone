@@ -30,7 +30,7 @@ class App extends React.Component {
 
   componentDidMount() {
     // 17734
-    this.getProductData('17735');
+    this.getProductData('17072');
   }
 
   getProductData(id) {
@@ -39,17 +39,17 @@ class App extends React.Component {
         this.setState({
           selectedProduct: data.data[0],
           styles: data.data[1],
-          relatedProductIds: data.data[2],
+          relatedProductIds: [...new Set(data.data[2])],
           reviews: data.data[3],
           meta: data.data[4],
         });
       })
       .then(() => {
         const { relatedProductIds } = this.state;
-        const nonDuplicates = [...new Set(relatedProductIds)];
+        // const nonDuplicates = [...new Set(relatedProductIds)];
         const arrayOfPromises = [];
 
-        nonDuplicates.forEach((relatedID) => {
+        relatedProductIds.forEach((relatedID) => {
           arrayOfPromises.push(axios.get(`/related/${relatedID}`));
         });
 

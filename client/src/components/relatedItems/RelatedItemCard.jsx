@@ -55,7 +55,7 @@ class RelatedItemCard extends React.Component {
         </div>
         <img
           className="related-default-picture"
-          src={product.url}
+          src={product.url ? helper.urlChecker(product.url) : null}
           alt={product.name}
         />
         <div
