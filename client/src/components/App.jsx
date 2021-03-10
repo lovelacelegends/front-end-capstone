@@ -30,25 +30,23 @@ class App extends React.Component {
 
   componentDidMount() {
     // 17734
-    this.getProductData('17072');
+    this.getProductData('17735');
   }
 
   getProductData(id) {
     axios.get(`/products/${id}`)
       .then((data) => {
-        // eslint-disable-next-line no-console
-        console.log('axios: ', data.data);
-
         this.setState({
           selectedProduct: data.data[0],
           styles: data.data[1],
-          relatedProductIds: data.data[2],
+          relatedProductIds: [...new Set(data.data[2])],
           reviews: data.data[3],
           meta: data.data[4],
         });
       })
       .then(() => {
         const { relatedProductIds } = this.state;
+        // const nonDuplicates = [...new Set(relatedProductIds)];
         const arrayOfPromises = [];
 
         relatedProductIds.forEach((relatedID) => {
