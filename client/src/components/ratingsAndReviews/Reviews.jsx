@@ -9,9 +9,10 @@ const Reviews = (props) => {
     meta,
     reviewCount,
     showModal,
-    showMoreReviews,
-    handleMoreReviewsClick,
+    addToReviewsCount,
     toggleModal,
+    markReviewAsHelpful,
+    reportReview,
   } = props;
 
   if (Object.keys(reviews).length !== 0) {
@@ -28,6 +29,12 @@ const Reviews = (props) => {
         </div>
         <div className="reviews-container">
           {reviews.results.map((review, index) => {
+            const response = review.response ? <h4>{review.response}</h4> : null;
+            const recommend = review.recommend ? <div>I recommend this product</div> : null;
+            const photos = review.photos.length > 0 ? review.photos.map((photo) => (
+              <img className="uploaded-photo" src={photo.url} alt="uploaded product" key={photo.id} />
+            )) : null;
+
             if (index < reviewCount) {
               return (
                 <div className="review" key={review.review_id}>
@@ -40,12 +47,38 @@ const Reviews = (props) => {
                   </div>
                   <h3>{review.summary}</h3>
                   <p>{review.body}</p>
+                  {recommend}
+                  {response}
+                  {photos}
+                  <br />
                   <span>
                     {'Helpful? '}
-                    <span>{'Yes '}</span>
-                    (
-                    {review.helpfulness}
-                    )
+                    <span
+                      onClick={() => {
+                        markReviewAsHelpful(review, index);
+                      }}
+                      onKeyPress={() => {
+                        markReviewAsHelpful(review, index);
+                      }}
+                      role="button"
+                      tabIndex="0"
+                    >
+                      Yes(
+                      {review.helpfulness}
+                      )
+                    </span>
+                    <span
+                      onClick={() => {
+                        reportReview(review, index);
+                      }}
+                      onKeyPress={() => {
+                        reportReview(review, index);
+                      }}
+                      role="button"
+                      tabIndex="0"
+                    >
+                      {reviews.results[index].reported ? ' Reported' : ' Report'}
+                    </span>
                   </span>
                 </div>
               );
@@ -56,8 +89,8 @@ const Reviews = (props) => {
         </div>
         <button
           type="button"
-          onClick={handleMoreReviewsClick}
-          style={{ visibility: showMoreReviews ? 'visible' : 'hidden' }}
+          onClick={addToReviewsCount}
+          style={{ visibility: (reviewCount < reviews.results.length) ? 'visible' : 'hidden' }}
         >
           MORE REVIEWS
         </button>
@@ -100,9 +133,10 @@ Reviews.propTypes = {
   ).isRequired,
   reviewCount: PropTypes.number.isRequired,
   showModal: PropTypes.bool.isRequired,
-  showMoreReviews: PropTypes.bool.isRequired,
-  handleMoreReviewsClick: PropTypes.func.isRequired,
+  addToReviewsCount: PropTypes.func.isRequired,
   toggleModal: PropTypes.func.isRequired,
+  markReviewAsHelpful: PropTypes.func.isRequired,
+  reportReview: PropTypes.func.isRequired,
 };
 
 export default Reviews;

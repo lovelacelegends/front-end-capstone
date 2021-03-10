@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import Ratings from './Ratings';
 import Reviews from './Reviews';
@@ -11,33 +12,52 @@ class RatingsAndReviews extends React.Component {
     this.state = {
       reviewCount: 2,
       showModal: false,
-      showMoreReviews: true,
     };
 
-    this.handleMoreReviewsClick = this.handleMoreReviewsClick.bind(this);
+    this.addToReviewsCount = this.addToReviewsCount.bind(this);
     this.toggleModal = this.toggleModal.bind(this);
+    this.markReviewAsHelpful = this.markReviewAsHelpful.bind(this);
+    this.reportReview = this.reportReview.bind(this);
   }
 
-  handleMoreReviewsClick() {
-    const { reviews } = this.props;
-    const { reviewCount } = this.state;
-
-    if (reviewCount + 2 >= reviews.results.length) {
-      this.setState((prevState) => ({
-        showMoreReviews: false,
-        reviewCount: prevState.reviewCount + 2,
-      }));
-    } else {
-      this.setState((prevState) => ({
-        reviewCount: prevState.reviewCount + 2,
-      }));
-    }
+  addToReviewsCount() {
+    this.setState((prevState) => ({
+      reviewCount: prevState.reviewCount + 2,
+    }));
   }
 
   toggleModal() {
     this.setState((prevState) => ({
       showModal: !prevState.showModal,
     }));
+  }
+
+  markReviewAsHelpful(review, index) {
+    const { reviews } = this.props;
+
+    axios.put(`/reviews/${review.review_id}/helpful`)
+      .then(() => {
+        reviews.results[index].helpfulness += 1;
+        this.setState({});
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      });
+  }
+
+  reportReview(review, index) {
+    const { reviews } = this.props;
+
+    axios.put(`/reviews/${review.review_id}/report`)
+      .then(() => {
+        reviews.results[index].reported = true;
+        this.setState({});
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      });
   }
 
   render() {
@@ -50,7 +70,6 @@ class RatingsAndReviews extends React.Component {
     const {
       reviewCount,
       showModal,
-      showMoreReviews,
     } = this.state;
 
     return (
@@ -62,9 +81,10 @@ class RatingsAndReviews extends React.Component {
           meta={meta}
           reviewCount={reviewCount}
           showModal={showModal}
-          showMoreReviews={showMoreReviews}
-          handleMoreReviewsClick={this.handleMoreReviewsClick}
+          addToReviewsCount={this.addToReviewsCount}
           toggleModal={this.toggleModal}
+          markReviewAsHelpful={this.markReviewAsHelpful}
+          reportReview={this.reportReview}
         />
       </div>
     );

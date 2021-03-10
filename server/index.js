@@ -75,5 +75,29 @@ app.post('/reviews', (req, res) => {
     });
 });
 
+app.put('/reviews/:id/helpful', (req, res) => {
+  const { id } = req.params;
+
+  atlier.markReviewAsHelpful(id)
+    .then((data) => {
+      res.status(204).send(data.data);
+    })
+    .catch((error) => {
+      res.status(501).send(error);
+    });
+});
+
+app.put('/reviews/:id/report', (req, res) => {
+  const { id } = req.params;
+
+  atlier.reportReview(id)
+    .then((data) => {
+      res.status(204).send(data.data);
+    })
+    .catch((error) => {
+      res.status(501).send(error);
+    });
+});
+
 const PORT = 3000;
 app.listen(PORT);

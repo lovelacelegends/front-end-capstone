@@ -47,6 +47,8 @@ class OutfitContainer extends React.Component {
       updateStorageCount,
     } = this.props;
 
+    const { currentStorageArray } = this.state;
+
     const productToStore = {
       id: currentProduct.id,
       productName: currentProduct.name,
@@ -57,7 +59,9 @@ class OutfitContainer extends React.Component {
     localStorage.setItem(currentProduct.id, JSON.stringify(productToStore));
 
     const updatedStorage = OutfitContainer.gatherObjects();
-    updateStorageCount();
+    if (currentStorageArray.length !== localStorage.length) {
+      updateStorageCount();
+    }
     this.setState({
       currentStorageArray: updatedStorage,
     });

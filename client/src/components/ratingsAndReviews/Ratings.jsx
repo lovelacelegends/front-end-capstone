@@ -23,7 +23,7 @@ const Ratings = (props) => {
             min="1"
             max="5"
             value={meta.characteristics.Size.value}
-            disabled="true"
+            disabled
           />
         </div>
       );
@@ -38,7 +38,7 @@ const Ratings = (props) => {
             min="1"
             max="5"
             value={meta.characteristics.Width.value}
-            disabled="true"
+            disabled
           />
         </div>
       );
@@ -53,7 +53,7 @@ const Ratings = (props) => {
             min="1"
             max="5"
             value={meta.characteristics.Comfort.value}
-            disabled="true"
+            disabled
           />
         </div>
       );
@@ -68,7 +68,7 @@ const Ratings = (props) => {
             min="1"
             max="5"
             value={meta.characteristics.Quality.value}
-            disabled="true"
+            disabled
           />
         </div>
       );
@@ -83,7 +83,7 @@ const Ratings = (props) => {
             min="1"
             max="5"
             value={meta.characteristics.Length.value}
-            disabled="true"
+            disabled
           />
         </div>
       );
@@ -98,7 +98,7 @@ const Ratings = (props) => {
             min="1"
             max="5"
             value={meta.characteristics.Fit.value}
-            disabled="true"
+            disabled
           />
         </div>
       );
@@ -173,10 +173,12 @@ const Ratings = (props) => {
             </span>
           </span>
         </div>
+        <br />
         <div>
           {recommended}
-          {' % of reviewers recommend this product'}
+          % of reviewers recommend this product
         </div>
+        <br />
         {size}
         {width}
         {comfort}

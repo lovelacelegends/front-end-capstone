@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable no-undef */
 import React from 'react';
 import { RiInformationLine } from 'react-icons/ri';
 import PropTypes from 'prop-types';
@@ -13,6 +15,10 @@ class RelatedItemCard extends React.Component {
 
   handleProductClick() {
     const { product, getProductData, resetState } = this.props;
+    scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
     getProductData(product.id);
     resetState();
   }
