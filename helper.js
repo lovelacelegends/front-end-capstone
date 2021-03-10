@@ -24,17 +24,9 @@ const findAverageRating = (ratings) => (findTotalScore(ratings) / findNumOfRevie
 
 const findStarRating = (ratings) => (Math.round(findAverageRating(ratings) * 4) / 4);
 
-const urlChecker = (url) => {
-  if (url[0] === 'u') {
-    return url.substring(1);
-  }
-  return url;
-};
-
 module.exports = {
   findNumOfReviews,
   findTotalScore,
   findAverageRating,
   findStarRating,
-  urlChecker,
 };
