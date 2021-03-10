@@ -138,7 +138,7 @@ const Ratings = (props) => {
         </div>
         <h3>Rating Breakdown</h3>
         <div
-          className={`clickable ${showRatings['5'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
+          className={`rating-breakdown clickable ${showRatings['5'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('5');
           }}
@@ -154,7 +154,7 @@ const Ratings = (props) => {
           {meta.ratings['5']}
         </div>
         <div
-          className={`clickable ${showRatings['4'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
+          className={`rating-breakdown clickable ${showRatings['4'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('4');
           }}
@@ -170,7 +170,7 @@ const Ratings = (props) => {
           {meta.ratings['4']}
         </div>
         <div
-          className={`clickable ${showRatings['3'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
+          className={`rating-breakdown clickable ${showRatings['3'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('3');
           }}
@@ -186,7 +186,7 @@ const Ratings = (props) => {
           {meta.ratings['3']}
         </div>
         <div
-          className={`clickable ${showRatings['2'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
+          className={`rating-breakdown clickable ${showRatings['2'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('2');
           }}
@@ -202,7 +202,7 @@ const Ratings = (props) => {
           {meta.ratings['2']}
         </div>
         <div
-          className={`clickable ${showRatings['1'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
+          className={`rating-breakdown clickable ${showRatings['1'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('1');
           }}

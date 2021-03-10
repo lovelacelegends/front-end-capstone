@@ -95,7 +95,7 @@ body {
 /* BAR SECTION - to use, simply add the bar class and pass in a number into style={{ '--rating': NUM }} */
 
 .bar:before {
-  content: '★★★★★';
+  content: '######';
   letter-spacing: 15px;
   background: linear-gradient(90deg, var(--bar-background) var(--percent), var(--bar-color) var(--percent));
   -webkit-text-fill-color: transparent;
@@ -761,20 +761,21 @@ body {
 }
 
 .ratings-section {
-  display: grid;
   width: 80%;
   grid-column: 1;
   grid-row: 1 / 6;
 }
 
+.rating-breakdown {
+  margin: 10px;
+}
+
 .ratings-highlight {
-  height: 19px;
   background-color: lightgray;
   color: #69c1e0;
 }
 
 .ratings-highlight-hover:hover {
-  height: 19px;
   background-color: lightgray;
   color: #69c1e0;
 }
