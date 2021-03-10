@@ -44,6 +44,7 @@ class App extends React.Component {
           relatedProductIds: [...new Set(data.data[2])],
           reviews: data.data[3],
           meta: data.data[4],
+          currentStyle: 0,
         });
       })
       .then(() => {

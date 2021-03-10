@@ -237,18 +237,6 @@ body {
   width: 1200px;
 }
 
-* {box-sizing: border-box;}
-
-.img-magnifier-glass {
-  position: absolute;
-  border: 3px solid #000;
-  border-radius: 50%;
-  cursor: none;
-  /*Set the size of the magnifier glass:*/
-  width: 100px;
-  height: 100px;
-}
-
 .floating-bottons{
   display: grid;
   position: relative;
@@ -398,12 +386,34 @@ body {
   top: 15px;
 }
 
-#lens{
-  height: 125px;
-  width: 125px;
-  border: 2px solid black;
+.zoomImg {
+  will-change: transform;
 }
 
+#tick{
+  z-index: 10;
+  position: relative;
+  right: 15px;
+  background-color: white;
+  border-radius: 50%;
+}
+
+#faceBook:hover{
+  color: pink;
+}
+
+#instagram:hover{
+  color: pink;
+}
+
+#twitter:hover{
+  color: pink;
+}
+
+#read-all-reviews a{
+  text-decoration: none;
+  color: black;
+}
 /* MY OUTFIT SECTION */
 
 .outfit-grid-frame {

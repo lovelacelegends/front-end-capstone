@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Price from './Price';
 import helper from '../../../../helper';
 
@@ -10,8 +11,13 @@ class ProductInfo extends React.Component {
   }
 
   render() {
-    const { selectedProduct, styles, currentStyle, meta } = this.props;
-    // {selectedProduct}
+    const {
+      selectedProduct,
+      styles,
+      currentStyle,
+      meta,
+    } = this.props;
+
     return (
       <div className="product-info">
         <section id="rating">
@@ -19,6 +25,7 @@ class ProductInfo extends React.Component {
             className="stars"
             style={{ '--rating': helper.findStarRating(meta.ratings) }}
           />
+          <a href="#route-to-ratings" id="read-all-reviews">Read all reviews</a>
         </section>
         <section id="category">
           {selectedProduct.category}
@@ -36,5 +43,29 @@ class ProductInfo extends React.Component {
     );
   }
 }
+
+ProductInfo.propTypes = {
+  styles: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+  selectedProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+  meta: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.object,
+    ]),
+  ).isRequired,
+  currentStyle: PropTypes.number.isRequired,
+};
 
 export default ProductInfo;

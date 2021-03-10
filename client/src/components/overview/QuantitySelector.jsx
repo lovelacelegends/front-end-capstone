@@ -1,4 +1,8 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable jsx-a11y/no-onchange */
+/* eslint-disable no-plusplus */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class QuantitySelector extends React.Component {
   constructor(props) {
@@ -8,7 +12,13 @@ class QuantitySelector extends React.Component {
   }
 
   render() {
-    const { styles, currentStyle, currentSku, currentSize, updateQuantityInState, currentQuantity } = this.props;
+    const {
+      styles,
+      currentStyle,
+      currentSku,
+      updateQuantityInState,
+      currentQuantity,
+    } = this.props;
 
     if (currentSku === '') {
       return (
@@ -20,25 +30,37 @@ class QuantitySelector extends React.Component {
       );
     }
 
-    let quantity = styles.results[currentStyle].skus[currentSku].quantity
+    const { quantity } = styles.results[currentStyle].skus[currentSku];
     let max;
-    (quantity > 15) ?  max = 15 :  max = quantity
+    (quantity > 15) ? max = 15 : max = quantity;
 
-    let arrOfQuantities = [];
-    for (let i=1; i<=max; i++) {
+    const arrOfQuantities = [];
+    for (let i = 1; i <= max; i++) {
       arrOfQuantities.push(i);
     }
 
     return (
       <div className="quantity-selector">
         <select value={currentQuantity} onChange={updateQuantityInState}>
-          {arrOfQuantities.map((num)=>{
-            return <option>{num}</option>
-          })}
+          {arrOfQuantities.map((num) => <option>{num}</option>)}
         </select>
       </div>
     );
   }
 }
+
+QuantitySelector.propTypes = {
+  styles: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+  currentStyle: PropTypes.number.isRequired,
+  currentSku: PropTypes.string.isRequired,
+  currentQuantity: PropTypes.number.isRequired,
+  updateQuantityInState: PropTypes.func.isRequired,
+};
 
 export default QuantitySelector;

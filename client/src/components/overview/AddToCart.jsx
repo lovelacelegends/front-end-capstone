@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import SizeSelector from './SizeSelector';
 import QuantitySelector from './QuantitySelector';
 import CartButton from './CartButton';
@@ -20,13 +21,11 @@ class AddToCart extends React.Component {
     this.addToCartApi = this.addToCartApi.bind(this);
   }
 
-  // componentDidMount() {
-  //   this.isOutOfStockOption();
-  // }
-
   addToCartApi() {
-    const currentSkuIndex = this.state.currentSku;
-    const amountToSend = Number(this.state.currentQuantity);
+    const { currentSku, currentQuantity } = this.state;
+    const currentSkuIndex = currentSku;
+    const amountToSend = Number(currentQuantity);
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < amountToSend; i++) {
       axios
         .post('/cart', { sku_id: currentSkuIndex })
@@ -37,11 +36,13 @@ class AddToCart extends React.Component {
   }
 
   isOutOfStockOption() {
-    const arrayOfSkus = this.props.styles.results[this.props.currentStyle].skus;
+    const { styles, currentStyle } = this.props;
+    const arrayOfSkus = styles.results[currentStyle].skus;
     const arrayOfZeroQuant = arrayOfSkus.filter((sku) => sku.quantity === 0);
-    let arrayOfNullQuant = arrayOfSkus.filter((sku) => sku.quantity === null);
+    const arrayOfNullQuant = arrayOfSkus.filter((sku) => sku.quantity === null);
 
-    if(arrayOfSkus.length === arrayOfZeroQuant.length || arrayOfSkus.length === arrayOfNullQuant.length) {
+    if (arrayOfSkus.length === arrayOfZeroQuant.length
+      || arrayOfSkus.length === arrayOfNullQuant.length) {
       console.log('outofstock');
     }
   }
@@ -49,8 +50,8 @@ class AddToCart extends React.Component {
   updateSku(e) {
     e.preventDefault();
     const index = e.target.selectedIndex;
-    let selectedSku = e.target.childNodes[index].id;
-    let selectedSize = e.target.value;
+    const selectedSku = e.target.childNodes[index].id;
+    const selectedSize = e.target.value;
     this.updateSkuInState(selectedSku, selectedSize);
     this.setState({ currentQuantity: 1 });
   }
@@ -61,12 +62,14 @@ class AddToCart extends React.Component {
 
   updateQuantityInState(e) {
     const quantity = e.target.value;
-    this.setState({currentQuantity: quantity});
+    this.setState({ currentQuantity: quantity });
   }
 
   render() {
     const { styles, currentStyle } = this.props;
-    const { currentSku, currentSize, outOfStock, currentQuantity } = this.state;
+    const {
+      currentSku, currentSize, outOfStock, currentQuantity,
+    } = this.state;
     return (
       <div className="add-to-cart">
         <SizeSelector
@@ -98,5 +101,16 @@ class AddToCart extends React.Component {
     );
   }
 }
+
+AddToCart.propTypes = {
+  styles: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+  currentStyle: PropTypes.number.isRequired,
+};
 
 export default AddToCart;

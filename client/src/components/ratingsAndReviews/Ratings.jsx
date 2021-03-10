@@ -124,7 +124,7 @@ const Ratings = (props) => {
     const numOfReviews = helper.findNumOfReviews(meta.ratings);
 
     return (
-      <div className="ratings-section">
+      <div className="ratings-section" id="route-to-ratings">
         <h2>RATINGS & REVIEWS</h2>
         <div className="average-rating">
           {(Math.round(helper.findAverageRating(meta.ratings) * 10) / 10).toFixed(1)}

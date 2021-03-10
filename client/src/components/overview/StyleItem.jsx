@@ -1,5 +1,7 @@
+/* eslint-disable consistent-return */
 import React from 'react';
-import { BiCheckCircle } from "react-icons/bi";
+import PropTypes from 'prop-types';
+import { BiCheckCircle } from 'react-icons/bi';
 
 class StyleItem extends React.Component {
   constructor(props) {
@@ -18,25 +20,59 @@ class StyleItem extends React.Component {
     const { style, styleIndex, currentStyle } = this.props;
     if (styleIndex === currentStyle) {
       return (
-      <div>
-        <img src={style.photos[0].thumbnail_url}
-        id="style-item"
-        name={styleIndex}
-        onClick={this.handleStlyeClick}
-        />
-        <BiCheckCircle id="tick" />
-      </div>
+        <div>
+          <img
+            src={style.photos[0].thumbnail_url}
+            id="style-item"
+            name={styleIndex}
+            onClick={this.handleStlyeClick}
+            alt="button"
+            onKeyPress={this.handleStlyeClick}
+            role="presentation"
+          />
+          <BiCheckCircle id="tick" />
+        </div>
       );
-    } else if (styleIndex !== currentStyle){
+    } if (styleIndex !== currentStyle) {
       return (
-        <img src={style.photos[0].thumbnail_url}
-        id="style-item"
-        name={styleIndex}
-        onClick={this.handleStlyeClick}
+        <img
+          src={style.photos[0].thumbnail_url}
+          id="style-item"
+          name={styleIndex}
+          onClick={this.handleStlyeClick}
+          alt="button"
+          onKeyPress={this.handleStlyeClick}
+          role="presentation"
         />
       );
     }
   }
 }
+
+StyleItem.propTypes = {
+  style: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+      PropTypes.bool,
+      PropTypes.objectOf(
+        PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.number,
+          PropTypes.objectOf(
+            PropTypes.oneOfType([
+              PropTypes.string,
+              PropTypes.number,
+            ]),
+          ),
+        ]),
+      ),
+    ]),
+  ).isRequired,
+  currentStyle: PropTypes.number.isRequired,
+  styleIndex: PropTypes.number.isRequired,
+  updateCurrentStyle: PropTypes.func.isRequired,
+};
 
 export default StyleItem;
