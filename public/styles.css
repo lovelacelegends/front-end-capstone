@@ -125,25 +125,27 @@ body {
   color:  #69c1e0;
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-top: 28px;
+  justify-content: flex-end;
+  padding-bottom: 40px;
 }
 
 .header-search-frame {
   background-color: rgb(162, 180, 197);
-  height: 28px;
+  height: 30px;
   width: 200px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   padding: 3px;
-  padding-bottom: 5px;
+  margin-right: 16px;
+  border-radius: 5px;
 }
 
-/* .header-mag-glass {
-  margin-left: 3px;
-} */
+#header-mag-glass:hover {
+  cursor: pointer;
+  color: #69c1e0;
+}
 
 .sale-modal {
   grid-area: 2/2/3/4;
