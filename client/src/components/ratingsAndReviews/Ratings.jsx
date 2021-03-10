@@ -7,7 +7,6 @@ const Ratings = (props) => {
     meta,
     filterByRating,
     showRatings,
-    filter,
   } = props;
 
   let size;
@@ -221,7 +220,7 @@ const Ratings = (props) => {
         <br />
         <div>
           {recommended}
-          % of reviewers recommend this product
+          % of customers recommend this product
         </div>
         <br />
         {size}

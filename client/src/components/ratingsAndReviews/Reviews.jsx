@@ -17,9 +17,27 @@ const Reviews = (props) => {
     getMetaData,
     sort,
     changeSort,
+    showRatings,
   } = props;
 
   if (Object.keys(reviews).length !== 0) {
+    const filteredReviews = reviews.results.filter((review) => {
+      if (
+        !showRatings[5]
+        && !showRatings[4]
+        && !showRatings[3]
+        && !showRatings[2]
+        && !showRatings[1]
+      ) return true;
+      if (showRatings[5] && review.rating === 5) return true;
+      if (showRatings[4] && review.rating === 4) return true;
+      if (showRatings[3] && review.rating === 3) return true;
+      if (showRatings[2] && review.rating === 2) return true;
+      if (showRatings[1] && review.rating === 1) return true;
+
+      return false;
+    });
+
     return (
       <div className="reviews-section">
         <div>
@@ -32,7 +50,7 @@ const Reviews = (props) => {
           </select>
         </div>
         <div className="reviews-container">
-          {reviews.results.map((review, index) => {
+          {filteredReviews.map((review, index) => {
             const response = review.response ? <h4>{review.response}</h4> : null;
             const recommend = review.recommend ? <div>I recommend this product</div> : null;
             const photos = review.photos.length > 0 ? review.photos.map((photo) => (
@@ -148,6 +166,11 @@ Reviews.propTypes = {
   getMetaData: PropTypes.func.isRequired,
   sort: PropTypes.string.isRequired,
   changeSort: PropTypes.func.isRequired,
+  showRatings: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.bool,
+    ]),
+  ).isRequired,
 };
 
 export default Reviews;
