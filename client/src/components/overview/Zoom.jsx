@@ -1,3 +1,6 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/mouse-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -36,9 +39,9 @@ class Zoom extends React.Component {
 
     this.imageRef = React.createRef();
 
-    this.handleMouseOver = this.handleMouseOver.bind(this)
-    this.handleMouseOut = this.handleMouseOut.bind(this)
-    this.handleMouseMovement = this.handleMouseMovement.bind(this)
+    this.handleMouseOver = this.handleMouseOver.bind(this);
+    this.handleMouseOut = this.handleMouseOut.bind(this);
+    this.handleMouseMovement = this.handleMouseMovement.bind(this);
   }
 
   handleMouseOver() {
@@ -68,8 +71,8 @@ class Zoom extends React.Component {
       },
     } = this.imageRef;
 
-    const x = ((e.pageX - offsetLeft) / parseInt(width, 10)) * 100
-    const y = ((e.pageY - offsetTop) / parseInt(height, 10)) * 100
+    const x = ((e.pageX - offsetLeft) / parseInt(width, 10)) * 100;
+    const y = ((e.pageY - offsetTop) / parseInt(height, 10)) * 100;
 
     this.setState({
       mouseX: x,

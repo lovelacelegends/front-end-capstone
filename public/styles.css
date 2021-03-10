@@ -351,6 +351,23 @@ body {
   background-color: white;
   border-radius: 50%;
 }
+
+#faceBook:hover{
+  color: pink;
+}
+
+#instagram:hover{
+  color: pink;
+}
+
+#twitter:hover{
+  color: pink;
+}
+
+#read-all-reviews a{
+  text-decoration: none;
+  color: black;
+}
 /* MY OUTFIT SECTION */
 
 .outfit-grid-frame {

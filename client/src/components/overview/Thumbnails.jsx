@@ -1,4 +1,7 @@
+/* eslint-disable max-len */
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
+import PropTypes from 'prop-types';
 import { IoIosArrowDown, IoIosArrowUp } from 'react-icons/io';
 import EachThumbnail from './EachThumbnail';
 
@@ -50,16 +53,38 @@ class Thumbnails extends React.Component {
     const { thumbnailClick } = this.props;
     return (
       <div className="gallery-of-thumbnails">
-        <div className="up-arrow" onClick={this.decreaseIndexesByOne}>
+        <div
+          className="up-arrow"
+          onClick={this.decreaseIndexesByOne}
+          onKeyPress={this.decreaseIndexesByOne}
+          role="presentation"
+        >
           <IoIosArrowUp />
         </div>
         {this.indexesToDisplay().map((photo, i) => <EachThumbnail photo={photo} key={i} thumbnailClick={thumbnailClick} />)}
-        <div className="down-arrow" onClick={this.increaseIndexesByOne}>
+        <div
+          className="down-arrow"
+          onClick={this.increaseIndexesByOne}
+          onKeyPress={this.increaseIndexesByOne}
+          role="presentation"
+        >
           <IoIosArrowDown />
         </div>
       </div>
     );
   }
 }
+
+Thumbnails.propTypes = {
+  styles: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+  currentStyle: PropTypes.number.isRequired,
+  thumbnailClick: PropTypes.func.isRequired,
+};
 
 export default Thumbnails;

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { IoMdCheckmark } from 'react-icons/io';
 
 class ProductOverviewListItem extends React.Component {
@@ -11,10 +12,24 @@ class ProductOverviewListItem extends React.Component {
     const { feature } = this.props;
     return (
       <div className="product-overview-list-item">
-        <IoMdCheckmark />{feature.feature}: {feature.value}
+        <IoMdCheckmark />
+        {feature.feature}
+        :
+        {' '}
+        {feature.value}
       </div>
     );
   }
 }
+
+ProductOverviewListItem.propTypes = {
+  feature: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+};
 
 export default ProductOverviewListItem;

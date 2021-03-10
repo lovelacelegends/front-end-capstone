@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-onchange */
 import React from 'react';
 import PropTypes from 'prop-types';
 
@@ -34,7 +35,7 @@ class SizeSelector extends React.Component {
       <div className="size-selector">
         <select onChange={updateSku} id="size-selector" value={currentSize}>
           <option>SELECT SIZE</option>
-          {arrayOfSkus.map((sku, i) => {
+          {arrayOfSkus.map((sku) => {
             if (objOfSkus[sku].quantity !== 0) {
               const sizetoDisplay = objOfSkus[sku].size;
               return (

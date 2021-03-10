@@ -1,4 +1,8 @@
+/* eslint-disable max-len */
+/* eslint-disable react/no-array-index-key */
 import React from 'react';
+import PropTypes from 'prop-types';
+import { AiFillFacebook, AiFillInstagram, AiFillTwitterCircle } from 'react-icons/ai';
 import ProductOverviewListItem from './productOverviewListItem';
 
 class ProductOverview extends React.Component {
@@ -8,16 +12,21 @@ class ProductOverview extends React.Component {
   }
 
   render() {
-    const {selectedProduct} = this.props;
+    const { selectedProduct } = this.props;
     if (selectedProduct.name) {
       return (
         <div className="product-overview">
           <div className="product-overview-text">
             <div className="slogan">{selectedProduct.slogan}</div>
             <div className="description">{selectedProduct.description}</div>
+            <span>
+              <AiFillFacebook id="faceBook" />
+              <AiFillInstagram id="instagram" />
+              <AiFillTwitterCircle id="twitter" />
+            </span>
           </div>
           <div className="product-overview-list">
-            {selectedProduct.features.map((feature, i)=> <ProductOverviewListItem feature={feature} key={i}/>)}
+            {selectedProduct.features.map((feature, i) => <ProductOverviewListItem feature={feature} key={i} />)}
           </div>
         </div>
       );
@@ -29,5 +38,15 @@ class ProductOverview extends React.Component {
     );
   }
 }
+
+ProductOverview.propTypes = {
+  selectedProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+};
 
 export default ProductOverview;

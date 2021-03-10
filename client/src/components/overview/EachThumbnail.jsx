@@ -10,10 +10,14 @@ class EachThumbnail extends React.Component {
 
   render() {
     const { photo, thumbnailClick } = this.props;
+    let url = photo.thumbnail_url;
+    if (url[0] === 'u') {
+      url = url.substring(1);
+    }
     return (
       <div>
         <img
-          src={photo.thumbnail_url}
+          src={url}
           alt="thubnail icon"
           className="each-thumbnail"
           onClick={thumbnailClick}
@@ -27,7 +31,12 @@ class EachThumbnail extends React.Component {
 
 EachThumbnail.propTypes = {
   thumbnailClick: PropTypes.func.isRequired,
-  photo: PropTypes.string.isRequired,
+  photo: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.array,
+    ]),
+  ).isRequired,
 };
 
 export default EachThumbnail;

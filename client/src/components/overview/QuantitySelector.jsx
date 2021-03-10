@@ -1,3 +1,6 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable jsx-a11y/no-onchange */
+/* eslint-disable no-plusplus */
 import React from 'react';
 import PropTypes from 'prop-types';
 

@@ -1,3 +1,4 @@
+/* eslint-disable consistent-return */
 import React from 'react';
 import PropTypes from 'prop-types';
 import { BiCheckCircle } from 'react-icons/bi';
@@ -26,11 +27,13 @@ class StyleItem extends React.Component {
             name={styleIndex}
             onClick={this.handleStlyeClick}
             alt="button"
+            onKeyPress={this.handleStlyeClick}
+            role="presentation"
           />
           <BiCheckCircle id="tick" />
         </div>
       );
-    } else if (styleIndex !== currentStyle){
+    } if (styleIndex !== currentStyle) {
       return (
         <img
           src={style.photos[0].thumbnail_url}
@@ -38,6 +41,8 @@ class StyleItem extends React.Component {
           name={styleIndex}
           onClick={this.handleStlyeClick}
           alt="button"
+          onKeyPress={this.handleStlyeClick}
+          role="presentation"
         />
       );
     }
@@ -50,6 +55,7 @@ StyleItem.propTypes = {
       PropTypes.string,
       PropTypes.number,
       PropTypes.array,
+      PropTypes.bool,
     ]),
   ).isRequired,
   currentStyle: PropTypes.number.isRequired,

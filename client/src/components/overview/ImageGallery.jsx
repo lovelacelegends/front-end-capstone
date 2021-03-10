@@ -76,13 +76,12 @@ class ImageGallery extends React.Component {
       imageElement = (
         <img
           id="large-img"
-          className={displayGroupedExtras ? null : "large-img-expanded"}
+          className={displayGroupedExtras ? null : 'large-img-expanded'}
           src={styles.results[currentStyle].photos[mainThumbNailIndex].url}
           onClick={displayGroupedExtras ? handleExpandedView : this.toggleZoom}
           role="presentation"
           alt="large"
-          >
-        </img>
+        />
       );
     }
 
@@ -93,6 +92,7 @@ class ImageGallery extends React.Component {
           styles={styles}
           currentStyle={currentStyle}
           thumbnailClick={this.thumbnailClick}
+          mainThumbNailIndex={mainThumbNailIndex}
         />
         <BsArrowLeftShort className="left-arrow" onClick={this.leftArrowClick} />
         <BsArrowRightShort className="right-arrow" onClick={this.rightArrowClick} />

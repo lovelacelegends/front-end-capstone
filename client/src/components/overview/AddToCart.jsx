@@ -25,6 +25,7 @@ class AddToCart extends React.Component {
     const { currentSku, currentQuantity } = this.state;
     const currentSkuIndex = currentSku;
     const amountToSend = Number(currentQuantity);
+    // eslint-disable-next-line no-plusplus
     for (let i = 0; i < amountToSend; i++) {
       axios
         .post('/cart', { sku_id: currentSkuIndex })
@@ -66,7 +67,9 @@ class AddToCart extends React.Component {
 
   render() {
     const { styles, currentStyle } = this.props;
-    const { currentSku, currentSize, outOfStock, currentQuantity } = this.state;
+    const {
+      currentSku, currentSize, outOfStock, currentQuantity,
+    } = this.state;
     return (
       <div className="add-to-cart">
         <SizeSelector
