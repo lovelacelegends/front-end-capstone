@@ -1,4 +1,5 @@
 import React from 'react';
+import { GrCheckmark } from 'react-icons/gr';
 import PropTypes from 'prop-types';
 
 class RelatedModal extends React.Component {
@@ -15,7 +16,7 @@ class RelatedModal extends React.Component {
         id: counter,
         feature: arr1[i].feature,
         currentValue: arr1[i].value,
-        relatedValue: null,
+        relatedValue: '',
       };
 
       for (let j = 0; j < arr2.length; j += 1) {
@@ -32,12 +33,19 @@ class RelatedModal extends React.Component {
       return {
         id: counter,
         feature: feat.feature,
-        currentValue: null,
+        currentValue: '',
         relatedValue: feat.value,
       };
     });
 
     return resultArray.concat(cleanUp);
+  }
+
+  static featureCheck(featureValue) {
+    if (featureValue === null) {
+      return <GrCheckmark />;
+    }
+    return featureValue;
   }
 
   constructor(props) {
@@ -76,9 +84,9 @@ class RelatedModal extends React.Component {
             <tbody>
               {completeFeatArray.map((feature) => (
                 <tr key={feature.id}>
-                  <td className="modal-col modal-col-1">{feature.currentValue}</td>
+                  <td className="modal-col modal-col-1">{RelatedModal.featureCheck(feature.currentValue)}</td>
                   <td className="modal-col modal-col-2">{feature.feature}</td>
-                  <td className="modal-col modal-col-3">{feature.relatedValue}</td>
+                  <td className="modal-col modal-col-3">{RelatedModal.featureCheck(feature.relatedValue)}</td>
                 </tr>
               ))}
             </tbody>

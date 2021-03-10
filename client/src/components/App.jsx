@@ -36,9 +36,6 @@ class App extends React.Component {
   getProductData(id) {
     axios.get(`/products/${id}`)
       .then((data) => {
-        // eslint-disable-next-line no-console
-        console.log('axios: ', data.data);
-
         this.setState({
           selectedProduct: data.data[0],
           styles: data.data[1],
@@ -49,9 +46,10 @@ class App extends React.Component {
       })
       .then(() => {
         const { relatedProductIds } = this.state;
+        const nonDuplicates = [...new Set(relatedProductIds)];
         const arrayOfPromises = [];
 
-        relatedProductIds.forEach((relatedID) => {
+        nonDuplicates.forEach((relatedID) => {
           arrayOfPromises.push(axios.get(`/related/${relatedID}`));
         });
 
