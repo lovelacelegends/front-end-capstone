@@ -33,7 +33,7 @@ const getProductStylesById = (id) => {
     });
 };
 
-const getReviewsById = (id) => {
+const getReviewsById = (id, sort) => {
   const options = {
     url: `${baseURL}/reviews/`,
     headers: {
@@ -41,6 +41,7 @@ const getReviewsById = (id) => {
     },
     params: {
       product_id: id,
+      sort,
       count: 1000,
     },
   };

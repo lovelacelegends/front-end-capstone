@@ -3,7 +3,11 @@ import PropTypes from 'prop-types';
 import helper from '../../../../helper';
 
 const Ratings = (props) => {
-  const { meta } = props;
+  const {
+    meta,
+    filterByRating,
+    showRatings,
+  } = props;
 
   let size;
   let width;
@@ -122,61 +126,101 @@ const Ratings = (props) => {
     return (
       <div className="ratings-section">
         <h2>RATINGS & REVIEWS</h2>
-        <div>
+        <div className="average-rating">
           {(Math.round(helper.findAverageRating(meta.ratings) * 10) / 10).toFixed(1)}
           {'  '}
-          <span className="stars" style={{ '--rating': helper.findStarRating(meta.ratings) }} />
+          <span
+            className="stars"
+            style={{
+              '--rating': helper.findStarRating(meta.ratings), '--star-size': '30px',
+            }}
+          />
         </div>
         <h3>Rating Breakdown</h3>
-        <div>
+        <div
+          className={`rating-breakdown clickable ${showRatings['5'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
+          onClick={() => {
+            filterByRating('5');
+          }}
+          onKeyPress={() => {
+            filterByRating('5');
+          }}
+          role="button"
+          tabIndex="0"
+        >
           {'5 stars  '}
-          <span className="bar" style={{ '--count': meta.ratings['5'], '--total': numOfReviews }}>
-            {'  '}
-            <span>
-              {meta.ratings['5']}
-            </span>
-          </span>
+          <span className="bar" style={{ '--count': meta.ratings['5'], '--total': numOfReviews }} />
+          {'  '}
+          {meta.ratings['5']}
         </div>
-        <div>
+        <div
+          className={`rating-breakdown clickable ${showRatings['4'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
+          onClick={() => {
+            filterByRating('4');
+          }}
+          onKeyPress={() => {
+            filterByRating('4');
+          }}
+          role="button"
+          tabIndex="0"
+        >
           {'4 stars  '}
-          <span className="bar" style={{ '--count': meta.ratings['4'], '--total': numOfReviews }}>
-            {'  '}
-            <span>
-              {meta.ratings['4']}
-            </span>
-          </span>
+          <span className="bar" style={{ '--count': meta.ratings['4'], '--total': numOfReviews }} />
+          {'  '}
+          {meta.ratings['4']}
         </div>
-        <div>
+        <div
+          className={`rating-breakdown clickable ${showRatings['3'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
+          onClick={() => {
+            filterByRating('3');
+          }}
+          onKeyPress={() => {
+            filterByRating('3');
+          }}
+          role="button"
+          tabIndex="0"
+        >
           {'3 stars  '}
-          <span className="bar" style={{ '--count': meta.ratings['3'], '--total': numOfReviews }}>
-            {'  '}
-            <span>
-              {meta.ratings['3']}
-            </span>
-          </span>
+          <span className="bar" style={{ '--count': meta.ratings['3'], '--total': numOfReviews }} />
+          {'  '}
+          {meta.ratings['3']}
         </div>
-        <div>
+        <div
+          className={`rating-breakdown clickable ${showRatings['2'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
+          onClick={() => {
+            filterByRating('2');
+          }}
+          onKeyPress={() => {
+            filterByRating('2');
+          }}
+          role="button"
+          tabIndex="0"
+        >
           {'2 stars  '}
-          <span className="bar" style={{ '--count': meta.ratings['2'], '--total': numOfReviews }}>
-            {'  '}
-            <span>
-              {meta.ratings['2']}
-            </span>
-          </span>
+          <span className="bar" style={{ '--count': meta.ratings['2'], '--total': numOfReviews }} />
+          {'  '}
+          {meta.ratings['2']}
         </div>
-        <div>
+        <div
+          className={`rating-breakdown clickable ${showRatings['1'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
+          onClick={() => {
+            filterByRating('1');
+          }}
+          onKeyPress={() => {
+            filterByRating('1');
+          }}
+          role="button"
+          tabIndex="0"
+        >
           {'1 stars  '}
-          <span className="bar" style={{ '--count': meta.ratings['1'], '--total': numOfReviews }}>
-            {'  '}
-            <span>
-              {meta.ratings['1']}
-            </span>
-          </span>
+          <span className="bar" style={{ '--count': meta.ratings['1'], '--total': numOfReviews }} />
+          {'  '}
+          {meta.ratings['1']}
         </div>
         <br />
         <div>
           {recommended}
-          % of reviewers recommend this product
+          % of customers recommend this product
         </div>
         <br />
         {size}
@@ -199,6 +243,12 @@ Ratings.propTypes = {
     PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.object,
+    ]),
+  ).isRequired,
+  filterByRating: PropTypes.func.isRequired,
+  showRatings: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.bool,
     ]),
   ).isRequired,
 };
