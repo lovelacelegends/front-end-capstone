@@ -142,6 +142,12 @@ body {
   border-radius: 5px;
 }
 
+#header-mag-glass {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #header-mag-glass:hover {
   cursor: pointer;
   color: #69c1e0;
