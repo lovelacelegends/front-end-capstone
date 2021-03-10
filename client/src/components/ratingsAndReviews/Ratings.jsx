@@ -126,10 +126,15 @@ const Ratings = (props) => {
     return (
       <div className="ratings-section">
         <h2>RATINGS & REVIEWS</h2>
-        <div>
+        <div className="average-rating">
           {(Math.round(helper.findAverageRating(meta.ratings) * 10) / 10).toFixed(1)}
           {'  '}
-          <span className="stars" style={{ '--rating': helper.findStarRating(meta.ratings) }} />
+          <span
+            className="stars"
+            style={{
+              '--rating': helper.findStarRating(meta.ratings), '--star-size': '30px',
+            }}
+          />
         </div>
         <h3>Rating Breakdown</h3>
         <div
@@ -144,10 +149,9 @@ const Ratings = (props) => {
           tabIndex="0"
         >
           {'5 stars  '}
-          <span className="bar" style={{ '--count': meta.ratings['5'], '--total': numOfReviews }}>
-            {'  '}
-            {meta.ratings['5']}
-          </span>
+          <span className="bar" style={{ '--count': meta.ratings['5'], '--total': numOfReviews }} />
+          {'  '}
+          {meta.ratings['5']}
         </div>
         <div
           className={`clickable ${showRatings['4'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
@@ -161,10 +165,9 @@ const Ratings = (props) => {
           tabIndex="0"
         >
           {'4 stars  '}
-          <span className="bar" style={{ '--count': meta.ratings['4'], '--total': numOfReviews }}>
-            {'  '}
-            {meta.ratings['4']}
-          </span>
+          <span className="bar" style={{ '--count': meta.ratings['4'], '--total': numOfReviews }} />
+          {'  '}
+          {meta.ratings['4']}
         </div>
         <div
           className={`clickable ${showRatings['3'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
@@ -178,10 +181,9 @@ const Ratings = (props) => {
           tabIndex="0"
         >
           {'3 stars  '}
-          <span className="bar" style={{ '--count': meta.ratings['3'], '--total': numOfReviews }}>
-            {'  '}
-            {meta.ratings['3']}
-          </span>
+          <span className="bar" style={{ '--count': meta.ratings['3'], '--total': numOfReviews }} />
+          {'  '}
+          {meta.ratings['3']}
         </div>
         <div
           className={`clickable ${showRatings['2'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
@@ -195,10 +197,9 @@ const Ratings = (props) => {
           tabIndex="0"
         >
           {'2 stars  '}
-          <span className="bar" style={{ '--count': meta.ratings['2'], '--total': numOfReviews }}>
-            {'  '}
-            {meta.ratings['2']}
-          </span>
+          <span className="bar" style={{ '--count': meta.ratings['2'], '--total': numOfReviews }} />
+          {'  '}
+          {meta.ratings['2']}
         </div>
         <div
           className={`clickable ${showRatings['1'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
@@ -212,10 +213,9 @@ const Ratings = (props) => {
           tabIndex="0"
         >
           {'1 stars  '}
-          <span className="bar" style={{ '--count': meta.ratings['1'], '--total': numOfReviews }}>
-            {'  '}
-            {meta.ratings['1']}
-          </span>
+          <span className="bar" style={{ '--count': meta.ratings['1'], '--total': numOfReviews }} />
+          {'  '}
+          {meta.ratings['1']}
         </div>
         <br />
         <div>

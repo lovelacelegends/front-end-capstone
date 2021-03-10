@@ -76,6 +76,7 @@ const Reviews = (props) => {
                   <span>
                     {'Helpful? '}
                     <span
+                      className="clickable text-highlight"
                       onClick={() => {
                         markReviewAsHelpful(review, index);
                       }}
@@ -90,6 +91,7 @@ const Reviews = (props) => {
                       )
                     </span>
                     <span
+                      className="clickable text-highlight"
                       onClick={() => {
                         reportReview(review, index);
                       }}
@@ -110,13 +112,20 @@ const Reviews = (props) => {
           })}
         </div>
         <button
+          className="clickable review-button"
           type="button"
           onClick={addToReviewsCount}
           style={{ visibility: (reviewCount < reviews.results.length) ? 'visible' : 'hidden' }}
         >
           MORE REVIEWS
         </button>
-        <button type="button" onClick={toggleModal}>ADD A REVIEW +</button>
+        <button
+          className="clickable review-button"
+          type="button"
+          onClick={toggleModal}
+        >
+          ADD A REVIEW +
+        </button>
         <ReviewModal
           selectedProduct={selectedProduct}
           showModal={showModal}

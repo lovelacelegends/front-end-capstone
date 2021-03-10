@@ -1,5 +1,5 @@
 body {
-  background-color: rgb(201, 198, 198);
+  background-color: white;
   font-family: "optima", "helvetica";
   margin: 0;
   padding: 0;
@@ -7,9 +7,9 @@ body {
 
 :root {
   --star-size: 15px;
-  --star-color: #1e1d51;
-  --star-background: #69c1e0;
-  --bar-size: 15px;
+  --star-color: lightgray;
+  --star-background: #1e1d51;
+  --bar-size: inherit;
   --bar-color: #1e1d51;
   --bar-background: #69c1e0;
 }
@@ -17,9 +17,10 @@ body {
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   input[type='range'] {
     overflow: hidden;
-    width: 80px;
+    width: 160px;
     -webkit-appearance: none;
     background-color: #1e1d51;
+    border-radius: 15px;
   }
 
   input[type='range']::-webkit-slider-runnable-track {
@@ -43,10 +44,20 @@ body {
   cursor: pointer;
 }
 
+.text-highlight:hover {
+  color: #69c1e0;
+}
+
+.average-rating {
+  font-size: 30px;
+}
+
+
 /* STARS SECTION - to use, simply add the stars class and pass in a number into style={{ '--rating': NUM }} */
 
 .stars:before {
   content: '★★★★★';
+  /* content: '☆☆☆☆☆'; */
   letter-spacing: 0;
   background: linear-gradient(90deg, var(--star-background) var(--percent), var(--star-color) var(--percent));
   background-clip: text;
@@ -85,9 +96,11 @@ body {
 
 .bar:before {
   content: '★★★★★';
-  letter-spacing: 10px;
+  letter-spacing: 15px;
   background: linear-gradient(90deg, var(--bar-background) var(--percent), var(--bar-color) var(--percent));
   -webkit-text-fill-color: transparent;
+  border-radius: 15px;
+
 }
 
 .bar {
@@ -718,21 +731,20 @@ td {
 }
 
 .ratings-highlight {
-  background-color: yellow;
-  color: red;
+  height: 19px;
+  background-color: lightgray;
+  color: #69c1e0;
 }
 
 .ratings-highlight-hover:hover {
-  background-color: yellow;
-  color: red;
+  height: 19px;
+  background-color: lightgray;
+  color: #69c1e0;
 }
 
 .reviews-section {
-  display: grid;
   width: 90%;
   grid-column: 2;
-  grid-row: 1 / 9;
-  grid-template-rows: 50px repeat(auto, 200px) repeat(2, 50px);
 }
 
 .reviews-container {
@@ -741,9 +753,10 @@ td {
 }
 
 .review {
-  background-color: lightgray;
   border: 1px solid #1e1d51;
+  border-radius: 15px;
   margin: 20px 0;
+  padding: 20px;
 }
 
 .uploaded-photo {
@@ -767,4 +780,11 @@ td {
   overflow: auto;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
+}
+
+.review-button {
+  height: 100px;
+  width: 200px;
+  margin: 20px 40px;
+  display: inline-block;
 }
