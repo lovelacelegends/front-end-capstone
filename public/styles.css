@@ -430,7 +430,7 @@ body {
   text-transform: uppercase;
   padding-left: 5px;
 
-  font-size: 1vw;
+  font-size: 14px;
 }
 
 .outfit-card-style {
@@ -438,7 +438,7 @@ body {
   font-style: italic;
   padding-left: 5px;
   padding-top: 2px;
-  font-size: 14px;
+  font-size: 13px;
 }
 
 .outfit-card-image {
