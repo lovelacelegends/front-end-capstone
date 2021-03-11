@@ -20,7 +20,7 @@ class SizeSelector extends React.Component {
 
     if (objOfSkus.null) {
       return (
-        <select>
+        <select className="cart-button">
           <option disable>OUT OF STOCK</option>
         </select>
       );

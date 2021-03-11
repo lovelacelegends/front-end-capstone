@@ -15,6 +15,7 @@ class ProductInfo extends React.Component {
       selectedProduct,
       styles,
       currentStyle,
+      reviews,
       meta,
     } = this.props;
 
@@ -25,7 +26,10 @@ class ProductInfo extends React.Component {
             className="stars"
             style={{ '--rating': helper.findStarRating(meta.ratings) }}
           />
-          <a href="#route-to-ratings" id="read-all-reviews">  Read all reviews</a>
+          <a href="#route-to-ratings" id="read-all-reviews">
+            {reviews.results.length}
+            {' ratings'}
+          </a>
         </section>
         <section id="category">
           {selectedProduct.category}
@@ -53,6 +57,13 @@ ProductInfo.propTypes = {
     ]),
   ).isRequired,
   selectedProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+  reviews: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
