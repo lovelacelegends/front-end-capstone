@@ -53,11 +53,15 @@ class RelatedItemCard extends React.Component {
         >
           <RiInformationLine />
         </div>
-        <img
-          className="related-default-picture"
-          src={product.url}
-          alt={product.name}
-        />
+        {product.url
+          ? (
+            <img
+              className="related-default-picture"
+              src={product.url}
+              alt={product.name}
+            />
+          )
+          : 'no image available :('}
         <div
           className="related-text-holder"
           onClick={this.handleProductClick}
