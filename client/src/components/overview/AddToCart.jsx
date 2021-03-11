@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
@@ -72,15 +73,15 @@ class AddToCart extends React.Component {
     } = this.state;
     return (
       <div className="add-to-cart">
-        <SizeSelector
-          styles={styles}
-          currentStyle={currentStyle}
-          currentSku={currentSku}
-          updateSkuInState={this.updateSkuInState}
-          updateSku={this.updateSku}
-          currentSize={currentSize}
-        />
-        <div>
+        <div className="size-quantity">
+          <SizeSelector
+            styles={styles}
+            currentStyle={currentStyle}
+            currentSku={currentSku}
+            updateSkuInState={this.updateSkuInState}
+            updateSku={this.updateSku}
+            currentSize={currentSize}
+          />
           <QuantitySelector
             currentQuantity={currentQuantity}
             styles={styles}

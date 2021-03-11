@@ -12,13 +12,13 @@ class CartButton extends React.Component {
     if (currentSize === '' || currentSize === 'SELECT SIZE') {
       return (
         <div>
-          <button type="button">Select size</button>
+          <button type="button" id="add-to-cart-button" className="hide">Add To Cart</button>
         </div>
       );
     }
     return (
-      <div className="cart-button">
-        <button type="button" onClick={addToCartApi} id="add-to-cart"> Add to cart </button>
+      <div>
+        <button type="button" onClick={addToCartApi} id="add-to-cart-button"> Add to cart </button>
       </div>
     );
   }

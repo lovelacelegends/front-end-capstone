@@ -26,6 +26,7 @@ class Zoom extends React.Component {
       width: `${width}px`,
       overflow: 'hidden',
       margin: 'auto',
+      cursor: 'zoom-out',
     };
 
     this.innerDivStyle = {
