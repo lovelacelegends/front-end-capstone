@@ -851,9 +851,14 @@ body {
   font-size: 16px;
 }
 
-.related-name:hover {
+.related-card:hover .related-name {
   text-decoration: underline;
+  transition: all .2s ease;
 }
+
+/* .related-name:hover {
+  text-decoration: underline;
+} */
 
 .related-price {
   margin-top: 4px;
