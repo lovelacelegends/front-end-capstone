@@ -13,6 +13,7 @@ class ProductOverview extends React.Component {
 
   render() {
     const { selectedProduct } = this.props;
+    const iconStyles = { fontSize: '2em' };
     if (selectedProduct.name) {
       return (
         <div className="product-overview">
@@ -20,9 +21,9 @@ class ProductOverview extends React.Component {
             <div className="slogan">{selectedProduct.slogan}</div>
             <div className="description">{selectedProduct.description}</div>
             <span>
-              <AiFillFacebook id="faceBook" />
-              <AiFillInstagram id="instagram" />
-              <AiFillTwitterCircle id="twitter" />
+              <AiFillFacebook id="faceBook" style={iconStyles} />
+              <AiFillInstagram id="instagram" style={iconStyles} />
+              <AiFillTwitterCircle id="twitter" style={iconStyles} />
             </span>
           </div>
           <div className="product-overview-list">
