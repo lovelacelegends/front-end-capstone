@@ -7,7 +7,7 @@ body {
 
 #app-container {
   width: 100vw;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
 }
 
@@ -284,7 +284,9 @@ body {
 }
 
 .product-overview-list-item{
-  font-size: 12px;
+  font-size: 14px;
+  border-left: black solid 1px;
+  padding-left: 5px
 }
 
 .slogan{
@@ -293,7 +295,7 @@ body {
 }
 
 .description{
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .name{
@@ -344,6 +346,7 @@ body {
 
 #style-item:hover {
   border-color: #69c1e0;
+  transition: 0.25s;
 }
 
 .hide-option{
@@ -357,8 +360,11 @@ body {
 .left-arrow{
   position: absolute;
   top: 50%;
-  left: 120px;
+  left: 100px;
   z-index: 10;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.5;
 }
 
 .right-arrow{
@@ -366,6 +372,9 @@ body {
   top: 50%;
   right: 30px;
   z-index: 10;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.5;
 }
 
 .gallery-of-thumbnails{
@@ -404,6 +413,8 @@ body {
   position: absolute;
   right: 15px;
   top: 15px;
+  background-color: white;
+  opacity: 0.5;
 }
 
 .zoomImg {
@@ -418,21 +429,41 @@ body {
   border-radius: 50%;
 }
 
+#faceBook{
+  padding: 5px;
+}
+
+#instagram{
+  padding: 5px;
+}
+
+#twitter{
+  padding: 5px;
+}
+
 #faceBook:hover{
-  color: pink;
+  padding: 5px;
+  color: #1e1d51;
 }
 
 #instagram:hover{
-  color: pink;
+  color: #1e1d51;
+  padding: 5px;
 }
 
 #twitter:hover{
-  color: pink;
+  color: #1e1d51;
+  padding: 5px;
 }
 
-#read-all-reviews a{
-  text-decoration: none;
+#read-all-reviews{
   color: black;
+  text-decoration: none;
+  font-family: "optima", "helvetica";
+}
+
+#category{
+  font-style: italic;
 }
 
 .cart-button{
