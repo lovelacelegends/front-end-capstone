@@ -114,8 +114,14 @@ class RatingsAndReviews extends React.Component {
     if (reviews.results && reviews.results.length === 0) {
       return (
         <div>
-          No reviews yet...
-          <button type="button" onClick={this.toggleModal}>ADD A REVIEW +</button>
+          <h1>No reviews yet...</h1>
+          <button
+            className="clickable review-button"
+            type="button"
+            onClick={this.toggleModal}
+          >
+            ADD A REVIEW
+          </button>
           <ReviewModal
             selectedProduct={selectedProduct}
             showModal={showModal}
@@ -123,6 +129,7 @@ class RatingsAndReviews extends React.Component {
             meta={meta}
             getProductReviews={getProductReviews}
             getMetaData={getMetaData}
+            sort={sort}
           />
         </div>
       );

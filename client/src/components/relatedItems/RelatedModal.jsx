@@ -61,36 +61,38 @@ class RelatedModal extends React.Component {
     );
 
     return (
-      <div
-        className="related-modal"
-        onClick={closeModal}
-        onKeyPress={closeModal}
-        role="button"
-        tabIndex={0}
-      >
-        <div className="table-graph-header">
-          <table>
-            <tbody>
-              <tr>
-                <th className="modal-col modal-col-1">{modalArray[0].name}</th>
-                <th className="modal-col modal-col-2"> COMPARING </th>
-                <th className="modal-col modal-col-3">{modalArray[1].name}</th>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div className="table-graph-body">
-          <table>
-            <tbody>
-              {completeFeatArray.map((feature) => (
-                <tr key={feature.id}>
-                  <td className="modal-col modal-col-1">{RelatedModal.featureCheck(feature.currentValue)}</td>
-                  <td className="modal-col modal-col-2">{feature.feature}</td>
-                  <td className="modal-col modal-col-3">{RelatedModal.featureCheck(feature.relatedValue)}</td>
+      <div className="modal-overlay">
+        <div
+          className="related-modal"
+          onClick={closeModal}
+          onKeyPress={closeModal}
+          role="button"
+          tabIndex={0}
+        >
+          <div className="table-graph-header">
+            <table>
+              <tbody>
+                <tr>
+                  <th className="modal-col modal-col-1">{modalArray[0].name}</th>
+                  <th className="modal-col modal-col-2"> COMPARING </th>
+                  <th className="modal-col modal-col-3">{modalArray[1].name}</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </tbody>
+            </table>
+          </div>
+          <div className="table-graph-body">
+            <table>
+              <tbody>
+                {completeFeatArray.map((feature) => (
+                  <tr key={feature.id}>
+                    <td className="modal-col modal-col-1">{RelatedModal.featureCheck(feature.currentValue)}</td>
+                    <td className="modal-col modal-col-2">{feature.feature}</td>
+                    <td className="modal-col modal-col-3">{RelatedModal.featureCheck(feature.relatedValue)}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     );

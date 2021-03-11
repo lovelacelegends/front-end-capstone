@@ -16,7 +16,7 @@ class StyleSelector extends React.Component {
       return (
         <div className="style-selector">
           <div>
-            {'STYLE >'}
+            {'STYLE > '}
             {styles.results[currentStyle].name}
           </div>
           <div id="style-items">

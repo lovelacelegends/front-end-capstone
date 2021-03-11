@@ -40,10 +40,16 @@ const Reviews = (props) => {
 
     return (
       <div className="reviews-section">
-        <div>
+        <div
+          style={{ textAlign: 'right', marginRight: '34px' }}
+        >
           {reviews.results.length}
           {' reviews, sorted by '}
-          <select onBlur={changeSort} onChange={changeSort}>
+          <select
+            className="review-select"
+            onBlur={changeSort}
+            onChange={changeSort}
+          >
             <option value="relevant">relevance</option>
             <option value="newest">newest</option>
             <option value="helpful">helpful</option>
@@ -51,8 +57,13 @@ const Reviews = (props) => {
         </div>
         <div className="reviews-container">
           {filteredReviews.map((review, index) => {
-            const response = review.response ? <h4>{review.response}</h4> : null;
-            const recommend = review.recommend ? <div>I recommend this product</div> : null;
+            const response = review.response ? (
+              <p style={{ backgroundColor: 'lightgray' }}>
+                {'Response from seller: '}
+                {review.response}
+              </p>
+            ) : null;
+            const recommend = review.recommend ? <p>I recommend this product.</p> : null;
             const photos = review.photos.length > 0 ? review.photos.map((photo) => (
               <img className="uploaded-photo" src={photo.url} alt="uploaded product" key={photo.id} />
             )) : null;
@@ -65,7 +76,12 @@ const Reviews = (props) => {
                     {'  '}
                     <span>{review.reviewer_name}</span>
                     {'  '}
-                    <span>{review.date.substr(0, 10)}</span>
+                    <span
+                      className="review-small-text"
+                      style={{ float: 'right' }}
+                    >
+                      {review.date.substr(0, 10)}
+                    </span>
                   </div>
                   <h3>{review.summary}</h3>
                   <p>{review.body}</p>
@@ -73,10 +89,9 @@ const Reviews = (props) => {
                   {response}
                   {photos}
                   <br />
-                  <span>
+                  <span className="review-small-text">
                     {'Helpful? '}
                     <span
-                      className="clickable text-highlight"
                       onClick={() => {
                         markReviewAsHelpful(review, index);
                       }}
@@ -86,12 +101,19 @@ const Reviews = (props) => {
                       role="button"
                       tabIndex="0"
                     >
-                      Yes(
+                      <span
+                        className="clickable text-highlight"
+                      >
+                        Yes
+                      </span>
+                      (
                       {review.helpfulness}
                       )
                     </span>
+                    {' | '}
                     <span
                       className="clickable text-highlight"
+                      style={{ textDecoration: 'underline' }}
                       onClick={() => {
                         reportReview(review, index);
                       }}
@@ -124,7 +146,7 @@ const Reviews = (props) => {
           type="button"
           onClick={toggleModal}
         >
-          ADD A REVIEW +
+          ADD A REVIEW
         </button>
         <ReviewModal
           selectedProduct={selectedProduct}
