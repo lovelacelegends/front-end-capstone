@@ -5,6 +5,12 @@ body {
   padding: 0;
 }
 
+#app-container {
+  width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
 :root {
   --star-size: 15px;
   --star-color: lightgray;
@@ -51,6 +57,7 @@ body {
 .text-highlight:hover {
   color: #69c1e0;
   font-style: underline;
+  transition: all 0.25s;
 }
 
 .average-rating {
@@ -119,7 +126,7 @@ body {
 .header-grid-frame {
   margin: 0 auto;
   height: 200px;
-  width: 1200px;
+  width: 100%;
   display: grid;
   grid-template-columns: 200px 3fr 2fr;
   grid-template-rows: 54% 23% 23%;
@@ -767,17 +774,17 @@ body {
 
 .ratings-and-reviews {
   display: grid;
-  background-color: white;
+  width: 100%;
   overflow: auto;
   grid-template-columns: 1fr 2.5fr;
-  justify-items: center;
-  align-content: center;
+  justify-self: center;
+  justify-content: center;
 }
 
 .ratings-section {
-  width: 80%;
+  padding: 20px;
+  /* width: 100%; */
   grid-column: 1;
-  grid-row: 1 / 6;
 }
 
 .rating-breakdown {
@@ -788,28 +795,35 @@ body {
   box-shadow: 0 0 6px 3px #69c1e0;
   --bar-color: rgb(153, 176, 202);
   color: #69c1e0;
+  padding: 5px 10px;
+  margin: 10px auto;
+  transition: all 0.25s;
 }
 
 .ratings-highlight-hover:hover {
   box-shadow: 0 0 6px 3px #69c1e0;
   --bar-color: rgb(153, 176, 202);
   color: #69c1e0;
+  padding: 5px 10px;
+  margin: 10px auto;
+  transition: all 0.25s;
 }
 
 .reviews-section {
-  width: 90%;
   grid-column: 2;
+  padding: 20px 0 20px 20px;
 }
 
 .reviews-container {
   max-height: 800px;
   overflow-y: scroll;
+  margin: 20px 0;
 }
 
 .review {
   border: 1px solid #1e1d51;
   border-radius: 15px;
-  margin: 20px 0;
+  margin: 0 20px 20px 0;
   padding: 20px;
 }
 
@@ -837,8 +851,17 @@ body {
 }
 
 .review-button {
-  height: 100px;
-  width: 200px;
-  margin: 20px 40px;
+  height: 50px;
+  width: 40%;
+  margin: 0 4%;
   display: inline-block;
+  background-color: black;
+  color: white;
+  border-radius: 5px;
+  font-size: 20px;
+  transition: all 0.25s;
+}
+
+.review-button:hover {
+  background-color: #1e1d51;
 }

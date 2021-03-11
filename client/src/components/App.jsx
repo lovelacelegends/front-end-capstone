@@ -112,7 +112,7 @@ class App extends React.Component {
     } = this.state;
 
     return (
-      <div>
+      <div id="app-container">
         <Header />
         <Overview
           selectedProduct={selectedProduct}
