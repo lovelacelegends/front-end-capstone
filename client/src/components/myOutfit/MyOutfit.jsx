@@ -53,13 +53,13 @@ class MyOutfit extends React.Component {
     if (positionIndex > 0) {
       leftArrow = (
         <div
-          className="related-left-arrow"
+          className="related-left-arrow clickable"
           onClick={this.moveLeft}
           onKeyPress={this.moveLeft}
           role="button"
           tabIndex={0}
         >
-          <GoChevronLeft />
+          <GoChevronLeft className="related-icon" />
         </div>
       );
     } else {
@@ -72,13 +72,13 @@ class MyOutfit extends React.Component {
     if (storageCount > 3 && (storageCount - 3 > positionIndex)) {
       rightArrow = (
         <div
-          className="related-right-arrow"
+          className="related-right-arrow clickable"
           onClick={this.moveRight}
           onKeyPress={this.moveRight}
           role="button"
           tabIndex={0}
         >
-          <GoChevronRight />
+          <GoChevronRight className="related-icon" />
         </div>
       );
     } else {
@@ -89,7 +89,7 @@ class MyOutfit extends React.Component {
 
     return (
       <>
-        <div className="related-title"> Your Outfit </div>
+        <h2 className="related-title"> Your Outfit </h2>
         <div className="related-arrow-holder">
           {leftArrow}
           <div className="outfit-grid-frame">
