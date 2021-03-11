@@ -154,7 +154,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 40px;
+  padding-top: 50px;
 }
 
 .header-search-frame {
