@@ -78,7 +78,7 @@ class RelatedItems extends React.Component {
     if (currentPosition < 0) {
       leftArrow = (
         <div
-          className="related-left-arrow"
+          className="related-left-arrow clickable"
           onClick={this.moveLeft}
           onKeyPress={this.moveLeft}
           role="button"
@@ -95,7 +95,7 @@ class RelatedItems extends React.Component {
     if (relatedProductIds.length > 4 && positionIndex < (relatedProductIds.length - 4)) {
       rightArrow = (
         <div
-          className="related-right-arrow"
+          className="related-right-arrow clickable"
           onClick={this.moveRight}
           onKeyPress={this.moveRight}
           role="button"

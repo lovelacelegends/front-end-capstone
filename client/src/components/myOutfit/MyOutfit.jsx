@@ -53,7 +53,7 @@ class MyOutfit extends React.Component {
     if (positionIndex > 0) {
       leftArrow = (
         <div
-          className="related-left-arrow"
+          className="related-left-arrow clickable"
           onClick={this.moveLeft}
           onKeyPress={this.moveLeft}
           role="button"
@@ -72,7 +72,7 @@ class MyOutfit extends React.Component {
     if (storageCount > 3 && (storageCount - 3 > positionIndex)) {
       rightArrow = (
         <div
-          className="related-right-arrow"
+          className="related-right-arrow clickable"
           onClick={this.moveRight}
           onKeyPress={this.moveRight}
           role="button"
