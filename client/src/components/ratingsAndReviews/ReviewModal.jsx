@@ -8,6 +8,7 @@ class ReviewModal extends React.Component {
 
     this.state = {
       rating: 0,
+      ratingHover: 0,
       recommend: '',
       size: '',
       width: '',
@@ -45,12 +46,27 @@ class ReviewModal extends React.Component {
     });
   }
 
+  handleStarHover(value) {
+    this.setState({
+      ratingHover: value,
+    });
+  }
+
+  handleStarUnhover() {
+    this.setState({
+      ratingHover: 0,
+    });
+  }
+
   submitReviewForm(e) {
     e.preventDefault();
 
     const {
       meta,
       toggleModal,
+      getProductReviews,
+      getMetaData,
+      sort,
     } = this.props;
 
     const {
@@ -109,6 +125,8 @@ class ReviewModal extends React.Component {
     axios.post('/reviews', review)
       .then(() => {
         toggleModal();
+        getProductReviews(meta.product_id, sort);
+        getMetaData(meta.product_id);
       })
       .catch((error) => {
         // eslint-disable-next-line no-console
@@ -127,6 +145,7 @@ class ReviewModal extends React.Component {
 
     const {
       rating,
+      ratingHover,
       summary,
       body,
     } = this.state;
@@ -496,74 +515,136 @@ class ReviewModal extends React.Component {
         </h4>
         <div
           className="stars"
-          style={{ '--rating': rating }}
-        />
-        <span className="stars-clickable" role="tablist">
-          <span
-            className="star-clickable"
-            onClick={() => {
-              this.handleStarClick(1);
-            }}
-            onKeyPress={() => {
-              this.handleStarClick(1);
-            }}
-            role="tab"
-            aria-selected="true"
-            tabIndex="0"
-          />
-          <span
-            className="star-clickable"
-            onClick={() => {
-              this.handleStarClick(2);
-            }}
-            onKeyPress={() => {
-              this.handleStarClick(2);
-            }}
-            role="tab"
-            aria-selected="false"
-            tabIndex="0"
-            style={{ left: '15px' }}
-          />
-          <span
-            className="star-clickable"
-            onClick={() => {
-              this.handleStarClick(3);
-            }}
-            onKeyPress={() => {
-              this.handleStarClick(3);
-            }}
-            role="tab"
-            aria-selected="false"
-            tabIndex="0"
-            style={{ left: '30px' }}
-          />
-          <span
-            className="star-clickable"
-            onClick={() => {
-              this.handleStarClick(4);
-            }}
-            onKeyPress={() => {
-              this.handleStarClick(4);
-            }}
-            role="tab"
-            aria-selected="false"
-            tabIndex="0"
-            style={{ left: '45px' }}
-          />
-          <span
-            className="star-clickable"
-            onClick={() => {
-              this.handleStarClick(5);
-            }}
-            onKeyPress={() => {
-              this.handleStarClick(5);
-            }}
-            role="tab"
-            aria-selected="false"
-            tabIndex="0"
-            style={{ left: '60px' }}
-          />
-        </span>
+          style={{ '--rating': ratingHover === 0 ? rating : ratingHover }}
+          role="tablist"
+        >
+          <span className="stars-clickable" role="tablist">
+            <span
+              className="star-clickable"
+              onClick={() => {
+                this.handleStarClick(1);
+              }}
+              onKeyPress={() => {
+                this.handleStarClick(1);
+              }}
+              onMouseEnter={() => {
+                this.handleStarHover(1);
+              }}
+              onMouseLeave={() => {
+                this.handleStarUnhover();
+              }}
+              onFocus={() => {
+                this.handleStarHover(1);
+              }}
+              onBlur={() => {
+                this.handleStarUnhover();
+              }}
+              role="tab"
+              aria-selected="false"
+              tabIndex="0"
+            />
+            <span
+              className="star-clickable"
+              onClick={() => {
+                this.handleStarClick(2);
+              }}
+              onKeyPress={() => {
+                this.handleStarClick(2);
+              }}
+              onMouseEnter={() => {
+                this.handleStarHover(2);
+              }}
+              onMouseLeave={() => {
+                this.handleStarUnhover();
+              }}
+              onFocus={() => {
+                this.handleStarHover(2);
+              }}
+              onBlur={() => {
+                this.handleStarUnhover();
+              }}
+              role="tab"
+              aria-selected="false"
+              tabIndex="0"
+              style={{ left: '15px' }}
+            />
+            <span
+              className="star-clickable"
+              onClick={() => {
+                this.handleStarClick(3);
+              }}
+              onKeyPress={() => {
+                this.handleStarClick(3);
+              }}
+              onMouseEnter={() => {
+                this.handleStarHover(3);
+              }}
+              onMouseLeave={() => {
+                this.handleStarUnhover();
+              }}
+              onFocus={() => {
+                this.handleStarHover(3);
+              }}
+              onBlur={() => {
+                this.handleStarUnhover();
+              }}
+              role="tab"
+              aria-selected="false"
+              tabIndex="0"
+              style={{ left: '30px' }}
+            />
+            <span
+              className="star-clickable"
+              onClick={() => {
+                this.handleStarClick(4);
+              }}
+              onKeyPress={() => {
+                this.handleStarClick(4);
+              }}
+              onMouseEnter={() => {
+                this.handleStarHover(4);
+              }}
+              onMouseLeave={() => {
+                this.handleStarUnhover();
+              }}
+              onFocus={() => {
+                this.handleStarHover(4);
+              }}
+              onBlur={() => {
+                this.handleStarUnhover();
+              }}
+              role="tab"
+              aria-selected="false"
+              tabIndex="0"
+              style={{ left: '45px' }}
+            />
+            <span
+              className="star-clickable"
+              onClick={() => {
+                this.handleStarClick(5);
+              }}
+              onKeyPress={() => {
+                this.handleStarClick(5);
+              }}
+              onMouseEnter={() => {
+                this.handleStarHover(5);
+              }}
+              onMouseLeave={() => {
+                this.handleStarUnhover();
+              }}
+              onFocus={() => {
+                this.handleStarHover(5);
+              }}
+              onBlur={() => {
+                this.handleStarUnhover();
+              }}
+              role="tab"
+              aria-selected="false"
+              tabIndex="0"
+              style={{ left: '60px' }}
+            />
+          </span>
+        </div>
         <br />
         <span>Do you recommend this product?</span>
         <label htmlFor="recommend-yes">
@@ -658,6 +739,9 @@ ReviewModal.propTypes = {
       PropTypes.object,
     ]),
   ).isRequired,
+  getProductReviews: PropTypes.func.isRequired,
+  getMetaData: PropTypes.func.isRequired,
+  sort: PropTypes.string.isRequired,
 };
 
 export default ReviewModal;

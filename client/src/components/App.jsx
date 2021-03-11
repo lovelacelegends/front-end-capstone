@@ -25,7 +25,9 @@ class App extends React.Component {
     };
 
     this.getProductData = this.getProductData.bind(this);
+    this.getProductReviews = this.getProductReviews.bind(this);
     this.updateCurrentStyle = this.updateCurrentStyle.bind(this);
+    this.getMetaData = this.getMetaData.bind(this);
   }
 
   componentDidMount() {
@@ -68,6 +70,32 @@ class App extends React.Component {
       });
   }
 
+  getProductReviews(id, sort = 'relevant') {
+    axios.get(`/reviews/${id}`, { params: { id, sort } })
+      .then((response) => {
+        this.setState({
+          reviews: response.data,
+        });
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      });
+  }
+
+  getMetaData(id) {
+    axios.get('/reviews/meta', { product_id: id })
+      .then((response) => {
+        this.setState({
+          meta: response.data,
+        });
+      })
+      .catch((error) => {
+        // eslint-disable-next-line no-console
+        console.error(error);
+      });
+  }
+
   updateCurrentStyle(input) {
     this.setState({ currentStyle: Number(input) });
   }
@@ -84,7 +112,7 @@ class App extends React.Component {
     } = this.state;
 
     return (
-      <div>
+      <div id="app-container">
         <Header />
         <Overview
           selectedProduct={selectedProduct}
@@ -109,7 +137,9 @@ class App extends React.Component {
         />
         <QuestionsAndAnswers />
         <RatingsAndReviews
-          key={selectedProduct.id + 2}
+          key={selectedProduct.id}
+          getProductReviews={this.getProductReviews}
+          getMetaData={this.getMetaData}
           selectedProduct={selectedProduct}
           reviews={reviews}
           meta={meta}
