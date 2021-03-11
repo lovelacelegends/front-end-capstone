@@ -319,19 +319,24 @@ input[type='range']::-webkit-slider-thumb {
   margin-top: 20px;
   margin-left: 200px;
   margin-right: 200px;
+  grid-gap: 10px;
 }
 
 .product-overview-list-item{
-  font-size: 12px;
+  font-size: 14px;
+  border-left: black solid 1px;
+  padding-left: 5px;
+  margin-left: 35px;
 }
 
 .slogan{
   font-weight: bold;
   font-size: 20px;
+  padding-bottom: 5px;
 }
 
 .description{
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .name{
@@ -383,6 +388,7 @@ input[type='range']::-webkit-slider-thumb {
 
 #style-item:hover {
   border-color: #69c1e0;
+  transition: 0.25s;
 }
 
 .hide-option{
@@ -396,8 +402,11 @@ input[type='range']::-webkit-slider-thumb {
 .left-arrow{
   position: absolute;
   top: 50%;
-  left: 120px;
+  left: 100px;
   z-index: 10;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.5;
 }
 
 .right-arrow{
@@ -405,6 +414,9 @@ input[type='range']::-webkit-slider-thumb {
   top: 50%;
   right: 30px;
   z-index: 10;
+  background-color: white;
+  border-radius: 50%;
+  opacity: 0.5;
 }
 
 .gallery-of-thumbnails{
@@ -443,6 +455,8 @@ input[type='range']::-webkit-slider-thumb {
   position: absolute;
   right: 15px;
   top: 15px;
+  background-color: white;
+  opacity: 0.5;
 }
 
 .zoomImg {
@@ -457,16 +471,35 @@ input[type='range']::-webkit-slider-thumb {
   border-radius: 50%;
 }
 
+#faceBook{
+  padding: 5px;
+}
+
+#instagram{
+  padding: 5px;
+}
+
+#twitter{
+  padding: 5px;
+}
+
 #faceBook:hover{
   color: #69c1e0;
+  padding: 5px;
 }
 
 #instagram:hover{
   color: #69c1e0;
+  padding: 5px;
 }
 
 #twitter:hover{
   color: #69c1e0;
+  padding: 5px;
+}
+
+#category{
+  font-style: italic;
 }
 
 .cart-button{
