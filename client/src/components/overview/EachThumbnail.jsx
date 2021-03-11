@@ -12,7 +12,6 @@ class EachThumbnail extends React.Component {
     const { photo, thumbnailClick } = this.props;
     let url = photo.thumbnail_url;
     if (url[0] === 'u') {
-      debugger;
       photo.thumbnail_url = url.substring(1);
       url = photo.thumbnail_url;
     }

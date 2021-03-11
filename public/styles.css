@@ -281,12 +281,14 @@ body {
   margin-top: 20px;
   margin-left: 200px;
   margin-right: 200px;
+  grid-gap: 10px;
 }
 
 .product-overview-list-item{
   font-size: 14px;
   border-left: black solid 1px;
-  padding-left: 5px
+  padding-left: 5px;
+  margin-left: 35px;
 }
 
 .slogan{
