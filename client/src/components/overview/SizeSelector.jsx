@@ -33,7 +33,7 @@ class SizeSelector extends React.Component {
 
     return (
       <div className="size-selector">
-        <select onChange={updateSku} id="size-selector" value={currentSize}>
+        <select onChange={updateSku} id="size-selector" className="cart-button" value={currentSize}>
           <option>SELECT SIZE</option>
           {arrayOfSkus.map((sku) => {
             if (objOfSkus[sku].quantity !== 0) {

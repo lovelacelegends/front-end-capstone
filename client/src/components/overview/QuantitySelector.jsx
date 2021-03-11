@@ -22,8 +22,8 @@ class QuantitySelector extends React.Component {
 
     if (currentSku === '') {
       return (
-        <div className="quantity-selector">
-          <select>
+        <div className="quantity-selector" id="cart-button">
+          <select className="cart-button">
             <option disabled> - </option>
           </select>
         </div>
@@ -41,7 +41,7 @@ class QuantitySelector extends React.Component {
 
     return (
       <div className="quantity-selector">
-        <select value={currentQuantity} onChange={updateQuantityInState}>
+        <select value={currentQuantity} onChange={updateQuantityInState} className="cart-button">
           {arrOfQuantities.map((num) => <option>{num}</option>)}
         </select>
       </div>
