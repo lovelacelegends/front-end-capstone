@@ -89,7 +89,12 @@ class MyOutfit extends React.Component {
 
     return (
       <>
-        <h2 className="related-title"> Your Outfit </h2>
+        <div className="related-title-grid">
+          <div className="related-title-frame">
+            <h2 className="related-title"> Your Outfit </h2>
+          </div>
+          <div className="related-title-underline"> </div>
+        </div>
         <div className="related-arrow-holder">
           {leftArrow}
           <div className="outfit-grid-frame">
