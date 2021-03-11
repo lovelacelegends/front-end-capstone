@@ -126,7 +126,7 @@ const Ratings = (props) => {
     return (
       <div className="ratings-section" id="route-to-ratings">
         <h2>RATINGS & REVIEWS</h2>
-        <div className="average-rating">
+        <span className="average-rating">
           {(Math.round(helper.findAverageRating(meta.ratings) * 10) / 10).toFixed(1)}
           {'  '}
           <span
@@ -135,9 +135,9 @@ const Ratings = (props) => {
               '--rating': helper.findStarRating(meta.ratings), '--star-size': '30px',
             }}
           />
-        </div>
+        </span>
         <h3>Rating Breakdown</h3>
-        <div
+        <span
           className={`rating-breakdown clickable ${showRatings['5'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('5');
@@ -152,8 +152,9 @@ const Ratings = (props) => {
           <span className="bar" style={{ '--count': meta.ratings['5'], '--total': numOfReviews }} />
           {'  '}
           {meta.ratings['5']}
-        </div>
-        <div
+        </span>
+        <br />
+        <span
           className={`rating-breakdown clickable ${showRatings['4'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('4');
@@ -168,8 +169,9 @@ const Ratings = (props) => {
           <span className="bar" style={{ '--count': meta.ratings['4'], '--total': numOfReviews }} />
           {'  '}
           {meta.ratings['4']}
-        </div>
-        <div
+        </span>
+        <br />
+        <span
           className={`rating-breakdown clickable ${showRatings['3'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('3');
@@ -184,8 +186,9 @@ const Ratings = (props) => {
           <span className="bar" style={{ '--count': meta.ratings['3'], '--total': numOfReviews }} />
           {'  '}
           {meta.ratings['3']}
-        </div>
-        <div
+        </span>
+        <br />
+        <span
           className={`rating-breakdown clickable ${showRatings['2'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('2');
@@ -200,8 +203,9 @@ const Ratings = (props) => {
           <span className="bar" style={{ '--count': meta.ratings['2'], '--total': numOfReviews }} />
           {'  '}
           {meta.ratings['2']}
-        </div>
-        <div
+        </span>
+        <br />
+        <span
           className={`rating-breakdown clickable ${showRatings['1'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('1');
@@ -216,7 +220,7 @@ const Ratings = (props) => {
           <span className="bar" style={{ '--count': meta.ratings['1'], '--total': numOfReviews }} />
           {'  '}
           {meta.ratings['1']}
-        </div>
+        </span>
         <br />
         <div>
           {recommended}
