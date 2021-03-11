@@ -25,7 +25,7 @@ class ProductInfo extends React.Component {
             className="stars"
             style={{ '--rating': helper.findStarRating(meta.ratings) }}
           />
-          <a href="#route-to-ratings" id="read-all-reviews">Read all reviews</a>
+          <a href="#route-to-ratings" id="read-all-reviews">  Read all reviews</a>
         </section>
         <section id="category">
           {selectedProduct.category}
