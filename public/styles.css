@@ -187,7 +187,7 @@ input[type='range']::-webkit-slider-thumb {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  padding-bottom: 40px;
+  padding-top: 44px;
 }
 
 .header-search-frame {
@@ -200,7 +200,7 @@ input[type='range']::-webkit-slider-thumb {
   align-items: center;
   padding: 3px;
   padding-bottom: 3.5px;
-  margin-right: 24px;
+  margin-right: 14px;
   border-radius: 5px;
 }
 
@@ -711,18 +711,41 @@ input[type='range']::-webkit-slider-thumb {
 
 /* RELATED PRODUCTS */
 
-.related-title {
+.related-title-grid {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  grid-template-columns: 35% 65%;
+  max-width: 1000px;
+  margin: 0px auto;
+  margin-top: 30px;
+}
+
+.related-title-frame {
+  grid-area: 1/1/3/2;
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+.related-title-underline {
+  grid-area: 2/1/3/3;
+  border-top: 2px solid black;
+}
+
+.related-title {
   text-transform: uppercase;
-  margin-top: 50px;
-  margin-bottom: 15px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  padding: 0px 10px;
+  z-index: 1;
 }
 
 .related-modal {
   position: fixed;
-  left: 30%;
-  top: 20%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   width: 500px;
   height: 200px;
   background-color: white;
@@ -908,9 +931,14 @@ input[type='range']::-webkit-slider-thumb {
   font-size: 16px;
 }
 
-.related-name:hover {
+.related-card:hover .related-name {
   text-decoration: underline;
+  transition: all .2s ease;
 }
+
+/* .related-name:hover {
+  text-decoration: underline;
+} */
 
 .related-price {
   margin-top: 4px;
@@ -1036,6 +1064,7 @@ input[type='range']::-webkit-slider-thumb {
   height: 100vh;
   background-color: rgba(46, 46, 46, 0.7);
   backdrop-filter: blur(2px);
+  z-index: 10;
 }
 
 .review-modal {
