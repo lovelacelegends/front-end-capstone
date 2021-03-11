@@ -59,7 +59,7 @@ class MyOutfit extends React.Component {
           role="button"
           tabIndex={0}
         >
-          <GoChevronLeft />
+          <GoChevronLeft className="related-icon" />
         </div>
       );
     } else {
@@ -78,7 +78,7 @@ class MyOutfit extends React.Component {
           role="button"
           tabIndex={0}
         >
-          <GoChevronRight />
+          <GoChevronRight className="related-icon" />
         </div>
       );
     } else {
@@ -89,7 +89,7 @@ class MyOutfit extends React.Component {
 
     return (
       <>
-        <div className="related-title"> Your Outfit </div>
+        <h2 className="related-title"> Your Outfit </h2>
         <div className="related-arrow-holder">
           {leftArrow}
           <div className="outfit-grid-frame">
