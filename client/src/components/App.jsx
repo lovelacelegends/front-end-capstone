@@ -119,6 +119,7 @@ class App extends React.Component {
           styles={styles}
           currentStyle={currentStyle}
           updateCurrentStyle={this.updateCurrentStyle}
+          reviews={reviews}
           meta={meta}
         />
         <ProductOverview

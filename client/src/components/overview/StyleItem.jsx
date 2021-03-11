@@ -29,6 +29,7 @@ class StyleItem extends React.Component {
             alt="button"
             onKeyPress={this.handleStlyeClick}
             role="presentation"
+            className="clickable"
           />
           <BiCheckCircle id="tick" />
         </div>
@@ -43,6 +44,7 @@ class StyleItem extends React.Component {
           alt="button"
           onKeyPress={this.handleStlyeClick}
           role="presentation"
+          className="clickable"
         />
       );
     }

@@ -12,7 +12,7 @@ class HeaderSearchBar extends React.Component {
       <div className="header-search-bar">
         <div className="header-search-frame">
           <form>
-            <input type="text" placeHolder="Search for a Product" />
+            <input type="text" placeholder="Search for a Product" />
           </form>
           <div id="header-mag-glass">
             <GrSearch id="header-search-icon" />

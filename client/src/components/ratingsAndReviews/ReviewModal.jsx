@@ -507,13 +507,57 @@ class ReviewModal extends React.Component {
     }
 
     return (
-      <div className="review-modal-overlay">
+      <div className="modal-overlay">
         <form className="review-modal">
           <h1 className="review-modal-title">
             Write Your Review About &ldquo;
             {selectedProduct.name}
             &rdquo;
           </h1>
+          <div className="review-modal-username">
+            {'Nickname: '}
+            <input
+              type="text"
+              placeholder="Example: jackson11!"
+              name="name"
+              onChange={this.handleFormChange}
+            />
+            <div style={{ fontSize: '12px' }}>For privacy reasons, do not use your full name or email address</div>
+          </div>
+          <div className="review-modal-email">
+            {'Email: '}
+            <input
+              type="text"
+              placeholder="Example: jackson11@email.com"
+              name="email"
+              onChange={this.handleFormChange}
+            />
+            <div style={{ fontSize: '12px' }}>For authentication reasons, you will not be emailed</div>
+          </div>
+          <div className="review-modal-summary">
+            {'Headline: '}
+            <br />
+            <textarea
+              type="text"
+              placeholder="Example: Best purchase ever!"
+              value={summary}
+              name="summary"
+              onChange={this.handleFormChange}
+              maxLength="100"
+            />
+          </div>
+          <div className="review-modal-body">
+            {'Review: '}
+            <br />
+            <textarea
+              type="text"
+              placeholder="Why did you like the product or not?"
+              value={body}
+              name="body"
+              onChange={this.handleFormChange}
+              maxLength="500"
+            />
+          </div>
           <div className="review-modal-recommend">
             Do you recommend this product?
             <label htmlFor="recommend-yes">
@@ -675,51 +719,18 @@ class ReviewModal extends React.Component {
           {quality}
           {length}
           {fit}
-          {'Headline: '}
-          <input
-            type="text"
-            placeholder="Example: Best purchase ever!"
-            value={summary}
-            name="summary"
-            onChange={this.handleFormChange}
-          />
-          <br />
-          {'Review: '}
-          <textarea
-            type="text"
-            placeholder="Why did you like the product or not?"
-            value={body}
-            name="body"
-            onChange={this.handleFormChange}
-          />
-          <br />
-          {'Nickname: '}
-          <input
-            type="text"
-            placeholder="Example: jackson11!"
-            name="name"
-            onChange={this.handleFormChange}
-          />
-          <div>For privacy reasons, do not use your full name or email address</div>
-          {'Email: '}
-          <input
-            type="text"
-            placeholder="Example: jackson11@email.com"
-            name="email"
-            onChange={this.handleFormChange}
-          />
-          <div>For authentication reasons, you will not be emailed</div>
           <input
             className="review-modal-submit"
             type="submit"
             onClick={this.submitReviewForm}
+            value="SUBMIT"
           />
           <button
             className="review-modal-close"
             type="button"
             onClick={toggleModal}
           >
-            Close
+            CLOSE
           </button>
         </form>
       </div>

@@ -33,6 +33,7 @@ class Overview extends React.Component {
       styles,
       currentStyle,
       updateCurrentStyle,
+      reviews,
       meta,
     } = this.props;
     const { displayGroupedExtras, mainThumbNailIndex } = this.state;
@@ -60,6 +61,7 @@ class Overview extends React.Component {
           selectedProduct={selectedProduct}
           styles={styles}
           currentStyle={currentStyle}
+          reviews={reviews}
           meta={meta}
         />
         <StyleSelector
@@ -99,6 +101,13 @@ Overview.propTypes = {
     ]),
   ).isRequired,
   selectedProduct: PropTypes.objectOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+      PropTypes.array,
+    ]),
+  ).isRequired,
+  reviews: PropTypes.objectOf(
     PropTypes.oneOfType([
       PropTypes.string,
       PropTypes.number,
