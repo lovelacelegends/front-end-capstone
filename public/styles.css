@@ -987,7 +987,7 @@ input[type='range']::-webkit-slider-thumb {
 
 .reviews-section {
   grid-column: 2;
-  padding: 20px 0 20px 0px;
+  padding: 20px;
 }
 
 .review-select {
@@ -1012,7 +1012,7 @@ input[type='range']::-webkit-slider-thumb {
 .review {
   border: 1px solid #1e1d51;
   border-radius: 15px;
-  margin: 0 20px 20px 0;
+  margin: 0 20px 20px 20px;
   padding: 20px;
 }
 
@@ -1164,8 +1164,8 @@ input[type='range']::-webkit-slider-thumb {
 
 .review-button {
   height: 50px;
-  width: 40%;
-  margin: 0 4%;
+  width: 36%;
+  margin: 0 7%;
   display: inline-block;
   background-color: black;
   color: white;
