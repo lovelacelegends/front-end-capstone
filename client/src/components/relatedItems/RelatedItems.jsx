@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React from 'react';
 import { GoChevronRight, GoChevronLeft } from 'react-icons/go';
 import PropTypes from 'prop-types';
@@ -78,13 +80,13 @@ class RelatedItems extends React.Component {
     if (currentPosition < 0) {
       leftArrow = (
         <div
-          className="related-left-arrow"
+          className="related-left-arrow clickable"
           onClick={this.moveLeft}
-          onKeyPress={this.moveLeft}
-          role="button"
-          tabIndex={0}
+          // onKeyPress={this.moveLeft}
+          // role="button"
+          // tabIndex={0}
         >
-          <GoChevronLeft />
+          <GoChevronLeft className="related-icon" />
         </div>
       );
     } else {
@@ -95,13 +97,13 @@ class RelatedItems extends React.Component {
     if (relatedProductIds.length > 4 && positionIndex < (relatedProductIds.length - 4)) {
       rightArrow = (
         <div
-          className="related-right-arrow"
+          className="related-right-arrow clickable"
           onClick={this.moveRight}
-          onKeyPress={this.moveRight}
-          role="button"
-          tabIndex={0}
+          // onKeyPress={this.moveRight}
+          // role="button"
+          // tabIndex={0}
         >
-          <GoChevronRight />
+          <GoChevronRight className="related-icon" />
         </div>
       );
     } else {
@@ -124,7 +126,7 @@ class RelatedItems extends React.Component {
 
     return relatedProductIds.length ? (
       <>
-        <div className="related-title"> Related Products </div>
+        <h2 className="related-title"> Related Products </h2>
         <div className="related-arrow-holder">
           {leftArrow}
           <div className="related-items-grid-frame">
