@@ -518,7 +518,7 @@ class ReviewModal extends React.Component {
             {'Nickname: '}
             <input
               type="text"
-              placeholder="Example: jackson11!"
+              placeholder="Example: jackson11"
               name="name"
               onChange={this.handleFormChange}
             />
@@ -551,7 +551,7 @@ class ReviewModal extends React.Component {
             <br />
             <textarea
               type="text"
-              placeholder="Why did you like the product or not?"
+              placeholder="What did you like or dislike about the product?"
               value={body}
               name="body"
               onChange={this.handleFormChange}
