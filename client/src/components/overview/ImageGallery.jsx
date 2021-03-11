@@ -73,6 +73,7 @@ class ImageGallery extends React.Component {
         />
       );
     } else {
+      debugger;
       imageElement = (
         <img
           id="large-img"
