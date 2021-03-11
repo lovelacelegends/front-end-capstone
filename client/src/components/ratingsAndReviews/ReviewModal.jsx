@@ -507,218 +507,222 @@ class ReviewModal extends React.Component {
     }
 
     return (
-      <form className="review-modal">
-        <h2>Write Your Review</h2>
-        <h4>
-          {'About the '}
-          {selectedProduct.name}
-        </h4>
-        <div
-          className="stars"
-          style={{ '--rating': ratingHover === 0 ? rating : ratingHover }}
-          role="tablist"
-        >
-          <span className="stars-clickable" role="tablist">
-            <span
-              className="star-clickable"
-              onClick={() => {
-                this.handleStarClick(1);
-              }}
-              onKeyPress={() => {
-                this.handleStarClick(1);
-              }}
-              onMouseEnter={() => {
-                this.handleStarHover(1);
-              }}
-              onMouseLeave={() => {
-                this.handleStarUnhover();
-              }}
-              onFocus={() => {
-                this.handleStarHover(1);
-              }}
-              onBlur={() => {
-                this.handleStarUnhover();
-              }}
-              role="tab"
-              aria-selected="false"
-              tabIndex="0"
-            />
-            <span
-              className="star-clickable"
-              onClick={() => {
-                this.handleStarClick(2);
-              }}
-              onKeyPress={() => {
-                this.handleStarClick(2);
-              }}
-              onMouseEnter={() => {
-                this.handleStarHover(2);
-              }}
-              onMouseLeave={() => {
-                this.handleStarUnhover();
-              }}
-              onFocus={() => {
-                this.handleStarHover(2);
-              }}
-              onBlur={() => {
-                this.handleStarUnhover();
-              }}
-              role="tab"
-              aria-selected="false"
-              tabIndex="0"
-              style={{ left: '15px' }}
-            />
-            <span
-              className="star-clickable"
-              onClick={() => {
-                this.handleStarClick(3);
-              }}
-              onKeyPress={() => {
-                this.handleStarClick(3);
-              }}
-              onMouseEnter={() => {
-                this.handleStarHover(3);
-              }}
-              onMouseLeave={() => {
-                this.handleStarUnhover();
-              }}
-              onFocus={() => {
-                this.handleStarHover(3);
-              }}
-              onBlur={() => {
-                this.handleStarUnhover();
-              }}
-              role="tab"
-              aria-selected="false"
-              tabIndex="0"
-              style={{ left: '30px' }}
-            />
-            <span
-              className="star-clickable"
-              onClick={() => {
-                this.handleStarClick(4);
-              }}
-              onKeyPress={() => {
-                this.handleStarClick(4);
-              }}
-              onMouseEnter={() => {
-                this.handleStarHover(4);
-              }}
-              onMouseLeave={() => {
-                this.handleStarUnhover();
-              }}
-              onFocus={() => {
-                this.handleStarHover(4);
-              }}
-              onBlur={() => {
-                this.handleStarUnhover();
-              }}
-              role="tab"
-              aria-selected="false"
-              tabIndex="0"
-              style={{ left: '45px' }}
-            />
-            <span
-              className="star-clickable"
-              onClick={() => {
-                this.handleStarClick(5);
-              }}
-              onKeyPress={() => {
-                this.handleStarClick(5);
-              }}
-              onMouseEnter={() => {
-                this.handleStarHover(5);
-              }}
-              onMouseLeave={() => {
-                this.handleStarUnhover();
-              }}
-              onFocus={() => {
-                this.handleStarHover(5);
-              }}
-              onBlur={() => {
-                this.handleStarUnhover();
-              }}
-              role="tab"
-              aria-selected="false"
-              tabIndex="0"
-              style={{ left: '60px' }}
-            />
-          </span>
-        </div>
-        <br />
-        <span>Do you recommend this product?</span>
-        <label htmlFor="recommend-yes">
+      <div className="review-modal-overlay">
+        <form className="review-modal">
+          <h1 className="review-modal-title">
+            Write Your Review About &ldquo;
+            {selectedProduct.name}
+            &rdquo;
+          </h1>
+          <div className="review-modal-recommend">
+            Do you recommend this product?
+            <label htmlFor="recommend-yes">
+              <input
+                type="radio"
+                id="recommend-yes"
+                value="true"
+                name="recommend"
+                onClick={this.handleFormChange}
+              />
+              Yes
+            </label>
+            <label htmlFor="recommend-no">
+              <input
+                type="radio"
+                id="recommend-no"
+                value="false"
+                name="recommend"
+                onClick={this.handleFormChange}
+              />
+              No
+            </label>
+          </div>
+          <div
+            className="stars review-modal-stars"
+            style={{ '--rating': ratingHover === 0 ? rating : ratingHover, '--star-size': '25px' }}
+            role="tablist"
+          >
+            <span className="stars-clickable" role="tablist">
+              <span
+                className="star-clickable"
+                onClick={() => {
+                  this.handleStarClick(1);
+                }}
+                onKeyPress={() => {
+                  this.handleStarClick(1);
+                }}
+                onMouseEnter={() => {
+                  this.handleStarHover(1);
+                }}
+                onMouseLeave={() => {
+                  this.handleStarUnhover();
+                }}
+                onFocus={() => {
+                  this.handleStarHover(1);
+                }}
+                onBlur={() => {
+                  this.handleStarUnhover();
+                }}
+                role="tab"
+                aria-selected="false"
+                tabIndex="0"
+              />
+              <span
+                className="star-clickable"
+                onClick={() => {
+                  this.handleStarClick(2);
+                }}
+                onKeyPress={() => {
+                  this.handleStarClick(2);
+                }}
+                onMouseEnter={() => {
+                  this.handleStarHover(2);
+                }}
+                onMouseLeave={() => {
+                  this.handleStarUnhover();
+                }}
+                onFocus={() => {
+                  this.handleStarHover(2);
+                }}
+                onBlur={() => {
+                  this.handleStarUnhover();
+                }}
+                role="tab"
+                aria-selected="false"
+                tabIndex="0"
+                style={{ left: '25px' }}
+              />
+              <span
+                className="star-clickable"
+                onClick={() => {
+                  this.handleStarClick(3);
+                }}
+                onKeyPress={() => {
+                  this.handleStarClick(3);
+                }}
+                onMouseEnter={() => {
+                  this.handleStarHover(3);
+                }}
+                onMouseLeave={() => {
+                  this.handleStarUnhover();
+                }}
+                onFocus={() => {
+                  this.handleStarHover(3);
+                }}
+                onBlur={() => {
+                  this.handleStarUnhover();
+                }}
+                role="tab"
+                aria-selected="false"
+                tabIndex="0"
+                style={{ left: '50px' }}
+              />
+              <span
+                className="star-clickable"
+                onClick={() => {
+                  this.handleStarClick(4);
+                }}
+                onKeyPress={() => {
+                  this.handleStarClick(4);
+                }}
+                onMouseEnter={() => {
+                  this.handleStarHover(4);
+                }}
+                onMouseLeave={() => {
+                  this.handleStarUnhover();
+                }}
+                onFocus={() => {
+                  this.handleStarHover(4);
+                }}
+                onBlur={() => {
+                  this.handleStarUnhover();
+                }}
+                role="tab"
+                aria-selected="false"
+                tabIndex="0"
+                style={{ left: '75px' }}
+              />
+              <span
+                className="star-clickable"
+                onClick={() => {
+                  this.handleStarClick(5);
+                }}
+                onKeyPress={() => {
+                  this.handleStarClick(5);
+                }}
+                onMouseEnter={() => {
+                  this.handleStarHover(5);
+                }}
+                onMouseLeave={() => {
+                  this.handleStarUnhover();
+                }}
+                onFocus={() => {
+                  this.handleStarHover(5);
+                }}
+                onBlur={() => {
+                  this.handleStarUnhover();
+                }}
+                role="tab"
+                aria-selected="false"
+                tabIndex="0"
+                style={{ left: '100px' }}
+              />
+            </span>
+          </div>
+          {size}
+          {width}
+          {comfort}
+          {quality}
+          {length}
+          {fit}
+          {'Headline: '}
           <input
-            type="radio"
-            id="recommend-yes"
-            value="true"
-            name="recommend"
-            onClick={this.handleFormChange}
+            type="text"
+            placeholder="Example: Best purchase ever!"
+            value={summary}
+            name="summary"
+            onChange={this.handleFormChange}
           />
-          Yes
-        </label>
-        <label htmlFor="recommend-no">
+          <br />
+          {'Review: '}
+          <textarea
+            type="text"
+            placeholder="Why did you like the product or not?"
+            value={body}
+            name="body"
+            onChange={this.handleFormChange}
+          />
+          <br />
+          {'Nickname: '}
           <input
-            type="radio"
-            id="recommend-no"
-            value="false"
-            name="recommend"
-            onClick={this.handleFormChange}
+            type="text"
+            placeholder="Example: jackson11!"
+            name="name"
+            onChange={this.handleFormChange}
           />
-          No
-        </label>
-        <br />
-        {size}
-        {width}
-        {comfort}
-        {quality}
-        {length}
-        {fit}
-        {'Headline: '}
-        <input
-          type="text"
-          placeholder="Example: Best purchase ever!"
-          value={summary}
-          name="summary"
-          onChange={this.handleFormChange}
-        />
-        <br />
-        {'Review: '}
-        <textarea
-          type="text"
-          placeholder="Why did you like the product or not?"
-          value={body}
-          name="body"
-          onChange={this.handleFormChange}
-        />
-        <br />
-        {'Nickname: '}
-        <input
-          type="text"
-          placeholder="Example: jackson11!"
-          name="name"
-          onChange={this.handleFormChange}
-        />
-        <div>For privacy reasons, do not use your full name or email address</div>
-        {'Email: '}
-        <input
-          type="text"
-          placeholder="Example: jackson11@email.com"
-          name="email"
-          onChange={this.handleFormChange}
-        />
-        <div>For authentication reasons, you will not be emailed</div>
-        <input
-          type="submit"
-          onClick={this.submitReviewForm}
-        />
-        <button
-          type="button"
-          onClick={toggleModal}
-        >
-          Close
-        </button>
-      </form>
+          <div>For privacy reasons, do not use your full name or email address</div>
+          {'Email: '}
+          <input
+            type="text"
+            placeholder="Example: jackson11@email.com"
+            name="email"
+            onChange={this.handleFormChange}
+          />
+          <div>For authentication reasons, you will not be emailed</div>
+          <input
+            className="review-modal-submit"
+            type="submit"
+            onClick={this.submitReviewForm}
+          />
+          <button
+            className="review-modal-close"
+            type="button"
+            onClick={toggleModal}
+          >
+            Close
+          </button>
+        </form>
+      </div>
     );
   }
 }
