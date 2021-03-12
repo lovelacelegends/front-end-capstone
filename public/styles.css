@@ -596,6 +596,14 @@ input[type='range']::-webkit-slider-thumb {
   overflow: hidden;
 }
 
+#size-selector{
+  background-color: white;
+}
+
+#quantity-selector{
+  background-color: white;
+}
+
 .outfit-container-slider {
   display: flex;
   flex-direction: row;
