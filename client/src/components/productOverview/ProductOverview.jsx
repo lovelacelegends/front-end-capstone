@@ -13,12 +13,12 @@ class ProductOverview extends React.Component {
 
   render() {
     const { selectedProduct } = this.props;
-    const iconStyles = { fontSize: '2em' };
+    const iconStyles = { fontSize: '1.5em', margin: '15px', float: 'right' };
     if (selectedProduct.name) {
       return (
         <div className="product-overview">
           <div className="product-overview-text">
-            <div className="slogan">{selectedProduct.slogan}</div>
+            <h3>{selectedProduct.slogan}</h3>
             <div className="description">{selectedProduct.description}</div>
             <span>
               <AiFillFacebook id="faceBook" style={iconStyles} />
