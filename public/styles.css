@@ -6,13 +6,8 @@ body {
 }
 
 #app-container {
-<<<<<<< HEAD
-  width: 100vw;
-  max-width: 1400px;
-=======
   /* width: 100vw; */
   max-width: 1300px;
->>>>>>> f2ed62994c18c105371d8e4802075bea28eb0ea4
   margin: 0 auto;
 }
 
@@ -317,7 +312,6 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .product-overview{
-  height: 100px;
   display: grid;
   grid-template-columns: 60% 40%;
   grid-template-rows: 100;
@@ -856,7 +850,7 @@ input[type='range']::-webkit-slider-thumb {
 .related-card-container-slider {
   height: 275px;
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   position: absolute;
   transition: transform 0.25s ease;
 }
