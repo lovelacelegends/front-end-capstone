@@ -19,8 +19,8 @@ const Ratings = (props) => {
   if (meta.characteristics) {
     if (meta.characteristics.Size) {
       size = (
-        <div>
-          Size
+        <div className="characteristic-bar">
+          <span className="characteristic-title">Size</span>
           <br />
           <input
             type="range"
@@ -29,13 +29,16 @@ const Ratings = (props) => {
             value={meta.characteristics.Size.value}
             disabled
           />
+          <span className="characteristic-description float-left">Too small</span>
+          <span className="characteristic-description">Perfect</span>
+          <span className="characteristic-description float-right">Too large</span>
         </div>
       );
     }
     if (meta.characteristics.Width) {
       width = (
-        <div>
-          Width
+        <div className="characteristic-bar">
+          <span className="characteristic-title">Width</span>
           <br />
           <input
             type="range"
@@ -44,13 +47,16 @@ const Ratings = (props) => {
             value={meta.characteristics.Width.value}
             disabled
           />
+          <span className="characteristic-description float-left">Too narrow</span>
+          <span className="characteristic-description">Perfect</span>
+          <span className="characteristic-description float-right">Too wide</span>
         </div>
       );
     }
     if (meta.characteristics.Comfort) {
       comfort = (
-        <div>
-          Comfort
+        <div className="characteristic-bar">
+          <span className="characteristic-title">Comfort</span>
           <br />
           <input
             type="range"
@@ -59,13 +65,16 @@ const Ratings = (props) => {
             value={meta.characteristics.Comfort.value}
             disabled
           />
+          <span className="characteristic-description float-left">Uncomfortable</span>
+          <span className="characteristic-description">Ok</span>
+          <span className="characteristic-description float-right">Perfect</span>
         </div>
       );
     }
     if (meta.characteristics.Quality) {
       quality = (
-        <div>
-          Quality
+        <div className="characteristic-bar">
+          <span className="characteristic-title">Quality</span>
           <br />
           <input
             type="range"
@@ -74,13 +83,16 @@ const Ratings = (props) => {
             value={meta.characteristics.Quality.value}
             disabled
           />
+          <span className="characteristic-description float-left">Poor</span>
+          <span className="characteristic-description">Decent</span>
+          <span className="characteristic-description float-right">Perfect</span>
         </div>
       );
     }
     if (meta.characteristics.Length) {
       length = (
-        <div>
-          Length
+        <div className="characteristic-bar">
+          <span className="characteristic-title">Length</span>
           <br />
           <input
             type="range"
@@ -89,13 +101,16 @@ const Ratings = (props) => {
             value={meta.characteristics.Length.value}
             disabled
           />
+          <span className="characteristic-description float-left">Runs short</span>
+          <span className="characteristic-description">Perfect</span>
+          <span className="characteristic-description float-right">Runs long</span>
         </div>
       );
     }
     if (meta.characteristics.Fit) {
       fit = (
-        <div>
-          Fit
+        <div className="characteristic-bar">
+          <span className="characteristic-title">Fit</span>
           <br />
           <input
             type="range"
@@ -104,6 +119,9 @@ const Ratings = (props) => {
             value={meta.characteristics.Fit.value}
             disabled
           />
+          <span className="characteristic-description float-left">Runs tight</span>
+          <span className="characteristic-description">Perfect</span>
+          <span className="characteristic-description float-right">Runs long</span>
         </div>
       );
     }
@@ -125,19 +143,19 @@ const Ratings = (props) => {
 
     return (
       <div className="ratings-section" id="route-to-ratings">
-        <h2>RATINGS & REVIEWS</h2>
-        <span className="average-rating">
+        {/* <h2>RATINGS & REVIEWS</h2> */}
+        <span style={{ fontSize: '40px', fontWeight: 'bold' }}>
           {(Math.round(helper.findAverageRating(meta.ratings) * 10) / 10).toFixed(1)}
           {'  '}
-          <span
-            className="stars"
-            style={{
-              '--rating': helper.findStarRating(meta.ratings), '--star-size': '30px',
-            }}
-          />
         </span>
-        <h3>Rating Breakdown</h3>
         <span
+          className="stars"
+          style={{
+            '--rating': helper.findStarRating(meta.ratings), '--star-size': '40px',
+          }}
+        />
+        <h3>Rating Breakdown</h3>
+        <div
           className={`rating-breakdown clickable ${showRatings['5'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('5');
@@ -150,11 +168,12 @@ const Ratings = (props) => {
         >
           {'5 stars  '}
           <span className="bar" style={{ '--count': meta.ratings['5'], '--total': numOfReviews }} />
-          {'  '}
+          {'  ('}
           {meta.ratings['5']}
-        </span>
+          )
+        </div>
         <br />
-        <span
+        <div
           className={`rating-breakdown clickable ${showRatings['4'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('4');
@@ -167,11 +186,12 @@ const Ratings = (props) => {
         >
           {'4 stars  '}
           <span className="bar" style={{ '--count': meta.ratings['4'], '--total': numOfReviews }} />
-          {'  '}
+          {'  ('}
           {meta.ratings['4']}
-        </span>
+          )
+        </div>
         <br />
-        <span
+        <div
           className={`rating-breakdown clickable ${showRatings['3'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('3');
@@ -184,11 +204,12 @@ const Ratings = (props) => {
         >
           {'3 stars  '}
           <span className="bar" style={{ '--count': meta.ratings['3'], '--total': numOfReviews }} />
-          {'  '}
+          {'  ('}
           {meta.ratings['3']}
-        </span>
+          )
+        </div>
         <br />
-        <span
+        <div
           className={`rating-breakdown clickable ${showRatings['2'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('2');
@@ -201,11 +222,12 @@ const Ratings = (props) => {
         >
           {'2 stars  '}
           <span className="bar" style={{ '--count': meta.ratings['2'], '--total': numOfReviews }} />
-          {'  '}
+          {'  ('}
           {meta.ratings['2']}
-        </span>
+          )
+        </div>
         <br />
-        <span
+        <div
           className={`rating-breakdown clickable ${showRatings['1'] ? 'ratings-highlight' : 'ratings-highlight-hover'}`}
           onClick={() => {
             filterByRating('1');
@@ -218,15 +240,20 @@ const Ratings = (props) => {
         >
           {'1 stars  '}
           <span className="bar" style={{ '--count': meta.ratings['1'], '--total': numOfReviews }} />
-          {'  '}
+          {'  ('}
           {meta.ratings['1']}
-        </span>
-        <br />
-        <div>
-          {recommended}
-          % of customers recommend this product
+          )
         </div>
         <br />
+        <div style={{ margin: '20px 0' }}>
+          <span style={{ fontSize: '45px', fontWeight: 'bold' }}>
+            {recommended}
+            %
+            <br />
+            {' '}
+          </span>
+          of customers recommend this product
+        </div>
         {size}
         {width}
         {comfort}

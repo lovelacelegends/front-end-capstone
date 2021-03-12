@@ -12,11 +12,14 @@ class ProductOverviewListItem extends React.Component {
     const { feature } = this.props;
     return (
       <div className="product-overview-list-item">
-        <IoMdCheckmark />
-        {feature.feature}
-        :
-        {' '}
-        {feature.value}
+        <div>
+          <IoMdCheckmark />
+          {' '}
+          {feature.feature}
+          :
+          {' '}
+          {feature.value}
+        </div>
       </div>
     );
   }

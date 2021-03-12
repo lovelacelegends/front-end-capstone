@@ -94,9 +94,9 @@ class ImageGallery extends React.Component {
           thumbnailClick={this.thumbnailClick}
           mainThumbNailIndex={mainThumbNailIndex}
         />
-        <BsArrowLeftShort className="left-arrow" onClick={this.leftArrowClick} />
-        <BsArrowRightShort className="right-arrow" onClick={this.rightArrowClick} />
-        {inZoom ? null : (<AiOutlineExpand className="expand-button" onClick={handleExpandedView} />)}
+        <BsArrowLeftShort className="left-arrow clickable" onClick={this.leftArrowClick} />
+        <BsArrowRightShort className="right-arrow clickable" onClick={this.rightArrowClick} />
+        {inZoom ? null : (<AiOutlineExpand className="expand-button clickable" onClick={handleExpandedView} />)}
       </div>
     );
   }
