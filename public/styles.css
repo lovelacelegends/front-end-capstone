@@ -7,11 +7,7 @@ body {
 
 #app-container {
   width: 100vw;
-<<<<<<< HEAD
   max-width: 1400px;
-=======
-  max-width: 1300px;
->>>>>>> 0c820ad277eb7bba3daf0a50a410f6c3222ff601
   margin: 0 auto;
 }
 

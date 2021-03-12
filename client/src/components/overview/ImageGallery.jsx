@@ -66,7 +66,7 @@ class ImageGallery extends React.Component {
         <Zoom
           img={styles.results[currentStyle].photos[mainThumbNailIndex].url}
           className="large-img-expanded"
-          zoomScale={3}
+          zoomScale={2.5}
           width={1065}
           height={500}
           toggleZoom={this.toggleZoom}
