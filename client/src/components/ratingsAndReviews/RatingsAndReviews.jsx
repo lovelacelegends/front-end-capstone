@@ -136,28 +136,36 @@ class RatingsAndReviews extends React.Component {
     }
 
     return (
-      <div className="ratings-and-reviews">
-        <Ratings
-          meta={meta}
-          filterByRating={this.filterByRating}
-          showRatings={showRatings}
-        />
-        <Reviews
-          selectedProduct={selectedProduct}
-          reviews={reviews}
-          meta={meta}
-          reviewCount={reviewCount}
-          showModal={showModal}
-          addToReviewsCount={this.addToReviewsCount}
-          toggleModal={this.toggleModal}
-          markReviewAsHelpful={this.markReviewAsHelpful}
-          reportReview={this.reportReview}
-          getProductReviews={getProductReviews}
-          getMetaData={getMetaData}
-          sort={sort}
-          changeSort={this.changeSort}
-          showRatings={showRatings}
-        />
+      <div>
+        <div className="related-title-grid">
+          <div className="related-title-frame">
+            <h2 className="related-title"> Ratings & Reviews </h2>
+          </div>
+          <div className="related-title-underline"> </div>
+        </div>
+        <div className="ratings-and-reviews">
+          <Ratings
+            meta={meta}
+            filterByRating={this.filterByRating}
+            showRatings={showRatings}
+          />
+          <Reviews
+            selectedProduct={selectedProduct}
+            reviews={reviews}
+            meta={meta}
+            reviewCount={reviewCount}
+            showModal={showModal}
+            addToReviewsCount={this.addToReviewsCount}
+            toggleModal={this.toggleModal}
+            markReviewAsHelpful={this.markReviewAsHelpful}
+            reportReview={this.reportReview}
+            getProductReviews={getProductReviews}
+            getMetaData={getMetaData}
+            sort={sort}
+            changeSort={this.changeSort}
+            showRatings={showRatings}
+          />
+        </div>
       </div>
     );
   }

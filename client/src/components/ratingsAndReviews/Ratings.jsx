@@ -143,7 +143,7 @@ const Ratings = (props) => {
 
     return (
       <div className="ratings-section" id="route-to-ratings">
-        <h2>RATINGS & REVIEWS</h2>
+        {/* <h2>RATINGS & REVIEWS</h2> */}
         <span style={{ fontSize: '40px', fontWeight: 'bold' }}>
           {(Math.round(helper.findAverageRating(meta.ratings) * 10) / 10).toFixed(1)}
           {'  '}
