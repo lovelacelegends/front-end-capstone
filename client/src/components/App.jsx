@@ -74,7 +74,8 @@ class App extends React.Component {
     axios.get(`/reviews/${id}`, { params: { id, sort } })
       .then((response) => {
         this.setState({
-          reviews: response.data,
+          reviews: response.data[0],
+          meta: response.data[1],
         });
       })
       .catch((error) => {
