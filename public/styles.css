@@ -312,7 +312,6 @@ input[type='range']::-webkit-slider-thumb {
 }
 
 .product-overview{
-  height: 100px;
   display: grid;
   grid-template-columns: 60% 40%;
   grid-template-rows: 100;
