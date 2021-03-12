@@ -160,29 +160,33 @@ class ReviewModal extends React.Component {
     if (meta.characteristics) {
       if (meta.characteristics.Size) {
         size = (
-          <div>
-            <span>Size</span>
-            <label htmlFor="size-1">
+          <div className="review-modal-size">
+            <span className="review-modal-char-0">Size</span>
+            <label className="review-modal-char-1" htmlFor="size-1">
               <input
                 type="radio"
                 id="size-1"
                 value="1"
                 name="size"
                 onClick={this.handleFormChange}
+                tabIndex="0"
               />
-              A size too small
+              <br />
+              Too small
             </label>
-            <label htmlFor="size-2">
+            <label className="review-modal-char-2" htmlFor="size-2">
               <input
                 type="radio"
                 id="size-2"
                 value="2"
                 name="size"
                 onClick={this.handleFormChange}
+                tabIndex="0"
               />
-              1/2 a size too small
+              <br />
+              Slightly small
             </label>
-            <label htmlFor="size-3">
+            <label className="review-modal-char-3" htmlFor="size-3">
               <input
                 type="radio"
                 id="size-3"
@@ -190,9 +194,10 @@ class ReviewModal extends React.Component {
                 name="size"
                 onClick={this.handleFormChange}
               />
+              <br />
               Perfect
             </label>
-            <label htmlFor="size-4">
+            <label className="review-modal-char-4" htmlFor="size-4">
               <input
                 type="radio"
                 id="size-4"
@@ -200,9 +205,10 @@ class ReviewModal extends React.Component {
                 name="size"
                 onClick={this.handleFormChange}
               />
-              1/2 a size too big
+              <br />
+              Slight large
             </label>
-            <label htmlFor="size-5">
+            <label className="review-modal-char-5" htmlFor="size-5">
               <input
                 type="radio"
                 id="size-5"
@@ -210,16 +216,17 @@ class ReviewModal extends React.Component {
                 name="size"
                 onClick={this.handleFormChange}
               />
-              A size too wide
+              <br />
+              Too large
             </label>
           </div>
         );
       }
       if (meta.characteristics.Width) {
         width = (
-          <div>
-            <span>Width</span>
-            <label htmlFor="width-1">
+          <div className="review-modal-width">
+            <span className="review-modal-char-0">Width</span>
+            <label className="review-modal-char-1" htmlFor="width-1">
               <input
                 type="radio"
                 id="width-1"
@@ -227,9 +234,10 @@ class ReviewModal extends React.Component {
                 name="width"
                 onClick={this.handleFormChange}
               />
+              <br />
               Too narrow
             </label>
-            <label htmlFor="width-2">
+            <label className="review-modal-char-2" htmlFor="width-2">
               <input
                 type="radio"
                 id="width-2"
@@ -237,9 +245,10 @@ class ReviewModal extends React.Component {
                 name="width"
                 onClick={this.handleFormChange}
               />
+              <br />
               Slightly narrow
             </label>
-            <label htmlFor="width-3">
+            <label className="review-modal-char-3" htmlFor="width-3">
               <input
                 type="radio"
                 id="width-3"
@@ -247,9 +256,10 @@ class ReviewModal extends React.Component {
                 name="width"
                 onClick={this.handleFormChange}
               />
+              <br />
               Perfect
             </label>
-            <label htmlFor="width-4">
+            <label className="review-modal-char-4" htmlFor="width-4">
               <input
                 type="radio"
                 id="width-4"
@@ -257,9 +267,10 @@ class ReviewModal extends React.Component {
                 name="width"
                 onClick={this.handleFormChange}
               />
+              <br />
               Slightly wide
             </label>
-            <label htmlFor="width-5">
+            <label className="review-modal-char-5" htmlFor="width-5">
               <input
                 type="radio"
                 id="width-5"
@@ -267,6 +278,7 @@ class ReviewModal extends React.Component {
                 name="width"
                 onClick={this.handleFormChange}
               />
+              <br />
               Too wide
             </label>
           </div>
@@ -274,9 +286,9 @@ class ReviewModal extends React.Component {
       }
       if (meta.characteristics.Comfort) {
         comfort = (
-          <div>
-            <span>Comfort</span>
-            <label htmlFor="comfort-1">
+          <div className="review-modal-comfort">
+            <span className="review-modal-char-0">Comfort</span>
+            <label className="review-modal-char-1" htmlFor="comfort-1">
               <input
                 type="radio"
                 id="comfort-1"
@@ -284,9 +296,10 @@ class ReviewModal extends React.Component {
                 name="comfort"
                 onClick={this.handleFormChange}
               />
+              <br />
               Uncomfortable
             </label>
-            <label htmlFor="comfort-2">
+            <label className="review-modal-char-2" htmlFor="comfort-2">
               <input
                 type="radio"
                 id="comfort-2"
@@ -294,9 +307,10 @@ class ReviewModal extends React.Component {
                 name="comfort"
                 onClick={this.handleFormChange}
               />
+              <br />
               Slightly uncomfortable
             </label>
-            <label htmlFor="comfort-3">
+            <label className="review-modal-char-3" htmlFor="comfort-3">
               <input
                 type="radio"
                 id="comfort-3"
@@ -304,9 +318,10 @@ class ReviewModal extends React.Component {
                 name="comfort"
                 onClick={this.handleFormChange}
               />
+              <br />
               Ok
             </label>
-            <label htmlFor="comfort-4">
+            <label className="review-modal-char-4" htmlFor="comfort-4">
               <input
                 type="radio"
                 id="comfort-4"
@@ -314,9 +329,10 @@ class ReviewModal extends React.Component {
                 name="comfort"
                 onClick={this.handleFormChange}
               />
+              <br />
               Comfortable
             </label>
-            <label htmlFor="comfort-5">
+            <label className="review-modal-char-5" htmlFor="comfort-5">
               <input
                 type="radio"
                 id="comfort-5"
@@ -324,6 +340,7 @@ class ReviewModal extends React.Component {
                 name="comfort"
                 onClick={this.handleFormChange}
               />
+              <br />
               Perfect
             </label>
           </div>
@@ -331,9 +348,9 @@ class ReviewModal extends React.Component {
       }
       if (meta.characteristics.Quality) {
         quality = (
-          <div>
-            <span>Quality</span>
-            <label htmlFor="quality-1">
+          <div className="review-modal-quality">
+            <span className="review-modal-char-0">Quality</span>
+            <label className="review-modal-char-1" htmlFor="quality-1">
               <input
                 type="radio"
                 id="quality-1"
@@ -341,9 +358,10 @@ class ReviewModal extends React.Component {
                 name="quality"
                 onClick={this.handleFormChange}
               />
+              <br />
               Poor
             </label>
-            <label htmlFor="quality-2">
+            <label className="review-modal-char-2" htmlFor="quality-2">
               <input
                 type="radio"
                 id="quality-2"
@@ -351,9 +369,10 @@ class ReviewModal extends React.Component {
                 name="quality"
                 onClick={this.handleFormChange}
               />
+              <br />
               Below average
             </label>
-            <label htmlFor="quality-3">
+            <label className="review-modal-char-3" htmlFor="quality-3">
               <input
                 type="radio"
                 id="quality-3"
@@ -361,9 +380,10 @@ class ReviewModal extends React.Component {
                 name="quality"
                 onClick={this.handleFormChange}
               />
-              What I expected
+              <br />
+              Decent
             </label>
-            <label htmlFor="quality-4">
+            <label className="review-modal-char-4" htmlFor="quality-4">
               <input
                 type="radio"
                 id="quality-4"
@@ -371,9 +391,10 @@ class ReviewModal extends React.Component {
                 name="quality"
                 onClick={this.handleFormChange}
               />
+              <br />
               Pretty great
             </label>
-            <label htmlFor="quality-5">
+            <label className="review-modal-char-5" htmlFor="quality-5">
               <input
                 type="radio"
                 id="quality-5"
@@ -381,6 +402,7 @@ class ReviewModal extends React.Component {
                 name="quality"
                 onClick={this.handleFormChange}
               />
+              <br />
               Perfect
             </label>
           </div>
@@ -388,9 +410,9 @@ class ReviewModal extends React.Component {
       }
       if (meta.characteristics.Length) {
         length = (
-          <div>
-            <span>Length</span>
-            <label htmlFor="length-1">
+          <div className="review-modal-length">
+            <span className="review-modal-char-0">Length</span>
+            <label className="review-modal-char-1" htmlFor="length-1">
               <input
                 type="radio"
                 id="length-1"
@@ -398,9 +420,10 @@ class ReviewModal extends React.Component {
                 name="length"
                 onClick={this.handleFormChange}
               />
+              <br />
               Runs short
             </label>
-            <label htmlFor="length-2">
+            <label className="review-modal-char-2" htmlFor="length-2">
               <input
                 type="radio"
                 id="length-2"
@@ -408,9 +431,10 @@ class ReviewModal extends React.Component {
                 name="length"
                 onClick={this.handleFormChange}
               />
+              <br />
               Runs slightly short
             </label>
-            <label htmlFor="length-3">
+            <label className="review-modal-char-3" htmlFor="length-3">
               <input
                 type="radio"
                 id="length-3"
@@ -418,9 +442,10 @@ class ReviewModal extends React.Component {
                 name="length"
                 onClick={this.handleFormChange}
               />
+              <br />
               Perfect
             </label>
-            <label htmlFor="length-4">
+            <label className="review-modal-char-4" htmlFor="length-4">
               <input
                 type="radio"
                 id="length-4"
@@ -428,9 +453,10 @@ class ReviewModal extends React.Component {
                 name="length"
                 onClick={this.handleFormChange}
               />
+              <br />
               Runs slightly long
             </label>
-            <label htmlFor="length-5">
+            <label className="review-modal-char-5" htmlFor="length-5">
               <input
                 type="radio"
                 id="length-5"
@@ -438,6 +464,7 @@ class ReviewModal extends React.Component {
                 name="length"
                 onClick={this.handleFormChange}
               />
+              <br />
               Runs long
             </label>
           </div>
@@ -445,9 +472,9 @@ class ReviewModal extends React.Component {
       }
       if (meta.characteristics.Fit) {
         fit = (
-          <div>
-            <span>Fit</span>
-            <label htmlFor="fit-1">
+          <div className="review-modal-fit">
+            <span className="review-modal-char-0">Fit</span>
+            <label className="review-modal-char-1" htmlFor="fit-1">
               <input
                 type="radio"
                 id="fit-1"
@@ -455,9 +482,10 @@ class ReviewModal extends React.Component {
                 name="fit"
                 onClick={this.handleFormChange}
               />
+              <br />
               Runs tight
             </label>
-            <label htmlFor="fit-2">
+            <label className="review-modal-char-2" htmlFor="fit-2">
               <input
                 type="radio"
                 id="fit-2"
@@ -465,9 +493,10 @@ class ReviewModal extends React.Component {
                 name="fit"
                 onClick={this.handleFormChange}
               />
+              <br />
               Runs slightly tight
             </label>
-            <label htmlFor="fit-3">
+            <label className="review-modal-char-3" htmlFor="fit-3">
               <input
                 type="radio"
                 id="fit-3"
@@ -475,9 +504,10 @@ class ReviewModal extends React.Component {
                 name="fit"
                 onClick={this.handleFormChange}
               />
+              <br />
               Perfect
             </label>
-            <label htmlFor="fit-4">
+            <label className="review-modal-char-4" htmlFor="fit-4">
               <input
                 type="radio"
                 id="fit-4"
@@ -485,9 +515,10 @@ class ReviewModal extends React.Component {
                 name="fit"
                 onClick={this.handleFormChange}
               />
+              <br />
               Runs slightly long
             </label>
-            <label htmlFor="fit-5">
+            <label className="review-modal-char-5" htmlFor="fit-5">
               <input
                 type="radio"
                 id="fit-5"
@@ -495,6 +526,7 @@ class ReviewModal extends React.Component {
                 name="fit"
                 onClick={this.handleFormChange}
               />
+              <br />
               Runs long
             </label>
           </div>
@@ -568,7 +600,7 @@ class ReviewModal extends React.Component {
                 name="recommend"
                 onClick={this.handleFormChange}
               />
-              Yes
+              {' Yes '}
             </label>
             <label htmlFor="recommend-no">
               <input
@@ -578,7 +610,7 @@ class ReviewModal extends React.Component {
                 name="recommend"
                 onClick={this.handleFormChange}
               />
-              No
+              {' No '}
             </label>
           </div>
           <div
