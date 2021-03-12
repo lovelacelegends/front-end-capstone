@@ -54,7 +54,10 @@ app.get('/related/:id', (req, res) => {
 app.get('/reviews/:id', (req, res) => {
   const { id, sort } = req.query;
 
-  atlier.getReviewsById(id, sort)
+  Promise.all([
+    atlier.getReviewsById(id, sort),
+    atlier.getMetaReviewsById(id),
+  ])
     .then((data) => {
       res.status(201).send(data);
     })
