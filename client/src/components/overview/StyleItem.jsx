@@ -20,7 +20,7 @@ class StyleItem extends React.Component {
     const { style, styleIndex, currentStyle } = this.props;
     if (styleIndex === currentStyle) {
       return (
-        <div>
+        <div className="style-item-div">
           <img
             src={style.photos[0].thumbnail_url}
             id="style-item"
@@ -36,16 +36,19 @@ class StyleItem extends React.Component {
       );
     } if (styleIndex !== currentStyle) {
       return (
-        <img
-          src={style.photos[0].thumbnail_url}
-          id="style-item"
-          name={styleIndex}
-          onClick={this.handleStlyeClick}
-          alt="button"
-          onKeyPress={this.handleStlyeClick}
-          role="presentation"
-          className="clickable"
-        />
+        <div className="style-item-div">
+          <img
+            src={style.photos[0].thumbnail_url}
+            id="style-item"
+            name={styleIndex}
+            onClick={this.handleStlyeClick}
+            alt="button"
+            onKeyPress={this.handleStlyeClick}
+            role="presentation"
+            className="clickable"
+          />
+        </div>
+
       );
     }
   }

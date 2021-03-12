@@ -137,7 +137,7 @@ const Reviews = (props) => {
           className="clickable review-button"
           type="button"
           onClick={addToReviewsCount}
-          style={{ visibility: (reviewCount < reviews.results.length) ? 'visible' : 'hidden' }}
+          style={{ visibility: (reviewCount < filteredReviews.length) ? 'visible' : 'hidden' }}
         >
           MORE REVIEWS
         </button>
